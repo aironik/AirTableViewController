@@ -1,0 +1,483 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		002CB84417EC6F87003870E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002CB84317EC6F87003870E5 /* Foundation.framework */; };
+		002CB84917EC6F87003870E5 /* AITAirTableViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 002CB84817EC6F87003870E5 /* AITAirTableViewController.h */; };
+		002CB84B17EC6F87003870E5 /* AITAirTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CB84A17EC6F87003870E5 /* AITAirTableViewController.m */; };
+		002CB85317EC6F88003870E5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002CB85217EC6F88003870E5 /* SenTestingKit.framework */; };
+		002CB85517EC6F88003870E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002CB85417EC6F88003870E5 /* UIKit.framework */; };
+		002CB85617EC6F88003870E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002CB84317EC6F87003870E5 /* Foundation.framework */; };
+		002CB85917EC6F88003870E5 /* libAirTableViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002CB84017EC6F87003870E5 /* libAirTableViewController.a */; };
+		002CB85F17EC6F88003870E5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 002CB85D17EC6F88003870E5 /* InfoPlist.strings */; };
+		002CB86217EC6F88003870E5 /* AirTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CB86117EC6F88003870E5 /* AirTableViewControllerTests.m */; };
+		002CB87417EC7016003870E5 /* AITTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CB86E17EC7016003870E5 /* AITTableViewCell.m */; };
+		002CB87517EC7016003870E5 /* AITTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CB87017EC7016003870E5 /* AITTableViewController.m */; };
+		002CB87617EC7017003870E5 /* AITTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CB87217EC7016003870E5 /* AITTableViewSection.m */; };
+		C4E3E6588B8AC2A2569EE142 /* AITTextValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E018CFAABAA4F3C93AE5 /* AITTextValue.m */; };
+		C4E3E8411340690D576F0F98 /* AITTableViewChoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E6088BDC23F7948805D1 /* AITTableViewChoiceCell.m */; };
+		C4E3E9E30FA83BDFC72404AE /* AITTableViewTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E21A7EBD958B204B5405 /* AITTableViewTextCell.m */; };
+		C4E3EC18753951FB91695B25 /* AITChoiceValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E932C01678B25BD6665D /* AITChoiceValue.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		002CB85717EC6F88003870E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 002CB83817EC6F87003870E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 002CB83F17EC6F87003870E5;
+			remoteInfo = AirTableViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		002CB83E17EC6F87003870E5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				002CB84917EC6F87003870E5 /* AITAirTableViewController.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		002CB84017EC6F87003870E5 /* libAirTableViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAirTableViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		002CB84317EC6F87003870E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		002CB84717EC6F87003870E5 /* AirTableViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirTableViewController-Prefix.pch"; sourceTree = "<group>"; };
+		002CB84817EC6F87003870E5 /* AITAirTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AITAirTableViewController.h; sourceTree = "<group>"; };
+		002CB84A17EC6F87003870E5 /* AITAirTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AITAirTableViewController.m; sourceTree = "<group>"; };
+		002CB85117EC6F88003870E5 /* AirTableViewControllerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirTableViewControllerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		002CB85217EC6F88003870E5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		002CB85417EC6F88003870E5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		002CB85C17EC6F88003870E5 /* AirTableViewControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirTableViewControllerTests-Info.plist"; sourceTree = "<group>"; };
+		002CB85E17EC6F88003870E5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		002CB86017EC6F88003870E5 /* AirTableViewControllerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirTableViewControllerTests.h; sourceTree = "<group>"; };
+		002CB86117EC6F88003870E5 /* AirTableViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirTableViewControllerTests.m; sourceTree = "<group>"; };
+		002CB86C17EC7016003870E5 /* AITTableViewCell+AITProtected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AITTableViewCell+AITProtected.h"; sourceTree = "<group>"; };
+		002CB86D17EC7016003870E5 /* AITTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITTableViewCell.h; sourceTree = "<group>"; };
+		002CB86E17EC7016003870E5 /* AITTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTableViewCell.m; sourceTree = "<group>"; };
+		002CB86F17EC7016003870E5 /* AITTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITTableViewController.h; sourceTree = "<group>"; };
+		002CB87017EC7016003870E5 /* AITTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTableViewController.m; sourceTree = "<group>"; };
+		002CB87117EC7016003870E5 /* AITTableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITTableViewSection.h; sourceTree = "<group>"; };
+		002CB87217EC7016003870E5 /* AITTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTableViewSection.m; sourceTree = "<group>"; };
+		002CB87317EC7016003870E5 /* AITValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITValue.h; sourceTree = "<group>"; };
+		C4E3E018CFAABAA4F3C93AE5 /* AITTextValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTextValue.m; sourceTree = "<group>"; };
+		C4E3E029B6139A862C85D026 /* AITTextValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITTextValue.h; sourceTree = "<group>"; };
+		C4E3E21A7EBD958B204B5405 /* AITTableViewTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTableViewTextCell.m; sourceTree = "<group>"; };
+		C4E3E2E02F9EF65E0861CD21 /* AITTableViewTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITTableViewTextCell.h; sourceTree = "<group>"; };
+		C4E3E5E03B277D8C9882E06D /* AITTableViewChoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITTableViewChoiceCell.h; sourceTree = "<group>"; };
+		C4E3E6088BDC23F7948805D1 /* AITTableViewChoiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTableViewChoiceCell.m; sourceTree = "<group>"; };
+		C4E3E932C01678B25BD6665D /* AITChoiceValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITChoiceValue.m; sourceTree = "<group>"; };
+		C4E3EBC281495266D0980E08 /* AITChoiceValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITChoiceValue.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		002CB83D17EC6F87003870E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				002CB84417EC6F87003870E5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		002CB84D17EC6F88003870E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				002CB85317EC6F88003870E5 /* SenTestingKit.framework in Frameworks */,
+				002CB85517EC6F88003870E5 /* UIKit.framework in Frameworks */,
+				002CB85617EC6F88003870E5 /* Foundation.framework in Frameworks */,
+				002CB85917EC6F88003870E5 /* libAirTableViewController.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		002CB83717EC6F87003870E5 = {
+			isa = PBXGroup;
+			children = (
+				002CB84517EC6F87003870E5 /* AirTableViewController */,
+				002CB85A17EC6F88003870E5 /* AirTableViewControllerTests */,
+				002CB84217EC6F87003870E5 /* Frameworks */,
+				002CB84117EC6F87003870E5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		002CB84117EC6F87003870E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				002CB84017EC6F87003870E5 /* libAirTableViewController.a */,
+				002CB85117EC6F88003870E5 /* AirTableViewControllerTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		002CB84217EC6F87003870E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				002CB84317EC6F87003870E5 /* Foundation.framework */,
+				002CB85217EC6F88003870E5 /* SenTestingKit.framework */,
+				002CB85417EC6F88003870E5 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		002CB84517EC6F87003870E5 /* AirTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				002CB86B17EC7016003870E5 /* TableView */,
+				002CB84817EC6F87003870E5 /* AITAirTableViewController.h */,
+				002CB84A17EC6F87003870E5 /* AITAirTableViewController.m */,
+				002CB84617EC6F87003870E5 /* Supporting Files */,
+				C4E3E9AF396A86A1AB8F88BA /* Values */,
+			);
+			path = AirTableViewController;
+			sourceTree = "<group>";
+		};
+		002CB84617EC6F87003870E5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				002CB84717EC6F87003870E5 /* AirTableViewController-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		002CB85A17EC6F88003870E5 /* AirTableViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				002CB86017EC6F88003870E5 /* AirTableViewControllerTests.h */,
+				002CB86117EC6F88003870E5 /* AirTableViewControllerTests.m */,
+				002CB85B17EC6F88003870E5 /* Supporting Files */,
+			);
+			path = AirTableViewControllerTests;
+			sourceTree = "<group>";
+		};
+		002CB85B17EC6F88003870E5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				002CB85C17EC6F88003870E5 /* AirTableViewControllerTests-Info.plist */,
+				002CB85D17EC6F88003870E5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		002CB86B17EC7016003870E5 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				002CB86C17EC7016003870E5 /* AITTableViewCell+AITProtected.h */,
+				002CB86D17EC7016003870E5 /* AITTableViewCell.h */,
+				002CB86E17EC7016003870E5 /* AITTableViewCell.m */,
+				002CB86F17EC7016003870E5 /* AITTableViewController.h */,
+				002CB87017EC7016003870E5 /* AITTableViewController.m */,
+				002CB87117EC7016003870E5 /* AITTableViewSection.h */,
+				002CB87217EC7016003870E5 /* AITTableViewSection.m */,
+				002CB87317EC7016003870E5 /* AITValue.h */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		C4E3E9AF396A86A1AB8F88BA /* Values */ = {
+			isa = PBXGroup;
+			children = (
+				C4E3E029B6139A862C85D026 /* AITTextValue.h */,
+				C4E3E018CFAABAA4F3C93AE5 /* AITTextValue.m */,
+				C4E3EBC281495266D0980E08 /* AITChoiceValue.h */,
+				C4E3E932C01678B25BD6665D /* AITChoiceValue.m */,
+				C4E3E2E02F9EF65E0861CD21 /* AITTableViewTextCell.h */,
+				C4E3E21A7EBD958B204B5405 /* AITTableViewTextCell.m */,
+				C4E3E5E03B277D8C9882E06D /* AITTableViewChoiceCell.h */,
+				C4E3E6088BDC23F7948805D1 /* AITTableViewChoiceCell.m */,
+			);
+			path = Values;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		002CB83F17EC6F87003870E5 /* AirTableViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 002CB86517EC6F88003870E5 /* Build configuration list for PBXNativeTarget "AirTableViewController" */;
+			buildPhases = (
+				002CB83C17EC6F87003870E5 /* Sources */,
+				002CB83D17EC6F87003870E5 /* Frameworks */,
+				002CB83E17EC6F87003870E5 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AirTableViewController;
+			productName = AirTableViewController;
+			productReference = 002CB84017EC6F87003870E5 /* libAirTableViewController.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		002CB85017EC6F88003870E5 /* AirTableViewControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 002CB86817EC6F88003870E5 /* Build configuration list for PBXNativeTarget "AirTableViewControllerTests" */;
+			buildPhases = (
+				002CB84C17EC6F88003870E5 /* Sources */,
+				002CB84D17EC6F88003870E5 /* Frameworks */,
+				002CB84E17EC6F88003870E5 /* Resources */,
+				002CB84F17EC6F88003870E5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				002CB85817EC6F88003870E5 /* PBXTargetDependency */,
+			);
+			name = AirTableViewControllerTests;
+			productName = AirTableViewControllerTests;
+			productReference = 002CB85117EC6F88003870E5 /* AirTableViewControllerTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		002CB83817EC6F87003870E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AIT;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = aironik;
+			};
+			buildConfigurationList = 002CB83B17EC6F87003870E5 /* Build configuration list for PBXProject "AirTableViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 002CB83717EC6F87003870E5;
+			productRefGroup = 002CB84117EC6F87003870E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				002CB83F17EC6F87003870E5 /* AirTableViewController */,
+				002CB85017EC6F88003870E5 /* AirTableViewControllerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		002CB84E17EC6F88003870E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				002CB85F17EC6F88003870E5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		002CB84F17EC6F88003870E5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		002CB83C17EC6F87003870E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				002CB84B17EC6F87003870E5 /* AITAirTableViewController.m in Sources */,
+				002CB87417EC7016003870E5 /* AITTableViewCell.m in Sources */,
+				002CB87517EC7016003870E5 /* AITTableViewController.m in Sources */,
+				002CB87617EC7017003870E5 /* AITTableViewSection.m in Sources */,
+				C4E3E6588B8AC2A2569EE142 /* AITTextValue.m in Sources */,
+				C4E3EC18753951FB91695B25 /* AITChoiceValue.m in Sources */,
+				C4E3E9E30FA83BDFC72404AE /* AITTableViewTextCell.m in Sources */,
+				C4E3E8411340690D576F0F98 /* AITTableViewChoiceCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		002CB84C17EC6F88003870E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				002CB86217EC6F88003870E5 /* AirTableViewControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		002CB85817EC6F88003870E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 002CB83F17EC6F87003870E5 /* AirTableViewController */;
+			targetProxy = 002CB85717EC6F88003870E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		002CB85D17EC6F88003870E5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				002CB85E17EC6F88003870E5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		002CB86317EC6F88003870E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		002CB86417EC6F88003870E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		002CB86617EC6F88003870E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AirTableViewController.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirTableViewController/AirTableViewController-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		002CB86717EC6F88003870E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AirTableViewController.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirTableViewController/AirTableViewController-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		002CB86917EC6F88003870E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirTableViewController/AirTableViewController-Prefix.pch";
+				INFOPLIST_FILE = "AirTableViewControllerTests/AirTableViewControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		002CB86A17EC6F88003870E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirTableViewController/AirTableViewController-Prefix.pch";
+				INFOPLIST_FILE = "AirTableViewControllerTests/AirTableViewControllerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		002CB83B17EC6F87003870E5 /* Build configuration list for PBXProject "AirTableViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				002CB86317EC6F88003870E5 /* Debug */,
+				002CB86417EC6F88003870E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		002CB86517EC6F88003870E5 /* Build configuration list for PBXNativeTarget "AirTableViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				002CB86617EC6F88003870E5 /* Debug */,
+				002CB86717EC6F88003870E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		002CB86817EC6F88003870E5 /* Build configuration list for PBXNativeTarget "AirTableViewControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				002CB86917EC6F88003870E5 /* Debug */,
+				002CB86A17EC6F88003870E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 002CB83817EC6F87003870E5 /* Project object */;
+}

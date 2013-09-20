@@ -1,0 +1,12 @@
+//
+//  Prefix header for all source files of the 'AITAirTableViewController' target in the 'AITAirTableViewController' project
+//  AirTableViewController
+//
+//  Created by Oleg Lobachev aironik@gmail.com on 26.08.13.
+//  Copyright © 2013 aironik. All rights reserved.
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
