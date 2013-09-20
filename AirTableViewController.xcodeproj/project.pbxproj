@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		002CB84417EC6F87003870E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002CB84317EC6F87003870E5 /* Foundation.framework */; };
-		002CB84917EC6F87003870E5 /* AITAirTableViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 002CB84817EC6F87003870E5 /* AITAirTableViewController.h */; };
-		002CB84B17EC6F87003870E5 /* AITAirTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CB84A17EC6F87003870E5 /* AITAirTableViewController.m */; };
+		002CB84917EC6F87003870E5 /* AirTableViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 002CB84817EC6F87003870E5 /* AirTableViewController.h */; };
 		002CB85317EC6F88003870E5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002CB85217EC6F88003870E5 /* SenTestingKit.framework */; };
 		002CB85517EC6F88003870E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002CB85417EC6F88003870E5 /* UIKit.framework */; };
 		002CB85617EC6F88003870E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002CB84317EC6F87003870E5 /* Foundation.framework */; };
@@ -42,7 +41,7 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				002CB84917EC6F87003870E5 /* AITAirTableViewController.h in CopyFiles */,
+				002CB84917EC6F87003870E5 /* AirTableViewController.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,8 +51,7 @@
 		002CB84017EC6F87003870E5 /* libAirTableViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAirTableViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		002CB84317EC6F87003870E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		002CB84717EC6F87003870E5 /* AirTableViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirTableViewController-Prefix.pch"; sourceTree = "<group>"; };
-		002CB84817EC6F87003870E5 /* AITAirTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AITAirTableViewController.h; sourceTree = "<group>"; };
-		002CB84A17EC6F87003870E5 /* AITAirTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AITAirTableViewController.m; sourceTree = "<group>"; };
+		002CB84817EC6F87003870E5 /* AirTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirTableViewController.h; sourceTree = "<group>"; };
 		002CB85117EC6F88003870E5 /* AirTableViewControllerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirTableViewControllerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		002CB85217EC6F88003870E5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		002CB85417EC6F88003870E5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -135,8 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				002CB86B17EC7016003870E5 /* TableView */,
-				002CB84817EC6F87003870E5 /* AITAirTableViewController.h */,
-				002CB84A17EC6F87003870E5 /* AITAirTableViewController.m */,
+				002CB84817EC6F87003870E5 /* AirTableViewController.h */,
 				002CB84617EC6F87003870E5 /* Supporting Files */,
 				C4E3E9AF396A86A1AB8F88BA /* Values */,
 			);
@@ -299,7 +296,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				002CB84B17EC6F87003870E5 /* AITAirTableViewController.m in Sources */,
 				002CB87417EC7016003870E5 /* AITTableViewCell.m in Sources */,
 				002CB87517EC7016003870E5 /* AITTableViewController.m in Sources */,
 				002CB87617EC7017003870E5 /* AITTableViewSection.m in Sources */,
