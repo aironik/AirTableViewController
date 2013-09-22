@@ -21,7 +21,6 @@
 /// @brief Заголовок для отображения в ячеейке.
 - (NSString *)title;
 
-/// @brief Значение, которое отображается в ячейке.
-- (NSString *)value;
+- (void)perform;
 
 @end

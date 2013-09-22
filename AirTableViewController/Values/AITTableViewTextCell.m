@@ -51,10 +51,15 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (NSArray *)keyPathsForSubscribe {
+    return [@[ @"title" ] arrayByAddingObjectsFromArray:[super keyPathsForSubscribe]];
+}
+
+
 - (void)updateSubviews {
     [super updateSubviews];
 
-    self.valueTextField.text = self.value.value;
+    self.valueTextField.text = self.textValue.value;
     self.valueTextField.placeholder = self.textValue.comment;
 }
 

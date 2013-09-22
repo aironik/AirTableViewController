@@ -12,14 +12,14 @@
 
 @interface AITTableViewCell (AITProtected)
 
-/// @brief Настройка после awakeFromNib или init.
+/// @brief Setup cell after create (-awakeFromNib or -init).
 /// @details Should invoke super.
 - (void)setup;
 
-/// @brief Обновить subviews (labels) в соответствии со значениями value.
+/// @brief Update subviews (labels) according -value property.
 - (void)updateSubviews;
 
-/// @brief Массив NSString для отслеживания (подписывания) изменений в value.
+/// @brief Array of strings propertyes names for KVO observing -value.
 - (NSArray *)keyPathsForSubscribe;
 
 @end

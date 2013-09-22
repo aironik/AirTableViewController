@@ -22,5 +22,9 @@
 /// @details Текст выставляется и обновляется внутри из value
 @property (nonatomic, weak) IBOutlet UITextField *valueTextField;
 
+/// @brief Метка для значение поля в нередактируемом режиме (editing == NO).
+/// @details Текст выставляется и обновляется внутри из value
+@property (nonatomic, weak) IBOutlet UILabel *valueLabel;
+
 
 @end

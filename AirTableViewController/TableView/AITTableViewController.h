@@ -8,7 +8,14 @@
 
 
 
-@interface AITTableViewController : UITableViewController
+@interface AITTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *topConstraint;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *bottomConstraint;
+
+@property (nonatomic, assign) CGFloat topSpace;
+@property (nonatomic, assign) CGFloat bottomSpace;
 
 @property (nonatomic, strong) NSArray *sections;
 

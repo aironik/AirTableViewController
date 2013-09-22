@@ -25,6 +25,12 @@
 
 @implementation AITTableViewCell
 
++ (void)setupTableView:(UITableView *)tableView {
+    NSString *className = NSStringFromClass(self);
+    UINib *nib = [UINib nibWithNibName:className bundle:[NSBundle bundleForClass:self]];
+    [tableView registerNib:nib forCellReuseIdentifier:className];
+}
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         NSAssert(NO, @"Does not implemented. titleLabel and valueLabel didn't created.");
@@ -40,42 +46,43 @@
 }
 
 - (void)dealloc {
-    [self unsubscribeTextValueChanges];
+    [self unsubscribeValueChanges];
 }
 
 - (void)setup {
+    self.selectionStyle = UITableViewCellSelectionStyleBlue;
+    self.deselectImmediately = YES;
 }
 
 - (void)setValue:(id<AITValue>)value {
     if (_value != value) {
-        [self unsubscribeTextValueChanges];
+        [self unsubscribeValueChanges];
 
         _value = value;
 
         [self updateSubviews];
-        [self subscribeTextValueChanges];
+        [self subscribeValueChanges];
     }
 }
 
 - (NSArray *)keyPathsForSubscribe {
-    return @[ @"value", @"placeholder" ];
+    return @[ @"title" ];
 }
 
-- (void)subscribeTextValueChanges {
+- (void)subscribeValueChanges {
     for (NSString *keyPath in [self keyPathsForSubscribe]) {
-        [(NSObject *)self.value addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:NULL];
+        [self.value addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:NULL];
     }
 }
 
-- (void)unsubscribeTextValueChanges {
+- (void)unsubscribeValueChanges {
     for (NSString *keyPath in [self keyPathsForSubscribe]) {
-        [(NSObject *)self.value removeObserver:self forKeyPath:keyPath];
+        [self.value removeObserver:self forKeyPath:keyPath];
     }
 }
 
 - (void)updateSubviews {
     self.titleLabel.text = [self.value title];
-    self.valueLabel.text = [self.value value];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -83,6 +90,7 @@
                         change:(NSDictionary *)change
                        context:(void *)context {
     if (object == self.value) {
+        // If editing mode on user changes data. Thus changes from us and predicted recursion.
         if (!self.editing) {
             [self updateSubviews];
         }
@@ -93,10 +101,6 @@
                                change:change
                               context:context];
     }
-}
-
-- (void)perform {
-    // do nothing
 }
 
 

@@ -8,6 +8,7 @@
 
 #import "AITTableViewController.h"
 
+#import "AITActionCell.h"
 #import "AITTableViewSection.h"
 
 
@@ -17,6 +18,9 @@
 
 
 @interface AITTableViewController ()
+
+@property (nonatomic, assign) BOOL loadedFromNib;
+
 @end
 
 
@@ -24,8 +28,34 @@
 
 @implementation AITTableViewController
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+
+    self.loadedFromNib = YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    if (self.loadedFromNib) {
+        self.topSpace = self.topConstraint.constant;
+        self.bottomSpace = self.bottomConstraint.constant;
+    }
+    else {
+        self.topConstraint.constant = self.topSpace;
+        self.bottomConstraint.constant = self.bottomSpace;
+    }
+    
+    [AITActionCell setupTableView:self.tableView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSArray *selectedRows = [self.tableView indexPathsForSelectedRows];
+    for (NSIndexPath *indexPath in selectedRows) {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:animated];
+    }
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
@@ -86,6 +116,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AITTableViewSection *viewSection = self.sections[indexPath.section];
     [viewSection tableView:tableView didDeselectRow:indexPath.row];
+    AITTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell.deselectImmediately) {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {

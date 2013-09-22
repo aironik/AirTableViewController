@@ -11,6 +11,7 @@
 #import "AITTableViewTextCell.h"
 #import "AITTextValue.h"
 #import "AITTableViewCell.h"
+#import "AITValue.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -105,7 +106,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRow:(NSInteger)row {
-    id<AITValue> value = [self valueAtRow:row];
+    NSObject<AITValue> *value = [self valueAtRow:row];
     NSString *cellIdentifier = [[value class] cellIdentifier];
     AITTableViewCell *result = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     result.value = value;
@@ -118,7 +119,8 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRow:(NSInteger)row {
-
+    NSObject<AITValue> *value = [self valueAtRow:row];
+    [value perform];
 }
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRow:(NSInteger)row {
