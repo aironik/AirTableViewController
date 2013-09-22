@@ -10,3 +10,4 @@
 #import <AirTableViewController/TableView/AITTableViewSection.h>
 
 #import <AirTableViewController/Values/AITActionValue.h>
+#import <AirTableViewController/Values/AITSwitchValue.h>

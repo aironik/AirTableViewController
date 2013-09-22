@@ -17,7 +17,7 @@
 /// @brief Значение, с которым работаем. Из него обновляются UI-элементы
 @property (nonatomic, strong) NSObject<AITValue> *value;
 
-/// @brief Title labele. This text value represent property name e.g. "Name", "Title", "Description".
+/// @brief Title label. This text value represent property name e.g. "Name", "Title", "Description".
 /// @details Text set form value.
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 
