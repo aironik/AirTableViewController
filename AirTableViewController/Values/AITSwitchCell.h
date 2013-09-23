@@ -9,8 +9,16 @@
 #import "AITTableViewCell.h"
 
 
+@class AITSwitchValue;
+
+
+/// @brief The cell represent boolean value.
 @interface AITSwitchCell : AITTableViewCell
 
-@property (nonatomic, weak) IBOutlet UISwitch *valueSwitch;
+/// @brief The UISwitch control that represents value
+@property (nonatomic, weak) IBOutlet UISwitch *switchControl;
+
+/// @brief The value represents boolean.
+@property (nonatomic, strong) AITSwitchValue *switchValue;
 
 @end

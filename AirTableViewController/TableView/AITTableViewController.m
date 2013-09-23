@@ -9,6 +9,7 @@
 #import "AITTableViewController.h"
 
 #import "AITActionCell.h"
+#import "AITSwitchCell.h"
 #import "AITTableViewSection.h"
 
 
@@ -47,6 +48,7 @@
     }
     
     [AITActionCell setupTableView:self.tableView];
+    [AITSwitchCell setupTableView:self.tableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -116,7 +118,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     AITTableViewSection *viewSection = self.sections[indexPath.section];
     [viewSection tableView:tableView didDeselectRow:indexPath.row];
-    AITTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    AITTableViewCell *cell = (AITTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     if (cell.deselectImmediately) {
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
