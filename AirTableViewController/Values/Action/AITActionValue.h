@@ -29,6 +29,10 @@ typedef void (^AITActionValueBlock)(AITActionValue *value);
 ///     Otherwise no way to execute action and cell text gray (disabled).
 @property (nonatomic, assign) BOOL enabled;
 
+/// @brief The value represents whether value is empty and should not be interactable.
+/// @details If NO cell hides.
+@property (nonatomic, assign, getter=isEmpty) BOOL empty;
+
 /// @brief Create new action value instance.
 + (instancetype)valueWithTitle:(NSString *)title action:(AITActionValueBlock)action;
 

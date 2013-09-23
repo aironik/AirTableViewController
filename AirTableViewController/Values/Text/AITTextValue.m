@@ -1,12 +1,12 @@
 //
-//  AITSwitchValue.m
+//  AITTextValue.m
 //  AirTableViewController
 //
-//  Created by Oleg Lobachev aironik@gmail.com on 23.09.13.
+//  Created by Oleg Lobachev aironik@gmail.com on 18.08.13.
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import "AITSwitchValue.h"
+#import "AITTextValue.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -14,7 +14,7 @@
 #endif
 
 
-@interface AITSwitchValue ()
+@interface AITTextValue ()
 
 @property (nonatomic, weak) NSObject *sourceObject;
 @property (nonatomic, copy) NSString *sourcePropertyName;
@@ -24,29 +24,36 @@
 
 #pragma mark - Implementation
 
-@implementation AITSwitchValue
+@implementation AITTextValue
 
+@synthesize title = _title;
 
-+ (instancetype)valueWithTitle:(id)title
++ (instancetype)valueWithTitle:(NSString *)title
                   sourceObject:(NSObject *)sourceObject
             sourcePropertyName:(NSString *)sourcePropertyName
+                       comment:(NSString *)comment
 {
-    return [[self alloc] initWithTitle:title sourceObject:sourceObject sourcePropertyName:sourcePropertyName];
+    return [[self alloc] initWithTitle:title
+                          sourceObject:sourceObject
+                    sourcePropertyName:(NSString *)sourcePropertyName
+                               comment:comment];
 }
 
-- (instancetype)initWithTitle:(id)title
+- (instancetype)initWithTitle:(NSString *)title
                  sourceObject:(NSObject *)sourceObject
            sourcePropertyName:(NSString *)sourcePropertyName
+                      comment:(NSString *)comment
 {
-
     NSAssert2(sourceObject
               && [sourcePropertyName length]
               && [sourceObject respondsToSelector:NSSelectorFromString(sourcePropertyName)],
-              @"Cannot access bool value switch. Object: %@, keyPath: %@", sourceObject, sourcePropertyName);
+              @"Cannot access string value. Object: %@, keyPath: %@", sourceObject, sourcePropertyName);
+
     if (self = [super init]) {
         _title = [title copy];
         _sourceObject = sourceObject;
         _sourcePropertyName = [sourcePropertyName copy];
+        _comment = [comment copy];
         _empty = NO;
         [_sourceObject addObserver:self
                         forKeyPath:sourcePropertyName
@@ -60,21 +67,20 @@
     [_sourceObject removeObserver:self forKeyPath:_sourcePropertyName];
 }
 
+
 + (NSString *)cellIdentifier {
-    return @"AITSwitchCell";
+    return @"AITTextCell";
 }
 
 - (void)perform {
 }
 
-- (BOOL)value {
-    NSNumber *numberValue = [self.sourceObject valueForKeyPath:self.sourcePropertyName];
-    NSParameterAssert(!numberValue || [numberValue isKindOfClass:[NSNumber class]]);
-    return [numberValue boolValue];
+- (NSString *)value {
+    return [self.sourceObject valueForKeyPath:self.sourcePropertyName];
 }
 
-- (void)setValue:(BOOL)value {
-    [self.sourceObject setValue:@(value) forKeyPath:self.sourcePropertyName];
+- (void)setValue:(NSString *)value {
+    [self.sourceObject setValue:value forKeyPath:self.sourcePropertyName];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -95,10 +101,11 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@ title == \"%@\", value == \"%@\">",
+    return [NSString stringWithFormat:@"<%@ title == \"%@\", value == \"%@\", comment == \"%@\">",
                      [super description],
                      self.title,
-                     (self.value ? @"YES" : @"NO")];
+                     self.value,
+                     self.comment];
 }
 
 @end

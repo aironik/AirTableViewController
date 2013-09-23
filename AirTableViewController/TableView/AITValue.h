@@ -7,20 +7,21 @@
 //
 
 
-/// @brief Представляет значение в таблице для ячейки.
+/// @brief Protocol defines value in the table view cell
 @protocol AITValue<NSObject>
 
 @required
 
-/// @brief Идентификатор ячейки для получения ее из tableView.
+/// @brief The table view cell identifier for register and deque from table view.
 + (NSString *)cellIdentifier;
 
-/// @brief Определяет пустое значение, или нет. Если оно пустое, то его нет смысла показывать.
+/// @brief Defines empty value or not. If value is empty it should not shows.
 - (BOOL)isEmpty;
 
-/// @brief Заголовок для отображения в ячеейке.
+/// @brief The string that represent human readable title.
 - (NSString *)title;
 
+/// @brief Perform action for value if user interact with cell.
 - (void)perform;
 
 @end

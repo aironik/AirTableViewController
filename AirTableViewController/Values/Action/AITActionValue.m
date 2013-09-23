@@ -27,6 +27,7 @@
         _title = [title copy];
         _action = [action copy];
         _enabled = YES;
+        _empty = NO;
     }
     return self;
 }
@@ -40,10 +41,6 @@
     return @"AITActionCell";
 }
 
-- (BOOL)isEmpty {
-    return NO;
-}
-
 - (void)perform {
     if ([self canPerform]) {
         self.action(self);
@@ -52,6 +49,13 @@
 
 - (BOOL)canPerform {
     return (self.enabled && self.action);
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<%@ title == \"%@\", enabled == \"%@\">",
+                     [super description],
+                     self.title,
+                     (self.enabled ? @"YES" : @"NO")];
 }
 
 @end

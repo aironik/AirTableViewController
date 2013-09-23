@@ -66,7 +66,7 @@
 }
 
 - (NSArray *)keyPathsForSubscribe {
-    return @[ @"title" ];
+    return @[ @"title", @"empty" ];
 }
 
 - (void)subscribeValueChanges {

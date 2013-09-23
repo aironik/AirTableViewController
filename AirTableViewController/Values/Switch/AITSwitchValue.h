@@ -15,11 +15,15 @@
 /// @brief The value represent boolean property in a source object.
 @interface AITSwitchValue : NSObject<AITValue>
 
-/// @brief The action name.
+/// @brief The value name.
 @property (nonatomic, copy) NSString *title;
 
 /// @brief The boolean value from source.
 @property (nonatomic, assign) BOOL value;
+
+/// @brief The value represents whether value is empty and should not be interactable.
+/// @details If NO cell hides.
+@property (nonatomic, assign, getter=isEmpty) BOOL empty;
 
 /// @brief Create new value represents boolean value with name.
 /// @param title Human readable property name.

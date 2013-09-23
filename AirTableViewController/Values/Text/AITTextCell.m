@@ -1,12 +1,12 @@
 //
-//  AITTableViewTextCell.m
+//  AITTextCell.m
 //  AirTableViewController
 //
 //  Created by Oleg Lobachev aironik@gmail.com on 18.08.13.
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import "AITTableViewTextCell.h"
+#import "AITTextCell.h"
 
 #import "AITTableViewCell+AITProtected.h"
 #import "AITTextValue.h"
@@ -17,7 +17,7 @@
 #endif
 
 
-@interface AITTableViewTextCell () <UITextFieldDelegate>
+@interface AITTextCell () <UITextFieldDelegate>
 
 
 @end
@@ -25,7 +25,7 @@
 
 #pragma mark - Implementation
 
-@implementation AITTableViewTextCell
+@implementation AITTextCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {

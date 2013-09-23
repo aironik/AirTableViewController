@@ -9,5 +9,6 @@
 #import <AirTableViewController/TableView/AITTableViewController.h>
 #import <AirTableViewController/TableView/AITTableViewSection.h>
 
-#import <AirTableViewController/Values/AITActionValue.h>
-#import <AirTableViewController/Values/AITSwitchValue.h>
+#import <AirTableViewController/Values/Action/AITActionValue.h>
+#import <AirTableViewController/Values/Switch/AITSwitchValue.h>
+#import <AirTableViewController/Values/Text/AITTextValue.h>

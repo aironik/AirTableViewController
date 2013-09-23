@@ -8,7 +8,7 @@
 
 #import "AITTableViewSection.h"
 
-#import "AITTableViewTextCell.h"
+#import "AITTextCell.h"
 #import "AITTextValue.h"
 #import "AITTableViewCell.h"
 #import "AITValue.h"

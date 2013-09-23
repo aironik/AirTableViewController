@@ -1,5 +1,5 @@
 //
-//  AITTableViewTextCell.h
+//  AITTextCell.h
 //  AirTableViewController
 //
 //  Created by Oleg Lobachev aironik@gmail.com on 18.08.13.
@@ -13,7 +13,7 @@
 
 
 /// @brief Ячейка для отображения и редактирования текста.
-@interface AITTableViewTextCell : AITTableViewCell
+@interface AITTextCell : AITTableViewCell
 
 /// @brief Shortcut for value
 @property (nonatomic, strong) AITTextValue *textValue;
