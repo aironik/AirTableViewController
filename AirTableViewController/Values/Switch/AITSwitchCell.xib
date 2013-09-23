@@ -44,7 +44,7 @@
 							<object class="IBUILabel" id="959205476">
 								<reference key="NSNextResponder" ref="167866450"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{18, 11}, {205, 21}}</string>
+								<string key="NSFrame">{{18, 11}, {197, 21}}</string>
 								<reference key="NSSuperview" ref="167866450"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="19406157"/>
@@ -79,7 +79,7 @@
 							<object class="IBUISwitch" id="19406157">
 								<reference key="NSNextResponder" ref="167866450"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{210, 8}, {94, 27}}</string>
+								<string key="NSFrame">{{216, 8}, {94, 27}}</string>
 								<reference key="NSSuperview" ref="167866450"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
@@ -161,7 +161,7 @@
 						<reference key="object" ref="130468263"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="959205476"/>
-							<object class="IBNSLayoutConstraint" id="278961959">
+							<object class="IBNSLayoutConstraint" id="865793395">
 								<reference key="firstItem" ref="130468263"/>
 								<int key="firstAttribute">6</int>
 								<int key="relation">0</int>
@@ -169,7 +169,7 @@
 								<int key="secondAttribute">6</int>
 								<float key="multiplier">1</float>
 								<object class="IBLayoutConstant" key="constant">
-									<double key="value">10</double>
+									<double key="value">18</double>
 								</object>
 								<float key="priority">1000</float>
 								<reference key="containingView" ref="130468263"/>
@@ -301,14 +301,14 @@
 						<reference key="parent" ref="130468263"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">84</int>
-						<reference key="object" ref="497626231"/>
-						<reference key="parent" ref="19406157"/>
+						<int key="objectID">100</int>
+						<reference key="object" ref="865793395"/>
+						<reference key="parent" ref="130468263"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">85</int>
-						<reference key="object" ref="278961959"/>
-						<reference key="parent" ref="130468263"/>
+						<int key="objectID">101</int>
+						<reference key="object" ref="497626231"/>
+						<reference key="parent" ref="19406157"/>
 					</object>
 				</array>
 			</object>
@@ -316,6 +316,8 @@
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="100.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="101.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="24.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.CustomClassName">AITSwitchCell</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -324,7 +326,7 @@
 					<reference ref="355360580"/>
 					<reference ref="909372900"/>
 					<reference ref="629480841"/>
-					<reference ref="278961959"/>
+					<reference ref="865793395"/>
 				</array>
 				<string key="36.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -335,15 +337,13 @@
 					<reference ref="497626231"/>
 				</array>
 				<boolean value="NO" key="8.IBViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
-				<string key="84.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="85.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">85</int>
+			<int key="maxID">101</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
