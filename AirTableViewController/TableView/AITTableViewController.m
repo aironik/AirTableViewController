@@ -9,6 +9,7 @@
 #import "AITTableViewController.h"
 
 #import "AITActionCell.h"
+#import "AITPendingOperationCell.h"
 #import "AITSwitchCell.h"
 #import "AITTableViewSection.h"
 #import "AITTextCell.h"
@@ -49,6 +50,7 @@
     }
     
     [AITActionCell setupTableView:self.tableView];
+    [AITPendingOperationCell setupTableView:self.tableView];
     [AITSwitchCell setupTableView:self.tableView];
     [AITTextCell setupTableView:self.tableView];
 }

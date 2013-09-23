@@ -7,6 +7,7 @@
 //
 
 #import "AITTableViewSection.h"
+#import "AITTableViewSection+AITProtected.h"
 
 #import "AITTextCell.h"
 #import "AITTextValue.h"
@@ -25,6 +26,8 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 @interface AITTableViewSection ()
 
 @property (nonatomic, strong) NSArray *filledObjects;
+
+- (NSArray *)currentObjects;
 
 @end
 
@@ -46,40 +49,29 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)tableView:(UITableView *)tableView setEditing:(BOOL)editing currentSectionIndex:(NSInteger)index {
-    [self updateFilledObjects];
-//    const BOOL changed = ((editing && !self.editing) || (!editing && self.editing));
-    self.editing = editing;
-//    if (changed) {
-//        const BOOL insert = editing;
-//        NSUInteger filledIndex = 0;
-//        const NSUInteger filledCount = [self.filledObjects count];
-//        for (NSUInteger i = 0; i < [self.allObjects count]; ++i) {
-//            id<AITValue> value = self.allObjects[i];
-//            id<AITValue> filledValue = filledCount > filledIndex ? self.filledObjects[filledIndex] : nil;
-//            if (value == filledValue) {
-//                NSArray *indexPaths = nil;
-//                if (insert) {
-//                    indexPaths = @[ [NSIndexPath indexPathForRow:filledIndex inSection:index] ];
-//                }
-//                else {
-//                    indexPaths = @[ [NSIndexPath indexPathForRow:i inSection:index] ];
-//                }
-//                [tableView reloadRowsAtIndexPaths:indexPaths withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
-//                ++filledIndex;
-//            }
-//            else {
-//                NSArray *indexPaths = @[ [NSIndexPath indexPathForRow:i inSection:index] ];
-//                if (insert) {
-//                    [tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
-//                }
-//                else {
-//                    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
-//                }
-//            }
-//        }
-//    }
+    [self tableView:tableView currentSectionIndex:index changes:^BOOL() {
+        const BOOL changed = ((editing && !self.editing) || (!editing && self.editing));
+        self.editing = editing;
+        return changed;
+    }];
+}
 
-    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:index];
+- (void)tableView:(UITableView *)tableView currentSectionIndex:(NSInteger)index changes:(AITTableViewSectionChanges)changes {
+    NSParameterAssert(changes);
+
+    BOOL changed = NO;
+    NSArray *previousObjects = self.currentObjects;
+    if (changes) {
+        changed = changes();
+        [self updateFilledObjects];
+    }
+    if (changed) {
+        [self tableView:tableView currentSectionIndex:index mergeFromPreviousObjects:previousObjects];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView currentSectionIndex:(NSInteger)sectionIndex mergeFromPreviousObjects:(NSArray *)previousObjects {
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:sectionIndex];
     [tableView reloadSections:indexSet withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
 }
 
@@ -98,7 +90,11 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (id<AITValue>)valueAtRow:(NSInteger)row {
-    return (self.editing ? [self.allObjects objectAtIndex:row] : [self.filledObjects objectAtIndex:row]);
+    return [[self currentObjects] objectAtIndex:row];
+}
+
+- (NSArray *)currentObjects {
+    return (self.editing ? self.allObjects : self.filledObjects);
 }
 
 - (NSInteger)tableViewNumberOfRows:(UITableView *)tableView {

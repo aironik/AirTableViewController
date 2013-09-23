@@ -18,14 +18,17 @@
 		002CB87417EC7016003870E5 /* AITTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CB86E17EC7016003870E5 /* AITTableViewCell.m */; };
 		002CB87517EC7016003870E5 /* AITTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CB87017EC7016003870E5 /* AITTableViewController.m */; };
 		002CB87617EC7017003870E5 /* AITTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CB87217EC7016003870E5 /* AITTableViewSection.m */; };
+		C4E3E282E2F06EA9E2201DD4 /* AITPendingOperationValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EFAAFF8362CA5706EA71 /* AITPendingOperationValue.m */; };
 		C4E3E529FBF231572B9D46A6 /* AITTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E3CB173BCC05F847CCF2 /* AITTextCell.m */; };
 		C4E3E5CD44A6890615FE926F /* AITActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E392F6763444A0D3BCAC /* AITActionCell.m */; };
 		C4E3E8411340690D576F0F98 /* AITTableViewChoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E6088BDC23F7948805D1 /* AITTableViewChoiceCell.m */; };
 		C4E3E882841B06B42B989540 /* AITTextValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E8C6DD3BEB0BA3EC3425 /* AITTextValue.m */; };
 		C4E3EC18753951FB91695B25 /* AITChoiceValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E932C01678B25BD6665D /* AITChoiceValue.m */; };
+		C4E3EC23D3AEFE6DA24EC2D6 /* AITPendingOperationSection.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EB29B6C683A84DCF342B /* AITPendingOperationSection.m */; };
 		C4E3ED0D79657AC137B60FDF /* AITSwitchValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E2C8859BAC53A4B4CA91 /* AITSwitchValue.m */; };
 		C4E3EE12F6EF0DB4E74DD07D /* AITSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EA90F3FB4F82A369336B /* AITSwitchCell.m */; };
 		C4E3EE572E65E57739A98551 /* AITActionValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EA73268D2D919B329CE8 /* AITActionValue.m */; };
+		C4E3EF78B945DE7708B9150E /* AITPendingOperationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E2B76525192876518B15 /* AITPendingOperationCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +58,7 @@
 		002CB84017EC6F87003870E5 /* libAirTableViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAirTableViewController.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		002CB84317EC6F87003870E5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		002CB84717EC6F87003870E5 /* AirTableViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirTableViewController-Prefix.pch"; sourceTree = "<group>"; };
-		002CB84817EC6F87003870E5 /* AirTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirTableViewController.h; sourceTree = "<group>"; };
+		002CB84817EC6F87003870E5 /* AirTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AirTableViewController.h; path = AirTableViewController/AirTableViewController.h; sourceTree = "<group>"; };
 		002CB85117EC6F88003870E5 /* AirTableViewControllerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirTableViewControllerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		002CB85217EC6F88003870E5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		002CB85417EC6F88003870E5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -72,14 +75,18 @@
 		002CB87217EC7016003870E5 /* AITTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTableViewSection.m; sourceTree = "<group>"; };
 		002CB87317EC7016003870E5 /* AITValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITValue.h; sourceTree = "<group>"; };
 		0037D12717F059AD00C3FCC2 /* AITTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITTextCell.xib; sourceTree = "<group>"; };
+		00F5A22E17F0807F004F0FBC /* AITPendingOperationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITPendingOperationCell.xib; sourceTree = "<group>"; };
 		C4E3E03EEC2F252AD8537511 /* AITActionValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITActionValue.h; sourceTree = "<group>"; };
+		C4E3E2B76525192876518B15 /* AITPendingOperationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITPendingOperationCell.m; sourceTree = "<group>"; };
 		C4E3E2C8859BAC53A4B4CA91 /* AITSwitchValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITSwitchValue.m; sourceTree = "<group>"; };
 		C4E3E315CDF37E8184A64BB5 /* AITActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITActionCell.xib; sourceTree = "<group>"; };
+		C4E3E33BD98ABBB3E6EEAE89 /* AITPendingOperationSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITPendingOperationSection.h; sourceTree = "<group>"; };
 		C4E3E392F6763444A0D3BCAC /* AITActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITActionCell.m; sourceTree = "<group>"; };
 		C4E3E3CB173BCC05F847CCF2 /* AITTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTextCell.m; sourceTree = "<group>"; };
 		C4E3E5E03B277D8C9882E06D /* AITTableViewChoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITTableViewChoiceCell.h; sourceTree = "<group>"; };
 		C4E3E6088BDC23F7948805D1 /* AITTableViewChoiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTableViewChoiceCell.m; sourceTree = "<group>"; };
 		C4E3E7167E378395C369A4DA /* AITActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITActionCell.h; sourceTree = "<group>"; };
+		C4E3E73805ECAD86F48F834E /* AITPendingOperationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITPendingOperationCell.h; sourceTree = "<group>"; };
 		C4E3E8C6DD3BEB0BA3EC3425 /* AITTextValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTextValue.m; sourceTree = "<group>"; };
 		C4E3E8FC2225EFFE992E3380 /* AITTextValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITTextValue.h; sourceTree = "<group>"; };
 		C4E3E932C01678B25BD6665D /* AITChoiceValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITChoiceValue.m; sourceTree = "<group>"; };
@@ -87,9 +94,13 @@
 		C4E3EA73268D2D919B329CE8 /* AITActionValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITActionValue.m; sourceTree = "<group>"; };
 		C4E3EA90F3FB4F82A369336B /* AITSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITSwitchCell.m; sourceTree = "<group>"; };
 		C4E3EA94287DAAAF014D4FE0 /* AITSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITSwitchCell.h; sourceTree = "<group>"; };
+		C4E3EB29B6C683A84DCF342B /* AITPendingOperationSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITPendingOperationSection.m; sourceTree = "<group>"; };
+		C4E3EBBCFF6A5A0AF82FC439 /* AITTableViewSection+AITProtected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AITTableViewSection+AITProtected.h"; sourceTree = "<group>"; };
 		C4E3EBC281495266D0980E08 /* AITChoiceValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITChoiceValue.h; sourceTree = "<group>"; };
 		C4E3EEC73B144BB08DFCDF97 /* AITSwitchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITSwitchCell.xib; sourceTree = "<group>"; };
+		C4E3EF7228C36D41895B864D /* AITPendingOperationValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITPendingOperationValue.h; sourceTree = "<group>"; };
 		C4E3EF88BA573B04EE22578F /* AITTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITTextCell.h; sourceTree = "<group>"; };
+		C4E3EFAAFF8362CA5706EA71 /* AITPendingOperationValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITPendingOperationValue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				002CB84517EC6F87003870E5 /* AirTableViewController */,
+				002CB84817EC6F87003870E5 /* AirTableViewController.h */,
 				002CB85A17EC6F88003870E5 /* AirTableViewControllerTests */,
 				002CB84217EC6F87003870E5 /* Frameworks */,
 				002CB84117EC6F87003870E5 /* Products */,
@@ -148,7 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				002CB86B17EC7016003870E5 /* TableView */,
-				002CB84817EC6F87003870E5 /* AirTableViewController.h */,
+				C4E3EA6880DEF1C6A702A372 /* Sections */,
 				002CB84617EC6F87003870E5 /* Supporting Files */,
 				C4E3E9AF396A86A1AB8F88BA /* Values */,
 			);
@@ -190,6 +202,7 @@
 				002CB86E17EC7016003870E5 /* AITTableViewCell.m */,
 				002CB86F17EC7016003870E5 /* AITTableViewController.h */,
 				002CB87017EC7016003870E5 /* AITTableViewController.m */,
+				C4E3EBBCFF6A5A0AF82FC439 /* AITTableViewSection+AITProtected.h */,
 				002CB87117EC7016003870E5 /* AITTableViewSection.h */,
 				002CB87217EC7016003870E5 /* AITTableViewSection.m */,
 				002CB87317EC7016003870E5 /* AITValue.h */,
@@ -221,10 +234,23 @@
 			path = Action;
 			sourceTree = "<group>";
 		};
+		C4E3E7B58476A9595E59BD76 /* PendingOperation */ = {
+			isa = PBXGroup;
+			children = (
+				C4E3E73805ECAD86F48F834E /* AITPendingOperationCell.h */,
+				C4E3E2B76525192876518B15 /* AITPendingOperationCell.m */,
+				00F5A22E17F0807F004F0FBC /* AITPendingOperationCell.xib */,
+				C4E3EFAAFF8362CA5706EA71 /* AITPendingOperationValue.m */,
+				C4E3EF7228C36D41895B864D /* AITPendingOperationValue.h */,
+			);
+			path = PendingOperation;
+			sourceTree = "<group>";
+		};
 		C4E3E9AF396A86A1AB8F88BA /* Values */ = {
 			isa = PBXGroup;
 			children = (
 				C4E3E20DF9341596A7B6F6E0 /* Action */,
+				C4E3E7B58476A9595E59BD76 /* PendingOperation */,
 				C4E3EA021A984431FD770DD4 /* Switch */,
 				C4E3E0A702B1E4848859D6EC /* Text */,
 				C4E3EBC281495266D0980E08 /* AITChoiceValue.h */,
@@ -245,6 +271,15 @@
 				C4E3E2C8859BAC53A4B4CA91 /* AITSwitchValue.m */,
 			);
 			path = Switch;
+			sourceTree = "<group>";
+		};
+		C4E3EA6880DEF1C6A702A372 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				C4E3E33BD98ABBB3E6EEAE89 /* AITPendingOperationSection.h */,
+				C4E3EB29B6C683A84DCF342B /* AITPendingOperationSection.m */,
+			);
+			path = Sections;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +392,9 @@
 				C4E3ED0D79657AC137B60FDF /* AITSwitchValue.m in Sources */,
 				C4E3E882841B06B42B989540 /* AITTextValue.m in Sources */,
 				C4E3E529FBF231572B9D46A6 /* AITTextCell.m in Sources */,
+				C4E3EC23D3AEFE6DA24EC2D6 /* AITPendingOperationSection.m in Sources */,
+				C4E3EF78B945DE7708B9150E /* AITPendingOperationCell.m in Sources */,
+				C4E3E282E2F06EA9E2201DD4 /* AITPendingOperationValue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
