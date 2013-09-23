@@ -56,6 +56,13 @@
         _comment = [comment copy];
         _empty = NO;
         _textEditable = YES;
+
+        _textInputAutocapitalizationType = UITextAutocapitalizationTypeSentences;
+        _textInputKeyboardType = UIKeyboardTypeDefault;
+        _textInputReturnKeyType = UIReturnKeyDefault;
+        _textInputSecureTextEntry = NO;
+        _textInputClearsOnBeginEditing = NO;
+
         [_sourceObject addObserver:self
                         forKeyPath:sourcePropertyName
                            options:NSKeyValueObservingOptionNew

@@ -29,6 +29,13 @@
 /// @brief If YES user can edit text.
 @property (nonatomic, assign) BOOL textEditable;
 
+// Text input field properties
+@property (nonatomic, assign) UITextAutocapitalizationType textInputAutocapitalizationType;
+@property (nonatomic, assign) UIKeyboardType textInputKeyboardType;
+@property (nonatomic, assign) UIReturnKeyType textInputReturnKeyType;
+@property (nonatomic, assign) BOOL textInputSecureTextEntry;
+@property (nonatomic, assign) BOOL textInputClearsOnBeginEditing;
+
 /// @brief Create new value represents string value with name.
 /// @param title Human readable property name.
 /// @param sourceObject the object having string property for present.

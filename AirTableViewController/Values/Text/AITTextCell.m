@@ -62,6 +62,12 @@
     self.valueTextField.text = self.textValue.value;
     self.valueTextField.placeholder = self.textValue.comment;
     self.valueTextField.enabled = self.textValue.textEditable;
+
+    self.valueTextField.autocapitalizationType = self.textValue.textInputAutocapitalizationType;
+    self.valueTextField.keyboardType = self.textValue.textInputKeyboardType;
+    self.valueTextField.returnKeyType =  self.textValue.textInputReturnKeyType;
+    self.valueTextField.secureTextEntry = self.textValue.textInputSecureTextEntry;
+    self.valueTextField.clearsOnBeginEditing = self.textValue.textInputClearsOnBeginEditing;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
