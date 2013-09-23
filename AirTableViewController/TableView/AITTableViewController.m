@@ -11,6 +11,7 @@
 #import "AITActionCell.h"
 #import "AITSwitchCell.h"
 #import "AITTableViewSection.h"
+#import "AITTextCell.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -49,6 +50,7 @@
     
     [AITActionCell setupTableView:self.tableView];
     [AITSwitchCell setupTableView:self.tableView];
+    [AITTextCell setupTableView:self.tableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

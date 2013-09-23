@@ -71,6 +71,7 @@
 		002CB87117EC7016003870E5 /* AITTableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITTableViewSection.h; sourceTree = "<group>"; };
 		002CB87217EC7016003870E5 /* AITTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTableViewSection.m; sourceTree = "<group>"; };
 		002CB87317EC7016003870E5 /* AITValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITValue.h; sourceTree = "<group>"; };
+		0037D12717F059AD00C3FCC2 /* AITTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITTextCell.xib; sourceTree = "<group>"; };
 		C4E3E03EEC2F252AD8537511 /* AITActionValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITActionValue.h; sourceTree = "<group>"; };
 		C4E3E2C8859BAC53A4B4CA91 /* AITSwitchValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITSwitchValue.m; sourceTree = "<group>"; };
 		C4E3E315CDF37E8184A64BB5 /* AITActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITActionCell.xib; sourceTree = "<group>"; };
@@ -201,6 +202,7 @@
 			children = (
 				C4E3EF88BA573B04EE22578F /* AITTextCell.h */,
 				C4E3E3CB173BCC05F847CCF2 /* AITTextCell.m */,
+				0037D12717F059AD00C3FCC2 /* AITTextCell.xib */,
 				C4E3E8FC2225EFFE992E3380 /* AITTextValue.h */,
 				C4E3E8C6DD3BEB0BA3EC3425 /* AITTextValue.m */,
 			);

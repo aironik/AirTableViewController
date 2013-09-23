@@ -26,6 +26,9 @@
 /// @details If NO cell hides.
 @property (nonatomic, assign, getter=isEmpty) BOOL empty;
 
+/// @brief If YES user can edit text.
+@property (nonatomic, assign) BOOL textEditable;
+
 /// @brief Create new value represents string value with name.
 /// @param title Human readable property name.
 /// @param sourceObject the object having string property for present.

@@ -55,6 +55,7 @@
         _sourcePropertyName = [sourcePropertyName copy];
         _comment = [comment copy];
         _empty = NO;
+        _textEditable = YES;
         [_sourceObject addObserver:self
                         forKeyPath:sourcePropertyName
                            options:NSKeyValueObservingOptionNew

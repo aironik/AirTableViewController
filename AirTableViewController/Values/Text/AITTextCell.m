@@ -27,20 +27,21 @@
 
 @implementation AITTextCell
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        NSAssert(NO, @"Does not implemented. valueTextField does not created.");
-    }
-    return self;
+- (AITTextValue *)textValue {
+    NSParameterAssert(!self.value || [self.value isKindOfClass:[AITTextValue class]]);
+    return (AITTextValue *)self.value;
 }
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
+
+- (void)setTextValue:(AITTextValue *)textValue {
+    NSParameterAssert(!textValue || [AITTextValue isKindOfClass:[AITTextValue class]]);
+    self.value = textValue;
 }
 
 - (void)setup {
     [super setup];
 
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(textFieldTextDidChange:)
                                                  name:UITextFieldTextDidChangeNotification
@@ -52,32 +53,15 @@
 }
 
 - (NSArray *)keyPathsForSubscribe {
-    return [@[ @"title" ] arrayByAddingObjectsFromArray:[super keyPathsForSubscribe]];
+    return [@[ @"value", @"textEditable" ] arrayByAddingObjectsFromArray:[super keyPathsForSubscribe]];
 }
-
 
 - (void)updateSubviews {
     [super updateSubviews];
 
     self.valueTextField.text = self.textValue.value;
     self.valueTextField.placeholder = self.textValue.comment;
-}
-
-- (void)setEditing:(BOOL)editing {
-    [super setEditing:editing];
-
-    self.valueLabel.alpha = editing ? 0.0 : 1.0;
-    self.valueTextField.alpha = editing ? 1.0 : 0.0;
-    [self.valueTextField resignFirstResponder];
-}
-
-- (void)setTextValue:(AITTextValue *)textValue {
-    self.value = textValue;
-}
-
-- (AITTextValue *)textValue {
-    NSParameterAssert(!self.value || [self.value isKindOfClass:[AITTextValue class]]);
-    return (AITTextValue *)self.value;
+    self.valueTextField.enabled = self.textValue.textEditable;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
@@ -89,7 +73,5 @@
     NSParameterAssert(notification.object == self.valueTextField);
     self.textValue.value = self.valueTextField.text;
 }
-
-
 
 @end
