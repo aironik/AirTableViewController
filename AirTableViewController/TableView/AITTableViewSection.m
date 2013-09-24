@@ -13,6 +13,7 @@
 #import "AITTextValue.h"
 #import "AITTableViewCell.h"
 #import "AITValue.h"
+#import "AITHeaderFooterView.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -26,6 +27,8 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 @interface AITTableViewSection ()
 
 @property (nonatomic, strong) NSArray *filledObjects;
+@property (nonatomic, strong) AITHeaderFooterView *headerView;
+@property (nonatomic, strong) AITHeaderFooterView *footerView;
 
 - (NSArray *)currentObjects;
 
@@ -35,6 +38,9 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 #pragma mark - Implementation
 
 @implementation AITTableViewSection
+
+@synthesize headerViewIdentifier = _headerViewIdentifier;
+@synthesize footerViewIdentifier = _footerViewIdentifier;
 
 - (void)setAllObjects:(NSArray *)allObjects {
     _allObjects = [allObjects copy];
@@ -77,9 +83,51 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 - (NSString *)tableViewTitleForHeader:(UITableView *)tableView {
     if ([self tableViewNumberOfRows:tableView]) {
-        return self.title;
+        return self.header;
     }
     return nil;
+}
+
+- (void)setHeader:(NSString *)header {
+    if (![_header isEqualToString:header]) {
+        _header = [header copy];
+        self.headerView = nil;
+    }
+}
+
+- (void)setHeaderViewIdentifier:(NSString *)headerViewIdentifier {
+    if (![_headerViewIdentifier isEqualToString:headerViewIdentifier]) {
+        _headerViewIdentifier = [headerViewIdentifier copy];
+        self.headerView = nil;
+    }
+}
+
+- (NSString *)headerViewIdentifier {
+    if (![_headerViewIdentifier length]) {
+        _headerViewIdentifier = [kAITHeaderFooterViewLeftAlignedHeaderIdentifier copy];
+    }
+    return _headerViewIdentifier;
+}
+
+- (void)setFooter:(NSString *)footer {
+    if (![_footer isEqualToString:footer]) {
+        _footer = [footer copy];
+        self.footerView = nil;
+    }
+}
+
+- (void)setFooterViewIdentifier:(NSString *)footerViewIdentifier {
+    if (![_footerViewIdentifier isEqualToString:footerViewIdentifier]) {
+        _footerViewIdentifier = [footerViewIdentifier copy];
+        self.footerView = nil;
+    }
+}
+
+- (NSString *)footerViewIdentifier {
+    if (![_footerViewIdentifier length]) {
+        _footerViewIdentifier = [kAITHeaderFooterViewCenterAlignedFooterIdentifier copy];
+    }
+    return _footerViewIdentifier;
 }
 
 - (NSString *)tableViewTitleForFooter:(UITableView *)tableView {
@@ -135,5 +183,29 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     return UITableViewCellEditingStyleNone;
 }
 
+
+- (AITHeaderFooterView *)tableViewHeaderView:(UITableView *)tableView {
+    if (!self.headerView && [self.header length]) {
+        self.headerView = [AITHeaderFooterView headerFooterViewWithIdentifier:self.headerViewIdentifier];
+        self.headerView.label.text = self.header;
+    }
+    return self.headerView;
+}
+
+- (CGFloat)tableViewHeightForHeader:(UITableView *)tableView {
+    return [[self tableViewHeaderView:tableView] heightForTableView:tableView];
+}
+
+- (AITHeaderFooterView *)tableViewFooterView:(UITableView *)tableView {
+    if (!self.footerView && [self.footer length]) {
+        self.footerView = [AITHeaderFooterView headerFooterViewWithIdentifier:self.footerViewIdentifier];
+        self.footerView.label.text = self.footer;
+    }
+    return self.footerView;
+}
+
+- (CGFloat)tableViewHeightForFooter:(UITableView *)tableView {
+    return [[self tableViewFooterView:tableView] heightForTableView:tableView];
+}
 
 @end

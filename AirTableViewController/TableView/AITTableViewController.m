@@ -13,6 +13,7 @@
 #import "AITSwitchCell.h"
 #import "AITTableViewSection.h"
 #import "AITTextCell.h"
+#import "AITHeaderFooterView.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -53,6 +54,8 @@
     [AITPendingOperationCell setupTableView:self.tableView];
     [AITSwitchCell setupTableView:self.tableView];
     [AITTextCell setupTableView:self.tableView];
+
+    [AITHeaderFooterView setupTableView:self.tableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -94,9 +97,29 @@
     return [viewSection tableViewTitleForHeader:tableView];
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    AITTableViewSection *viewSection = self.sections[section];
+    return [viewSection tableViewHeaderView:tableView];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    AITTableViewSection *viewSection = self.sections[section];
+    return [viewSection tableViewHeightForHeader:tableView];
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     AITTableViewSection *viewSection = self.sections[section];
     return [viewSection tableViewTitleForFooter:tableView];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    AITTableViewSection *viewSection = self.sections[section];
+    return [viewSection tableViewFooterView:tableView];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    AITTableViewSection *viewSection = self.sections[section];
+    return [viewSection tableViewHeightForFooter:tableView];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

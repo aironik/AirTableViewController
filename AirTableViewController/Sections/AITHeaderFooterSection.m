@@ -22,20 +22,20 @@
 
 @implementation AITHeaderFooterSection
 
-+ (instancetype)sectionWithTitle:(NSString *)header footer:(NSString *)footer {
-    return [[self alloc] initWithTitle:header footer:footer];
++ (instancetype)sectionWithHeader:(NSString *)header footer:(NSString *)footer {
+    return [[self alloc] initWithHeader:header footer:footer];
 }
 
-- (id)initWithTitle:(NSString *)title footer:(NSString *)footer {
+- (id)initWithHeader:(NSString *)header footer:(NSString *)footer {
     if (self = [super init]) {
-        self.title = title;
+        self.header = header;
         self.footer = footer;
     }
     return self;
 }
 
 - (NSString *)tableViewTitleForHeader:(UITableView *)tableView {
-    return self.title;
+    return self.header;
 }
 
 - (NSString *)tableViewTitleForFooter:(UITableView *)tableView {

@@ -11,7 +11,6 @@
 
 @interface AITHeaderFooterSection : AITTableViewSection
 
-+ (instancetype)sectionWithTitle:(NSString *)header footer:(NSString *)footer;
-- (id)initWithTitle:(NSString *)string footer:(NSString *)footer;
++ (instancetype)sectionWithHeader:(NSString *)header footer:(NSString *)footer;
 
 @end

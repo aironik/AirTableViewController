@@ -9,6 +9,8 @@
 #import <AirTableViewController/TableView/AITTableViewController.h>
 #import <AirTableViewController/TableView/AITTableViewSection.h>
 
+#import <AirTableViewController/HeaderFooter/AITHeaderFooterView.h>
+
 #import <AirTableViewController/Sections/AITHeaderFooterSection.h>
 #import <AirTableViewController/Sections/AITPendingOperationSection.h>
 
