@@ -49,5 +49,9 @@
     return [choosedObject valueForKeyPath:self.valueAttributeName];
 }
 
+- (void)perform {
+    
+}
+
 
 @end
