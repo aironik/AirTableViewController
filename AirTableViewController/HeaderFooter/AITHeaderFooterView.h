@@ -8,6 +8,7 @@
 
 
 extern NSString *const kAITHeaderFooterViewLeftAlignedHeaderIdentifier;
+extern NSString *const kAITHeaderFooterViewCenterAlignedHeaderIdentifier;
 extern NSString *const kAITHeaderFooterViewCenterAlignedFooterIdentifier;
 
 @interface AITHeaderFooterView : UIView
@@ -18,7 +19,8 @@ extern NSString *const kAITHeaderFooterViewCenterAlignedFooterIdentifier;
 + (void)setupTableView:(UITableView *)tableView;
 
 + (AITHeaderFooterView *)headerFooterViewWithIdentifier:(NSString *)identifier;
-+ (AITHeaderFooterView *)leftAlignedHeaderViewForTableView;
++ (AITHeaderFooterView *)leftAlignedHeaderView;
++ (AITHeaderFooterView *)centerAlignedHeaderView;
 + (AITHeaderFooterView *)centerAlignedFooterView;
 
 - (CGFloat)heightForTableView:(UITableView *)tableView;

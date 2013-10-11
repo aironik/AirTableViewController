@@ -18,6 +18,7 @@
 		002CB87417EC7016003870E5 /* AITTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CB86E17EC7016003870E5 /* AITTableViewCell.m */; };
 		002CB87517EC7016003870E5 /* AITTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CB87017EC7016003870E5 /* AITTableViewController.m */; };
 		002CB87617EC7017003870E5 /* AITTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CB87217EC7016003870E5 /* AITTableViewSection.m */; };
+		00E12B311808062300306197 /* AITCenterAlignedHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E12B301808062300306197 /* AITCenterAlignedHeaderView.xib */; };
 		C4E3E282E2F06EA9E2201DD4 /* AITPendingOperationValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EFAAFF8362CA5706EA71 /* AITPendingOperationValue.m */; };
 		C4E3E402747763E600CB30BB /* AITHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EFBA895D0859000968AE /* AITHeaderFooterView.m */; };
 		C4E3E529FBF231572B9D46A6 /* AITTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E3CB173BCC05F847CCF2 /* AITTextCell.m */; };
@@ -77,6 +78,7 @@
 		002CB87217EC7016003870E5 /* AITTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTableViewSection.m; sourceTree = "<group>"; };
 		002CB87317EC7016003870E5 /* AITValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITValue.h; sourceTree = "<group>"; };
 		0037D12717F059AD00C3FCC2 /* AITTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITTextCell.xib; sourceTree = "<group>"; };
+		00E12B301808062300306197 /* AITCenterAlignedHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITCenterAlignedHeaderView.xib; sourceTree = "<group>"; };
 		00EB619B17F181EA002F503C /* AITLeftAlignedHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITLeftAlignedHeaderView.xib; sourceTree = "<group>"; };
 		00EB619C17F181FA002F503C /* AITCenterAlignedFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITCenterAlignedFooterView.xib; sourceTree = "<group>"; };
 		00F5A22E17F0807F004F0FBC /* AITPendingOperationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITPendingOperationCell.xib; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				C4E3E0D1FDB3696AB3CC228A /* AITHeaderFooterView.h */,
 				C4E3EFBA895D0859000968AE /* AITHeaderFooterView.m */,
 				00EB619B17F181EA002F503C /* AITLeftAlignedHeaderView.xib */,
+				00E12B301808062300306197 /* AITCenterAlignedHeaderView.xib */,
 				00EB619C17F181FA002F503C /* AITCenterAlignedFooterView.xib */,
 			);
 			path = HeaderFooter;
@@ -376,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00E12B311808062300306197 /* AITCenterAlignedHeaderView.xib in Resources */,
 				002CB85F17EC6F88003870E5 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

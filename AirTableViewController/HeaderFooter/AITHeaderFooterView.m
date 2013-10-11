@@ -15,6 +15,7 @@
 
 
 NSString *const kAITHeaderFooterViewLeftAlignedHeaderIdentifier = @"AITLeftAlignedHeaderView";
+NSString *const kAITHeaderFooterViewCenterAlignedHeaderIdentifier = @"AITCenterAlignedHeaderView";
 NSString *const kAITHeaderFooterViewCenterAlignedFooterIdentifier = @"AITCenterAlignedFooterView";
 
 
@@ -31,9 +32,13 @@ NSString *const kAITHeaderFooterViewCenterAlignedFooterIdentifier = @"AITCenterA
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         registeredNibs = [[NSMutableDictionary alloc] init];
+        UINib *nib = nil;
 
-        UINib *nib = [UINib nibWithNibName:@"AITLeftAlignedHeaderView" bundle:[NSBundle bundleForClass:self]];
+        nib = [UINib nibWithNibName:@"AITLeftAlignedHeaderView" bundle:[NSBundle bundleForClass:self]];
         registeredNibs[kAITHeaderFooterViewLeftAlignedHeaderIdentifier] = nib;
+
+        nib = [UINib nibWithNibName:@"AITCenterAlignedHeaderView" bundle:[NSBundle bundleForClass:self]];
+        registeredNibs[kAITHeaderFooterViewCenterAlignedHeaderIdentifier] = nib;
 
         nib = [UINib nibWithNibName:@"AITCenterAlignedFooterView" bundle:[NSBundle bundleForClass:self]];
         registeredNibs[kAITHeaderFooterViewCenterAlignedFooterIdentifier] = nib;
@@ -72,8 +77,12 @@ NSString *const kAITHeaderFooterViewCenterAlignedFooterIdentifier = @"AITCenterA
     return result;
 }
 
-+ (AITHeaderFooterView *)leftAlignedHeaderViewForTableView {
++ (AITHeaderFooterView *)leftAlignedHeaderView {
     return [self headerFooterViewWithIdentifier:kAITHeaderFooterViewLeftAlignedHeaderIdentifier];
+}
+
++ (AITHeaderFooterView *)centerAlignedHeaderView {
+    return [self headerFooterViewWithIdentifier:kAITHeaderFooterViewCenterAlignedHeaderIdentifier];
 }
 
 + (AITHeaderFooterView *)centerAlignedFooterView {
