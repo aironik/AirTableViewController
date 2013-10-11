@@ -79,6 +79,13 @@
     }
 }
 
+- (void)setSections:(NSArray *)sections {
+    if (_sections != sections) {
+        _sections = sections;
+        [self updateSectionsForEditing:self.editing];
+    }
+}
+
 - (void)updateSectionsForEditing:(BOOL)editing {
     [self.tableView beginUpdates];
     [self.sections enumerateObjectsUsingBlock:^(AITTableViewSection *section, NSUInteger index, BOOL *stop) {
