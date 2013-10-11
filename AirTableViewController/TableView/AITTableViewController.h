@@ -7,7 +7,7 @@
 //
 
 
-
+/// @brief The table view controller with declarative content definition
 @interface AITTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -17,6 +17,9 @@
 @property (nonatomic, assign) CGFloat topSpace;
 @property (nonatomic, assign) CGFloat bottomSpace;
 
+/// @brief The array of AITTableViewSection objects.
+/// @details This array defines content of the table view. Each section defines cells with values section content.
+/// @see AITTableViewSection
 @property (nonatomic, strong) NSArray *sections;
 
 - (void)save;

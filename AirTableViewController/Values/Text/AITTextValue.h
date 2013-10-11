@@ -15,7 +15,7 @@
 /// @brief The value name.
 @property (nonatomic, copy) NSString *title;
 
-/// @brief The boolean value from source.
+/// @brief The string value from source.
 @property (nonatomic, copy) NSString *value;
 
 /// @brief The human readable value description.
