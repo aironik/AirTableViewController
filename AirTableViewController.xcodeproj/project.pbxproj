@@ -88,6 +88,7 @@
 		C4E3E2B76525192876518B15 /* AITPendingOperationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITPendingOperationCell.m; sourceTree = "<group>"; };
 		C4E3E2C8859BAC53A4B4CA91 /* AITSwitchValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITSwitchValue.m; sourceTree = "<group>"; };
 		C4E3E315CDF37E8184A64BB5 /* AITActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITActionCell.xib; sourceTree = "<group>"; };
+		C4E3E321F877CB24E6079D32 /* AITResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITResponder.h; sourceTree = "<group>"; };
 		C4E3E33BD98ABBB3E6EEAE89 /* AITPendingOperationSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITPendingOperationSection.h; sourceTree = "<group>"; };
 		C4E3E392F6763444A0D3BCAC /* AITActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITActionCell.m; sourceTree = "<group>"; };
 		C4E3E3CB173BCC05F847CCF2 /* AITTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTextCell.m; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 		C4E3EF88BA573B04EE22578F /* AITTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITTextCell.h; sourceTree = "<group>"; };
 		C4E3EFAAFF8362CA5706EA71 /* AITPendingOperationValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITPendingOperationValue.m; sourceTree = "<group>"; };
 		C4E3EFBA895D0859000968AE /* AITHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITHeaderFooterView.m; sourceTree = "<group>"; };
+		C4E3EFF4E91C595B126F4249 /* AITTextValue+AITFriend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AITTextValue+AITFriend.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 				002CB87117EC7016003870E5 /* AITTableViewSection.h */,
 				002CB87217EC7016003870E5 /* AITTableViewSection.m */,
 				002CB87317EC7016003870E5 /* AITValue.h */,
+				C4E3E321F877CB24E6079D32 /* AITResponder.h */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				0037D12717F059AD00C3FCC2 /* AITTextCell.xib */,
 				C4E3E8FC2225EFFE992E3380 /* AITTextValue.h */,
 				C4E3E8C6DD3BEB0BA3EC3425 /* AITTextValue.m */,
+				C4E3EFF4E91C595B126F4249 /* AITTextValue+AITFriend.h */,
 			);
 			path = Text;
 			sourceTree = "<group>";

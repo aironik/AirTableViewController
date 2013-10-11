@@ -104,4 +104,35 @@
 }
 
 
+#pragma mark - AITResponder protocol implementation
+
+- (id<AITResponder>)nextAitResponder {
+    return [self.value nextAitResponder];
+}
+
+- (void)setNextAitResponder:(id<AITResponder>)nextAitResponder {
+    NSAssert(NO, @"cell should not changes aitResponder. Use value instead.");
+    [self.value setNextAitResponder:nextAitResponder];
+}
+
+- (BOOL)canBecomeFirstAitResponder {
+    return [self.value canBecomeFirstAitResponder];
+}
+
+- (BOOL)canResignFirstAitResponder {
+    return [self.value canResignFirstAitResponder];
+}
+
+- (BOOL)becomeFirstAitResponder {
+    return [self.value becomeFirstAitResponder];
+}
+
+- (BOOL)resignFirstAitResponder {
+    return [self.value resignFirstAitResponder];
+}
+
+- (BOOL)isFirstAitResponder {
+    return [self.value isFirstAitResponder];
+}
+
 @end

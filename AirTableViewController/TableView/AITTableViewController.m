@@ -82,7 +82,16 @@
 - (void)setSections:(NSArray *)sections {
     if (_sections != sections) {
         _sections = sections;
+        [self updateSectionsResponderChain];
         [self updateSectionsForEditing:self.editing];
+    }
+}
+
+- (void)updateSectionsResponderChain {
+    id<AITResponder> previousResponder = nil;
+    for (id<AITResponder> responder in self.sections) {
+        [previousResponder setNextAitResponder:responder];
+        previousResponder = responder;
     }
 }
 

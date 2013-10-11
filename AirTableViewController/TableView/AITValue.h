@@ -7,8 +7,11 @@
 //
 
 
+#import <AirTableViewController/TableView/AITResponder.h>
+
+
 /// @brief Protocol defines value in the table view cell
-@protocol AITValue<NSObject>
+@protocol AITValue<AITResponder>
 
 @required
 

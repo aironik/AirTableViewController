@@ -33,6 +33,9 @@ typedef void (^AITActionValueBlock)(AITActionValue *value);
 /// @details If NO cell hides.
 @property (nonatomic, assign, getter=isEmpty) BOOL empty;
 
+/// @brief The next responder. The AITTableView setup this value next section.
+@property (nonatomic, weak) id<AITResponder> nextAitResponder;
+
 /// @brief Create new action value instance.
 + (instancetype)valueWithTitle:(NSString *)title action:(AITActionValueBlock)action;
 

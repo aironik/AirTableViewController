@@ -25,6 +25,9 @@
 /// @details If NO cell hides.
 @property (nonatomic, assign, getter=isEmpty) BOOL empty;
 
+/// @brief The next responder. The AITTableView setup this value next section.
+@property (nonatomic, weak) id<AITResponder> nextAitResponder;
+
 /// @brief Create new value represents boolean value with name.
 /// @param title Human readable property name.
 /// @param sourceObject the object having boolean property for present.

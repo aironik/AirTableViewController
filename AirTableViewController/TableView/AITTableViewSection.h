@@ -6,6 +6,8 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
+#import <AirTableViewController/TableView/AITResponder.h>
+
 
 /// @brief Animation by default in insert/delete sections/cells
 extern const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation;
@@ -14,7 +16,7 @@ extern const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation;
 @class AITHeaderFooterView;
 
 
-@interface AITTableViewSection : NSObject
+@interface AITTableViewSection : NSObject<AITResponder>
 
 /// @brief The array of objects conforms to AITValue protocol. This array defines cells and values contents.
 /// @details You can create and set instances of values. Each instance define appropriate cell view and cell behaviour.
@@ -33,6 +35,9 @@ extern const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation;
 /// @brief Переключить режим редактирования.
 /// @details Если нужно обновить UITableView, то нужно использовать -tableView:setEditing:currentSectionIndex:
 @property (nonatomic, assign, getter=isEditing) BOOL editing;
+
+/// @brief The next responder. The AITTableView setup this value next section.
+@property (nonatomic, weak) id<AITResponder> nextAitResponder;
 
 - (void)tableView:(UITableView *)tableView setEditing:(BOOL)editing currentSectionIndex:(NSInteger)index;
 

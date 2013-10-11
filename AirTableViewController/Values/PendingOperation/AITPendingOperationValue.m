@@ -48,4 +48,28 @@
                      (self.empty ? @"YES" : @"NO")];
 }
 
+
+#pragma mark - AITResponder protocol implementation
+
+- (BOOL)canBecomeFirstAitResponder {
+    return NO;
+}
+
+- (BOOL)canResignFirstAitResponder {
+    return YES;
+}
+
+- (BOOL)becomeFirstAitResponder {
+    return NO;
+}
+
+- (BOOL)resignFirstAitResponder {
+    return NO;
+}
+
+- (BOOL)isFirstAitResponder {
+    return NO;
+}
+
+
 @end

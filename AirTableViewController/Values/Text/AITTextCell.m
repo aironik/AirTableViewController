@@ -10,6 +10,7 @@
 
 #import "AITTableViewCell+AITProtected.h"
 #import "AITTextValue.h"
+#import "AITTextValue+AITFriend.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -18,7 +19,6 @@
 
 
 @interface AITTextCell () <UITextFieldDelegate>
-
 
 @end
 
@@ -34,8 +34,17 @@
 
 
 - (void)setTextValue:(AITTextValue *)textValue {
-    NSParameterAssert(!textValue || [AITTextValue isKindOfClass:[AITTextValue class]]);
+    NSParameterAssert(!textValue || [textValue isKindOfClass:[AITTextValue class]]);
     self.value = textValue;
+}
+
+- (void)setValue:(NSObject<AITValue> *)value {
+    NSParameterAssert(!value || [value isKindOfClass:[AITTextValue class]]);
+    NSParameterAssert(self.valueTextField.delegate == self);
+    AITTextValue *textValue = (AITTextValue *)value;
+    // FIXME: value model should not know about cell.
+    [textValue setCell:self];
+    [super setValue:value];
 }
 
 - (void)setup {
@@ -79,5 +88,15 @@
     NSParameterAssert(notification.object == self.valueTextField);
     self.textValue.value = self.valueTextField.text;
 }
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if ([self canResignFirstAitResponder]) {
+        [self.valueTextField resignFirstResponder];
+        [self resignFirstAitResponder];
+        [self.value.nextAitResponder becomeFirstAitResponder];
+    }
+    return NO;
+}
+
 
 @end

@@ -58,4 +58,32 @@
                      (self.enabled ? @"YES" : @"NO")];
 }
 
+
+#pragma mark - AITResponder protocol implementation
+
+- (BOOL)canBecomeFirstAitResponder {
+    return [self canPerform];
+}
+
+- (BOOL)canResignFirstAitResponder {
+    return YES;
+}
+
+- (BOOL)becomeFirstAitResponder {
+    if ([self canPerform]) {
+        [self perform];
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)resignFirstAitResponder {
+    return YES;
+}
+
+- (BOOL)isFirstAitResponder {
+    return NO;
+}
+
+
 @end

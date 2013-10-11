@@ -6,13 +6,15 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
+#import <AirTableViewController/TableView/AITResponder.h>
+
 
 @protocol AITValue;
 @class AITTableViewCell;
 
 
 /// @brief TableViewCell represents value. Base class for other cells.
-@interface AITTableViewCell : UITableViewCell
+@interface AITTableViewCell : UITableViewCell<AITResponder>
 
 /// @brief Значение, с которым работаем. Из него обновляются UI-элементы
 @property (nonatomic, strong) NSObject<AITValue> *value;

@@ -36,6 +36,9 @@
 @property (nonatomic, assign) BOOL textInputSecureTextEntry;
 @property (nonatomic, assign) BOOL textInputClearsOnBeginEditing;
 
+/// @brief The next responder. The AITTableView setup this value next section.
+@property (nonatomic, weak) id<AITResponder> nextAitResponder;
+
 /// @brief Create new value represents string value with name.
 /// @param title Human readable property name.
 /// @param sourceObject the object having string property for present.

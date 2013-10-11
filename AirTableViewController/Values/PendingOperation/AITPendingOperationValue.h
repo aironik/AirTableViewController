@@ -18,6 +18,9 @@
 /// @details If NO cell hides.
 @property (nonatomic, assign, getter=isEmpty) BOOL empty;
 
+/// @brief The next responder. The AITTableView setup this value next section.
+@property (nonatomic, weak) id<AITResponder> nextAitResponder;
+
 + (instancetype)valueWithTitle:title;
 
 @end

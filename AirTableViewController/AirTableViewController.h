@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 aironik. All rights reserved.
 //
 
+#import <AirTableViewController/TableView/AITResponder.h>
 #import <AirTableViewController/TableView/AITTableViewController.h>
 #import <AirTableViewController/TableView/AITTableViewSection.h>
 

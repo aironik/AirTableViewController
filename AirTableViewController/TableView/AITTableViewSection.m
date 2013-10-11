@@ -44,6 +44,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 - (void)setAllObjects:(NSArray *)allObjects {
     _allObjects = [allObjects copy];
+    [self updateObjectsResponderChain];
     [self updateFilledObjects];
 }
 
@@ -206,6 +207,75 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 - (CGFloat)tableViewHeightForFooter:(UITableView *)tableView {
     return [[self tableViewFooterView:tableView] heightForTableView:tableView];
+}
+
+
+#pragma mark - AIT responder chain and AITResponder protocol implementation
+
+- (void)setNextAitResponder:(id<AITResponder>)nextAitResponder {
+    _nextAitResponder = nextAitResponder;
+
+    [self updateLastObjectResponderChain];
+}
+
+- (void)updateObjectsResponderChain {
+    id<AITResponder> previousResponder = nil;
+    for (id<AITResponder> responder in self.allObjects) {
+        [previousResponder setNextAitResponder:responder];
+        previousResponder = responder;
+    }
+    [self updateLastObjectResponderChain];
+}
+
+- (void)updateLastObjectResponderChain {
+    id<AITValue> lastValue = self.allObjects.lastObject;
+    [lastValue setNextAitResponder:self.nextAitResponder];
+}
+
+- (BOOL)canBecomeFirstAitResponder {
+    for (id<AITValue>value in self.allObjects) {
+        if ([value canBecomeFirstAitResponder]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (BOOL)canResignFirstAitResponder {
+    for (id<AITValue>value in self.allObjects) {
+        if ([value isFirstAitResponder]) {
+            return [value canResignFirstAitResponder];
+        }
+    }
+    return YES;
+}
+
+- (BOOL)becomeFirstAitResponder {
+    for (id<AITValue>value in self.allObjects) {
+        if ([value canBecomeFirstAitResponder] && [value becomeFirstAitResponder]) {
+            return YES;
+        }
+    }
+    [self.nextAitResponder becomeFirstAitResponder];
+    return NO;
+}
+
+- (BOOL)resignFirstAitResponder {
+    for (id<AITValue>value in self.allObjects) {
+        if ([value isFirstAitResponder]) {
+            return [value resignFirstAitResponder];
+        }
+    }
+    return YES;
+}
+
+- (BOOL)isFirstAitResponder {
+    for (id<AITValue>value in self.allObjects) {
+        if ([value isFirstAitResponder]) {
+            return [value isFirstAitResponder];
+        }
+    }
+    return NO;
 }
 
 @end
