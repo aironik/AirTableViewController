@@ -65,6 +65,13 @@
     for (NSIndexPath *indexPath in selectedRows) {
         [self.tableView deselectRowAtIndexPath:indexPath animated:animated];
     }
+    [self subscribeForKeyboardNotifications];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [self unsubscribeForKeyboardNotifications];
+
+    [super viewDidDisappear:animated];
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
@@ -181,6 +188,58 @@
            editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     AITTableViewSection *viewSection = self.sections[indexPath.section];
     return [viewSection tableView:tableView editingStyleForRow:indexPath.row];
+}
+
+- (void)subscribeForKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShowOrHide:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShowOrHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+- (void)unsubscribeForKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWillShowOrHide:(NSNotification *)notification {
+    NSDictionary *userInfo = [notification userInfo];
+
+    CGRect keyboardFrame = CGRectZero;
+    [userInfo[UIKeyboardFrameEndUserInfoKey] getValue:&keyboardFrame];
+    keyboardFrame = [self.view convertRect:keyboardFrame fromView:nil];
+
+    NSTimeInterval duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+
+    CGFloat bottomOffset = self.bottomSpace + (CGRectGetHeight(self.view.bounds) - CGRectGetMinY(keyboardFrame));
+    NSAssert(self.bottomConstraint, @"Cannot move table view content without constrains.");
+
+    NSIndexPath *activeIndexPath = [self indexPathForFirstAitResponder];
+    UITableView *blockTableView = self.tableView;
+
+    [UIView animateWithDuration:duration animations:^{
+        self.bottomConstraint.constant = bottomOffset;
+    }                completion:^(BOOL finished) {
+        [blockTableView scrollToRowAtIndexPath:activeIndexPath
+                              atScrollPosition:UITableViewScrollPositionMiddle
+                                      animated:YES];
+    }];
+}
+
+- (NSIndexPath *)indexPathForFirstAitResponder {
+    NSArray *visibleRows = [self.tableView indexPathsForVisibleRows];
+    for (NSIndexPath *indexPath in visibleRows) {
+        AITTableViewCell *cell = (AITTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        NSParameterAssert([cell isKindOfClass:[AITTableViewCell class]]);
+        if ([cell isKindOfClass:[AITTableViewCell class]] && [cell isFirstAitResponder]) {
+            return indexPath;
+        }
+    }
+    return nil;
 }
 
 - (void)save {
