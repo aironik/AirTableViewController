@@ -6,11 +6,12 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
+#import <AirTableViewController/TableView/AITResponderValue.h>
 #import <AirTableViewController/TableView/AITValue.h>
 
 
 /// @brief The value represents string value.
-@interface AITTextValue : NSObject<AITValue>
+@interface AITTextValue : AITResponderValue<AITValue>
 
 /// @brief The value name.
 @property (nonatomic, copy) NSString *title;
@@ -35,9 +36,6 @@
 @property (nonatomic, assign) UIReturnKeyType textInputReturnKeyType;
 @property (nonatomic, assign) BOOL textInputSecureTextEntry;
 @property (nonatomic, assign) BOOL textInputClearsOnBeginEditing;
-
-/// @brief The next responder. The AITTableView setup this value next section.
-@property (nonatomic, weak) id<AITResponder> nextAitResponder;
 
 /// @brief Create new value represents string value with name.
 /// @param title Human readable property name.

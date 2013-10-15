@@ -6,7 +6,6 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-
 #import <AirTableViewController/TableView/AITResponder.h>
 
 

@@ -6,6 +6,7 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
+#import <AirTableViewController/TableView/AITResponderValue.h>
 #import <AirTableViewController/TableView/AITValue.h>
 
 
@@ -13,7 +14,7 @@
 
 
 /// @brief The value represent boolean property in a source object.
-@interface AITSwitchValue : NSObject<AITValue>
+@interface AITSwitchValue : AITResponderValue<AITValue>
 
 /// @brief The value name.
 @property (nonatomic, copy) NSString *title;
@@ -24,9 +25,6 @@
 /// @brief The value represents whether value is empty and should not be interactable.
 /// @details If NO cell hides.
 @property (nonatomic, assign, getter=isEmpty) BOOL empty;
-
-/// @brief The next responder. The AITTableView setup this value next section.
-@property (nonatomic, weak) id<AITResponder> nextAitResponder;
 
 /// @brief Create new value represents boolean value with name.
 /// @param title Human readable property name.

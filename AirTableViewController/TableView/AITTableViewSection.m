@@ -165,7 +165,9 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 - (void)tableView:(UITableView *)tableView didDeselectRow:(NSInteger)row {
     NSObject<AITValue> *value = [self valueAtRow:row];
-    [value perform];
+    if ([value canBecomeFirstAitResponder]) {
+        [value becomeFirstAitResponder];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRow:(NSInteger)row {
@@ -250,23 +252,23 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     return YES;
 }
 
-- (BOOL)becomeFirstAitResponder {
+- (void)becomeFirstAitResponder {
     for (id<AITValue>value in self.allObjects) {
-        if ([value canBecomeFirstAitResponder] && [value becomeFirstAitResponder]) {
-            return YES;
+        if ([value canBecomeFirstAitResponder]) {
+            [value becomeFirstAitResponder];
+            return;
         }
     }
     [self.nextAitResponder becomeFirstAitResponder];
-    return NO;
 }
 
-- (BOOL)resignFirstAitResponder {
+- (void)resignFirstAitResponder {
     for (id<AITValue>value in self.allObjects) {
         if ([value isFirstAitResponder]) {
-            return [value resignFirstAitResponder];
+            [value resignFirstAitResponder];
+            return;
         }
     }
-    return YES;
 }
 
 - (BOOL)isFirstAitResponder {

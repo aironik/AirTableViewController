@@ -109,19 +109,8 @@
 }
 
 - (BOOL)canResignFirstAitResponder {
-    return NO;
+    return YES;
 }
 
-- (BOOL)becomeFirstAitResponder {
-    return NO;
-}
-
-- (BOOL)resignFirstAitResponder {
-    return NO;
-}
-
-- (BOOL)isFirstAitResponder {
-    return NO;
-}
 
 @end

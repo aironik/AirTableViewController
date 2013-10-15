@@ -52,4 +52,18 @@
     }
 }
 
+
+#pragma mark - AITResponder protocol implementation
+
+- (void)becomeFirstAitResponder {
+    [self setSelected:YES animated:NO];
+    [super becomeFirstAitResponder];
+}
+
+- (void)resignFirstAitResponder {
+    [self setSelected:NO animated:YES];
+    [super resignFirstAitResponder];
+}
+
+
 @end

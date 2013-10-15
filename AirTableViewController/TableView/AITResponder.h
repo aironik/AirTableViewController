@@ -31,13 +31,11 @@
 ///     get user input. Or date field shows date picker. If object cannot
 ///     become first responder it should delegate first responder to next
 ///     object throw responder chain.
-/// @return NO if object cannot become first responder and delegate first responder next.
-- (BOOL)becomeFirstAitResponder;
+- (void)becomeFirstAitResponder;
 
 /// @brief Resign first responder.
 /// @details If object cannot resign first responder this method do nothing.
-/// @return YES if object can resign first responder and NO otherwise.
-- (BOOL)resignFirstAitResponder;
+- (void)resignFirstAitResponder;
 
 /// @brief Return whether the object is first responder.
 - (BOOL)isFirstAitResponder;

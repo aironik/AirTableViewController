@@ -166,12 +166,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     AITTableViewSection *viewSection = self.sections[indexPath.section];
     [viewSection tableView:tableView didDeselectRow:indexPath.row];
-    AITTableViewCell *cell = (AITTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    if (cell.deselectImmediately) {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }
 }
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -234,7 +231,7 @@
     NSArray *visibleRows = [self.tableView indexPathsForVisibleRows];
     for (NSIndexPath *indexPath in visibleRows) {
         AITTableViewCell *cell = (AITTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-        NSParameterAssert([cell isKindOfClass:[AITTableViewCell class]]);
+        NSParameterAssert(!cell || [cell isKindOfClass:[AITTableViewCell class]]);
         if ([cell isKindOfClass:[AITTableViewCell class]] && [cell isFirstAitResponder]) {
             return indexPath;
         }

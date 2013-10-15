@@ -18,6 +18,9 @@
 
 
 @interface AITTableViewCell ()
+
+@property (nonatomic, assign, getter=isFirstAitResponder) BOOL firstAitResponder;
+
 @end
 
 
@@ -51,10 +54,9 @@
 
 - (void)setup {
     self.selectionStyle = UITableViewCellSelectionStyleBlue;
-    self.deselectImmediately = YES;
 }
 
-- (void)setValue:(id<AITValue>)value {
+- (void)setValue:(NSObject<AITValue> *)value {
     if (_value != value) {
         [self unsubscribeValueChanges];
 
@@ -66,7 +68,7 @@
 }
 
 - (NSArray *)keyPathsForSubscribe {
-    return @[ @"title", @"empty" ];
+    return @[ @"title", @"empty", @"firstAitResponder" ];
 }
 
 - (void)subscribeValueChanges {
@@ -90,8 +92,10 @@
                         change:(NSDictionary *)change
                        context:(void *)context {
     if (object == self.value) {
+        if ([@"firstAitResponder" isEqualToString:keyPath]) {
+            [self valueDidChangeFirstAitResponder:change];
+        } else if (!self.editing) {
         // If editing mode on user changes data. Thus changes from us and predicted recursion.
-        if (!self.editing) {
             [self updateSubviews];
         }
     }
@@ -103,6 +107,17 @@
     }
 }
 
+- (void)valueDidChangeFirstAitResponder:(NSDictionary *)change {
+    BOOL isFirstAitResponder = [change[NSKeyValueChangeNewKey] boolValue];
+    if ([self isFirstAitResponder] != isFirstAitResponder) {
+        if (isFirstAitResponder) {
+            [self becomeFirstAitResponder];
+        }
+        else {
+            [self resignFirstAitResponder];
+        }
+    }
+}
 
 #pragma mark - AITResponder protocol implementation
 
@@ -123,16 +138,22 @@
     return [self.value canResignFirstAitResponder];
 }
 
-- (BOOL)becomeFirstAitResponder {
-    return [self.value becomeFirstAitResponder];
+- (void)becomeFirstAitResponder {
+    if (![self.value isFirstAitResponder]) {
+        [self.value becomeFirstAitResponder];
+    }
+    self.firstAitResponder = YES;
 }
 
-- (BOOL)resignFirstAitResponder {
-    return [self.value resignFirstAitResponder];
+- (void)resignFirstAitResponder {
+    if ([self.value isFirstAitResponder]) {
+        [self.value resignFirstAitResponder];
+    }
+    self.firstAitResponder = NO;
 }
 
 - (BOOL)isFirstAitResponder {
-    return [self.value isFirstAitResponder];
+    return _firstAitResponder;
 }
 
 @end

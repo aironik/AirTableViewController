@@ -8,8 +8,6 @@
 
 #import "AITTextValue.h"
 
-#import "AITTextCell.h"
-
 
 #if !(__has_feature(objc_arc))
 #error ARC required. Add -fobjc-arc compiler flag for this file.
@@ -21,7 +19,7 @@
 @property (nonatomic, weak) NSObject *sourceObject;
 @property (nonatomic, copy) NSString *sourcePropertyName;
 
-@property (nonatomic, weak) AITTextCell *cell;
+@property (nonatomic, assign, getter=isFirstAitResponder) BOOL firstAitResponder;
 
 @end
 
@@ -129,29 +127,6 @@
 
 - (BOOL)canResignFirstAitResponder {
     return [self isValueValid];
-}
-
-- (BOOL)becomeFirstAitResponder {
-    if ([self canBecomeFirstAitResponder]) {
-        // FIXME: value model should not know about cell.
-        [self.cell.valueTextField becomeFirstResponder];
-        return YES;
-    }
-    return NO;
-}
-
-- (BOOL)resignFirstAitResponder {
-    if ([self isValueValid]) {
-        // FIXME: value model should not know about cell.
-        [self.cell.valueTextField resignFirstResponder];
-        return YES;
-    }
-    return NO;
-}
-
-- (BOOL)isFirstAitResponder {
-    // FIXME: value model should not know about cell.
-    return [self.cell.valueTextField isFirstResponder];
 }
 
 

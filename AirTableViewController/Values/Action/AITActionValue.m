@@ -69,21 +69,16 @@
     return YES;
 }
 
-- (BOOL)becomeFirstAitResponder {
-    if ([self canPerform]) {
+- (void)becomeFirstAitResponder {
+    [super becomeFirstAitResponder];
+    [super resignFirstAitResponder];
+}
+
+- (void)setFirstAitResponder:(BOOL)firstAitResponder {
+    if (firstAitResponder) {
         [self perform];
-        return YES;
     }
-    return NO;
+    [super setFirstAitResponder:firstAitResponder];
 }
-
-- (BOOL)resignFirstAitResponder {
-    return YES;
-}
-
-- (BOOL)isFirstAitResponder {
-    return NO;
-}
-
 
 @end
