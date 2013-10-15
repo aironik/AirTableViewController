@@ -17,10 +17,22 @@
 @property (nonatomic, copy) NSString *title;
 
 /// @brief The date value from source.
-@property (nonatomic, copy) NSDate *value;
+@property (nonatomic, strong) NSDate *value;
+
+/// @bierf The date that defines minimum possible date for pick. If not specified date picker have no minimum limit.
+@property (nonatomic, strong) NSDate *minimumDate;
+
+/// @bierf The date that defines maximum possible date for pick. If not specified date picker have no maximum limit.
+@property (nonatomic, strong) NSDate *maximumDate;
 
 /// @brief The value represents whether value is empty.
 @property (nonatomic, assign, getter=isEmpty) BOOL empty;
+
+/// @brief If YES user can change date.
+@property (nonatomic, assign) BOOL dateEditable;
+
+/// @brief The date formatter for convert date into string representation.
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 /// @brief Create new value represents string value with name.
 /// @param title Human readable property name.

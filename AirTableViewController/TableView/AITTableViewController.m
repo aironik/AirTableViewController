@@ -9,6 +9,7 @@
 #import "AITTableViewController.h"
 
 #import "AITActionCell.h"
+#import "AITDateCell.h"
 #import "AITHeaderFooterView.h"
 #import "AITPendingOperationCell.h"
 #import "AITResponderValue.h"
@@ -52,6 +53,7 @@
     }
     
     [AITActionCell setupTableView:self.tableView];
+    [AITDateCell setupTableView:self.tableView];
     [AITPendingOperationCell setupTableView:self.tableView];
     [AITSwitchCell setupTableView:self.tableView];
     [AITTextCell setupTableView:self.tableView];
