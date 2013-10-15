@@ -19,8 +19,6 @@
 @property (nonatomic, weak) NSObject *sourceObject;
 @property (nonatomic, copy) NSString *sourcePropertyName;
 
-@property (nonatomic, assign, getter=isFirstAitResponder) BOOL firstAitResponder;
-
 @end
 
 

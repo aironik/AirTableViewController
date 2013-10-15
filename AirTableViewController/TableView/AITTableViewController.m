@@ -9,11 +9,12 @@
 #import "AITTableViewController.h"
 
 #import "AITActionCell.h"
+#import "AITHeaderFooterView.h"
 #import "AITPendingOperationCell.h"
+#import "AITResponderValue.h"
 #import "AITSwitchCell.h"
 #import "AITTableViewSection.h"
 #import "AITTextCell.h"
-#import "AITHeaderFooterView.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -61,14 +62,26 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    self.bottomConstraint.constant = self.bottomSpace;
+    self.topConstraint.constant = self.topSpace;
+
     NSArray *selectedRows = [self.tableView indexPathsForSelectedRows];
     for (NSIndexPath *indexPath in selectedRows) {
         [self.tableView deselectRowAtIndexPath:indexPath animated:animated];
     }
+
     [self subscribeForKeyboardNotifications];
+    [self subscribeForValueBecomeFirstAitResponderNotification];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    // iOS 7 fix. If go back from other view and other view opened while keyboard did shown.
+    self.bottomConstraint.constant = self.bottomSpace;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
+    [self unsubscribeForValueBecomeFirstAitResponderNotification];
     [self unsubscribeForKeyboardNotifications];
 
     [super viewDidDisappear:animated];
@@ -217,13 +230,15 @@
 
     NSIndexPath *activeIndexPath = [self indexPathForFirstAitResponder];
     UITableView *blockTableView = self.tableView;
-
+    
     [UIView animateWithDuration:duration animations:^{
         self.bottomConstraint.constant = bottomOffset;
     }                completion:^(BOOL finished) {
-        [blockTableView scrollToRowAtIndexPath:activeIndexPath
-                              atScrollPosition:UITableViewScrollPositionMiddle
-                                      animated:YES];
+        if (activeIndexPath) {
+            [blockTableView scrollToRowAtIndexPath:activeIndexPath
+                                  atScrollPosition:UITableViewScrollPositionMiddle
+                                          animated:YES];
+        }
     }];
 }
 
@@ -239,6 +254,42 @@
     return nil;
 }
 
+- (void)subscribeForValueBecomeFirstAitResponderNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(valueBecomeFirstAitResponderNotification:)
+                                                 name:kAITValueBecomeFirstAitResponder
+                                               object:nil];
+}
+
+- (void)unsubscribeForValueBecomeFirstAitResponderNotification {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kAITValueBecomeFirstAitResponder
+                                                  object:nil];
+}
+
+- (void)valueBecomeFirstAitResponderNotification:(NSNotification *)notification {
+    NSIndexPath *indexPath = [self indexPathForValue:[notification object]];
+    if (indexPath) {
+        [self.tableView scrollToRowAtIndexPath:indexPath
+                              atScrollPosition:UITableViewScrollPositionTop
+                                      animated:YES];
+    }
+}
+
+- (NSIndexPath *)indexPathForValue:(AITResponderValue *)value {
+    // FIXME: optimize if need. E.g. setup indexes and use delegate for selection.
+    for (NSInteger sectionIndex = 0; sectionIndex < [self.sections count]; ++sectionIndex) {
+        AITTableViewSection *section = self.sections[sectionIndex];
+        NSArray *allObjects = section.allObjects;
+        for (NSInteger rowIndex = 0; rowIndex < [allObjects count]; ++rowIndex) {
+            if (allObjects[rowIndex] == value) {
+                return [NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex];
+            }
+        }
+    }
+    return nil;
+}
+
 - (void)save {
     
 }
@@ -249,3 +300,4 @@
 
 
 @end
+

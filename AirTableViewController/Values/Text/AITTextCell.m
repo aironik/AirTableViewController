@@ -75,9 +75,15 @@
     self.valueTextField.clearsOnBeginEditing = self.textValue.textInputClearsOnBeginEditing;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    NSParameterAssert(textField == self.valueTextField);
+    [self becomeFirstAitResponder];
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     NSParameterAssert(textField == self.valueTextField);
     self.textValue.value = textField.text;
+    [self resignFirstAitResponder];
 }
 
 - (void)textFieldTextDidChange:(NSNotification *)notification {
@@ -87,12 +93,22 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if ([self canResignFirstAitResponder]) {
-        [self.valueTextField resignFirstResponder];
-        [self resignFirstAitResponder];
         [self.value.nextAitResponder becomeFirstAitResponder];
     }
     return NO;
 }
 
+
+#pragma mark - AITResponder protocol implementation
+
+- (void)becomeFirstAitResponder {
+    [self.valueTextField becomeFirstResponder];
+    [super becomeFirstAitResponder];
+}
+
+- (void)resignFirstAitResponder {
+    [self.valueTextField resignFirstResponder];
+    [super resignFirstAitResponder];
+}
 
 @end

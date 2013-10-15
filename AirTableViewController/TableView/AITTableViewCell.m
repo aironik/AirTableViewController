@@ -56,6 +56,12 @@
     self.selectionStyle = UITableViewCellSelectionStyleBlue;
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    
+    self.firstAitResponder = NO;
+}
+
 - (void)setValue:(NSObject<AITValue> *)value {
     if (_value != value) {
         [self unsubscribeValueChanges];
@@ -63,7 +69,21 @@
         _value = value;
 
         [self updateSubviews];
+        [self updateAitResponderState];
         [self subscribeValueChanges];
+    }
+}
+
+- (void)setHidden:(BOOL)hidden {
+    [super setHidden:hidden];
+    if (!hidden) {
+        [self updateAitResponderState];
+    }
+}
+
+- (void)updateAitResponderState {
+    if ([self.value isFirstAitResponder]) {
+        [self becomeFirstAitResponder];
     }
 }
 
@@ -139,17 +159,17 @@
 }
 
 - (void)becomeFirstAitResponder {
+    self.firstAitResponder = YES;
     if (![self.value isFirstAitResponder]) {
         [self.value becomeFirstAitResponder];
     }
-    self.firstAitResponder = YES;
 }
 
 - (void)resignFirstAitResponder {
+    self.firstAitResponder = NO;
     if ([self.value isFirstAitResponder]) {
         [self.value resignFirstAitResponder];
     }
-    self.firstAitResponder = NO;
 }
 
 - (BOOL)isFirstAitResponder {

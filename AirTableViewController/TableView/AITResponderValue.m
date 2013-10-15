@@ -15,7 +15,7 @@
 
 
 NSString *const kAITValueBecomeFirstAitResponder = @"kAITValueBecomeFirstAitResponder";
-NSString *const kAITValueResignFirstAitResponder = @"kAITValueBecomeFirstAitResponder";
+NSString *const kAITValueResignFirstAitResponder = @"kAITValueResignFirstAitResponder";
 
 
 @interface AITResponderValue ()
@@ -40,6 +40,10 @@ NSString *const kAITValueResignFirstAitResponder = @"kAITValueBecomeFirstAitResp
 }
 
 - (void)becomeFirstAitResponder {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(otherValueBecomeFirstAitResponderNotification:)
+                                                 name:kAITValueBecomeFirstAitResponder
+                                               object:nil];
     if ([self canBecomeFirstAitResponder]) {
         self.firstAitResponder = YES;
     }
@@ -49,6 +53,9 @@ NSString *const kAITValueResignFirstAitResponder = @"kAITValueBecomeFirstAitResp
     if ([self canResignFirstAitResponder]) {
         self.firstAitResponder = NO;
     }
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kAITValueBecomeFirstAitResponder
+                                                  object:nil];
 }
 
 - (void)setFirstAitResponder:(BOOL)firstAitResponder {
@@ -57,6 +64,12 @@ NSString *const kAITValueResignFirstAitResponder = @"kAITValueBecomeFirstAitResp
 
         NSString *name = (_firstAitResponder ? kAITValueBecomeFirstAitResponder : kAITValueResignFirstAitResponder);
         [[NSNotificationCenter defaultCenter] postNotificationName:name object:self];
+    }
+}
+
+- (void)otherValueBecomeFirstAitResponderNotification:(NSNotification *)notification {
+    if ([notification object] != self && [self isFirstAitResponder]) {
+        [self resignFirstAitResponder];
     }
 }
 
