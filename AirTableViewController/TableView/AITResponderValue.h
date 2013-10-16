@@ -16,6 +16,9 @@ extern NSString *const kAITValueBecomeFirstAitResponder;
 extern NSString *const kAITValueResignFirstAitResponder;
 
 
+@protocol AITValueDelegate;
+
+
 /// @brief base value class that implements base AITResponder chain.
 @interface AITResponderValue : NSObject<AITResponder>
 
@@ -25,5 +28,7 @@ extern NSString *const kAITValueResignFirstAitResponder;
 
 /// @brief The next responder. The AITTableView setup this value next section.
 @property (nonatomic, weak) id<AITResponder> nextAitResponder;
+
+@property (nonatomic, weak) NSObject<AITValueDelegate> *delegate;
 
 @end

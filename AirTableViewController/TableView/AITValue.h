@@ -9,6 +9,8 @@
 #import <AirTableViewController/TableView/AITResponder.h>
 
 
+@protocol AITValueDelegate;
+
 /// @brief Protocol defines value in the table view cell
 @protocol AITValue<AITResponder>
 
@@ -25,5 +27,9 @@
 
 /// @brief Perform action for value if user interact with cell.
 - (void)perform;
+
+/// @brief The delegate that executes external actions for value e.g. scroll to visible or insert additional cell.
+- (NSObject<AITValueDelegate> *)delegate;
+- (void)setDelegate:(NSObject<AITValueDelegate> *)delegate;
 
 @end

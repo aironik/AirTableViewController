@@ -15,6 +15,7 @@
 #import "AITResponderValue.h"
 #import "AITSwitchCell.h"
 #import "AITTableViewSection.h"
+#import "AITTableViewSectionDelegate.h"
 #import "AITTextCell.h"
 
 
@@ -23,7 +24,7 @@
 #endif
 
 
-@interface AITTableViewController ()
+@interface AITTableViewController ()<AITTableViewSectionDelegate>
 
 @property (nonatomic, assign) BOOL loadedFromNib;
 
@@ -110,10 +111,12 @@
 }
 
 - (void)updateSectionsResponderChain {
-    id<AITResponder> previousResponder = nil;
-    for (id<AITResponder> responder in self.sections) {
-        [previousResponder setNextAitResponder:responder];
-        previousResponder = responder;
+    AITTableViewSection *previousSection = nil;
+    for (AITTableViewSection *section in self.sections) {
+        section.delegate = self;
+
+        [previousSection setNextAitResponder:section];
+        previousSection = section;
     }
 }
 
@@ -291,6 +294,23 @@
     }
     return nil;
 }
+
+#pragma mark - AITTableViewSectionDelegate protocol implementation
+
+- (void)section:(AITTableViewSection *)section insertCellAtRow:(NSInteger)row {
+
+}
+
+- (void)section:(AITTableViewSection *)section updateCellAtRow:(NSInteger)row {
+
+}
+
+- (void)section:(AITTableViewSection *)section deleteCellAtRow:(NSInteger)row {
+
+}
+
+
+#pragma mark -
 
 - (void)save {
     

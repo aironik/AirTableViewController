@@ -9,11 +9,13 @@
 #import "AITTableViewSection.h"
 #import "AITTableViewSection+AITProtected.h"
 
+#import "AITHeaderFooterView.h"
+#import "AITTableViewCell.h"
+#import "AITTableViewSectionDelegate.h"
 #import "AITTextCell.h"
 #import "AITTextValue.h"
-#import "AITTableViewCell.h"
 #import "AITValue.h"
-#import "AITHeaderFooterView.h"
+#import "AITValueDelegate.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -24,11 +26,20 @@
 const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableViewRowAnimationFade;
 
 
-@interface AITTableViewSection ()
+@interface AITTableViewSection ()<AITValueDelegate>
 
 @property (nonatomic, strong) NSArray *filledObjects;
 @property (nonatomic, strong) AITHeaderFooterView *headerView;
 @property (nonatomic, strong) AITHeaderFooterView *footerView;
+
+// The dictionary that contains cell identifiers for values that has requested additional cells for show additional data.
+// key => index of value in the allObjects array
+// value => cell identifier for additional data
+@property (nonatomic, strong, readonly) NSMutableDictionary *additionalDataCellIdentifiers;
+// The dictionary that contains cell identifiers for values that has requested additional cells for show additional data.
+// key => index of value in the filledObjects array
+// value => cell identifier for additional data
+@property (nonatomic, strong, readonly) NSMutableDictionary *additionalDataFilledCellIdentifiers;
 
 - (NSArray *)currentObjects;
 
@@ -41,18 +52,52 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 @synthesize headerViewIdentifier = _headerViewIdentifier;
 @synthesize footerViewIdentifier = _footerViewIdentifier;
+@synthesize additionalDataCellIdentifiers = _additionalDataCellIdentifiers;
+@synthesize additionalDataFilledCellIdentifiers = _additionalDataFilledCellIdentifiers;
+
+
+- (NSMutableDictionary *)additionalDataCellIdentifiers {
+    if (!_additionalDataCellIdentifiers) {
+        _additionalDataCellIdentifiers = [NSMutableDictionary dictionary];
+    }
+    return _additionalDataCellIdentifiers;
+}
+
+- (NSMutableDictionary *)additionalDataFilledCellIdentifiers {
+    if (!_additionalDataFilledCellIdentifiers) {
+        _additionalDataFilledCellIdentifiers = [NSMutableDictionary dictionary];
+    }
+    return _additionalDataFilledCellIdentifiers;
+}
 
 - (void)setAllObjects:(NSArray *)allObjects {
-    _allObjects = [allObjects copy];
-    [self updateObjectsResponderChain];
-    [self updateFilledObjects];
+    if (_allObjects != allObjects) {
+        [self.additionalDataCellIdentifiers removeAllObjects];
+        [self.additionalDataFilledCellIdentifiers removeAllObjects];
+
+        _allObjects = [allObjects copy];
+
+        [self updateObjectsResponderChain];
+        [self updateFilledObjects];
+
+    }
 }
 
 - (void)updateFilledObjects {
-    NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id<AITValue> value, NSDictionary *bindings) {
-        return !value.isEmpty;
+    NSMutableArray *filledObjects = [NSMutableArray array];
+    [self.additionalDataFilledCellIdentifiers removeAllObjects];
+
+    [self.allObjects enumerateObjectsUsingBlock:^(id<AITValue> value, NSUInteger idx, BOOL *stop) {
+        if (!value.isEmpty) {
+            NSInteger filledObjectIndex = [filledObjects count];
+            NSString *cellIdentifier = self.additionalDataCellIdentifiers[@(idx)];
+            if (cellIdentifier) {
+                self.additionalDataFilledCellIdentifiers[@(filledObjectIndex)] = cellIdentifier;
+            }
+            [filledObjects addObject:value];
+        }
     }];
-    self.filledObjects = [self.allObjects filteredArrayUsingPredicate:predicate];
+    self.filledObjects = [filledObjects copy];
 }
 
 - (void)tableView:(UITableView *)tableView setEditing:(BOOL)editing currentSectionIndex:(NSInteger)index {
@@ -63,17 +108,17 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     }];
 }
 
-- (void)tableView:(UITableView *)tableView currentSectionIndex:(NSInteger)index changes:(AITTableViewSectionChanges)changes {
+- (void)tableView:(UITableView *)tableView currentSectionIndex:(NSInteger)sectionIndex changes:(AITTableViewSectionChanges)changes {
     NSParameterAssert(changes);
 
-    BOOL changed = NO;
-    NSArray *previousObjects = self.currentObjects;
+    BOOL didChange = NO;
+    NSArray *previousObjects = [self currentObjects];
     if (changes) {
-        changed = changes();
+        didChange = changes();
         [self updateFilledObjects];
     }
-    if (changed) {
-        [self tableView:tableView currentSectionIndex:index mergeFromPreviousObjects:previousObjects];
+    if (didChange) {
+        [self tableView:tableView currentSectionIndex:sectionIndex mergeFromPreviousObjects:previousObjects];
     }
 }
 
@@ -138,23 +183,72 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     return nil;
 }
 
+- (void)findValueIndexForRow:(NSInteger)row withFoundBlock:(void(^)(NSInteger valueIndex, BOOL isAdditional))foundBlock {
+    NSDictionary *currentAdditionalRows = [self currentAdditionalDataCellIdentifiers];
+
+    NSInteger valueIdx = 0;
+    NSInteger additionalCount = 0;
+    BOOL lastAdditional = NO;
+    for (valueIdx = 0; valueIdx + additionalCount < row; ++valueIdx) {
+        if (currentAdditionalRows[@(valueIdx)]) {
+            ++additionalCount;
+            lastAdditional = YES;
+        }
+        else {
+            lastAdditional = NO;
+        }
+    }
+
+    BOOL isAdditional = (lastAdditional && valueIdx + additionalCount == row);
+    foundBlock(valueIdx, isAdditional);
+}
+
+- (void)findRowForValueIndex:(NSInteger)valueIndex withFoundBlock:(void(^)(NSInteger row))foundBlock {
+    NSDictionary *currentAdditionalRows = [self currentAdditionalDataCellIdentifiers];
+
+    NSInteger additionalCount = 0;
+    for (NSInteger idx = 0; idx < valueIndex; ++idx) {
+        if (currentAdditionalRows[@(idx)]) {
+            ++additionalCount;
+        }
+    }
+    foundBlock(additionalCount + valueIndex);
+}
+
 - (id<AITValue>)valueAtRow:(NSInteger)row {
-    return [[self currentObjects] objectAtIndex:row];
+    NSArray *currentObjects = [self currentObjects];
+    __block id<AITValue> result = nil;
+    [self findValueIndexForRow:row withFoundBlock:^(NSInteger valueIndex, BOOL isAdditional) {
+        result = currentObjects[valueIndex];
+    }];
+    return result;
 }
 
 - (NSArray *)currentObjects {
     return (self.editing ? self.allObjects : self.filledObjects);
 }
 
+- (NSDictionary *)currentAdditionalDataCellIdentifiers {
+    return (self.editing ? self.additionalDataCellIdentifiers : self.additionalDataFilledCellIdentifiers);
+}
+
 - (NSInteger)tableViewNumberOfRows:(UITableView *)tableView {
-    return (self.editing ? [self.allObjects count] : [self.filledObjects count]);
+    return [[self currentObjects] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRow:(NSInteger)row {
-    NSObject<AITValue> *value = [self valueAtRow:row];
-    NSString *cellIdentifier = [[value class] cellIdentifier];
-    AITTableViewCell *result = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    result.value = value;
+    __block AITTableViewCell *result = nil;
+
+    NSDictionary *currentAdditionalRows = [self currentAdditionalDataCellIdentifiers];
+    NSArray *currentObjects = [self currentObjects];
+
+    [self findValueIndexForRow:row withFoundBlock:^(NSInteger valueIndex, BOOL isAdditional) {
+        id<AITValue> value = currentObjects[valueIndex];
+        NSString *cellIdentifier = (isAdditional ? currentAdditionalRows[@(valueIndex)] : [[value class] cellIdentifier]);
+        result = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        result.value = value;
+    }];
+
     result.editing = self.editing;
     return result;
 }
@@ -164,10 +258,15 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRow:(NSInteger)row {
-    NSObject<AITValue> *value = [self valueAtRow:row];
-    if ([value canBecomeFirstAitResponder]) {
-        [value becomeFirstAitResponder];
-    }
+    NSArray *currentObjects = [self currentObjects];
+    [self findValueIndexForRow:row withFoundBlock:^(NSInteger valueIndex, BOOL isAdditional) {
+        if (!isAdditional) {
+            id<AITValue> value = currentObjects[valueIndex];
+            if ([value canBecomeFirstAitResponder]) {
+                [value becomeFirstAitResponder];
+            }
+        }
+    }];
 }
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRow:(NSInteger)row {
@@ -221,10 +320,12 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)updateObjectsResponderChain {
-    id<AITResponder> previousResponder = nil;
-    for (id<AITResponder> responder in self.allObjects) {
+    AITResponderValue *previousResponder = nil;
+    for (AITResponderValue *responder in self.allObjects) {
         [previousResponder setNextAitResponder:responder];
         previousResponder = responder;
+
+        responder.delegate = self;
     }
     [self updateLastObjectResponderChain];
 }
@@ -279,5 +380,45 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     }
     return NO;
 }
+
+#pragma mark - AITValueDelegate protocol implementation
+
+- (void)value:(id<AITValue>)value presentAdditionalaDataInCellWithIdentifier:(NSString *)cellIdentifier {
+    NSInteger valueIndex = [self.allObjects indexOfObject:value];
+    if (cellIdentifier && valueIndex != NSNotFound) {
+        NSNumber *valueIndexNumber = @(valueIndex);
+        BOOL addingCell = (self.additionalDataCellIdentifiers[valueIndexNumber] == nil);
+        self.additionalDataCellIdentifiers[valueIndexNumber] = cellIdentifier;
+
+        [self findRowForValueIndex:valueIndex withFoundBlock:^(NSInteger row) {
+            if (addingCell) {
+                [self.delegate section:self insertCellAtRow:row + 1];
+            }
+            else {
+                [self.delegate section:self updateCellAtRow:row + 1];
+            }
+        }];
+    }
+}
+
+- (void)value:(id<AITValue>)value dismissAdditionalaDataInCellWithIdentifier:(NSString *)cellIdentifier {
+    NSInteger valueIndex = [self.allObjects indexOfObject:value];
+    if (cellIdentifier && valueIndex != NSNotFound) {
+        NSNumber *valueIndexNumber = @(valueIndex);
+        NSAssert([cellIdentifier isEqualToString:self.additionalDataCellIdentifiers[valueIndexNumber]], @"Impropper additional cell identifier for dismiss.");
+        BOOL removingCell = (self.additionalDataCellIdentifiers[valueIndexNumber] != nil);
+        if (removingCell) {
+            [self.additionalDataCellIdentifiers removeObjectForKey:valueIndexNumber];
+            [self findRowForValueIndex:valueIndex withFoundBlock:^(NSInteger row) {
+                [self.delegate section:self deleteCellAtRow:row + 1];
+            }];
+        }
+    }
+}
+
+- (void)valueNeedShow:(id<AITValue>)value {
+    // TODO: write me
+}
+
 
 @end

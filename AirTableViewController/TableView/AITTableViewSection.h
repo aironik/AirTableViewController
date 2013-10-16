@@ -15,6 +15,8 @@ extern const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation;
 
 @class AITHeaderFooterView;
 
+@protocol AITTableViewSectionDelegate;
+
 
 @interface AITTableViewSection : NSObject<AITResponder>
 
@@ -38,6 +40,8 @@ extern const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation;
 
 /// @brief The next responder. The AITTableView setup this value next section.
 @property (nonatomic, weak) id<AITResponder> nextAitResponder;
+
+@property (nonatomic, weak) NSObject<AITTableViewSectionDelegate> *delegate;
 
 - (void)tableView:(UITableView *)tableView setEditing:(BOOL)editing currentSectionIndex:(NSInteger)index;
 
