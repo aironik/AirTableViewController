@@ -130,9 +130,14 @@
 }
 
 - (void)becomeFirstAitResponder {
-    [super becomeFirstAitResponder];
-    if (self.dateEditable) {
-        [self.delegate value:self presentAdditionalaDataInCellWithIdentifier:self.pickerCellIdentifier];
+    if ([self isFirstAitResponder]) {
+        [self resignFirstAitResponder];
+    }
+    else {
+        [super becomeFirstAitResponder];
+        if (self.dateEditable) {
+            [self.delegate value:self presentAdditionalaDataInCellWithIdentifier:self.pickerCellIdentifier];
+        }
     }
 }
 
