@@ -189,7 +189,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     NSInteger valueIdx = 0;
     NSInteger additionalCount = 0;
     BOOL lastAdditional = NO;
-    for (valueIdx = 0; valueIdx + additionalCount < row; ++valueIdx) {
+    for (valueIdx = 0; valueIdx + additionalCount <= row; ++valueIdx) {
         if (currentAdditionalRows[@(valueIdx)]) {
             ++additionalCount;
             lastAdditional = YES;
@@ -198,6 +198,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
             lastAdditional = NO;
         }
     }
+    valueIdx = (valueIdx == 0 ? NSNotFound : valueIdx - 1);
 
     BOOL isAdditional = (lastAdditional && valueIdx + additionalCount == row);
     foundBlock(valueIdx, isAdditional);
@@ -233,7 +234,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (NSInteger)tableViewNumberOfRows:(UITableView *)tableView {
-    return [[self currentObjects] count];
+    return [[self currentObjects] count] + [self.currentAdditionalDataCellIdentifiers count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRow:(NSInteger)row {
@@ -254,7 +255,9 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRow:(NSInteger)row {
-    return [tableView rowHeight];
+    AITTableViewCell *cell = (AITTableViewCell *)[self tableView:tableView cellForRow:row];
+    CGFloat result = [cell prefferedHeight];
+    return (result > 0. ? result : [tableView rowHeight]);
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRow:(NSInteger)row {
@@ -389,13 +392,17 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
         NSNumber *valueIndexNumber = @(valueIndex);
         BOOL addingCell = (self.additionalDataCellIdentifiers[valueIndexNumber] == nil);
         self.additionalDataCellIdentifiers[valueIndexNumber] = cellIdentifier;
+        NSInteger valueFilledIndex = [self.filledObjects indexOfObject:value];
+        if (valueFilledIndex != NSNotFound) {
+            self.additionalDataFilledCellIdentifiers[@(valueFilledIndex)] = cellIdentifier;
+        }
 
         [self findRowForValueIndex:valueIndex withFoundBlock:^(NSInteger row) {
             if (addingCell) {
                 [self.delegate section:self insertCellAtRow:row + 1];
             }
             else {
-                [self.delegate section:self updateCellAtRow:row + 1];
+                [self.delegate section:self reloadCellAtRow:row + 1];
             }
         }];
     }
@@ -408,8 +415,13 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
         NSAssert([cellIdentifier isEqualToString:self.additionalDataCellIdentifiers[valueIndexNumber]], @"Impropper additional cell identifier for dismiss.");
         BOOL removingCell = (self.additionalDataCellIdentifiers[valueIndexNumber] != nil);
         if (removingCell) {
-            [self.additionalDataCellIdentifiers removeObjectForKey:valueIndexNumber];
+            NSInteger valueFilledIndex = [self.filledObjects indexOfObject:value];
+
             [self findRowForValueIndex:valueIndex withFoundBlock:^(NSInteger row) {
+                [self.additionalDataCellIdentifiers removeObjectForKey:valueIndexNumber];
+                if (valueFilledIndex != NSNotFound) {
+                    [self.additionalDataFilledCellIdentifiers removeObjectForKey:@(valueFilledIndex)];
+                }
                 [self.delegate section:self deleteCellAtRow:row + 1];
             }];
         }

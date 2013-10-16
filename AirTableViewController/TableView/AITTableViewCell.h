@@ -27,4 +27,7 @@
 /// @details Register cell xib for class
 + (void)setupTableView:(UITableView *)tableView;
 
+/// @brief Defines cell height for value. If 0 table view should use default -rowHeight value.
+- (CGFloat)prefferedHeight;
+
 @end

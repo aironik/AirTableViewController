@@ -34,6 +34,10 @@
     [tableView registerNib:nib forCellReuseIdentifier:className];
 }
 
+- (CGFloat)prefferedHeight {
+    return 0.;
+}
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         NSAssert(NO, @"Does not implemented. titleLabel and valueLabel didn't created.");

@@ -8,6 +8,8 @@
 
 #import "AITDateValue.h"
 
+#import "AITValueDelegate.h"
+
 
 #if !(__has_feature(objc_arc))
 #error ARC required. Add -fobjc-arc compiler flag for this file.
@@ -18,6 +20,8 @@
 
 @property (nonatomic, weak) NSObject *sourceObject;
 @property (nonatomic, copy) NSString *sourcePropertyName;
+
+@property (nonatomic, copy) NSString *pickerCellIdentifier;
 
 @end
 
@@ -50,6 +54,8 @@
                         forKeyPath:sourcePropertyName
                            options:NSKeyValueObservingOptionNew
                            context:NULL];
+
+        _pickerCellIdentifier = @"AITDatePickerCell";
     }
     return self;
 }
@@ -123,5 +129,18 @@
     return YES;
 }
 
+- (void)becomeFirstAitResponder {
+    [super becomeFirstAitResponder];
+    if (self.dateEditable) {
+        [self.delegate value:self presentAdditionalaDataInCellWithIdentifier:self.pickerCellIdentifier];
+    }
+}
+
+- (void)resignFirstAitResponder {
+    [super resignFirstAitResponder];
+    if (self.dateEditable) {
+        [self.delegate value:self dismissAdditionalaDataInCellWithIdentifier:self.pickerCellIdentifier];
+    }
+}
 
 @end

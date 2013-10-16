@@ -15,7 +15,7 @@
 @required
 
 - (void)section:(AITTableViewSection *)section insertCellAtRow:(NSInteger)row;
-- (void)section:(AITTableViewSection *)section updateCellAtRow:(NSInteger)row;
+- (void)section:(AITTableViewSection *)section reloadCellAtRow:(NSInteger)row;
 - (void)section:(AITTableViewSection *)section deleteCellAtRow:(NSInteger)row;
 
 @end

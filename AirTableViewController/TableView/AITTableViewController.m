@@ -10,6 +10,7 @@
 
 #import "AITActionCell.h"
 #import "AITDateCell.h"
+#import "AITDatePickerCell.h"
 #import "AITHeaderFooterView.h"
 #import "AITPendingOperationCell.h"
 #import "AITResponderValue.h"
@@ -55,6 +56,7 @@
     
     [AITActionCell setupTableView:self.tableView];
     [AITDateCell setupTableView:self.tableView];
+    [AITDatePickerCell setupTableView:self.tableView];
     [AITPendingOperationCell setupTableView:self.tableView];
     [AITSwitchCell setupTableView:self.tableView];
     [AITTextCell setupTableView:self.tableView];
@@ -298,15 +300,21 @@
 #pragma mark - AITTableViewSectionDelegate protocol implementation
 
 - (void)section:(AITTableViewSection *)section insertCellAtRow:(NSInteger)row {
-
+    NSInteger sectionIndex = [self.sections indexOfObject:section];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:sectionIndex];
+    [self.tableView insertRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-- (void)section:(AITTableViewSection *)section updateCellAtRow:(NSInteger)row {
-
+- (void)section:(AITTableViewSection *)section reloadCellAtRow:(NSInteger)row {
+    NSInteger sectionIndex = [self.sections indexOfObject:section];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:sectionIndex];
+    [self.tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)section:(AITTableViewSection *)section deleteCellAtRow:(NSInteger)row {
-
+    NSInteger sectionIndex = [self.sections indexOfObject:section];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:sectionIndex];
+    [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 
