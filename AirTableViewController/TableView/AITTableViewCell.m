@@ -53,6 +53,7 @@
 }
 
 - (void)dealloc {
+    [self unsubscribeAitResponderValueChanges];
     [self unsubscribeValueChanges];
 }
 
@@ -68,13 +69,15 @@
 
 - (void)setValue:(NSObject<AITValue> *)value {
     if (_value != value) {
+        [self unsubscribeAitResponderValueChanges];
         [self unsubscribeValueChanges];
-
+        
         _value = value;
 
         [self updateSubviews];
         [self updateAitResponderState];
         [self subscribeValueChanges];
+        [self subscribeAitResponderValueChanges];
     }
 }
 
@@ -92,7 +95,7 @@
 }
 
 - (NSArray *)keyPathsForSubscribe {
-    return @[ @"title", @"empty", @"firstAitResponder" ];
+    return @[ @"title", @"empty" ];
 }
 
 - (void)subscribeValueChanges {
@@ -105,6 +108,15 @@
     for (NSString *keyPath in [self keyPathsForSubscribe]) {
         [self.value removeObserver:self forKeyPath:keyPath];
     }
+}
+
+- (void)subscribeAitResponderValueChanges {
+    [self.value addObserver:self forKeyPath:@"firstAitResponder" options:NSKeyValueObservingOptionNew context:NULL];
+    
+}
+
+- (void)unsubscribeAitResponderValueChanges {
+    [self.value removeObserver:self forKeyPath:@"firstAitResponder"];
 }
 
 - (void)updateSubviews {

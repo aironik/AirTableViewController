@@ -317,6 +317,38 @@
     [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
+- (void)section:(AITTableViewSection *)section scrollToRow:(NSInteger)row {
+    NSInteger sectionIndex = [self.sections indexOfObject:section];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:sectionIndex];
+    [self.tableView scrollToRowAtIndexPath:indexPath
+                          atScrollPosition:UITableViewScrollPositionNone
+                                  animated:YES];
+}
+
+- (UIPopoverController *)section:(AITTableViewSection *)section
+       showPopoverWithController:(UIViewController *)viewController
+                         fromRow:(NSInteger)row
+{
+    NSInteger sectionIndex = [self.sections indexOfObject:section];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:sectionIndex];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    if (!cell) {
+        // FIXME:
+        [self.tableView scrollToRowAtIndexPath:indexPath
+                              atScrollPosition:UITableViewScrollPositionNone
+                                      animated:NO];
+        cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    }
+    CGRect cellRect = [self.view convertRect:cell.bounds fromView:cell];
+
+    UIPopoverController *result = [[UIPopoverController alloc] initWithContentViewController:viewController];
+    [result presentPopoverFromRect:cellRect
+                            inView:self.view
+          permittedArrowDirections:UIPopoverArrowDirectionAny
+                          animated:YES];
+    return result;
+}
+
 
 #pragma mark -
 

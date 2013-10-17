@@ -24,4 +24,8 @@
 /// @brief Tells the delegate that value should be shown and table view should scroll to specified cell.
 - (void)valueNeedShow:(id<AITValue>)value;
 
+/// @brief Tell the delegate show viewController in popover controller.
+/// @return The popover controller that presents viewController.
+- (UIPopoverController *)value:(id<AITValue>)value showPopoverWithController:(UIViewController *)viewController;
+
 @end

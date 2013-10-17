@@ -46,19 +46,8 @@
 
 - (void)updateSubviews {
     [super updateSubviews];
-
-    NSDate *date = self.dateValue.value;
-    if (!date) {
-        date = self.dateValue.maximumDate;
-    }
-    if (!date) {
-        date = self.dateValue.minimumDate;
-    }
-    if (!date) {
-        date = [NSDate date];
-    }
     
-    [self.datePicker setDate:date animated:YES];
+    [self.datePicker setDate:[self.dateValue dateForPicker] animated:YES];
 }
 
 

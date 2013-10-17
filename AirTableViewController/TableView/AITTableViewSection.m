@@ -429,8 +429,13 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)valueNeedShow:(id<AITValue>)value {
-    // TODO: write me
+    NSInteger valueIndex = [[self currentObjects] indexOfObject:value];
+    [self.delegate section:self scrollToRow:valueIndex];
 }
 
+- (UIPopoverController *)value:(id<AITValue>)value showPopoverWithController:(UIViewController *)viewController {
+    NSInteger valueIndex = [[self currentObjects] indexOfObject:value];
+    return [self.delegate section:self showPopoverWithController:viewController fromRow:valueIndex];
+}
 
 @end

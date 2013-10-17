@@ -8,6 +8,7 @@
 
 #import "AITDateValue.h"
 
+#import "AITDatePickerPopover.h"
 #import "AITValueDelegate.h"
 
 
@@ -16,12 +17,15 @@
 #endif
 
 
-@interface AITDateValue ()
+@interface AITDateValue ()<UIPopoverControllerDelegate>
 
 @property (nonatomic, weak) NSObject *sourceObject;
 @property (nonatomic, copy) NSString *sourcePropertyName;
 
 @property (nonatomic, copy) NSString *pickerCellIdentifier;
+
+@property (nonatomic, assign) BOOL showDatePickerInPopover;
+@property (nonatomic, strong) AITDatePickerPopover *datePickerPopover;
 
 @end
 
@@ -56,6 +60,8 @@
                            context:NULL];
 
         _pickerCellIdentifier = @"AITDatePickerCell";
+
+        _showDatePickerInPopover = [[self class] systemDatePickerInPopover];
     }
     return self;
 }
@@ -77,6 +83,20 @@
 
 - (void)setValue:(NSDate *)value {
     [self.sourceObject setValue:value forKeyPath:self.sourcePropertyName];
+}
+
+- (NSDate *)dateForPicker {
+    NSDate *date = self.value;
+    if (!date) {
+        date = self.maximumDate;
+    }
+    if (!date) {
+        date = self.minimumDate;
+    }
+    if (!date) {
+        date = [NSDate date];
+    }
+    return date;
 }
 
 - (NSDateFormatter *)dateFormatter {
@@ -136,7 +156,7 @@
     else {
         [super becomeFirstAitResponder];
         if (self.dateEditable) {
-            [self.delegate value:self presentAdditionalaDataInCellWithIdentifier:self.pickerCellIdentifier];
+            [self presentDatePicker];
         }
     }
 }
@@ -144,8 +164,52 @@
 - (void)resignFirstAitResponder {
     [super resignFirstAitResponder];
     if (self.dateEditable) {
+        [self dismissDatePicker];
+    }
+}
+
+
+#pragma mark -
+
++ (BOOL)systemDatePickerInPopover {
+    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
+    NSInteger majorVersion = [systemVersion integerValue];
+    return (majorVersion > 0 && majorVersion < 7);
+}
+
+- (void)presentDatePicker {
+    if (self.showDatePickerInPopover) {
+        [self presentDatePickerPopover];
+    }
+    else {
+        [self.delegate value:self presentAdditionalaDataInCellWithIdentifier:self.pickerCellIdentifier];
+    }
+}
+
+- (void)dismissDatePicker {
+    if (self.showDatePickerInPopover) {
+        [self dismissDatePickerPopover];
+    }
+    else {
         [self.delegate value:self dismissAdditionalaDataInCellWithIdentifier:self.pickerCellIdentifier];
     }
+}
+
+- (void)presentDatePickerPopover {
+    UIViewController *viewController = [AITDatePickerPopover datePickerWithValue:self];
+    self.datePickerPopover = [self.delegate value:self showPopoverWithController:viewController];
+    self.datePickerPopover.delegate = self;
+}
+
+- (void)dismissDatePickerPopover {
+    [self.datePickerPopover dismissPopoverAnimated:YES];
+}
+
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
+    if ([self isFirstAitResponder]) {
+        [self resignFirstAitResponder];
+    }
+    self.datePickerPopover = nil;
 }
 
 @end

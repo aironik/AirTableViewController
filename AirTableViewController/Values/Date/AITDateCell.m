@@ -31,9 +31,9 @@
 }
 
 
-- (void)setDateValue:(AITDateValue *)textValue {
-    NSParameterAssert(!textValue || [textValue isKindOfClass:[AITDateValue class]]);
-    self.value = textValue;
+- (void)setDateValue:(AITDateValue *)dateValue {
+    NSParameterAssert(!dateValue || [dateValue isKindOfClass:[AITDateValue class]]);
+    self.value = dateValue;
 }
 
 - (NSArray *)keyPathsForSubscribe {

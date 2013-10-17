@@ -34,6 +34,8 @@
 /// @brief The date formatter for convert date into string representation.
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
+@property (nonatomic, strong, readonly) NSDate *dateForPicker;
+
 /// @brief Create new value represents string value with name.
 /// @param title Human readable property name.
 /// @param sourceObject the object having string property for present.
