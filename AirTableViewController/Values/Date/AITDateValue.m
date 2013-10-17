@@ -25,7 +25,7 @@
 @property (nonatomic, copy) NSString *pickerCellIdentifier;
 
 @property (nonatomic, assign) BOOL showDatePickerInPopover;
-@property (nonatomic, strong) AITDatePickerPopover *datePickerPopover;
+@property (nonatomic, strong) UIPopoverController *datePickerPopover;
 
 @end
 
@@ -196,7 +196,8 @@
 }
 
 - (void)presentDatePickerPopover {
-    UIViewController *viewController = [AITDatePickerPopover datePickerWithValue:self];
+    AITDatePickerPopover *viewController = [AITDatePickerPopover datePickerWithValue:self];
+
     self.datePickerPopover = [self.delegate value:self showPopoverWithController:viewController];
     self.datePickerPopover.delegate = self;
 }

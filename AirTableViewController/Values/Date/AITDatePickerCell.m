@@ -25,7 +25,7 @@
 
 @implementation AITDatePickerCell
 
-- (CGFloat)prefferedHeight {
++ (CGFloat)prefferedHeightForValue:(NSObject<AITValue> *)value {
     return 216.;
 }
 
@@ -46,8 +46,9 @@
 
 - (void)updateSubviews {
     [super updateSubviews];
-    
-    [self.datePicker setDate:[self.dateValue dateForPicker] animated:YES];
+
+    NSDate *date = [self.dateValue dateForPicker];
+    [self.datePicker setDate:(date ? date : [NSDate date]) animated:YES];
 }
 
 

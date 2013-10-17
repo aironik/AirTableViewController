@@ -183,6 +183,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     return nil;
 }
 
+// block invokes only if value found.
 - (void)findValueIndexForRow:(NSInteger)row withFoundBlock:(void(^)(NSInteger valueIndex, BOOL isAdditional))foundBlock {
     NSDictionary *currentAdditionalRows = [self currentAdditionalDataCellIdentifiers];
 
@@ -198,10 +199,11 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
             lastAdditional = NO;
         }
     }
-    valueIdx = (valueIdx == 0 ? NSNotFound : valueIdx - 1);
-
-    BOOL isAdditional = (lastAdditional && valueIdx + additionalCount == row);
-    foundBlock(valueIdx, isAdditional);
+    if (valueIdx > 0 && valueIdx <= [[self currentObjects] count]) {
+        --valueIdx;
+        BOOL isAdditional = (lastAdditional && valueIdx + additionalCount == row);
+        foundBlock(valueIdx, isAdditional);
+    }
 }
 
 - (void)findRowForValueIndex:(NSInteger)valueIndex withFoundBlock:(void(^)(NSInteger row))foundBlock {
@@ -255,8 +257,17 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRow:(NSInteger)row {
-    AITTableViewCell *cell = (AITTableViewCell *)[self tableView:tableView cellForRow:row];
-    CGFloat result = [cell prefferedHeight];
+    __block CGFloat result = 0.;
+    
+    NSDictionary *currentAdditionalRows = [self currentAdditionalDataCellIdentifiers];
+    NSArray *currentObjects = [self currentObjects];
+
+    [self findValueIndexForRow:row withFoundBlock:^(NSInteger valueIndex, BOOL isAdditional) {
+        NSObject<AITValue> *value = currentObjects[valueIndex];
+        NSString *cellIdentifier = (isAdditional ? currentAdditionalRows[@(valueIndex)] : [[value class] cellIdentifier]);
+        Class cellClass = NSClassFromString(cellIdentifier);
+        result = [cellClass prefferedHeightForValue:value];
+    }];
     return (result > 0. ? result : [tableView rowHeight]);
 }
 

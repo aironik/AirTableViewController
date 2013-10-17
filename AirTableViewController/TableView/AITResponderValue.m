@@ -40,13 +40,13 @@ NSString *const kAITValueResignFirstAitResponder = @"kAITValueResignFirstAitResp
 }
 
 - (void)becomeFirstAitResponder {
+    if ([self canBecomeFirstAitResponder]) {
+        self.firstAitResponder = YES;
+    }
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(otherValueBecomeFirstAitResponderNotification:)
                                                  name:kAITValueBecomeFirstAitResponder
                                                object:nil];
-    if ([self canBecomeFirstAitResponder]) {
-        self.firstAitResponder = YES;
-    }
 }
 
 - (void)resignFirstAitResponder {

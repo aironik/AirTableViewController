@@ -28,6 +28,13 @@
 + (void)setupTableView:(UITableView *)tableView;
 
 /// @brief Defines cell height for value. If 0 table view should use default -rowHeight value.
-- (CGFloat)prefferedHeight;
++ (CGFloat)prefferedHeightForValue:(NSObject<AITValue> *)value;
+
+/// @details This method invokes from -tableView:willDisplayCell:forRowAtIndexPath:
+- (void)cellWillDisplay;
+
+/// @details This method invokes from  -tableView:didEndDisplayingCell:forRowAtIndexPath:
+- (void)cellDidEndDisplaying;
+
 
 @end

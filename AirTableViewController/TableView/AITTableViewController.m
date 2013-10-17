@@ -207,6 +207,16 @@
     return [viewSection tableView:tableView editingStyleForRow:indexPath.row];
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(AITTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSParameterAssert([cell isKindOfClass:[AITTableViewCell class]]);
+    [cell cellWillDisplay];
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(AITTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSParameterAssert([cell isKindOfClass:[AITTableViewCell class]]);
+    [cell cellDidEndDisplaying];
+}
+
 - (void)subscribeForKeyboardNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShowOrHide:)

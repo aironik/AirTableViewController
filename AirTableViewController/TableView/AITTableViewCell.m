@@ -21,6 +21,11 @@
 
 @property (nonatomic, assign, getter=isFirstAitResponder) BOOL firstAitResponder;
 
+// Cell can disappear but do not removed or reuse. For previous AITValue can dequed other cell.
+// Therefore we neew unsubscribe changes in disappear. But we can unsubscribe on change value.
+// So we can unsubscribe twice and get exception.
+@property (nonatomic, assign) BOOL subscribedAitResponderValueChanges;
+
 @end
 
 
@@ -34,7 +39,7 @@
     [tableView registerNib:nib forCellReuseIdentifier:className];
 }
 
-- (CGFloat)prefferedHeight {
++ (CGFloat)prefferedHeightForValue:(NSObject<AITValue> *)value {
     return 0.;
 }
 
@@ -88,6 +93,14 @@
     }
 }
 
+- (void)cellWillDisplay {
+    [self subscribeAitResponderValueChanges];
+}
+
+- (void)cellDidEndDisplaying {
+    [self unsubscribeAitResponderValueChanges];
+}
+
 - (void)updateAitResponderState {
     if ([self.value isFirstAitResponder]) {
         [self becomeFirstAitResponder];
@@ -111,12 +124,17 @@
 }
 
 - (void)subscribeAitResponderValueChanges {
-    [self.value addObserver:self forKeyPath:@"firstAitResponder" options:NSKeyValueObservingOptionNew context:NULL];
-    
+    if (!self.subscribedAitResponderValueChanges) {
+        self.subscribedAitResponderValueChanges = YES;
+        [self.value addObserver:self forKeyPath:@"firstAitResponder" options:NSKeyValueObservingOptionNew context:NULL];
+    }
 }
 
 - (void)unsubscribeAitResponderValueChanges {
-    [self.value removeObserver:self forKeyPath:@"firstAitResponder"];
+    if (self.subscribedAitResponderValueChanges) {
+        [self.value removeObserver:self forKeyPath:@"firstAitResponder"];
+        self.subscribedAitResponderValueChanges = NO;
+    }
 }
 
 - (void)updateSubviews {
