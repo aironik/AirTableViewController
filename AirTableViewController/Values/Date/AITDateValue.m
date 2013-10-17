@@ -50,7 +50,6 @@
         _title = [title copy];
         _sourceObject = sourceObject;
         _sourcePropertyName = [sourcePropertyName copy];
-        _empty = NO;
 
         _dateEditable = YES;
 
@@ -75,6 +74,10 @@
 }
 
 - (void)perform {
+}
+
+- (BOOL)isEmpty {
+    return (self.value == nil);
 }
 
 - (NSDate *)value {

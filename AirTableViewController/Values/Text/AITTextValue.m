@@ -54,7 +54,6 @@
         _sourceObject = sourceObject;
         _sourcePropertyName = [sourcePropertyName copy];
         _comment = [comment copy];
-        _empty = NO;
         _textEditable = YES;
 
         _textInputAutocapitalizationType = UITextAutocapitalizationTypeSentences;
@@ -81,6 +80,10 @@
 }
 
 - (void)perform {
+}
+
+- (BOOL)isEmpty {
+    return [self.value length] == 0;
 }
 
 - (NSString *)value {

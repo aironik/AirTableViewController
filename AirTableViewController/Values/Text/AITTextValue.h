@@ -23,10 +23,6 @@
 /// @details Used for placeholder.
 @property (nonatomic, copy, readonly) NSString *comment;
 
-/// @brief The value represents whether value is empty and should not be interactable.
-/// @details If NO cell hides.
-@property (nonatomic, assign, getter=isEmpty) BOOL empty;
-
 /// @brief If YES user can edit text.
 @property (nonatomic, assign) BOOL textEditable;
 

@@ -25,9 +25,6 @@
 /// @bierf The date that defines maximum possible date for pick. If not specified date picker have no maximum limit.
 @property (nonatomic, strong) NSDate *maximumDate;
 
-/// @brief The value represents whether value is empty.
-@property (nonatomic, assign, getter=isEmpty) BOOL empty;
-
 /// @brief If YES user can change date.
 @property (nonatomic, assign) BOOL dateEditable;
 
