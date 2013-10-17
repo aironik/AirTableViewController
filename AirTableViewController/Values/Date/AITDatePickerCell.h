@@ -20,4 +20,6 @@
 /// @brief The value represents date.
 @property (nonatomic, strong) AITDateValue *dateValue;
 
+- (IBAction)dateValueDidChanged:(UIDatePicker *)sender;
+
 @end

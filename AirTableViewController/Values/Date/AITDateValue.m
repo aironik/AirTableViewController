@@ -85,6 +85,16 @@
     [self.sourceObject setValue:value forKeyPath:self.sourcePropertyName];
 }
 
+- (void)setupDatePicker:(UIDatePicker *)datePicker {
+    [datePicker setDate:[self dateForPicker] animated:YES];
+    if (self.minimumDate) {
+        datePicker.minimumDate = self.minimumDate;
+    }
+    if (self.maximumDate) {
+        datePicker.maximumDate = self.maximumDate;
+    }
+}
+
 - (NSDate *)dateForPicker {
     NSDate *date = self.value;
     if (!date) {
@@ -197,6 +207,8 @@
 
 - (void)presentDatePickerPopover {
     AITDatePickerPopover *viewController = [AITDatePickerPopover datePickerWithValue:self];
+    viewController.closeButton.target = self;
+    viewController.closeButton.action = @selector(dismissDatePickerPopover);
 
     self.datePickerPopover = [self.delegate value:self showPopoverWithController:viewController];
     self.datePickerPopover.delegate = self;

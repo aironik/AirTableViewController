@@ -45,4 +45,6 @@
                   sourceObject:(NSObject *)sourceObject
             sourcePropertyName:(NSString *)sourcePropertyName;
 
+- (void)setupDatePicker:(UIDatePicker *)datePicker;
+
 @end

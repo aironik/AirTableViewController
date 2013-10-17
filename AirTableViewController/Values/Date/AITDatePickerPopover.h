@@ -16,9 +16,11 @@
 @property (nonatomic, strong) AITDateValue *dateValue;
 
 @property (nonatomic, weak) IBOutlet UIDatePicker *pickerView;
-@property (nonatomic, weak) IBOutlet UINavigationBar *navigationBar;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *closeButton;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 
 + (instancetype)datePickerWithValue:(AITDateValue *)value;
+
+- (IBAction)dateValueDidChanged:(UIDatePicker *)sender;
 
 @end

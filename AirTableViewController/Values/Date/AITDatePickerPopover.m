@@ -49,8 +49,12 @@
 
 - (void)setDateValue:(AITDateValue *)dateValue {
     _dateValue = dateValue;
-    self.navigationBar.topItem.title = _dateValue.title;
-    self.pickerView.date = [_dateValue dateForPicker];
+    self.titleLabel.text = _dateValue.title;
+    [_dateValue setupDatePicker:self.pickerView];
+}
+
+- (IBAction)dateValueDidChanged:(UIDatePicker *)sender {
+    self.dateValue.value = sender.date;
 }
 
 

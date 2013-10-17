@@ -46,9 +46,8 @@
 
 - (void)updateSubviews {
     [super updateSubviews];
-
-    NSDate *date = [self.dateValue dateForPicker];
-    [self.datePicker setDate:(date ? date : [NSDate date]) animated:YES];
+    
+    [self.dateValue setupDatePicker:self.datePicker];
 }
 
 
@@ -66,6 +65,10 @@
 }
 
 - (void)resignFirstAitResponder {
+}
+
+- (IBAction)dateValueDidChanged:(UIDatePicker *)sender {
+    self.dateValue.value = sender.date;
 }
 
 @end
