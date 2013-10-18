@@ -1,12 +1,12 @@
 //
-//  AITSwitchValue.m
+//  AITBoolValue.m
 //  AirTableViewController
 //
 //  Created by Oleg Lobachev aironik@gmail.com on 23.09.13.
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import "AITSwitchValue.h"
+#import "AITBoolValue.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -14,7 +14,7 @@
 #endif
 
 
-@interface AITSwitchValue ()
+@interface AITBoolValue ()
 
 @property (nonatomic, weak) NSObject *sourceObject;
 @property (nonatomic, copy) NSString *sourcePropertyName;
@@ -24,7 +24,7 @@
 
 #pragma mark - Implementation
 
-@implementation AITSwitchValue
+@implementation AITBoolValue
 
 
 + (instancetype)valueWithTitle:(id)title
@@ -61,7 +61,7 @@
 }
 
 + (NSString *)cellIdentifier {
-    return @"AITSwitchCell";
+    return @"AITBoolCell";
 }
 
 - (void)perform {

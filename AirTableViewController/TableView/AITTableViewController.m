@@ -14,7 +14,7 @@
 #import "AITHeaderFooterView.h"
 #import "AITPendingOperationCell.h"
 #import "AITResponderValue.h"
-#import "AITSwitchCell.h"
+#import "AITBoolCell.h"
 #import "AITTableViewSection.h"
 #import "AITTableViewSectionDelegate.h"
 #import "AITTextCell.h"
@@ -58,7 +58,7 @@
     [AITDateCell setupTableView:self.tableView];
     [AITDatePickerCell setupTableView:self.tableView];
     [AITPendingOperationCell setupTableView:self.tableView];
-    [AITSwitchCell setupTableView:self.tableView];
+    [AITBoolCell setupTableView:self.tableView];
     [AITTextCell setupTableView:self.tableView];
 
     [AITHeaderFooterView setupTableView:self.tableView];

@@ -1,5 +1,5 @@
 //
-//  AITSwitchCell.h
+//  AITBoolCell.h
 //  AirTableViewController
 //
 //  Created by Oleg Lobachev aironik@gmail.com on 23.09.13.
@@ -9,16 +9,16 @@
 #import "AITTableViewCell.h"
 
 
-@class AITSwitchValue;
+@class AITBoolValue;
 
 
 /// @brief The cell represent boolean value.
-@interface AITSwitchCell : AITTableViewCell
+@interface AITBoolCell : AITTableViewCell
 
 /// @brief The UISwitch control that represents value
 @property (nonatomic, weak) IBOutlet UISwitch *switchControl;
 
 /// @brief The value represents boolean.
-@property (nonatomic, strong) AITSwitchValue *switchValue;
+@property (nonatomic, strong) AITBoolValue *switchValue;
 
 @end

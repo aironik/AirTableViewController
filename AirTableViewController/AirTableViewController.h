@@ -16,6 +16,6 @@
 #import <AirTableViewController/Sections/AITPendingOperationSection.h>
 
 #import <AirTableViewController/Values/Action/AITActionValue.h>
+#import <AirTableViewController/Values/Bool/AITBoolValue.h>
 #import <AirTableViewController/Values/Date/AITDateValue.h>
-#import <AirTableViewController/Values/Switch/AITSwitchValue.h>
 #import <AirTableViewController/Values/Text/AITTextValue.h>

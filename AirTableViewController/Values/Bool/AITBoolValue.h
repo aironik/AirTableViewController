@@ -1,5 +1,5 @@
 //
-//  AITSwitchValue.h
+//  AITBoolValue.h
 //  AirTableViewController
 //
 //  Created by Oleg Lobachev aironik@gmail.com on 23.09.13.
@@ -10,11 +10,11 @@
 #import <AirTableViewController/TableView/AITValue.h>
 
 
-@class AITSwitchValue;
+@class AITBoolValue;
 
 
 /// @brief The value represent boolean property in a source object.
-@interface AITSwitchValue : AITResponderValue<AITValue>
+@interface AITBoolValue : AITResponderValue<AITValue>
 
 /// @brief The value name.
 @property (nonatomic, copy) NSString *title;

@@ -1,16 +1,16 @@
 //
-//  AITSwitchCell.m
+//  AITBoolCell.m
 //  AirTableViewController
 //
 //  Created by Oleg Lobachev aironik@gmail.com on 23.09.13.
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import "AITSwitchCell.h"
+#import "AITBoolCell.h"
 
 #import "AITTableViewCell.h"
 #import "AITTableViewCell+AITProtected.h"
-#import "AITSwitchValue.h"
+#import "AITBoolValue.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -18,22 +18,22 @@
 #endif
 
 
-@interface AITSwitchCell ()
+@interface AITBoolCell ()
 @end
 
 
 #pragma mark - Implementation
 
-@implementation AITSwitchCell
+@implementation AITBoolCell
 
-- (AITSwitchValue *)switchValue {
-    NSParameterAssert(!self.value || [self.value isKindOfClass:[AITSwitchValue class]]);
-    return (AITSwitchValue *)self.value;
+- (AITBoolValue *)switchValue {
+    NSParameterAssert(!self.value || [self.value isKindOfClass:[AITBoolValue class]]);
+    return (AITBoolValue *)self.value;
     
 }
 
-- (void)setSwitchValue:(AITSwitchValue *)switchValue {
-    NSParameterAssert(!switchValue || [switchValue isKindOfClass:[AITSwitchValue class]]);
+- (void)setSwitchValue:(AITBoolValue *)switchValue {
+    NSParameterAssert(!switchValue || [switchValue isKindOfClass:[AITBoolValue class]]);
     self.value = switchValue;
 }
 
