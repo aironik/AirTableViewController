@@ -361,6 +361,14 @@
     return result;
 }
 
+- (void)section:(AITTableViewSection *)section showDetailsController:(UIViewController *)viewController {
+    if (self.navigationController) {
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
+    else {
+        [self presentViewController:viewController animated:YES completion:NULL];
+    }
+}
 
 #pragma mark -
 

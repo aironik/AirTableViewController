@@ -449,4 +449,8 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     return [self.delegate section:self showPopoverWithController:viewController fromRow:valueIndex];
 }
 
+- (void)value:(id<AITValue>)value showDetailsController:(UIViewController *)viewController {
+    return [self.delegate section:self showDetailsController:viewController];
+}
+
 @end

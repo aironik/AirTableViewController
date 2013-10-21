@@ -19,5 +19,6 @@
 - (void)section:(AITTableViewSection *)section deleteCellAtRow:(NSInteger)row;
 - (void)section:(AITTableViewSection *)section scrollToRow:(NSInteger)row;
 - (UIPopoverController *)section:(AITTableViewSection *)section showPopoverWithController:(UIViewController *)viewController fromRow:(NSInteger)row;
+- (void)section:(AITTableViewSection *)section showDetailsController:(UIViewController *)viewController;
 
 @end

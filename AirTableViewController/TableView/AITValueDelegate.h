@@ -28,4 +28,8 @@
 /// @return The popover controller that presents viewController.
 - (UIPopoverController *)value:(id<AITValue>)value showPopoverWithController:(UIViewController *)viewController;
 
+/// @brief Tell the delegate show details controller.
+/// @details e.g. push into navigation stack or as details view controller in the split view controller.
+- (void)value:(id<AITValue>)value showDetailsController:(UIViewController *)viewController;
+
 @end
