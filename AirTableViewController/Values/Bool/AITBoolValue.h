@@ -30,7 +30,7 @@
 /// @param title Human readable property name.
 /// @param sourceObject the object having boolean property for present.
 /// @param sourcePropertyName the property name (keypath) that needs represent.
-+ (instancetype)valueWithTitle:title
++ (instancetype)valueWithTitle:(NSString *)title
                   sourceObject:(NSObject *)sourceObject
             sourcePropertyName:(NSString *)sourcePropertyName;
 

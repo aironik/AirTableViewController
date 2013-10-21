@@ -37,7 +37,6 @@
 /// @param title Human readable property name.
 /// @param sourceObject the object having string property for present.
 /// @param sourcePropertyName the property name (keypath) that needs represent.
-/// @param comment the human readable value description.
 + (instancetype)valueWithTitle:(NSString *)title
                   sourceObject:(NSObject *)sourceObject
             sourcePropertyName:(NSString *)sourcePropertyName;

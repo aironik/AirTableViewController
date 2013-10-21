@@ -27,14 +27,14 @@
 @implementation AITBoolValue
 
 
-+ (instancetype)valueWithTitle:(id)title
++ (instancetype)valueWithTitle:(NSString *)title
                   sourceObject:(NSObject *)sourceObject
             sourcePropertyName:(NSString *)sourcePropertyName
 {
     return [[self alloc] initWithTitle:title sourceObject:sourceObject sourcePropertyName:sourcePropertyName];
 }
 
-- (instancetype)initWithTitle:(id)title
+- (instancetype)initWithTitle:(NSString *)title
                  sourceObject:(NSObject *)sourceObject
            sourcePropertyName:(NSString *)sourcePropertyName
 {
