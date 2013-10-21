@@ -17,5 +17,7 @@
 
 #import <AirTableViewController/Values/Action/AITActionValue.h>
 #import <AirTableViewController/Values/Bool/AITBoolValue.h>
+#import <AirTableViewController/Values/Choice/AITChoiceOption.h>
+#import <AirTableViewController/Values/Choice/AITChoiceValue.h>
 #import <AirTableViewController/Values/Date/AITDateValue.h>
 #import <AirTableViewController/Values/Text/AITTextValue.h>
