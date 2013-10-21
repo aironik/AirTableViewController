@@ -18,6 +18,7 @@
 
 @property (nonatomic, weak) NSObject *sourceObject;
 @property (nonatomic, copy) NSString *sourcePropertyName;
+@property (nonatomic, copy, readonly) AITChoiceOptionTitleValueString titleValueString;
 
 @end
 
@@ -31,24 +32,43 @@
                   sourceObject:(NSObject *)sourceObject
             sourcePropertyName:(NSString *)sourcePropertyName
 {
+    return [self valueWithTitle:title
+                   sourceObject:sourceObject
+             sourcePropertyName:sourcePropertyName
+               titleValueString:^NSString *(NSObject *value) {
+                   NSParameterAssert(!value || [value isKindOfClass:[NSString class]]);
+                   return (NSString *)value;
+               }];
+}
+
++ (instancetype)valueWithTitle:(NSString *)title
+                  sourceObject:(NSObject *)sourceObject
+            sourcePropertyName:(NSString *)sourcePropertyName
+              titleValueString:(AITChoiceOptionTitleValueString)titleValueString
+{
     return [[self alloc] initWithTitle:title
                           sourceObject:sourceObject
-                    sourcePropertyName:sourcePropertyName];
+                    sourcePropertyName:sourcePropertyName
+                      titleValueString:(AITChoiceOptionTitleValueString)titleValueString];
 }
+
 
 - (instancetype)initWithTitle:(NSString *)title
                  sourceObject:(NSObject *)sourceObject
            sourcePropertyName:(NSString *)sourcePropertyName
+             titleValueString:(AITChoiceOptionTitleValueString)titleValueString
 {
     if (self = [super init]) {
         NSAssert2(sourceObject
                   && [sourcePropertyName length]
                   && [sourceObject respondsToSelector:NSSelectorFromString(sourcePropertyName)],
                   @"Cannot access bool value switch. Object: %@, keyPath: %@", sourceObject, sourcePropertyName);
+        NSAssert(titleValueString != NULL, @"Title getter block cannot be nil.");
 
         _title = [title copy];
         _sourceObject = sourceObject;
         _sourcePropertyName = [sourcePropertyName copy];
+        _titleValueString = [titleValueString copy];
         _empty = NO;
         [_sourceObject addObserver:self
                         forKeyPath:sourcePropertyName
@@ -80,6 +100,10 @@
     NSAssert([self.allOptions containsObject:value], @"set value that doesn't contains in all possible options.");
     NSAssert(!value || [value conformsToProtocol:@protocol(AITChoiceOption)], @"value must conforms to AITChoiceOption protocol");
     [self.sourceObject setValue:value forKeyPath:self.sourcePropertyName];
+}
+
+- (NSString *)valueString {
+    return self.titleValueString(self.value);
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath

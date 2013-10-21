@@ -9,7 +9,6 @@
 #import "AITChoiceCell.h"
 
 #import "AITTableViewCell.h"
-#import "AITChoiceOption.h"
 #import "AITChoiceValue.h"
 #import "AITTableViewCell+AITProtected.h"
 
@@ -41,7 +40,7 @@
 - (void)setup {
     [super setup];
 
-    self.valueLabel.text = [self.choiceValue.value stringRepresentation];
+    self.valueLabel.text = self.choiceValue.valueString;
 }
 
 - (NSArray *)keyPathsForSubscribe {
@@ -51,7 +50,7 @@
 - (void)updateSubviews {
     [super updateSubviews];
 
-    self.valueLabel.text = [self.choiceValue.value stringRepresentation];
+    self.valueLabel.text = self.choiceValue.valueString;
 
 }
 

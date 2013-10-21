@@ -13,6 +13,10 @@
 @protocol AITChoiceOption;
 
 
+/// @brief The block for generate human readable title for value.
+typedef NSString *(^AITChoiceOptionTitleValueString)(NSObject *value);
+
+
 /// @brief The value represent select one choice from possible set.
 @interface AITChoiceValue : AITResponderValue<AITValue>
 
@@ -20,7 +24,11 @@
 @property (nonatomic, copy) NSString *title;
 
 /// @brief The selected option.
-@property (nonatomic, strong) NSObject<AITChoiceOption> *value;
+@property (nonatomic, strong) NSObject *value;
+
+/// @brief The human readable string that represent value.
+/// @details This value get from sourceObject[sourcePropertyName][valueStringPropertyName]
+@property (nonatomic, copy, readonly) NSString *valueString;
 
 /// @brief The value represents whether value is empty and should not be interactable.
 /// @details If NO cell hides.
@@ -33,11 +41,23 @@
 
 /// @brief Create new value represents choice value with name.
 /// @details The value should conform to AITChoiceOption protocol.
+///     all values should be NSString objects.
 /// @param title Human readable property name.
 /// @param sourceObject the object having property for present.
-/// @param sourcePropertyName the property name (keypath) with choice that needs represent.
+/// @param sourcePropertyName the keypath with choice that needs represent.
 + (instancetype)valueWithTitle:(NSString *)title
                   sourceObject:(NSObject *)sourceObject
             sourcePropertyName:(NSString *)sourcePropertyName;
+
+/// @brief Create new value represents choice value with name.
+/// @details The value should conform to AITChoiceOption protocol.
+/// @param title Human readable property name.
+/// @param sourceObject the object having property for present.
+/// @param sourcePropertyName the keypath with choice that needs represent.
+/// @param titleValueString block for generate human readable title for value.
++ (instancetype)valueWithTitle:(NSString *)title
+                  sourceObject:(NSObject *)sourceObject
+            sourcePropertyName:(NSString *)sourcePropertyName
+              titleValueString:(AITChoiceOptionTitleValueString)titleValueString;
 
 @end

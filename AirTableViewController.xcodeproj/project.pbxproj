@@ -106,7 +106,6 @@
 		C4E3E33BD98ABBB3E6EEAE89 /* AITPendingOperationSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITPendingOperationSection.h; sourceTree = "<group>"; };
 		C4E3E392F6763444A0D3BCAC /* AITActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITActionCell.m; sourceTree = "<group>"; };
 		C4E3E3CB173BCC05F847CCF2 /* AITTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTextCell.m; sourceTree = "<group>"; };
-		C4E3E44789FEE882CB5CE20D /* AITChoiceOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITChoiceOption.h; sourceTree = "<group>"; };
 		C4E3E5224BE02BD47BC42A3A /* AITChoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITChoiceCell.h; sourceTree = "<group>"; };
 		C4E3E5C2FAE6A67B0291D6A5 /* AITChoiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITChoiceCell.m; sourceTree = "<group>"; };
 		C4E3E69FC39CE49411B19114 /* AITChoiceValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITChoiceValue.m; sourceTree = "<group>"; };
@@ -359,7 +358,6 @@
 				C4E3E5224BE02BD47BC42A3A /* AITChoiceCell.h */,
 				C4E3E5C2FAE6A67B0291D6A5 /* AITChoiceCell.m */,
 				00BDE79A18153C0200E800C9 /* AITChoiceCell.xib */,
-				C4E3E44789FEE882CB5CE20D /* AITChoiceOption.h */,
 				C4E3EE3C8553B46AC488B4BE /* AITChoiceValue.h */,
 				C4E3E69FC39CE49411B19114 /* AITChoiceValue.m */,
 			);

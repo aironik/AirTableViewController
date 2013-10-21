@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1552</int>
+		<int key="IBDocument.SystemTarget">1536</int>
 		<string key="IBDocument.SystemVersion">12F45</string>
 		<string key="IBDocument.InterfaceBuilderVersion">4511</string>
 		<string key="IBDocument.AppKitVersion">1187.40</string>
@@ -81,7 +81,6 @@
 								<string key="NSFrame">{{126, 12}, {174, 21}}</string>
 								<reference key="NSSuperview" ref="614251422"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<string key="NSHuggingPriority">{251, 251}</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -98,7 +97,7 @@
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 							</object>
 						</array>
-						<string key="NSFrameSize">{320, 43}</string>
+						<string key="NSFrameSize">{300, 43}</string>
 						<reference key="NSSuperview" ref="1013513814"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="122040794"/>
@@ -121,6 +120,7 @@
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 				<int key="IBUISelectionStyle">0</int>
+				<int key="IBUIAccessoryType">1</int>
 				<reference key="IBUIContentView" ref="614251422"/>
 				<string key="IBUIReuseIdentifier">AITChoiceCell</string>
 			</object>
@@ -356,20 +356,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">AITChoiceCell</string>
 					<string key="superclassName">AITTableViewCell</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="titleLabel">UILabel</string>
-						<string key="valueLabel">UILabel</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="titleLabel">
-							<string key="name">titleLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="valueLabel">
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">valueLabel</string>
+						<string key="NS.object.0">UILabel</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">valueLabel</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
 							<string key="name">valueLabel</string>
 							<string key="candidateClassName">UILabel</string>
 						</object>
-					</dictionary>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/AITChoiceCell.h</string>
@@ -409,7 +406,7 @@
 		<bool key="IBDocument.previouslyAttemptedUpgradeToXcode5">YES</bool>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.iPhoneOS</string>
-			<real value="1552" key="NS.object.0"/>
+			<real value="1536" key="NS.object.0"/>
 		</object>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDevelopmentDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaTouchPlugin.InterfaceBuilder3</string>
