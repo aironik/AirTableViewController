@@ -79,7 +79,6 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
         [self updateObjectsResponderChain];
         [self updateFilledObjects];
-
     }
 }
 
@@ -88,7 +87,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     [self.additionalDataFilledCellIdentifiers removeAllObjects];
 
     [self.allObjects enumerateObjectsUsingBlock:^(id<AITValue> value, NSUInteger idx, BOOL *stop) {
-        if (!value.isEmpty) {
+        if (![value isEmpty]) {
             NSInteger filledObjectIndex = [filledObjects count];
             NSString *cellIdentifier = self.additionalDataCellIdentifiers[@(idx)];
             if (cellIdentifier) {

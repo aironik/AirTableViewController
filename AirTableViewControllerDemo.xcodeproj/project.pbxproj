@@ -1,0 +1,629 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000D4D01181AA02B00E3B3E4 /* libAirTableViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00774A27181A84C900D6F27C /* libAirTableViewController.a */; };
+		007749EA181A834100D6F27C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007749E9181A834100D6F27C /* Foundation.framework */; };
+		007749EC181A834100D6F27C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007749EB181A834100D6F27C /* CoreGraphics.framework */; };
+		007749EE181A834100D6F27C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007749ED181A834100D6F27C /* UIKit.framework */; };
+		007749F4181A834100D6F27C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 007749F2181A834100D6F27C /* InfoPlist.strings */; };
+		007749F6181A834100D6F27C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 007749F5181A834100D6F27C /* main.m */; };
+		007749FA181A834100D6F27C /* AITDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 007749F9181A834100D6F27C /* AITDAppDelegate.m */; };
+		007749FD181A834100D6F27C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 007749FB181A834100D6F27C /* Main_iPhone.storyboard */; };
+		00774A03181A834100D6F27C /* AITDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00774A02181A834100D6F27C /* AITDViewController.m */; };
+		00774A05181A834100D6F27C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00774A04181A834100D6F27C /* Images.xcassets */; };
+		00774A0C181A834100D6F27C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00774A0B181A834100D6F27C /* XCTest.framework */; };
+		00774A0D181A834100D6F27C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007749E9181A834100D6F27C /* Foundation.framework */; };
+		00774A0E181A834100D6F27C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007749ED181A834100D6F27C /* UIKit.framework */; };
+		00774A16181A834100D6F27C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00774A14181A834100D6F27C /* InfoPlist.strings */; };
+		00774A18181A834100D6F27C /* AirTableViewControllerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00774A17181A834100D6F27C /* AirTableViewControllerDemoTests.m */; };
+		00ABECF1181A85DC00676488 /* AITTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00ABECF0181A85DC00676488 /* AITTextCell.xib */; };
+		00ABECF3181A85E700676488 /* AITBoolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00ABECF2181A85E700676488 /* AITBoolCell.xib */; };
+		00ABECF5181A85ED00676488 /* AITPendingOperationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00ABECF4181A85ED00676488 /* AITPendingOperationCell.xib */; };
+		00ABECF9181A860200676488 /* AITDateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00ABECF6181A860200676488 /* AITDateCell.xib */; };
+		00ABECFA181A860200676488 /* AITDatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00ABECF7181A860200676488 /* AITDatePickerCell.xib */; };
+		00ABECFB181A860200676488 /* AITDatePickerPopover.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00ABECF8181A860200676488 /* AITDatePickerPopover.xib */; };
+		00ABECFD181A860800676488 /* AITChoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00ABECFC181A860800676488 /* AITChoiceCell.xib */; };
+		00ABECFF181A860E00676488 /* AITActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00ABECFE181A860E00676488 /* AITActionCell.xib */; };
+		00ABED03181A862200676488 /* AITLeftAlignedHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00ABED00181A862200676488 /* AITLeftAlignedHeaderView.xib */; };
+		00ABED04181A862200676488 /* AITCenterAlignedHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00ABED01181A862200676488 /* AITCenterAlignedHeaderView.xib */; };
+		00ABED05181A862200676488 /* AITCenterAlignedFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00ABED02181A862200676488 /* AITCenterAlignedFooterView.xib */; };
+		C4E3E063615A11AF608ADDF2 /* AITDDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EBE7368924238C5C36D4 /* AITDDataSource.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00774A0F181A834100D6F27C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 007749DE181A834100D6F27C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 007749E5181A834100D6F27C;
+			remoteInfo = AirTableViewControllerDemo;
+		};
+		00774A26181A84C900D6F27C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00774A21181A84C900D6F27C /* AirTableViewController.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 002CB84017EC6F87003870E5;
+			remoteInfo = AirTableViewController;
+		};
+		00774A28181A84C900D6F27C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00774A21181A84C900D6F27C /* AirTableViewController.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 002CB85117EC6F88003870E5;
+			remoteInfo = AirTableViewControllerTests;
+		};
+		00ABECE7181A857000676488 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00774A21181A84C900D6F27C /* AirTableViewController.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 002CB83F17EC6F87003870E5;
+			remoteInfo = AirTableViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		007749E6181A834100D6F27C /* AirTableViewControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirTableViewControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		007749E9181A834100D6F27C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		007749EB181A834100D6F27C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		007749ED181A834100D6F27C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		007749F1181A834100D6F27C /* AirTableViewControllerDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirTableViewControllerDemo-Info.plist"; sourceTree = "<group>"; };
+		007749F3181A834100D6F27C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		007749F5181A834100D6F27C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		007749F7181A834100D6F27C /* AirTableViewControllerDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirTableViewControllerDemo-Prefix.pch"; sourceTree = "<group>"; };
+		007749F8181A834100D6F27C /* AITDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AITDAppDelegate.h; sourceTree = "<group>"; };
+		007749F9181A834100D6F27C /* AITDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AITDAppDelegate.m; sourceTree = "<group>"; };
+		007749FC181A834100D6F27C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		00774A01181A834100D6F27C /* AITDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AITDViewController.h; sourceTree = "<group>"; };
+		00774A02181A834100D6F27C /* AITDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AITDViewController.m; sourceTree = "<group>"; };
+		00774A04181A834100D6F27C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		00774A0A181A834100D6F27C /* AirTableViewControllerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirTableViewControllerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00774A0B181A834100D6F27C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		00774A13181A834100D6F27C /* AirTableViewControllerDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirTableViewControllerDemoTests-Info.plist"; sourceTree = "<group>"; };
+		00774A15181A834100D6F27C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		00774A17181A834100D6F27C /* AirTableViewControllerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirTableViewControllerDemoTests.m; sourceTree = "<group>"; };
+		00774A21181A84C900D6F27C /* AirTableViewController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AirTableViewController.xcodeproj; sourceTree = "<group>"; };
+		00ABECF0181A85DC00676488 /* AITTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AITTextCell.xib; path = ../../AirTableViewController/Values/Text/AITTextCell.xib; sourceTree = "<group>"; };
+		00ABECF2181A85E700676488 /* AITBoolCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AITBoolCell.xib; path = ../../AirTableViewController/Values/Bool/AITBoolCell.xib; sourceTree = "<group>"; };
+		00ABECF4181A85ED00676488 /* AITPendingOperationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AITPendingOperationCell.xib; path = ../../AirTableViewController/Values/PendingOperation/AITPendingOperationCell.xib; sourceTree = "<group>"; };
+		00ABECF6181A860200676488 /* AITDateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AITDateCell.xib; path = ../../AirTableViewController/Values/Date/AITDateCell.xib; sourceTree = "<group>"; };
+		00ABECF7181A860200676488 /* AITDatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AITDatePickerCell.xib; path = ../../AirTableViewController/Values/Date/AITDatePickerCell.xib; sourceTree = "<group>"; };
+		00ABECF8181A860200676488 /* AITDatePickerPopover.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AITDatePickerPopover.xib; path = ../../AirTableViewController/Values/Date/AITDatePickerPopover.xib; sourceTree = "<group>"; };
+		00ABECFC181A860800676488 /* AITChoiceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AITChoiceCell.xib; path = ../../AirTableViewController/Values/Choice/AITChoiceCell.xib; sourceTree = "<group>"; };
+		00ABECFE181A860E00676488 /* AITActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AITActionCell.xib; path = ../../AirTableViewController/Values/Action/AITActionCell.xib; sourceTree = "<group>"; };
+		00ABED00181A862200676488 /* AITLeftAlignedHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AITLeftAlignedHeaderView.xib; path = ../../AirTableViewController/HeaderFooter/AITLeftAlignedHeaderView.xib; sourceTree = "<group>"; };
+		00ABED01181A862200676488 /* AITCenterAlignedHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AITCenterAlignedHeaderView.xib; path = ../../AirTableViewController/HeaderFooter/AITCenterAlignedHeaderView.xib; sourceTree = "<group>"; };
+		00ABED02181A862200676488 /* AITCenterAlignedFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AITCenterAlignedFooterView.xib; path = ../../AirTableViewController/HeaderFooter/AITCenterAlignedFooterView.xib; sourceTree = "<group>"; };
+		C4E3E24BF41484439BD5C84E /* AITDDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDDataSource.h; sourceTree = "<group>"; };
+		C4E3EBE7368924238C5C36D4 /* AITDDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDDataSource.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		007749E3181A834100D6F27C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000D4D01181AA02B00E3B3E4 /* libAirTableViewController.a in Frameworks */,
+				007749EC181A834100D6F27C /* CoreGraphics.framework in Frameworks */,
+				007749EE181A834100D6F27C /* UIKit.framework in Frameworks */,
+				007749EA181A834100D6F27C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00774A07181A834100D6F27C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00774A0C181A834100D6F27C /* XCTest.framework in Frameworks */,
+				00774A0E181A834100D6F27C /* UIKit.framework in Frameworks */,
+				00774A0D181A834100D6F27C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		007749DD181A834100D6F27C = {
+			isa = PBXGroup;
+			children = (
+				00774A21181A84C900D6F27C /* AirTableViewController.xcodeproj */,
+				007749EF181A834100D6F27C /* AirTableViewControllerDemo */,
+				00774A11181A834100D6F27C /* AirTableViewControllerDemoTests */,
+				007749E8181A834100D6F27C /* Frameworks */,
+				007749E7181A834100D6F27C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		007749E7181A834100D6F27C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				007749E6181A834100D6F27C /* AirTableViewControllerDemo.app */,
+				00774A0A181A834100D6F27C /* AirTableViewControllerDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		007749E8181A834100D6F27C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				007749E9181A834100D6F27C /* Foundation.framework */,
+				007749EB181A834100D6F27C /* CoreGraphics.framework */,
+				007749ED181A834100D6F27C /* UIKit.framework */,
+				00774A0B181A834100D6F27C /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		007749EF181A834100D6F27C /* AirTableViewControllerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				00ABECEE181A85BC00676488 /* Resources */,
+				007749F8181A834100D6F27C /* AITDAppDelegate.h */,
+				007749F9181A834100D6F27C /* AITDAppDelegate.m */,
+				007749FB181A834100D6F27C /* Main_iPhone.storyboard */,
+				00774A01181A834100D6F27C /* AITDViewController.h */,
+				00774A02181A834100D6F27C /* AITDViewController.m */,
+				00774A04181A834100D6F27C /* Images.xcassets */,
+				007749F0181A834100D6F27C /* Supporting Files */,
+				C4E3EC3FE50017ADDB530184 /* StaticTableView */,
+			);
+			path = AirTableViewControllerDemo;
+			sourceTree = "<group>";
+		};
+		007749F0181A834100D6F27C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				007749F1181A834100D6F27C /* AirTableViewControllerDemo-Info.plist */,
+				007749F2181A834100D6F27C /* InfoPlist.strings */,
+				007749F5181A834100D6F27C /* main.m */,
+				007749F7181A834100D6F27C /* AirTableViewControllerDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		00774A11181A834100D6F27C /* AirTableViewControllerDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				00774A17181A834100D6F27C /* AirTableViewControllerDemoTests.m */,
+				00774A12181A834100D6F27C /* Supporting Files */,
+			);
+			path = AirTableViewControllerDemoTests;
+			sourceTree = "<group>";
+		};
+		00774A12181A834100D6F27C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00774A13181A834100D6F27C /* AirTableViewControllerDemoTests-Info.plist */,
+				00774A14181A834100D6F27C /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		00774A22181A84C900D6F27C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				00774A27181A84C900D6F27C /* libAirTableViewController.a */,
+				00774A29181A84C900D6F27C /* AirTableViewControllerTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		00ABECEE181A85BC00676488 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00ABECEF181A85CA00676488 /* AirTableViewController */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		00ABECEF181A85CA00676488 /* AirTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				00ABECFE181A860E00676488 /* AITActionCell.xib */,
+				00ABECF2181A85E700676488 /* AITBoolCell.xib */,
+				00ABED02181A862200676488 /* AITCenterAlignedFooterView.xib */,
+				00ABED01181A862200676488 /* AITCenterAlignedHeaderView.xib */,
+				00ABECFC181A860800676488 /* AITChoiceCell.xib */,
+				00ABECF6181A860200676488 /* AITDateCell.xib */,
+				00ABECF7181A860200676488 /* AITDatePickerCell.xib */,
+				00ABECF8181A860200676488 /* AITDatePickerPopover.xib */,
+				00ABED00181A862200676488 /* AITLeftAlignedHeaderView.xib */,
+				00ABECF4181A85ED00676488 /* AITPendingOperationCell.xib */,
+				00ABECF0181A85DC00676488 /* AITTextCell.xib */,
+			);
+			name = AirTableViewController;
+			sourceTree = "<group>";
+		};
+		C4E3EC3FE50017ADDB530184 /* StaticTableView */ = {
+			isa = PBXGroup;
+			children = (
+				C4E3E24BF41484439BD5C84E /* AITDDataSource.h */,
+				C4E3EBE7368924238C5C36D4 /* AITDDataSource.m */,
+			);
+			path = StaticTableView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		007749E5181A834100D6F27C /* AirTableViewControllerDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00774A1B181A834100D6F27C /* Build configuration list for PBXNativeTarget "AirTableViewControllerDemo" */;
+			buildPhases = (
+				007749E2181A834100D6F27C /* Sources */,
+				007749E3181A834100D6F27C /* Frameworks */,
+				007749E4181A834100D6F27C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00ABECE8181A857000676488 /* PBXTargetDependency */,
+			);
+			name = AirTableViewControllerDemo;
+			productName = AirTableViewControllerDemo;
+			productReference = 007749E6181A834100D6F27C /* AirTableViewControllerDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		00774A09181A834100D6F27C /* AirTableViewControllerDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00774A1E181A834100D6F27C /* Build configuration list for PBXNativeTarget "AirTableViewControllerDemoTests" */;
+			buildPhases = (
+				00774A06181A834100D6F27C /* Sources */,
+				00774A07181A834100D6F27C /* Frameworks */,
+				00774A08181A834100D6F27C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00774A10181A834100D6F27C /* PBXTargetDependency */,
+			);
+			name = AirTableViewControllerDemoTests;
+			productName = AirTableViewControllerDemoTests;
+			productReference = 00774A0A181A834100D6F27C /* AirTableViewControllerDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		007749DE181A834100D6F27C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AITD;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = aironik;
+				TargetAttributes = {
+					00774A09181A834100D6F27C = {
+						TestTargetID = 007749E5181A834100D6F27C;
+					};
+				};
+			};
+			buildConfigurationList = 007749E1181A834100D6F27C /* Build configuration list for PBXProject "AirTableViewControllerDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 007749DD181A834100D6F27C;
+			productRefGroup = 007749E7181A834100D6F27C /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 00774A22181A84C900D6F27C /* Products */;
+					ProjectRef = 00774A21181A84C900D6F27C /* AirTableViewController.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				007749E5181A834100D6F27C /* AirTableViewControllerDemo */,
+				00774A09181A834100D6F27C /* AirTableViewControllerDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		00774A27181A84C900D6F27C /* libAirTableViewController.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAirTableViewController.a;
+			remoteRef = 00774A26181A84C900D6F27C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		00774A29181A84C900D6F27C /* AirTableViewControllerTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AirTableViewControllerTests.octest;
+			remoteRef = 00774A28181A84C900D6F27C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		007749E4181A834100D6F27C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00ABECFA181A860200676488 /* AITDatePickerCell.xib in Resources */,
+				00ABECFD181A860800676488 /* AITChoiceCell.xib in Resources */,
+				00774A05181A834100D6F27C /* Images.xcassets in Resources */,
+				007749FD181A834100D6F27C /* Main_iPhone.storyboard in Resources */,
+				00ABECF9181A860200676488 /* AITDateCell.xib in Resources */,
+				00ABECF5181A85ED00676488 /* AITPendingOperationCell.xib in Resources */,
+				007749F4181A834100D6F27C /* InfoPlist.strings in Resources */,
+				00ABECFF181A860E00676488 /* AITActionCell.xib in Resources */,
+				00ABECF1181A85DC00676488 /* AITTextCell.xib in Resources */,
+				00ABED04181A862200676488 /* AITCenterAlignedHeaderView.xib in Resources */,
+				00ABED05181A862200676488 /* AITCenterAlignedFooterView.xib in Resources */,
+				00ABECF3181A85E700676488 /* AITBoolCell.xib in Resources */,
+				00ABED03181A862200676488 /* AITLeftAlignedHeaderView.xib in Resources */,
+				00ABECFB181A860200676488 /* AITDatePickerPopover.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00774A08181A834100D6F27C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00774A16181A834100D6F27C /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		007749E2181A834100D6F27C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				007749FA181A834100D6F27C /* AITDAppDelegate.m in Sources */,
+				00774A03181A834100D6F27C /* AITDViewController.m in Sources */,
+				007749F6181A834100D6F27C /* main.m in Sources */,
+				C4E3E063615A11AF608ADDF2 /* AITDDataSource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		00774A06181A834100D6F27C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00774A18181A834100D6F27C /* AirTableViewControllerDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00774A10181A834100D6F27C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 007749E5181A834100D6F27C /* AirTableViewControllerDemo */;
+			targetProxy = 00774A0F181A834100D6F27C /* PBXContainerItemProxy */;
+		};
+		00ABECE8181A857000676488 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AirTableViewController;
+			targetProxy = 00ABECE7181A857000676488 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		007749F2181A834100D6F27C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				007749F3181A834100D6F27C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		007749FB181A834100D6F27C /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				007749FC181A834100D6F27C /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		00774A14181A834100D6F27C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00774A15181A834100D6F27C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		00774A19181A834100D6F27C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		00774A1A181A834100D6F27C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		00774A1C181A834100D6F27C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirTableViewControllerDemo/AirTableViewControllerDemo-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SRCROOT}/../AirTableViewController",
+				);
+				INFOPLIST_FILE = "AirTableViewControllerDemo/AirTableViewControllerDemo-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		00774A1D181A834100D6F27C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirTableViewControllerDemo/AirTableViewControllerDemo-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SRCROOT}/../AirTableViewController",
+				);
+				INFOPLIST_FILE = "AirTableViewControllerDemo/AirTableViewControllerDemo-Info.plist";
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		00774A1F181A834100D6F27C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AirTableViewControllerDemo.app/AirTableViewControllerDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirTableViewControllerDemo/AirTableViewControllerDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AirTableViewControllerDemoTests/AirTableViewControllerDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		00774A20181A834100D6F27C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AirTableViewControllerDemo.app/AirTableViewControllerDemo";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirTableViewControllerDemo/AirTableViewControllerDemo-Prefix.pch";
+				INFOPLIST_FILE = "AirTableViewControllerDemoTests/AirTableViewControllerDemoTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		007749E1181A834100D6F27C /* Build configuration list for PBXProject "AirTableViewControllerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00774A19181A834100D6F27C /* Debug */,
+				00774A1A181A834100D6F27C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00774A1B181A834100D6F27C /* Build configuration list for PBXNativeTarget "AirTableViewControllerDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00774A1C181A834100D6F27C /* Debug */,
+				00774A1D181A834100D6F27C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00774A1E181A834100D6F27C /* Build configuration list for PBXNativeTarget "AirTableViewControllerDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00774A1F181A834100D6F27C /* Debug */,
+				00774A20181A834100D6F27C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 007749DE181A834100D6F27C /* Project object */;
+}
