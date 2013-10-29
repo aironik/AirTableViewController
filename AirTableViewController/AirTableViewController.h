@@ -15,8 +15,10 @@
 #import <AirTableViewController/Sections/AITHeaderFooterSection.h>
 #import <AirTableViewController/Sections/AITPendingOperationSection.h>
 
-#import <AirTableViewController/Values/Action/AITActionValue.h>
-#import <AirTableViewController/Values/Bool/AITBoolValue.h>
-#import <AirTableViewController/Values/Choice/AITChoiceValue.h>
-#import <AirTableViewController/Values/Date/AITDateValue.h>
-#import <AirTableViewController/Values/Text/AITTextValue.h>
+#import <AirTableViewController/Values/ValuesWithDataSource/Bool/AITBoolValue.h>
+#import <AirTableViewController/Values/ValuesWithDataSource/Choice/AITChoiceValue.h>
+#import <AirTableViewController/Values/ValuesWithDataSource/Date/AITDateValue.h>
+#import <AirTableViewController/Values/ValuesWithDataSource/Text/AITTextValue.h>
+
+#import <AirTableViewController/Values/ValuesWithState/Action/AITActionValue.h>
+#import <AirTableViewController/Values/ValuesWithState/PendingOperation/AITPendingOperationValue.h>
