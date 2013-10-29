@@ -14,11 +14,11 @@
 #import "AITChoiceCell.h"
 #import "AITHeaderFooterView.h"
 #import "AITPendingOperationCell.h"
-#import "AITResponderValue.h"
 #import "AITBoolCell.h"
 #import "AITTableViewSection.h"
 #import "AITTableViewSectionDelegate.h"
 #import "AITTextCell.h"
+#import "AITValue.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -295,7 +295,7 @@
     }
 }
 
-- (NSIndexPath *)indexPathForValue:(AITResponderValue *)value {
+- (NSIndexPath *)indexPathForValue:(AITValue *)value {
     // FIXME: optimize if need. E.g. setup indexes and use delegate for selection.
     for (NSInteger sectionIndex = 0; sectionIndex < [self.sections count]; ++sectionIndex) {
         AITTableViewSection *section = self.sections[sectionIndex];

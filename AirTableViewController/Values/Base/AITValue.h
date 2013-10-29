@@ -6,13 +6,27 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import <AirTableViewController/Values/Base/AITResponderValue.h>
+#import <AirTableViewController/TableView/AITResponder.h>
+
+
+/// @brief The notification name that posts over default NSNotificationCenter if value become first responder.
+extern NSString *const kAITValueBecomeFirstAitResponder;
+
+/// @brief The notification name that posts over default NSNotificationCenter if value resign first responder.
+extern NSString *const kAITValueResignFirstAitResponder;
 
 
 @protocol AITValueDelegate;
 
 /// @brief Protocol defines value in the table view cell
-@interface AITValue : AITResponderValue
+@interface AITValue : NSObject<AITResponder>
+
+/// @brief The boolean value that indicates whether value is first ait responder.
+/// @details Normally this value set from -becomeFirstAitResponder or -resignFirstAitResponder.
+@property (nonatomic, assign, getter=isFirstAitResponder) BOOL firstAitResponder;
+
+/// @brief The next responder. The AITTableView setup this value next section.
+@property (nonatomic, weak) id<AITResponder> nextAitResponder;
 
 /// @brief The value represents whether value is empty and should not be interactable.
 /// @details If NO cell hides.

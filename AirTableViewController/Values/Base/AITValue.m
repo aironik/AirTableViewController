@@ -14,6 +14,10 @@
 #endif
 
 
+NSString *const kAITValueBecomeFirstAitResponder = @"kAITValueBecomeFirstAitResponder";
+NSString *const kAITValueResignFirstAitResponder = @"kAITValueResignFirstAitResponder";
+
+
 @interface AITValue ()
 @end
 
@@ -22,6 +26,7 @@
 
 @implementation AITValue
 
+@synthesize firstAitResponder = _firstAitResponder;
 @synthesize title = _title;
 
 - (instancetype)initWithTitle:(NSString *)title {
@@ -46,6 +51,51 @@
                      [super description],
                      self.title,
                      (self.empty ? @"YES" : @"NO")];
+}
+
+
+#pragma mark - AITResponder protocol implementation
+
+- (BOOL)canBecomeFirstAitResponder {
+    return NO;
+}
+
+- (BOOL)canResignFirstAitResponder {
+    return YES;
+}
+
+- (void)becomeFirstAitResponder {
+    if ([self canBecomeFirstAitResponder]) {
+        self.firstAitResponder = YES;
+    }
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(otherValueBecomeFirstAitResponderNotification:)
+                                                 name:kAITValueBecomeFirstAitResponder
+                                               object:nil];
+}
+
+- (void)resignFirstAitResponder {
+    if ([self canResignFirstAitResponder]) {
+        self.firstAitResponder = NO;
+    }
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:kAITValueBecomeFirstAitResponder
+                                                  object:nil];
+}
+
+- (void)setFirstAitResponder:(BOOL)firstAitResponder {
+    if (_firstAitResponder != firstAitResponder) {
+        _firstAitResponder = firstAitResponder;
+
+        NSString *name = (_firstAitResponder ? kAITValueBecomeFirstAitResponder : kAITValueResignFirstAitResponder);
+        [[NSNotificationCenter defaultCenter] postNotificationName:name object:self];
+    }
+}
+
+- (void)otherValueBecomeFirstAitResponderNotification:(NSNotification *)notification {
+    if ([notification object] != self && [self isFirstAitResponder]) {
+        [self resignFirstAitResponder];
+    }
 }
 
 @end

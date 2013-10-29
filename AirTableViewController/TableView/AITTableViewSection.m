@@ -41,6 +41,9 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 // value => cell identifier for additional data
 @property (nonatomic, strong, readonly) NSMutableDictionary *additionalDataFilledCellIdentifiers;
 
+// The value that is current first AITResponder in the section. If nil no first AIT responder now.
+@property (nonatomic, weak) AITValue *valueFirstAitResponder;
+
 - (NSArray *)currentObjects;
 
 @end
@@ -358,10 +361,8 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (BOOL)canResignFirstAitResponder {
-    for (id<AITResponder>value in self.allObjects) {
-        if ([value isFirstAitResponder]) {
-            return [value canResignFirstAitResponder];
-        }
+    if (self.valueFirstAitResponder) {
+        return [self.valueFirstAitResponder canResignFirstAitResponder];
     }
     return YES;
 }
@@ -377,21 +378,12 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)resignFirstAitResponder {
-    for (id<AITResponder>value in self.allObjects) {
-        if ([value isFirstAitResponder]) {
-            [value resignFirstAitResponder];
-            return;
-        }
-    }
+    [self.valueFirstAitResponder resignFirstAitResponder];
 }
 
 - (BOOL)isFirstAitResponder {
-    for (id<AITResponder> value in self.allObjects) {
-        if ([value isFirstAitResponder]) {
-            return [value isFirstAitResponder];
-        }
-    }
-    return NO;
+    NSParameterAssert((self.valueFirstAitResponder == nil) == ![self.valueFirstAitResponder isFirstAitResponder]);
+    return [self.valueFirstAitResponder isFirstAitResponder];
 }
 
 #pragma mark - AITValueDelegate protocol implementation
