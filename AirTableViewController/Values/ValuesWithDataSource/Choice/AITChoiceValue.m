@@ -7,6 +7,7 @@
 //
 
 #import "AITChoiceValue.h"
+#import "AITValueWithSource+AITProtected.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -30,11 +31,11 @@
 
 + (instancetype)valueWithTitle:(NSString *)title
                   sourceObject:(NSObject *)sourceObject
-            sourcePropertyName:(NSString *)sourcePropertyName
+                 sourceKeyPath:(NSString *)sourceKeyPath
 {
     return [self valueWithTitle:title
                    sourceObject:sourceObject
-             sourcePropertyName:sourcePropertyName
+                  sourceKeyPath:sourceKeyPath
                titleValueString:^NSString *(NSObject *value) {
                    NSParameterAssert(!value || [value isKindOfClass:[NSString class]]);
                    return (NSString *)value;
@@ -43,50 +44,33 @@
 
 + (instancetype)valueWithTitle:(NSString *)title
                   sourceObject:(NSObject *)sourceObject
-            sourcePropertyName:(NSString *)sourcePropertyName
+                 sourceKeyPath:(NSString *)sourceKeyPath
               titleValueString:(AITChoiceOptionTitleValueString)titleValueString
 {
     return [[self alloc] initWithTitle:title
                           sourceObject:sourceObject
-                    sourcePropertyName:sourcePropertyName
+                         sourceKeyPath:sourceKeyPath
                       titleValueString:(AITChoiceOptionTitleValueString)titleValueString];
 }
 
 
 - (instancetype)initWithTitle:(NSString *)title
                  sourceObject:(NSObject *)sourceObject
-           sourcePropertyName:(NSString *)sourcePropertyName
+                sourceKeyPath:(NSString *)sourceKeyPath
              titleValueString:(AITChoiceOptionTitleValueString)titleValueString
 {
-    if (self = [super initWithTitle:title]) {
-        NSAssert2(sourceObject
-                  && [sourcePropertyName length]
-                  && [sourceObject respondsToSelector:NSSelectorFromString(sourcePropertyName)],
-                  @"Cannot access bool value switch. Object: %@, keyPath: %@", sourceObject, sourcePropertyName);
-        NSAssert(titleValueString != NULL, @"Title getter block cannot be nil.");
-
-        _sourceObject = sourceObject;
-        _sourcePropertyName = [sourcePropertyName copy];
+    if (self = [super initWithTitle:title sourceObject:sourceObject sourceKeyPath:sourceKeyPath]) {
         _titleValueString = [titleValueString copy];
-        [_sourceObject addObserver:self
-                        forKeyPath:sourcePropertyName
-                           options:NSKeyValueObservingOptionNew
-                           context:NULL];
     }
     return self;
 }
-
-- (void)dealloc {
-    [_sourceObject removeObserver:self forKeyPath:_sourcePropertyName];
-}
-
 
 + (NSString *)cellIdentifier {
     return @"AITChoiceCell";
 }
 
 - (NSObject<AITChoiceOption> *)value {
-    NSObject<AITChoiceOption> *value = [self.sourceObject valueForKeyPath:self.sourcePropertyName];
+    NSObject<AITChoiceOption> *value = self.sourceValue;
     NSParameterAssert(!value || [value conformsToProtocol:@protocol(AITChoiceOption)]);
     return value;
 }
@@ -94,28 +78,11 @@
 - (void)setValue:(NSObject<AITChoiceOption> *)value {
     NSAssert([self.allOptions containsObject:value], @"set value that doesn't contains in all possible options.");
     NSAssert(!value || [value conformsToProtocol:@protocol(AITChoiceOption)], @"value must conforms to AITChoiceOption protocol");
-    [self.sourceObject setValue:value forKeyPath:self.sourcePropertyName];
+    self.sourceValue = value;
 }
 
 - (NSString *)valueString {
     return self.titleValueString(self.value);
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context
-{
-    if (object == self.sourceObject && [keyPath isEqualToString:self.sourcePropertyName]) {
-        [self willChangeValueForKey:@"value"];
-        [self didChangeValueForKey:@"value"];
-    }
-    else {
-        [super observeValueForKeyPath:keyPath
-                             ofObject:object
-                               change:change
-                              context:context];
-    }
 }
 
 - (NSString *)description {

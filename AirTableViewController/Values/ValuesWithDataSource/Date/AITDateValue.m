@@ -7,6 +7,7 @@
 //
 
 #import "AITDateValue.h"
+#import "AITValueWithSource+AITProtected.h"
 
 #import "AITDatePickerPopover.h"
 #import "AITValueDelegate.h"
@@ -35,27 +36,12 @@
 @implementation AITDateValue
 
 
-+ (instancetype)valueWithTitle:(NSString *)title
-                  sourceObject:(NSObject *)sourceObject
-            sourcePropertyName:(NSString *)sourcePropertyName
-{
-    return [[self alloc] initWithTitle:title sourceObject:sourceObject sourcePropertyName:sourcePropertyName];
-}
-
 - (instancetype)initWithTitle:(NSString *)title
                  sourceObject:(NSObject *)sourceObject
-           sourcePropertyName:(NSString *)sourcePropertyName
+                sourceKeyPath:(NSString *)sourceKeyPath
 {
-    if (self = [super initWithTitle:title]) {
-        _sourceObject = sourceObject;
-        _sourcePropertyName = [sourcePropertyName copy];
-
+    if (self = [super initWithTitle:title sourceObject:sourceObject sourceKeyPath:sourceKeyPath]) {
         _dateEditable = YES;
-
-        [_sourceObject addObserver:self
-                        forKeyPath:sourcePropertyName
-                           options:NSKeyValueObservingOptionNew
-                           context:NULL];
 
         _pickerCellIdentifier = @"AITDatePickerCell";
 
@@ -64,28 +50,16 @@
     return self;
 }
 
-- (void)dealloc {
-    [_sourceObject removeObserver:self forKeyPath:_sourcePropertyName];
-}
-
 + (NSString *)cellIdentifier {
     return @"AITDateCell";
 }
 
-- (BOOL)isEmpty {
-    return (self.value == nil);
-}
-
-- (void)setEmpty:(BOOL)empty {
-    NSAssert(NO, @"This method should not be invoked.");
-}
-
 - (NSDate *)value {
-    return [self.sourceObject valueForKeyPath:self.sourcePropertyName];
+    return self.sourceValue;
 }
 
 - (void)setValue:(NSDate *)value {
-    [self.sourceObject setValue:value forKeyPath:self.sourcePropertyName];
+    self.sourceValue = value;
 }
 
 - (void)setupDatePicker:(UIDatePicker *)datePicker {
@@ -125,23 +99,6 @@
         _dateFormatter = staticDateFormatter;
     }
     return _dateFormatter;
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context
-{
-    if (object == self.sourceObject && [keyPath isEqualToString:self.sourcePropertyName]) {
-        [self willChangeValueForKey:@"value"];
-        [self didChangeValueForKey:@"value"];
-    }
-    else {
-        [super observeValueForKeyPath:keyPath
-                             ofObject:object
-                               change:change
-                              context:context];
-    }
 }
 
 - (NSString *)description {

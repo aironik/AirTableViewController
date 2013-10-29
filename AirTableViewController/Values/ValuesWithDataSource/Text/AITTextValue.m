@@ -7,6 +7,7 @@
 //
 
 #import "AITTextValue.h"
+#import "AITValueWithSource+AITProtected.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -28,28 +29,21 @@
 
 + (instancetype)valueWithTitle:(NSString *)title
                   sourceObject:(NSObject *)sourceObject
-            sourcePropertyName:(NSString *)sourcePropertyName
+                 sourceKeyPath:(NSString *)sourceKeyPath
                        comment:(NSString *)comment
 {
     return [[self alloc] initWithTitle:title
                           sourceObject:sourceObject
-                    sourcePropertyName:(NSString *)sourcePropertyName
+                         sourceKeyPath:(NSString *)sourceKeyPath
                                comment:comment];
 }
 
 - (instancetype)initWithTitle:(NSString *)title
                  sourceObject:(NSObject *)sourceObject
-           sourcePropertyName:(NSString *)sourcePropertyName
+                sourceKeyPath:(NSString *)sourceKeyPath
                       comment:(NSString *)comment
 {
-    NSAssert2(sourceObject
-              && [sourcePropertyName length]
-              && [sourceObject respondsToSelector:NSSelectorFromString(sourcePropertyName)],
-              @"Cannot access string value. Object: %@, keyPath: %@", sourceObject, sourcePropertyName);
-
-    if (self = [super initWithTitle:title]) {
-        _sourceObject = sourceObject;
-        _sourcePropertyName = [sourcePropertyName copy];
+    if (self = [super initWithTitle:title sourceObject:sourceObject sourceKeyPath:sourceKeyPath]) {
         _comment = [comment copy];
         _textEditable = YES;
 
@@ -58,19 +52,9 @@
         _textInputReturnKeyType = UIReturnKeyDefault;
         _textInputSecureTextEntry = NO;
         _textInputClearsOnBeginEditing = NO;
-
-        [_sourceObject addObserver:self
-                        forKeyPath:sourcePropertyName
-                           options:NSKeyValueObservingOptionNew
-                           context:NULL];
     }
     return self;
 }
-
-- (void)dealloc {
-    [_sourceObject removeObserver:self forKeyPath:_sourcePropertyName];
-}
-
 
 + (NSString *)cellIdentifier {
     return @"AITTextCell";
@@ -80,33 +64,12 @@
     return [self.value length] == 0;
 }
 
-- (void)setEmpty:(BOOL)empty {
-    NSAssert(NO, @"This method should not be invoked.");
-}
-
 - (NSString *)value {
-    return [self.sourceObject valueForKeyPath:self.sourcePropertyName];
+    return self.sourceValue;
 }
 
 - (void)setValue:(NSString *)value {
-    [self.sourceObject setValue:value forKeyPath:self.sourcePropertyName];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context
-{
-    if (object == self.sourceObject && [keyPath isEqualToString:self.sourcePropertyName]) {
-        [self willChangeValueForKey:@"value"];
-        [self didChangeValueForKey:@"value"];
-    }
-    else {
-        [super observeValueForKeyPath:keyPath
-                             ofObject:object
-                               change:change
-                              context:context];
-    }
+    self.sourceValue = value;
 }
 
 - (NSString *)description {

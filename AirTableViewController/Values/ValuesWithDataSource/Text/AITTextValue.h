@@ -6,11 +6,11 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import <AirTableViewController/Values/Base/AITValue.h>
+#import <AirTableViewController/Values/Base/AITValueWithSource.h>
 
 
 /// @brief The value represents string value.
-@interface AITTextValue : AITValue
+@interface AITTextValue : AITValueWithSource
 
 /// @brief The string value from source.
 @property (nonatomic, copy) NSString *value;
@@ -32,11 +32,11 @@
 /// @brief Create new value represents string value with name.
 /// @param title Human readable property name.
 /// @param sourceObject the object having string property for present.
-/// @param sourcePropertyName the property name (keypath) that needs represent.
+/// @param sourceKeyPath the property name (keyPath) that needs represent.
 /// @param comment the human readable value description.
 + (instancetype)valueWithTitle:(NSString *)title
                   sourceObject:(NSObject *)sourceObject
-            sourcePropertyName:(NSString *)sourcePropertyName
+                 sourceKeyPath:(NSString *)sourceKeyPath
                        comment:(NSString *)comment;
 
 @end

@@ -6,7 +6,7 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import <AirTableViewController/Values/Base/AITValue.h>
+#import <AirTableViewController/Values/Base/AITValueWithSource.h>
 
 
 @protocol AITChoiceOption;
@@ -17,7 +17,7 @@ typedef NSString *(^AITChoiceOptionTitleValueString)(NSObject *value);
 
 
 /// @brief The value represent select one choice from possible set.
-@interface AITChoiceValue : AITValue
+@interface AITChoiceValue : AITValueWithSource
 
 /// @brief The selected option.
 @property (nonatomic, strong) NSObject *value;
@@ -36,20 +36,20 @@ typedef NSString *(^AITChoiceOptionTitleValueString)(NSObject *value);
 ///     all values should be NSString objects.
 /// @param title Human readable property name.
 /// @param sourceObject the object having property for present.
-/// @param sourcePropertyName the keypath with choice that needs represent.
+/// @param sourceKeyPath the keyPath with choice that needs represent.
 + (instancetype)valueWithTitle:(NSString *)title
                   sourceObject:(NSObject *)sourceObject
-            sourcePropertyName:(NSString *)sourcePropertyName;
+                 sourceKeyPath:(NSString *)sourceKeyPath;
 
 /// @brief Create new value represents choice value with name.
 /// @details The value should conform to AITChoiceOption protocol.
 /// @param title Human readable property name.
 /// @param sourceObject the object having property for present.
-/// @param sourcePropertyName the keypath with choice that needs represent.
+/// @param sourceKeyPath the keyPath with choice that needs represent.
 /// @param titleValueString block for generate human readable title for value.
 + (instancetype)valueWithTitle:(NSString *)title
                   sourceObject:(NSObject *)sourceObject
-            sourcePropertyName:(NSString *)sourcePropertyName
+                 sourceKeyPath:(NSString *)sourceKeyPath
               titleValueString:(AITChoiceOptionTitleValueString)titleValueString;
 
 @end

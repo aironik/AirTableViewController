@@ -6,11 +6,11 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import <AirTableViewController/Values/Base/AITValue.h>
+#import <AirTableViewController/Values/Base/AITValueWithSource.h>
 
 
 /// @brief The value represents date value.
-@interface AITDateValue : AITValue
+@interface AITDateValue : AITValueWithSource
 
 /// @brief The date value from source.
 @property (nonatomic, strong) NSDate *value;
@@ -28,14 +28,6 @@
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @property (nonatomic, strong, readonly) NSDate *dateForPicker;
-
-/// @brief Create new value represents string value with name.
-/// @param title Human readable property name.
-/// @param sourceObject the object having string property for present.
-/// @param sourcePropertyName the property name (keypath) that needs represent.
-+ (instancetype)valueWithTitle:(NSString *)title
-                  sourceObject:(NSObject *)sourceObject
-            sourcePropertyName:(NSString *)sourcePropertyName;
 
 - (void)setupDatePicker:(UIDatePicker *)datePicker;
 

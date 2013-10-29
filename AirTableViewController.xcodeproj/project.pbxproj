@@ -39,6 +39,7 @@
 		C4E3ECE5C568F13C10B251D9 /* AITTextValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E4FF01C1DEB27400F439 /* AITTextValue.m */; };
 		C4E3EE330A086658E3AD8ED7 /* AITDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E5308A87478EF9EC04FD /* AITDatePickerCell.m */; };
 		C4E3EEA3AAD22FA7DD60E878 /* AITDateValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E98EECDE333B0E493D12 /* AITDateValue.m */; };
+		C4E3EF6211E85D9D65418F7F /* AITValueWithSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E8ED2E5EC73BD6A96180 /* AITValueWithSource.m */; };
 		C4E3EF6966181EA76518254A /* AITPendingOperationValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E4215CFFC44867267DE1 /* AITPendingOperationValue.m */; };
 		C4E3EFFF611E6D38ACC448B4 /* AITChoiceOptionSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E9D5B3F42EBDCDA52283 /* AITChoiceOptionSelectorViewController.m */; };
 /* End PBXBuildFile section */
@@ -110,6 +111,7 @@
 		C4E3E513EAA02E78D6BB2BE9 /* AITChoiceValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITChoiceValue.m; sourceTree = "<group>"; };
 		C4E3E5308A87478EF9EC04FD /* AITDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDatePickerCell.m; sourceTree = "<group>"; };
 		C4E3E530F6AA78CCA389421F /* AITDatePickerPopover.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITDatePickerPopover.xib; sourceTree = "<group>"; };
+		C4E3E572D2B7B3ED366D4D05 /* AITValueWithSource+AITProtected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AITValueWithSource+AITProtected.h"; sourceTree = "<group>"; };
 		C4E3E58FE4A884A91986002D /* AITTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTableViewCell.m; sourceTree = "<group>"; };
 		C4E3E5ADB7A45DEE292EB888 /* AITValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITValue.m; sourceTree = "<group>"; };
 		C4E3E5CF75BF54D4C70CF8E1 /* AITPendingOperationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITPendingOperationCell.xib; sourceTree = "<group>"; };
@@ -126,7 +128,9 @@
 		C4E3E83664C57946FE6701DB /* AITChoiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITChoiceCell.m; sourceTree = "<group>"; };
 		C4E3E85174E678717F030D16 /* AITHeaderFooterSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITHeaderFooterSection.h; sourceTree = "<group>"; };
 		C4E3E88EBDAC5C9E9BFDAA79 /* AITValueDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITValueDelegate.h; sourceTree = "<group>"; };
+		C4E3E8ED2E5EC73BD6A96180 /* AITValueWithSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITValueWithSource.m; sourceTree = "<group>"; };
 		C4E3E90C66816048DC5467FC /* AITBoolValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITBoolValue.h; sourceTree = "<group>"; };
+		C4E3E92F035323DFA6F88267 /* AITValueWithSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITValueWithSource.h; sourceTree = "<group>"; };
 		C4E3E98EECDE333B0E493D12 /* AITDateValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDateValue.m; sourceTree = "<group>"; };
 		C4E3E9AA94D63F9B5CC9E8E1 /* AITActionValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITActionValue.h; sourceTree = "<group>"; };
 		C4E3E9D5B3F42EBDCDA52283 /* AITChoiceOptionSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITChoiceOptionSelectorViewController.m; sourceTree = "<group>"; };
@@ -351,6 +355,9 @@
 				C4E3E37618985AFEAD0B870C /* AITValue.h */,
 				C4E3E5ADB7A45DEE292EB888 /* AITValue.m */,
 				C4E3E88EBDAC5C9E9BFDAA79 /* AITValueDelegate.h */,
+				C4E3E572D2B7B3ED366D4D05 /* AITValueWithSource+AITProtected.h */,
+				C4E3E92F035323DFA6F88267 /* AITValueWithSource.h */,
+				C4E3E8ED2E5EC73BD6A96180 /* AITValueWithSource.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -521,6 +528,7 @@
 				C4E3E31B217A7CD2D35B5C04 /* AITValue.m in Sources */,
 				C4E3E0B325F044594BB239AD /* AITResponderValue.m in Sources */,
 				C4E3E3BD59DF49201652945B /* AITTableViewCell.m in Sources */,
+				C4E3EF6211E85D9D65418F7F /* AITValueWithSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
