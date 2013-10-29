@@ -98,7 +98,7 @@
 - (AITValue *)staticValue11 {
     AITTextValue *result = [AITTextValue valueWithTitle:@"String Property Value"
                                            sourceObject:self.staticDataSource
-                                     sourcePropertyName:@"stringProperty"
+                                          sourceKeyPath:@"stringProperty"
                                                 comment:@"String Property Value Placeholder"];
     result.textEditable = YES;
     result.textInputAutocapitalizationType = UITextAutocapitalizationTypeWords;
@@ -108,14 +108,14 @@
 - (AITValue *)staticValue12 {
     AITBoolValue *result = [AITBoolValue valueWithTitle:@"Boolean Property Value"
                                            sourceObject:self.staticDataSource
-                                     sourcePropertyName:@"boolProperty"];
+                                          sourceKeyPath:@"boolProperty"];
     return result;
 }
 
 - (AITValue *)staticValue13 {
     AITDateValue *result = [AITDateValue valueWithTitle:@"Date Property Value"
                                            sourceObject:self.staticDataSource
-                                     sourcePropertyName:@"dateProperty"];
+                                          sourceKeyPath:@"dateProperty"];
     return result;
 }
 
