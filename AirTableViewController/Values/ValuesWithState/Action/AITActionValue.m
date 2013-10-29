@@ -23,11 +23,9 @@
 @implementation AITActionValue
 
 - (instancetype)initWithTitle:(NSString *)title action:(AITActionValueBlock)action {
-    if (self = [super init]) {
-        _title = [title copy];
+    if (self = [super initWithTitle:title]) {
         _action = [action copy];
         _enabled = YES;
-        _empty = NO;
     }
     return self;
 }
@@ -49,13 +47,6 @@
 
 - (BOOL)canPerform {
     return (self.enabled && self.action);
-}
-
-- (NSString *)description {
-    return [NSString stringWithFormat:@"<%@ title == \"%@\", enabled == \"%@\">",
-                     [super description],
-                     self.title,
-                     (self.enabled ? @"YES" : @"NO")];
 }
 
 

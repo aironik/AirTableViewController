@@ -6,15 +6,11 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import <AirTableViewController/TableView/AITResponderValue.h>
-#import <AirTableViewController/TableView/AITValue.h>
+#import <AirTableViewController/Values/Base/AITValue.h>
 
 
 /// @brief The value represents date value.
-@interface AITDateValue : AITResponderValue<AITValue>
-
-/// @brief The value name.
-@property (nonatomic, copy) NSString *title;
+@interface AITDateValue : AITValue
 
 /// @brief The date value from source.
 @property (nonatomic, strong) NSDate *value;

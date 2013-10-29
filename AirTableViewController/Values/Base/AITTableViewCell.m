@@ -21,7 +21,7 @@
 
 @property (nonatomic, assign, getter=isFirstAitResponder) BOOL firstAitResponder;
 
-// Cell can disappear but do not removed or reuse. For previous AITValue can dequed other cell.
+// Cell can disappear but do not removed or reuse. For previous AITValue can dequeued other cell.
 // Therefore we neew unsubscribe changes in disappear. But we can unsubscribe on change value.
 // So we can unsubscribe twice and get exception.
 @property (nonatomic, assign) BOOL subscribedAitResponderValueChanges;
@@ -39,7 +39,7 @@
     [tableView registerNib:nib forCellReuseIdentifier:className];
 }
 
-+ (CGFloat)prefferedHeightForValue:(NSObject<AITValue> *)value {
++ (CGFloat)prefferedHeightForValue:(AITValue *)value {
     return 0.;
 }
 
@@ -72,7 +72,7 @@
     self.firstAitResponder = NO;
 }
 
-- (void)setValue:(NSObject<AITValue> *)value {
+- (void)setValue:(AITValue *)value {
     if (_value != value) {
         [self unsubscribeAitResponderValueChanges];
         [self unsubscribeValueChanges];

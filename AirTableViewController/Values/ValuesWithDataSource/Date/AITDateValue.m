@@ -46,8 +46,7 @@
                  sourceObject:(NSObject *)sourceObject
            sourcePropertyName:(NSString *)sourcePropertyName
 {
-    if (self = [super init]) {
-        _title = [title copy];
+    if (self = [super initWithTitle:title]) {
         _sourceObject = sourceObject;
         _sourcePropertyName = [sourcePropertyName copy];
 
@@ -73,11 +72,12 @@
     return @"AITDateCell";
 }
 
-- (void)perform {
-}
-
 - (BOOL)isEmpty {
     return (self.value == nil);
+}
+
+- (void)setEmpty:(BOOL)empty {
+    NSAssert(NO, @"This method should not be invoked.");
 }
 
 - (NSDate *)value {
@@ -145,9 +145,8 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@ title == \"%@\", value == \"%@\">",
+    return [NSString stringWithFormat:@"<%@ value == \"%@\">",
                      [super description],
-                     self.title,
                      self.value];
 }
 

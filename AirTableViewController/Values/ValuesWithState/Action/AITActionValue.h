@@ -6,8 +6,7 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import <AirTableViewController/TableView/AITResponderValue.h>
-#import <AirTableViewController/TableView/AITValue.h>
+#import <AirTableViewController/Values/Base/AITValue.h>
 
 
 @class AITActionValue;
@@ -17,10 +16,7 @@ typedef void (^AITActionValueBlock)(AITActionValue *value);
 
 
 /// @brief The action with title and action block code.
-@interface AITActionValue : AITResponderValue<AITValue>
-
-/// @brief The action name.
-@property (nonatomic, copy) NSString *title;
+@interface AITActionValue : AITValue
 
 /// @brief The code block for perform action.
 @property (nonatomic, copy) AITActionValueBlock action;
@@ -29,10 +25,6 @@ typedef void (^AITActionValueBlock)(AITActionValue *value);
 /// @details If YES action execution possible and cell title text is black (enabled).
 ///     Otherwise no way to execute action and cell text gray (disabled).
 @property (nonatomic, assign) BOOL enabled;
-
-/// @brief The value represents whether value is empty and should not be interactable.
-/// @details If NO cell hides.
-@property (nonatomic, assign, getter=isEmpty) BOOL empty;
 
 /// @brief Create new action value instance.
 + (instancetype)valueWithTitle:(NSString *)title action:(AITActionValueBlock)action;

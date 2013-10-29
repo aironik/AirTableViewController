@@ -95,7 +95,7 @@
 
 #pragma mark - Static Values
 
-- (NSObject<AITValue> *)staticValue11 {
+- (AITValue *)staticValue11 {
     AITTextValue *result = [AITTextValue valueWithTitle:@"String Property Value"
                                            sourceObject:self.staticDataSource
                                      sourcePropertyName:@"stringProperty"
@@ -105,21 +105,21 @@
     return result;
 }
 
-- (NSObject<AITValue> *)staticValue12 {
+- (AITValue *)staticValue12 {
     AITBoolValue *result = [AITBoolValue valueWithTitle:@"Boolean Property Value"
                                            sourceObject:self.staticDataSource
                                      sourcePropertyName:@"boolProperty"];
     return result;
 }
 
-- (NSObject<AITValue> *)staticValue13 {
+- (AITValue *)staticValue13 {
     AITDateValue *result = [AITDateValue valueWithTitle:@"Date Property Value"
                                            sourceObject:self.staticDataSource
                                      sourcePropertyName:@"dateProperty"];
     return result;
 }
 
-- (NSObject<AITValue> *)staticValue21 {
+- (AITValue *)staticValue21 {
     AITActionValue *result = [AITActionValue valueWithTitle:@"Show Alert View" action:^(AITActionValue *value) {
         [[[UIAlertView alloc] initWithTitle:@"Title"
                                     message:@"Message"
@@ -131,7 +131,7 @@
     return result;
 }
 
-- (NSObject<AITValue> *)staticValue22 {
+- (AITValue *)staticValue22 {
 //    AITPendingOperationSection *section = self.pendingSection;
     AITActionValue *result = [AITActionValue valueWithTitle:@"Start Pending Process" action:^(AITActionValue *value) {
 //        section.pendingOperationExecuting = YES;
@@ -139,7 +139,7 @@
     return result;
 }
 
-- (NSObject<AITValue> *)staticValue23 {
+- (AITValue *)staticValue23 {
 //    AITPendingOperationSection *section = self.pendingSection;
     AITActionValue *result = [AITActionValue valueWithTitle:@"Stop Pending Process" action:^(AITActionValue *value) {
 //        section.pendingOperationExecuting = NO;

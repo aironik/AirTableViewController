@@ -43,11 +43,9 @@
               && [sourcePropertyName length]
               && [sourceObject respondsToSelector:NSSelectorFromString(sourcePropertyName)],
               @"Cannot access bool value switch. Object: %@, keyPath: %@", sourceObject, sourcePropertyName);
-    if (self = [super init]) {
-        _title = [title copy];
+    if (self = [super initWithTitle:title]) {
         _sourceObject = sourceObject;
         _sourcePropertyName = [sourcePropertyName copy];
-        _empty = NO;
         [_sourceObject addObserver:self
                         forKeyPath:sourcePropertyName
                            options:NSKeyValueObservingOptionNew
@@ -62,9 +60,6 @@
 
 + (NSString *)cellIdentifier {
     return @"AITBoolCell";
-}
-
-- (void)perform {
 }
 
 - (BOOL)value {
@@ -95,9 +90,8 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@ title == \"%@\", value == \"%@\">",
+    return [NSString stringWithFormat:@"<%@ value == \"%@\">",
                      [super description],
-                     self.title,
                      (self.value ? @"YES" : @"NO")];
 }
 

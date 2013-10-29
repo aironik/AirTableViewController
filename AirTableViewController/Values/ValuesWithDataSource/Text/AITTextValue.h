@@ -6,15 +6,11 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import <AirTableViewController/TableView/AITResponderValue.h>
-#import <AirTableViewController/TableView/AITValue.h>
+#import <AirTableViewController/Values/Base/AITValue.h>
 
 
 /// @brief The value represents string value.
-@interface AITTextValue : AITResponderValue<AITValue>
-
-/// @brief The value name.
-@property (nonatomic, copy) NSString *title;
+@interface AITTextValue : AITValue
 
 /// @brief The string value from source.
 @property (nonatomic, copy) NSString *value;

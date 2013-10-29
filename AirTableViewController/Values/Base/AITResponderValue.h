@@ -29,6 +29,4 @@ extern NSString *const kAITValueResignFirstAitResponder;
 /// @brief The next responder. The AITTableView setup this value next section.
 @property (nonatomic, weak) id<AITResponder> nextAitResponder;
 
-@property (nonatomic, weak) NSObject<AITValueDelegate> *delegate;
-
 @end

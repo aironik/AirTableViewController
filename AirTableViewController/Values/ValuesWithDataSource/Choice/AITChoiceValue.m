@@ -58,18 +58,16 @@
            sourcePropertyName:(NSString *)sourcePropertyName
              titleValueString:(AITChoiceOptionTitleValueString)titleValueString
 {
-    if (self = [super init]) {
+    if (self = [super initWithTitle:title]) {
         NSAssert2(sourceObject
                   && [sourcePropertyName length]
                   && [sourceObject respondsToSelector:NSSelectorFromString(sourcePropertyName)],
                   @"Cannot access bool value switch. Object: %@, keyPath: %@", sourceObject, sourcePropertyName);
         NSAssert(titleValueString != NULL, @"Title getter block cannot be nil.");
 
-        _title = [title copy];
         _sourceObject = sourceObject;
         _sourcePropertyName = [sourcePropertyName copy];
         _titleValueString = [titleValueString copy];
-        _empty = NO;
         [_sourceObject addObserver:self
                         forKeyPath:sourcePropertyName
                            options:NSKeyValueObservingOptionNew
@@ -85,9 +83,6 @@
 
 + (NSString *)cellIdentifier {
     return @"AITChoiceCell";
-}
-
-- (void)perform {
 }
 
 - (NSObject<AITChoiceOption> *)value {
@@ -124,9 +119,8 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@ title == \"%@\", value == \"%@\">",
+    return [NSString stringWithFormat:@"<%@ value == \"%@\">",
                                       [super description],
-                                      self.title,
                                       self.value];
 }
 

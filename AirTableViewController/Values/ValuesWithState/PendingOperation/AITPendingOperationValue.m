@@ -26,26 +26,8 @@
     return [[self alloc] initWithTitle:title];
 }
 
-- (id)initWithTitle:(id)title {
-    if (self = [super init]) {
-        _title = [title copy];
-        _empty = NO;
-    }
-    return self;
-}
-
 + (NSString *)cellIdentifier {
     return @"AITPendingOperationCell";
-}
-
-- (void)perform {
-}
-
-- (NSString *)description {
-    return [NSString stringWithFormat:@"<%@ title == \"%@\", empty == \"%@\">",
-                     [super description],
-                     self.title,
-                     (self.empty ? @"YES" : @"NO")];
 }
 
 

@@ -25,7 +25,7 @@
 
 @implementation AITDatePickerCell
 
-+ (CGFloat)prefferedHeightForValue:(NSObject<AITValue> *)value {
++ (CGFloat)prefferedHeightForValue:(AITValue *)value {
     return 216.;
 }
 

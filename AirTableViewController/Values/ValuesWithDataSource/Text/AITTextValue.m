@@ -26,8 +26,6 @@
 
 @implementation AITTextValue
 
-@synthesize title = _title;
-
 + (instancetype)valueWithTitle:(NSString *)title
                   sourceObject:(NSObject *)sourceObject
             sourcePropertyName:(NSString *)sourcePropertyName
@@ -49,8 +47,7 @@
               && [sourceObject respondsToSelector:NSSelectorFromString(sourcePropertyName)],
               @"Cannot access string value. Object: %@, keyPath: %@", sourceObject, sourcePropertyName);
 
-    if (self = [super init]) {
-        _title = [title copy];
+    if (self = [super initWithTitle:title]) {
         _sourceObject = sourceObject;
         _sourcePropertyName = [sourcePropertyName copy];
         _comment = [comment copy];
@@ -79,11 +76,12 @@
     return @"AITTextCell";
 }
 
-- (void)perform {
-}
-
 - (BOOL)isEmpty {
     return [self.value length] == 0;
+}
+
+- (void)setEmpty:(BOOL)empty {
+    NSAssert(NO, @"This method should not be invoked.");
 }
 
 - (NSString *)value {
@@ -112,9 +110,8 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@ title == \"%@\", value == \"%@\", comment == \"%@\">",
+    return [NSString stringWithFormat:@"<%@ value == \"%@\", comment == \"%@\">",
                      [super description],
-                     self.title,
                      self.value,
                      self.comment];
 }

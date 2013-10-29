@@ -37,7 +37,7 @@
     self.value = textValue;
 }
 
-- (void)setValue:(NSObject<AITValue> *)value {
+- (void)setValue:(AITValue *)value {
     NSParameterAssert(!value || [value isKindOfClass:[AITTextValue class]]);
     NSParameterAssert(self.valueTextField.delegate == self);
     [super setValue:value];

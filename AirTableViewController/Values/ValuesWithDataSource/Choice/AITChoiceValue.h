@@ -6,8 +6,7 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import <AirTableViewController/TableView/AITResponderValue.h>
-#import <AirTableViewController/TableView/AITValue.h>
+#import <AirTableViewController/Values/Base/AITValue.h>
 
 
 @protocol AITChoiceOption;
@@ -18,10 +17,7 @@ typedef NSString *(^AITChoiceOptionTitleValueString)(NSObject *value);
 
 
 /// @brief The value represent select one choice from possible set.
-@interface AITChoiceValue : AITResponderValue<AITValue>
-
-/// @brief The value name.
-@property (nonatomic, copy) NSString *title;
+@interface AITChoiceValue : AITValue
 
 /// @brief The selected option.
 @property (nonatomic, strong) NSObject *value;
@@ -29,10 +25,6 @@ typedef NSString *(^AITChoiceOptionTitleValueString)(NSObject *value);
 /// @brief The human readable string that represent value.
 /// @details This value get from sourceObject[sourcePropertyName][valueStringPropertyName]
 @property (nonatomic, copy, readonly) NSString *valueString;
-
-/// @brief The value represents whether value is empty and should not be interactable.
-/// @details If NO cell hides.
-@property (nonatomic, assign, getter=isEmpty) BOOL empty;
 
 /// @brief The array with all possible options for choice value.
 /// @details All objects must conforms to AITChoiceOption protocol.

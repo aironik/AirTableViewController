@@ -9,15 +9,15 @@
 #import <AirTableViewController/TableView/AITResponder.h>
 
 
-@protocol AITValue;
 @class AITTableViewCell;
+@class AITValue;
 
 
 /// @brief TableViewCell represents value. Base class for other cells.
 @interface AITTableViewCell : UITableViewCell<AITResponder>
 
 /// @brief The data source value. This value defines UI elements contents.
-@property (nonatomic, strong) NSObject<AITValue> *value;
+@property (nonatomic, strong) AITValue *value;
 
 /// @brief Title label. This text value represent property name e.g. "Name", "Title", "Description".
 /// @details Text set form value.
@@ -28,7 +28,7 @@
 + (void)setupTableView:(UITableView *)tableView;
 
 /// @brief Defines cell height for value. If 0 table view should use default -rowHeight value.
-+ (CGFloat)prefferedHeightForValue:(NSObject<AITValue> *)value;
++ (CGFloat)prefferedHeightForValue:(AITValue *)value;
 
 /// @details This method invokes from -tableView:willDisplayCell:forRowAtIndexPath:
 - (void)cellWillDisplay;

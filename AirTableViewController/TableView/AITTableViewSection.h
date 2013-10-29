@@ -20,7 +20,7 @@ extern const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation;
 
 @interface AITTableViewSection : NSObject<AITResponder>
 
-/// @brief The array of objects conforms to AITValue protocol. This array defines cells and values contents.
+/// @brief The array of objects AITValue class. This array defines cells and values contents.
 /// @details You can create and set instances of values. Each instance define appropriate cell view and cell behaviour.
 /// @see AITActionValue
 /// @see AITBoolValue

@@ -86,7 +86,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     NSMutableArray *filledObjects = [NSMutableArray array];
     [self.additionalDataFilledCellIdentifiers removeAllObjects];
 
-    [self.allObjects enumerateObjectsUsingBlock:^(id<AITValue> value, NSUInteger idx, BOOL *stop) {
+    [self.allObjects enumerateObjectsUsingBlock:^(AITValue *value, NSUInteger idx, BOOL *stop) {
         if (![value isEmpty]) {
             NSInteger filledObjectIndex = [filledObjects count];
             NSString *cellIdentifier = self.additionalDataCellIdentifiers[@(idx)];
@@ -217,9 +217,9 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     foundBlock(additionalCount + valueIndex);
 }
 
-- (id<AITValue>)valueAtRow:(NSInteger)row {
+- (AITValue *)valueAtRow:(NSInteger)row {
     NSArray *currentObjects = [self currentObjects];
-    __block id<AITValue> result = nil;
+    __block AITValue *result = nil;
     [self findValueIndexForRow:row withFoundBlock:^(NSInteger valueIndex, BOOL isAdditional) {
         result = currentObjects[valueIndex];
     }];
@@ -245,7 +245,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     NSArray *currentObjects = [self currentObjects];
 
     [self findValueIndexForRow:row withFoundBlock:^(NSInteger valueIndex, BOOL isAdditional) {
-        id<AITValue> value = currentObjects[valueIndex];
+        AITValue *value = currentObjects[valueIndex];
         NSString *cellIdentifier = (isAdditional ? currentAdditionalRows[@(valueIndex)] : [[value class] cellIdentifier]);
         result = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         result.value = value;
@@ -262,7 +262,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     NSArray *currentObjects = [self currentObjects];
 
     [self findValueIndexForRow:row withFoundBlock:^(NSInteger valueIndex, BOOL isAdditional) {
-        NSObject<AITValue> *value = currentObjects[valueIndex];
+        AITValue *value = currentObjects[valueIndex];
         NSString *cellIdentifier = (isAdditional ? currentAdditionalRows[@(valueIndex)] : [[value class] cellIdentifier]);
         Class cellClass = NSClassFromString(cellIdentifier);
         result = [cellClass prefferedHeightForValue:value];
@@ -274,7 +274,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     NSArray *currentObjects = [self currentObjects];
     [self findValueIndexForRow:row withFoundBlock:^(NSInteger valueIndex, BOOL isAdditional) {
         if (!isAdditional) {
-            id<AITValue> value = currentObjects[valueIndex];
+            id<AITResponder> value = currentObjects[valueIndex];
             if ([value canBecomeFirstAitResponder]) {
                 [value becomeFirstAitResponder];
             }
@@ -333,8 +333,8 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)updateObjectsResponderChain {
-    AITResponderValue *previousResponder = nil;
-    for (AITResponderValue *responder in self.allObjects) {
+    AITValue *previousResponder = nil;
+    for (AITValue *responder in self.allObjects) {
         [previousResponder setNextAitResponder:responder];
         previousResponder = responder;
 
@@ -344,12 +344,12 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)updateLastObjectResponderChain {
-    id<AITValue> lastValue = self.allObjects.lastObject;
+    id<AITResponder> lastValue = self.allObjects.lastObject;
     [lastValue setNextAitResponder:self.nextAitResponder];
 }
 
 - (BOOL)canBecomeFirstAitResponder {
-    for (id<AITValue>value in self.allObjects) {
+    for (id<AITResponder>value in self.allObjects) {
         if ([value canBecomeFirstAitResponder]) {
             return YES;
         }
@@ -358,7 +358,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (BOOL)canResignFirstAitResponder {
-    for (id<AITValue>value in self.allObjects) {
+    for (id<AITResponder>value in self.allObjects) {
         if ([value isFirstAitResponder]) {
             return [value canResignFirstAitResponder];
         }
@@ -367,7 +367,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)becomeFirstAitResponder {
-    for (id<AITValue>value in self.allObjects) {
+    for (id<AITResponder>value in self.allObjects) {
         if ([value canBecomeFirstAitResponder]) {
             [value becomeFirstAitResponder];
             return;
@@ -377,7 +377,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)resignFirstAitResponder {
-    for (id<AITValue>value in self.allObjects) {
+    for (id<AITResponder>value in self.allObjects) {
         if ([value isFirstAitResponder]) {
             [value resignFirstAitResponder];
             return;
@@ -386,7 +386,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (BOOL)isFirstAitResponder {
-    for (id<AITValue>value in self.allObjects) {
+    for (id<AITResponder> value in self.allObjects) {
         if ([value isFirstAitResponder]) {
             return [value isFirstAitResponder];
         }
@@ -396,7 +396,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 #pragma mark - AITValueDelegate protocol implementation
 
-- (void)value:(id<AITValue>)value presentAdditionalaDataInCellWithIdentifier:(NSString *)cellIdentifier {
+- (void)value:(AITValue *)value presentAdditionalaDataInCellWithIdentifier:(NSString *)cellIdentifier {
     NSInteger valueIndex = [self.allObjects indexOfObject:value];
     if (cellIdentifier && valueIndex != NSNotFound) {
         NSNumber *valueIndexNumber = @(valueIndex);
@@ -418,7 +418,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     }
 }
 
-- (void)value:(id<AITValue>)value dismissAdditionalaDataInCellWithIdentifier:(NSString *)cellIdentifier {
+- (void)value:(AITValue *)value dismissAdditionalaDataInCellWithIdentifier:(NSString *)cellIdentifier {
     NSInteger valueIndex = [self.allObjects indexOfObject:value];
     if (cellIdentifier && valueIndex != NSNotFound) {
         NSNumber *valueIndexNumber = @(valueIndex);
@@ -438,17 +438,17 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     }
 }
 
-- (void)valueNeedShow:(id<AITValue>)value {
+- (void)valueNeedShow:(AITValue *)value {
     NSInteger valueIndex = [[self currentObjects] indexOfObject:value];
     [self.delegate section:self scrollToRow:valueIndex];
 }
 
-- (UIPopoverController *)value:(id<AITValue>)value showPopoverWithController:(UIViewController *)viewController {
+- (UIPopoverController *)value:(AITValue *)value showPopoverWithController:(UIViewController *)viewController {
     NSInteger valueIndex = [[self currentObjects] indexOfObject:value];
     return [self.delegate section:self showPopoverWithController:viewController fromRow:valueIndex];
 }
 
-- (void)value:(id<AITValue>)value showDetailsController:(UIViewController *)viewController {
+- (void)value:(AITValue *)value showDetailsController:(UIViewController *)viewController {
     return [self.delegate section:self showDetailsController:viewController];
 }
 

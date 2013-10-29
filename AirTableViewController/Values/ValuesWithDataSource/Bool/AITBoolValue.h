@@ -6,25 +6,17 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import <AirTableViewController/TableView/AITResponderValue.h>
-#import <AirTableViewController/TableView/AITValue.h>
+#import <AirTableViewController/Values/Base/AITValue.h>
 
 
 @class AITBoolValue;
 
 
 /// @brief The value represent boolean property in a source object.
-@interface AITBoolValue : AITResponderValue<AITValue>
-
-/// @brief The value name.
-@property (nonatomic, copy) NSString *title;
+@interface AITBoolValue : AITValue
 
 /// @brief The boolean value from source.
 @property (nonatomic, assign) BOOL value;
-
-/// @brief The value represents whether value is empty and should not be interactable.
-/// @details If NO cell hides.
-@property (nonatomic, assign, getter=isEmpty) BOOL empty;
 
 /// @brief Create new value represents boolean value with name.
 /// @param title Human readable property name.
