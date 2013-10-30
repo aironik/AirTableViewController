@@ -32,17 +32,10 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 @property (nonatomic, strong) AITHeaderFooterView *headerView;
 @property (nonatomic, strong) AITHeaderFooterView *footerView;
 
-// The dictionary that contains cell identifiers for values that has requested additional cells for show additional data.
-// key => index of value in the allObjects array
-// value => cell identifier for additional data
-@property (nonatomic, strong, readonly) NSMutableDictionary *additionalDataCellIdentifiers;
-// The dictionary that contains cell identifiers for values that has requested additional cells for show additional data.
-// key => index of value in the filledObjects array
-// value => cell identifier for additional data
-@property (nonatomic, strong, readonly) NSMutableDictionary *additionalDataFilledCellIdentifiers;
-
 // The value that is current first AITResponder in the section. If nil no first AIT responder now.
 @property (nonatomic, weak) AITValue *valueFirstAitResponder;
+@property (nonatomic, assign, readonly) NSInteger valueFirstAitResponderIndex;
+@property (nonatomic, copy, readonly) NSString *valueFirstAitResponderAdditionalCellIdentifier;
 
 - (NSArray *)currentObjects;
 
@@ -55,51 +48,41 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 @synthesize headerViewIdentifier = _headerViewIdentifier;
 @synthesize footerViewIdentifier = _footerViewIdentifier;
-@synthesize additionalDataCellIdentifiers = _additionalDataCellIdentifiers;
-@synthesize additionalDataFilledCellIdentifiers = _additionalDataFilledCellIdentifiers;
+@synthesize valueFirstAitResponder = _valueFirstAitResponder;
+@synthesize valueFirstAitResponderIndex = _valueFirstAitResponderIndex;
 
-
-- (NSMutableDictionary *)additionalDataCellIdentifiers {
-    if (!_additionalDataCellIdentifiers) {
-        _additionalDataCellIdentifiers = [NSMutableDictionary dictionary];
-    }
-    return _additionalDataCellIdentifiers;
-}
-
-- (NSMutableDictionary *)additionalDataFilledCellIdentifiers {
-    if (!_additionalDataFilledCellIdentifiers) {
-        _additionalDataFilledCellIdentifiers = [NSMutableDictionary dictionary];
-    }
-    return _additionalDataFilledCellIdentifiers;
-}
 
 - (void)setAllObjects:(NSArray *)allObjects {
     if (_allObjects != allObjects) {
-        [self.additionalDataCellIdentifiers removeAllObjects];
-        [self.additionalDataFilledCellIdentifiers removeAllObjects];
+        self.valueFirstAitResponder = nil;
 
         _allObjects = [allObjects copy];
 
-        [self updateObjectsResponderChain];
         [self updateFilledObjects];
     }
 }
 
 - (void)updateFilledObjects {
     NSMutableArray *filledObjects = [NSMutableArray array];
-    [self.additionalDataFilledCellIdentifiers removeAllObjects];
 
     [self.allObjects enumerateObjectsUsingBlock:^(AITValue *value, NSUInteger idx, BOOL *stop) {
-        if (![value isEmpty]) {
-            NSInteger filledObjectIndex = [filledObjects count];
-            NSString *cellIdentifier = self.additionalDataCellIdentifiers[@(idx)];
-            if (cellIdentifier) {
-                self.additionalDataFilledCellIdentifiers[@(filledObjectIndex)] = cellIdentifier;
-            }
+        if (!value.empty) {
             [filledObjects addObject:value];
         }
     }];
     self.filledObjects = [filledObjects copy];
+
+    [self updateValueFirstAitResponderIndex];
+    [self updateObjectsResponderChain];
+}
+
+- (void)updateValueFirstAitResponderIndex {
+    if (self.valueFirstAitResponder && [[self valueFirstAitResponderAdditionalCellIdentifier] length]) {
+        _valueFirstAitResponderIndex = [[self currentObjects] indexOfObject:self.valueFirstAitResponder];
+    }
+    else {
+        _valueFirstAitResponderIndex = NSNotFound;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView setEditing:(BOOL)editing currentSectionIndex:(NSInteger)index {
@@ -187,69 +170,42 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 // block invokes only if value found.
 - (void)findValueIndexForRow:(NSInteger)row withFoundBlock:(void(^)(NSInteger valueIndex, BOOL isAdditional))foundBlock {
-    NSDictionary *currentAdditionalRows = [self currentAdditionalDataCellIdentifiers];
+    NSInteger valueIndex = row;
+    BOOL isAdditional = NO;
 
-    NSInteger valueIdx = 0;
-    NSInteger additionalCount = 0;
-    BOOL lastAdditional = NO;
-    for (valueIdx = 0; valueIdx + additionalCount <= row; ++valueIdx) {
-        if (currentAdditionalRows[@(valueIdx)]) {
-            ++additionalCount;
-            lastAdditional = YES;
-        }
-        else {
-            lastAdditional = NO;
-        }
+    NSInteger additionalIndex = [self valueFirstAitResponderIndex];
+    if (additionalIndex != NSNotFound && additionalIndex < valueIndex) {
+        --valueIndex;
+        isAdditional = (additionalIndex + 1 == row);
     }
-    if (valueIdx > 0 && valueIdx <= [[self currentObjects] count]) {
-        --valueIdx;
-        BOOL isAdditional = (lastAdditional && valueIdx + additionalCount == row);
-        foundBlock(valueIdx, isAdditional);
+    NSParameterAssert(valueIndex == NSNotFound || valueIndex < [[self currentObjects] count]);
+    if (valueIndex != NSNotFound && valueIndex < [[self currentObjects] count]) {
+        foundBlock(valueIndex, isAdditional);
     }
-}
-
-- (void)findRowForValueIndex:(NSInteger)valueIndex withFoundBlock:(void(^)(NSInteger row))foundBlock {
-    NSDictionary *currentAdditionalRows = [self currentAdditionalDataCellIdentifiers];
-
-    NSInteger additionalCount = 0;
-    for (NSInteger idx = 0; idx < valueIndex; ++idx) {
-        if (currentAdditionalRows[@(idx)]) {
-            ++additionalCount;
-        }
-    }
-    foundBlock(additionalCount + valueIndex);
-}
-
-- (AITValue *)valueAtRow:(NSInteger)row {
-    NSArray *currentObjects = [self currentObjects];
-    __block AITValue *result = nil;
-    [self findValueIndexForRow:row withFoundBlock:^(NSInteger valueIndex, BOOL isAdditional) {
-        result = currentObjects[valueIndex];
-    }];
-    return result;
 }
 
 - (NSArray *)currentObjects {
     return (self.editing ? self.allObjects : self.filledObjects);
 }
 
-- (NSDictionary *)currentAdditionalDataCellIdentifiers {
-    return (self.editing ? self.additionalDataCellIdentifiers : self.additionalDataFilledCellIdentifiers);
-}
-
 - (NSInteger)tableViewNumberOfRows:(UITableView *)tableView {
-    return [[self currentObjects] count] + [self.currentAdditionalDataCellIdentifiers count];
+    NSInteger numberOfAdditionalRowsForFirstAitResponder = 0;
+    if ([self.valueFirstAitResponderAdditionalCellIdentifier length]) {
+        numberOfAdditionalRowsForFirstAitResponder = 1;
+    }
+    return [[self currentObjects] count] + numberOfAdditionalRowsForFirstAitResponder;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRow:(NSInteger)row {
     __block AITTableViewCell *result = nil;
 
-    NSDictionary *currentAdditionalRows = [self currentAdditionalDataCellIdentifiers];
     NSArray *currentObjects = [self currentObjects];
 
     [self findValueIndexForRow:row withFoundBlock:^(NSInteger valueIndex, BOOL isAdditional) {
         AITValue *value = currentObjects[valueIndex];
-        NSString *cellIdentifier = (isAdditional ? currentAdditionalRows[@(valueIndex)] : [[value class] cellIdentifier]);
+        NSString *cellIdentifier = (isAdditional
+                                    ? [[value class] additionalCellIdentifier]
+                                    : [[value class] cellIdentifier]);
         result = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         result.value = value;
     }];
@@ -261,12 +217,13 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 - (CGFloat)tableView:(UITableView *)tableView heightForRow:(NSInteger)row {
     __block CGFloat result = 0.;
     
-    NSDictionary *currentAdditionalRows = [self currentAdditionalDataCellIdentifiers];
     NSArray *currentObjects = [self currentObjects];
 
     [self findValueIndexForRow:row withFoundBlock:^(NSInteger valueIndex, BOOL isAdditional) {
         AITValue *value = currentObjects[valueIndex];
-        NSString *cellIdentifier = (isAdditional ? currentAdditionalRows[@(valueIndex)] : [[value class] cellIdentifier]);
+        NSString *cellIdentifier = (isAdditional
+                                    ? [[value class] additionalCellIdentifier]
+                                    : [[value class] cellIdentifier]);
         Class cellClass = NSClassFromString(cellIdentifier);
         result = [cellClass prefferedHeightForValue:value];
     }];
@@ -337,7 +294,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 - (void)updateObjectsResponderChain {
     AITValue *previousResponder = nil;
-    for (AITValue *responder in self.allObjects) {
+    for (AITValue *responder in [self currentObjects]) {
         [previousResponder setNextAitResponder:responder];
         previousResponder = responder;
 
@@ -388,60 +345,97 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 #pragma mark - AITValueDelegate protocol implementation
 
-- (void)value:(AITValue *)value presentAdditionalaDataInCellWithIdentifier:(NSString *)cellIdentifier {
-    NSInteger valueIndex = [self.allObjects indexOfObject:value];
-    if (cellIdentifier && valueIndex != NSNotFound) {
-        NSNumber *valueIndexNumber = @(valueIndex);
-        BOOL addingCell = (self.additionalDataCellIdentifiers[valueIndexNumber] == nil);
-        self.additionalDataCellIdentifiers[valueIndexNumber] = cellIdentifier;
-        NSInteger valueFilledIndex = [self.filledObjects indexOfObject:value];
-        if (valueFilledIndex != NSNotFound) {
-            self.additionalDataFilledCellIdentifiers[@(valueFilledIndex)] = cellIdentifier;
-        }
 
-        [self findRowForValueIndex:valueIndex withFoundBlock:^(NSInteger row) {
-            if (addingCell) {
-                [self.delegate section:self insertCellAtRow:row + 1];
-            }
-            else {
-                [self.delegate section:self reloadCellAtRow:row + 1];
-            }
-        }];
+- (void)valueDidBecomeFirstAitResponder:(AITValue *)value {
+    self.valueFirstAitResponder = value;
+}
+
+- (void)valueDidResignFirstAitResponder:(AITValue *)value {
+    if (self.valueFirstAitResponder == value) {
+        // value can send resign message after new value become. So we check it.
+        self.valueFirstAitResponder = nil;
     }
+}
+
+- (void)setValueFirstAitResponder:(AITValue *)valueFirstAitResponder {
+    if (_valueFirstAitResponder != valueFirstAitResponder) {
+        if ([self.valueFirstAitResponderAdditionalCellIdentifier length]) {
+            _valueFirstAitResponder = nil;
+            [self updateValueFirstAitResponderIndex];
+            [self.delegate section:self deleteCellAtRow:self.valueFirstAitResponderIndex + 1];
+        }
+             
+        _valueFirstAitResponder = valueFirstAitResponder;
+        [self updateValueFirstAitResponderIndex];
+
+        if ([self.valueFirstAitResponderAdditionalCellIdentifier length]) {
+            [self.delegate section:self insertCellAtRow:self.valueFirstAitResponderIndex + 1];
+        }
+    }
+}
+
+- (NSString *)valueFirstAitResponderAdditionalCellIdentifier {
+    return [[self.valueFirstAitResponder class] additionalCellIdentifier];
+}
+
+
+// TODO: methods for remove (below).
+
+- (void)value:(AITValue *)value presentAdditionalaDataInCellWithIdentifier:(NSString *)cellIdentifier {
+//    NSInteger valueIndex = [self.allObjects indexOfObject:value];
+//    if (cellIdentifier && valueIndex != NSNotFound) {
+//        NSNumber *valueIndexNumber = @(valueIndex);
+//        BOOL addingCell = (self.additionalDataCellIdentifiers[valueIndexNumber] == nil);
+//        self.additionalDataCellIdentifiers[valueIndexNumber] = cellIdentifier;
+//        NSInteger valueFilledIndex = [self.filledObjects indexOfObject:value];
+//        if (valueFilledIndex != NSNotFound) {
+//            self.additionalDataFilledCellIdentifiers[@(valueFilledIndex)] = cellIdentifier;
+//        }
+//
+//        [self findRowForValueIndex:valueIndex withFoundBlock:^(NSInteger row) {
+//            if (addingCell) {
+//                [self.delegate section:self insertCellAtRow:row + 1];
+//            }
+//            else {
+//                [self.delegate section:self reloadCellAtRow:row + 1];
+//            }
+//        }];
+//    }
 }
 
 - (void)value:(AITValue *)value dismissAdditionalaDataInCellWithIdentifier:(NSString *)cellIdentifier {
-    NSInteger valueIndex = [self.allObjects indexOfObject:value];
-    if (cellIdentifier && valueIndex != NSNotFound) {
-        NSNumber *valueIndexNumber = @(valueIndex);
-        NSAssert([cellIdentifier isEqualToString:self.additionalDataCellIdentifiers[valueIndexNumber]], @"Impropper additional cell identifier for dismiss.");
-        BOOL removingCell = (self.additionalDataCellIdentifiers[valueIndexNumber] != nil);
-        if (removingCell) {
-            NSInteger valueFilledIndex = [self.filledObjects indexOfObject:value];
-
-            [self findRowForValueIndex:valueIndex withFoundBlock:^(NSInteger row) {
-                [self.additionalDataCellIdentifiers removeObjectForKey:valueIndexNumber];
-                if (valueFilledIndex != NSNotFound) {
-                    [self.additionalDataFilledCellIdentifiers removeObjectForKey:@(valueFilledIndex)];
-                }
-                [self.delegate section:self deleteCellAtRow:row + 1];
-            }];
-        }
-    }
+//    NSInteger valueIndex = [self.allObjects indexOfObject:value];
+//    if (cellIdentifier && valueIndex != NSNotFound) {
+//        NSNumber *valueIndexNumber = @(valueIndex);
+//        NSAssert([cellIdentifier isEqualToString:self.additionalDataCellIdentifiers[valueIndexNumber]], @"Impropper additional cell identifier for dismiss.");
+//        BOOL removingCell = (self.additionalDataCellIdentifiers[valueIndexNumber] != nil);
+//        if (removingCell) {
+//            NSInteger valueFilledIndex = [self.filledObjects indexOfObject:value];
+//
+//            [self findRowForValueIndex:valueIndex withFoundBlock:^(NSInteger row) {
+//                [self.additionalDataCellIdentifiers removeObjectForKey:valueIndexNumber];
+//                if (valueFilledIndex != NSNotFound) {
+//                    [self.additionalDataFilledCellIdentifiers removeObjectForKey:@(valueFilledIndex)];
+//                }
+//                [self.delegate section:self deleteCellAtRow:row + 1];
+//            }];
+//        }
+//    }
 }
 
 - (void)valueNeedShow:(AITValue *)value {
-    NSInteger valueIndex = [[self currentObjects] indexOfObject:value];
-    [self.delegate section:self scrollToRow:valueIndex];
+//    NSInteger valueIndex = [[self currentObjects] indexOfObject:value];
+//    [self.delegate section:self scrollToRow:valueIndex];
 }
 
 - (UIPopoverController *)value:(AITValue *)value showPopoverWithController:(UIViewController *)viewController {
-    NSInteger valueIndex = [[self currentObjects] indexOfObject:value];
-    return [self.delegate section:self showPopoverWithController:viewController fromRow:valueIndex];
+//    NSInteger valueIndex = [[self currentObjects] indexOfObject:value];
+//    return [self.delegate section:self showPopoverWithController:viewController fromRow:valueIndex];
+    return nil;
 }
 
 - (void)value:(AITValue *)value showDetailsController:(UIViewController *)viewController {
-    return [self.delegate section:self showDetailsController:viewController];
+//    return [self.delegate section:self showDetailsController:viewController];
 }
 
 @end

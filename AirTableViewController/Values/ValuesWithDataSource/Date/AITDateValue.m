@@ -54,6 +54,11 @@
     return @"AITDateCell";
 }
 
++ (NSString *)additionalCellIdentifier {
+    return @"AITDatePickerCell";
+}
+
+
 - (NSDate *)value {
     return self.sourceValue;
 }

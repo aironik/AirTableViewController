@@ -8,6 +8,8 @@
 
 #import "AITValue.h"
 
+#import "AITValueDelegate.h"
+
 
 #if !(__has_feature(objc_arc))
 #error ARC required. Add -fobjc-arc compiler flag for this file.
@@ -40,6 +42,10 @@ NSString *const kAITValueResignFirstAitResponder = @"kAITValueResignFirstAitResp
 
 + (NSString *)cellIdentifier {
     NSAssert(NO, @"This nethod for override.");
+    return nil;
+}
+
++ (NSString *)additionalCellIdentifier {
     return nil;
 }
 
@@ -87,8 +93,14 @@ NSString *const kAITValueResignFirstAitResponder = @"kAITValueResignFirstAitResp
     if (_firstAitResponder != firstAitResponder) {
         _firstAitResponder = firstAitResponder;
 
-        NSString *name = (_firstAitResponder ? kAITValueBecomeFirstAitResponder : kAITValueResignFirstAitResponder);
-        [[NSNotificationCenter defaultCenter] postNotificationName:name object:self];
+        if (_firstAitResponder) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kAITValueBecomeFirstAitResponder  object:self];
+            [self.delegate valueDidBecomeFirstAitResponder:self];
+        }
+        else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kAITValueResignFirstAitResponder object:self];
+            [self.delegate valueDidResignFirstAitResponder:self];
+        }
     }
 }
 

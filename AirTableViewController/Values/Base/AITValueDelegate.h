@@ -15,6 +15,14 @@
 
 @required
 
+/// @brief Tells the delegate that a specified value has become first AIT responder
+- (void)valueDidBecomeFirstAitResponder:(AITValue *)value;
+
+/// @brief Tells the delegate that a specified value has resign first AIT responder
+- (void)valueDidResignFirstAitResponder:(AITValue *)value;
+
+// TODO: remove method below
+
 /// @brief Tells the delegate that a specified value needs additional cell for present additional data.
 - (void)value:(AITValue *)value presentAdditionalaDataInCellWithIdentifier:(NSString *)cellIdentifier;
 
