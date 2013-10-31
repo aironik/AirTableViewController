@@ -9,10 +9,6 @@
 #import <AirTableViewController/TableView/AITResponder.h>
 
 
-/// @brief Animation by default in insert/delete sections/cells
-extern const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation;
-
-
 @class AITHeaderFooterView;
 
 @protocol AITTableViewSectionDelegate;
@@ -36,8 +32,9 @@ extern const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation;
 @property (nonatomic, copy) NSString *footerViewIdentifier;
 
 
-/// @brief Переключить режим редактирования.
-/// @details Если нужно обновить UITableView, то нужно использовать -tableView:setEditing:currentSectionIndex:
+/// @brief Change editing mode.
+/// @details Set this value directly only if you are sure the table view doesn't shown.
+///     Usually use -tableView:setEditing: instead.
 @property (nonatomic, assign, getter=isEditing) BOOL editing;
 
 /// @brief The next responder. The AITTableView setup this value next section.
@@ -45,7 +42,7 @@ extern const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation;
 
 @property (nonatomic, weak) NSObject<AITTableViewSectionDelegate> *delegate;
 
-- (void)tableView:(UITableView *)tableView setEditing:(BOOL)editing currentSectionIndex:(NSInteger)index;
+- (void)tableView:(UITableView *)tableView setEditing:(BOOL)editing;
 
 - (NSString *)tableViewTitleForHeader:(UITableView *)tableView;
 - (AITHeaderFooterView *)tableViewHeaderView:(UITableView *)tableView;

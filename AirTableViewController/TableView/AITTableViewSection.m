@@ -23,9 +23,6 @@
 #endif
 
 
-const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableViewRowAnimationFade;
-
-
 @interface AITTableViewSection ()<AITValueDelegate>
 
 @property (nonatomic, strong) NSArray *filledObjects;
@@ -85,15 +82,15 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     }
 }
 
-- (void)tableView:(UITableView *)tableView setEditing:(BOOL)editing currentSectionIndex:(NSInteger)index {
-    [self tableView:tableView currentSectionIndex:index changes:^BOOL() {
+- (void)tableView:(UITableView *)tableView setEditing:(BOOL)editing {
+    [self tableView:tableView changes:^BOOL() {
         const BOOL changed = ((editing && !self.editing) || (!editing && self.editing));
         self.editing = editing;
         return changed;
     }];
 }
 
-- (void)tableView:(UITableView *)tableView currentSectionIndex:(NSInteger)sectionIndex changes:(AITTableViewSectionChanges)changes {
+- (void)tableView:(UITableView *)tableView changes:(AITTableViewSectionChanges)changes {
     NSParameterAssert(changes);
 
     BOOL didChange = NO;
@@ -103,13 +100,12 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
         [self updateFilledObjects];
     }
     if (didChange) {
-        [self tableView:tableView currentSectionIndex:sectionIndex mergeFromPreviousObjects:previousObjects];
+        [self tableView:tableView mergeFromPreviousObjects:previousObjects];
     }
 }
 
-- (void)tableView:(UITableView *)tableView currentSectionIndex:(NSInteger)sectionIndex mergeFromPreviousObjects:(NSArray *)previousObjects {
-    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:sectionIndex];
-    [tableView reloadSections:indexSet withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
+- (void)tableView:(UITableView *)tableView mergeFromPreviousObjects:(NSArray *)previousObjects {
+    [self.delegate reloadSection:self];
 }
 
 - (NSString *)tableViewTitleForHeader:(UITableView *)tableView {

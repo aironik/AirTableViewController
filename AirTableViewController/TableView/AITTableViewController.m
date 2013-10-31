@@ -26,6 +26,9 @@
 #endif
 
 
+const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableViewRowAnimationFade;
+
+
 @interface AITTableViewController ()<AITTableViewSectionDelegate>
 
 @property (nonatomic, assign) BOOL loadedFromNib;
@@ -127,7 +130,7 @@
 - (void)updateSectionsForEditing:(BOOL)editing {
     [self.tableView beginUpdates];
     [self.sections enumerateObjectsUsingBlock:^(AITTableViewSection *section, NSUInteger index, BOOL *stop) {
-        [section tableView:self.tableView setEditing:editing currentSectionIndex:index];
+        [section tableView:self.tableView setEditing:editing];
     }];
 
     [self.tableView endUpdates];
@@ -338,6 +341,12 @@
     [self.tableView scrollToRowAtIndexPath:indexPath
                           atScrollPosition:UITableViewScrollPositionNone
                                   animated:YES];
+}
+
+- (void)reloadSection:(AITTableViewSection *)section {
+    NSInteger sectionIndex = [self.sections indexOfObject:section];
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:sectionIndex];
+    [self.tableView reloadSections:indexSet withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
 }
 
 - (UIPopoverController *)section:(AITTableViewSection *)section

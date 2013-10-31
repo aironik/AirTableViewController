@@ -7,6 +7,10 @@
 //
 
 
+/// @brief Animation by default in insert/delete sections/cells
+extern const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation;
+
+
 /// @brief The table view controller with declarative content definition
 @interface AITTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
