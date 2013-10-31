@@ -49,9 +49,6 @@ NSString *const kAITValueResignFirstAitResponder = @"kAITValueResignFirstAitResp
     return nil;
 }
 
-- (void)perform {
-}
-
 - (NSString *)description {
     return [NSString stringWithFormat:@"<%@ title == \"%@\", empty == \"%@\">",
                      [super description],

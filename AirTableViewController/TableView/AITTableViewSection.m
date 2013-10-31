@@ -226,7 +226,7 @@
     return (result > 0. ? result : [tableView rowHeight]);
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRow:(NSInteger)row {
+- (void)tableView:(UITableView *)tableView didSelectRow:(NSInteger)row {
     NSArray *currentObjects = [self currentObjects];
     [self findValueIndexForRow:row withFoundBlock:^(NSInteger valueIndex, BOOL isAdditional) {
         if (!isAdditional) {

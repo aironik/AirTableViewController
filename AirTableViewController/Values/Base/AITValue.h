@@ -50,8 +50,5 @@ extern NSString *const kAITValueResignFirstAitResponder;
 ///     cell doesn't shown.
 + (NSString *)additionalCellIdentifier;
 
-/// @brief Perform action for value if user interact with cell.
-- (void)perform;
-
 
 @end

@@ -57,7 +57,7 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRow:(NSInteger)row;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRow:(NSInteger)row;
-- (void)tableView:(UITableView *)tableView didDeselectRow:(NSInteger)row;
+- (void)tableView:(UITableView *)tableView didSelectRow:(NSInteger)row;
 - (void)tableView:(UITableView *)tableView willBeginEditingRow:(NSInteger)row;
 - (void)tableView:(UITableView *)tableView didEndEditingRow:(NSInteger)row;
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRow:(NSInteger)row;

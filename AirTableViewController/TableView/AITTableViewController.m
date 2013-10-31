@@ -194,7 +194,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     [tableView beginUpdates];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     AITTableViewSection *viewSection = self.sections[indexPath.section];
-    [viewSection tableView:tableView didDeselectRow:indexPath.row];
+    [viewSection tableView:tableView didSelectRow:indexPath.row];
     
     [tableView endUpdates];
 }
