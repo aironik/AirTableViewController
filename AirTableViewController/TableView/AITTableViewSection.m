@@ -360,9 +360,11 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 - (void)setValueFirstAitResponder:(AITValue *)valueFirstAitResponder {
     if (_valueFirstAitResponder != valueFirstAitResponder) {
         if ([self.valueFirstAitResponderAdditionalCellIdentifier length]) {
+            NSParameterAssert(self.valueFirstAitResponderIndex != NSNotFound);
             _valueFirstAitResponder = nil;
+            NSInteger removingRow = self.valueFirstAitResponderIndex + 1;
             [self updateValueFirstAitResponderIndex];
-            [self.delegate section:self deleteCellAtRow:self.valueFirstAitResponderIndex + 1];
+            [self.delegate section:self deleteCellAtRow:removingRow];
         }
              
         _valueFirstAitResponder = valueFirstAitResponder;

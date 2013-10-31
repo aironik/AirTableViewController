@@ -188,9 +188,12 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView beginUpdates];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     AITTableViewSection *viewSection = self.sections[indexPath.section];
     [viewSection tableView:tableView didDeselectRow:indexPath.row];
+    
+    [tableView endUpdates];
 }
 
 - (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -314,19 +317,19 @@
 - (void)section:(AITTableViewSection *)section insertCellAtRow:(NSInteger)row {
     NSInteger sectionIndex = [self.sections indexOfObject:section];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:sectionIndex];
-    [self.tableView insertRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView insertRowsAtIndexPaths:@[ indexPath ] withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
 }
 
 - (void)section:(AITTableViewSection *)section reloadCellAtRow:(NSInteger)row {
     NSInteger sectionIndex = [self.sections indexOfObject:section];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:sectionIndex];
-    [self.tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
 }
 
 - (void)section:(AITTableViewSection *)section deleteCellAtRow:(NSInteger)row {
     NSInteger sectionIndex = [self.sections indexOfObject:section];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:sectionIndex];
-    [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
 }
 
 - (void)section:(AITTableViewSection *)section scrollToRow:(NSInteger)row {
