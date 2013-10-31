@@ -50,11 +50,11 @@
     return self;
 }
 
-+ (NSString *)cellIdentifier {
+- (NSString *)cellIdentifier {
     return @"AITDateCell";
 }
 
-+ (NSString *)additionalCellIdentifier {
+- (NSString *)additionalCellIdentifier {
     return @"AITDatePickerCell";
 }
 

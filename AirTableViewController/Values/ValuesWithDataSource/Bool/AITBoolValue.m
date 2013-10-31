@@ -23,7 +23,7 @@
 
 @implementation AITBoolValue
 
-+ (NSString *)cellIdentifier {
+- (NSString *)cellIdentifier {
     return @"AITBoolCell";
 }
 

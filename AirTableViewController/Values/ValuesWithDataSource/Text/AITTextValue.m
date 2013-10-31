@@ -56,7 +56,7 @@
     return self;
 }
 
-+ (NSString *)cellIdentifier {
+- (NSString *)cellIdentifier {
     return @"AITTextCell";
 }
 

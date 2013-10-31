@@ -26,7 +26,7 @@
     return [[self alloc] initWithTitle:title];
 }
 
-+ (NSString *)cellIdentifier {
+- (NSString *)cellIdentifier {
     return @"AITPendingOperationCell";
 }
 

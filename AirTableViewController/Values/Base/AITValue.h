@@ -43,12 +43,12 @@ extern NSString *const kAITValueResignFirstAitResponder;
 - (instancetype)initWithTitle:(NSString *)title;
 
 /// @brief The table view cell identifier for register and deque from table view.
-+ (NSString *)cellIdentifier;
+- (NSString *)cellIdentifier;
 
 /// @brief The table view additional cell identifier for register and deque from table view while value is first AitTResponder.
 /// @details This cell shows if need while value becomes firstAitResponder. If nil or value does not firstAitResponder
 ///     cell doesn't shown.
-+ (NSString *)additionalCellIdentifier;
+- (NSString *)additionalCellIdentifier;
 
 
 @end

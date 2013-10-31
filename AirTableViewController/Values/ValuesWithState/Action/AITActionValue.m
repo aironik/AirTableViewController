@@ -35,7 +35,7 @@
     return [(AITActionValue *)[self alloc] initWithTitle:title action:action];
 }
 
-+ (NSString *)cellIdentifier {
+- (NSString *)cellIdentifier {
     return @"AITActionCell";
 }
 

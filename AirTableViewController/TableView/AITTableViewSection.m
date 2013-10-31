@@ -200,8 +200,8 @@
     [self findValueIndexForRow:row withFoundBlock:^(NSInteger valueIndex, BOOL isAdditional) {
         AITValue *value = currentObjects[valueIndex];
         NSString *cellIdentifier = (isAdditional
-                                    ? [[value class] additionalCellIdentifier]
-                                    : [[value class] cellIdentifier]);
+                                    ? [value additionalCellIdentifier]
+                                    : [value cellIdentifier]);
         result = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         result.value = value;
     }];
@@ -218,8 +218,8 @@
     [self findValueIndexForRow:row withFoundBlock:^(NSInteger valueIndex, BOOL isAdditional) {
         AITValue *value = currentObjects[valueIndex];
         NSString *cellIdentifier = (isAdditional
-                                    ? [[value class] additionalCellIdentifier]
-                                    : [[value class] cellIdentifier]);
+                                    ? [value additionalCellIdentifier]
+                                    : [value cellIdentifier]);
         Class cellClass = NSClassFromString(cellIdentifier);
         result = [cellClass prefferedHeightForValue:value];
     }];
@@ -373,7 +373,7 @@
 }
 
 - (NSString *)valueFirstAitResponderAdditionalCellIdentifier {
-    return [[self.valueFirstAitResponder class] additionalCellIdentifier];
+    return [self.valueFirstAitResponder additionalCellIdentifier];
 }
 
 
