@@ -48,12 +48,6 @@ extern NSString *const kAITValueResignFirstAitResponder;
 /// @brief The table view cell identifier for register and deque from table view.
 - (NSString *)cellIdentifier;
 
-/// @brief The table view details cell identifier for register and deque from table view while value is first AitTResponder.
-/// @details This cell shows if need while value becomes firstAitResponder. If nil or value does not firstAitResponder
-///     cell doesn't shown. The details cell shown ad additional cell under main cell and represent any additional data
-///     e.g.
-- (NSString *)detailsCellIdentifier;
-
 /// @brief The details view controller provider.
 /// @details This  This class is used for create details view controller and shows any additional data.
 ///     E.g. select value from list or popup for select date.

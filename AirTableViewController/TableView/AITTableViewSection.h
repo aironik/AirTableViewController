@@ -9,6 +9,7 @@
 #import <AirTableViewController/TableView/AITResponder.h>
 
 
+@class AITValue;
 @class AITHeaderFooterView;
 
 @protocol AITTableViewSectionDelegate;
@@ -61,5 +62,15 @@
 - (void)tableView:(UITableView *)tableView willBeginEditingRow:(NSInteger)row;
 - (void)tableView:(UITableView *)tableView didEndEditingRow:(NSInteger)row;
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRow:(NSInteger)row;
+
+/// @brief Show details cell for value.
+/// @details Insert cell below main value cell with view from
+///     [value.detailsViewControllerProvider detailsViewControllerForValue:value].
+///     If other details cell shown it hides. If -detailsViewControllerForValue: return nil cell doesn't show.
+- (void)showDetailsCellForValue:(AITValue *)value;
+
+/// @brief Hide details cell for value if shown.
+/// @details Delete details cell below main value cell if shown.
+- (void)hideDetailsCellForValue:(AITValue *)value;
 
 @end

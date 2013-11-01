@@ -1,12 +1,12 @@
 //
-//  AITDatePickerPopover.m
+//  AITDatePickerViewController.m
 //  AirTableViewController
 //
 //  Created by Oleg Lobachev aironik@gmail.com on 16.10.13.
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import "AITDatePickerPopover.h"
+#import "AITDatePickerViewController.h"
 
 #import "AITDateValue.h"
 
@@ -16,24 +16,25 @@
 #endif
 
 
-@interface AITDatePickerPopover ()
+@interface AITDatePickerViewController ()
 @end
 
 
 #pragma mark - Implementation
 
-@implementation AITDatePickerPopover
+@implementation AITDatePickerViewController
 
 
 + (instancetype)datePickerWithValue:(AITDateValue *)value {
-    AITDatePickerPopover *result = nil;
+    AITDatePickerViewController *result = nil;
 
     NSString *className = NSStringFromClass([self class]);
     UINib *nib = [UINib nibWithNibName:className bundle:[NSBundle bundleForClass:[self class]]];
     NSArray *content = [nib instantiateWithOwner:self options:nil];
     for (NSObject *object in content) {
         if ([object isKindOfClass:[self class]]) {
-            result = (AITDatePickerPopover *)object;
+            result = (AITDatePickerViewController *)object;
+            break;
         }
     }
 

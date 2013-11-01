@@ -17,7 +17,6 @@
 
 @interface AITChoiceValue ()
 
-@property (nonatomic, weak) NSObject *sourceObject;
 @property (nonatomic, copy) NSString *sourcePropertyName;
 @property (nonatomic, copy, readonly) AITChoiceOptionTitleValueString titleValueString;
 

@@ -28,7 +28,7 @@
 + (void)setupTableView:(UITableView *)tableView;
 
 /// @brief Defines cell height for value. If 0 table view should use default -rowHeight value.
-+ (CGFloat)prefferedHeightForValue:(AITValue *)value;
++ (CGFloat)preferredHeightForValue:(AITValue *)value;
 
 /// @details This method invokes from -tableView:willDisplayCell:forRowAtIndexPath:
 - (void)cellWillDisplay;

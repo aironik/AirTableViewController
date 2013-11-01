@@ -9,7 +9,8 @@
 #import "AITDateValue.h"
 #import "AITValueWithSource+AITProtected.h"
 
-#import "AITDatePickerPopover.h"
+#import "AITDateDetailsViewControllerProvider.h"
+#import "AITDatePickerViewController.h"
 #import "AITValueDelegate.h"
 
 
@@ -20,13 +21,13 @@
 
 @interface AITDateValue ()<UIPopoverControllerDelegate>
 
-@property (nonatomic, weak) NSObject *sourceObject;
 @property (nonatomic, copy) NSString *sourcePropertyName;
 
 @property (nonatomic, copy) NSString *pickerCellIdentifier;
 
-@property (nonatomic, assign) BOOL showDatePickerInPopover;
 @property (nonatomic, strong) UIPopoverController *datePickerPopover;
+
+@property (nonatomic, strong, readonly) AITDateDetailsViewControllerProvider *detailsViewControllerProvider;
 
 @end
 
@@ -34,6 +35,9 @@
 #pragma mark - Implementation
 
 @implementation AITDateValue
+
+
+@synthesize detailsViewControllerProvider = _detailsViewControllerProvider;
 
 
 - (instancetype)initWithTitle:(NSString *)title
@@ -44,8 +48,6 @@
         _dateEditable = YES;
 
         _pickerCellIdentifier = @"AITDatePickerCell";
-
-        _showDatePickerInPopover = [[self class] systemDatePickerInPopover];
     }
     return self;
 }
@@ -54,13 +56,12 @@
     return @"AITDateCell";
 }
 
-- (NSString *)detailsCellIdentifier {
-    if (self.showDatePickerInPopover) {
-        return nil;
+- (id<AITDetailsViewControllerProvider>)detailsViewControllerProvider {
+    if (!_detailsViewControllerProvider) {
+        _detailsViewControllerProvider = [[AITDateDetailsViewControllerProvider alloc] init];
     }
-    return @"AITDatePickerCell";
+    return _detailsViewControllerProvider;
 }
-
 
 - (NSDate *)value {
     return self.sourceValue;
@@ -132,64 +133,8 @@
     }
     else {
         [super becomeFirstAitResponder];
-        if (self.dateEditable) {
-            [self presentDatePicker];
-        }
     }
 }
 
-- (void)resignFirstAitResponder {
-    [super resignFirstAitResponder];
-    if (self.dateEditable) {
-        [self dismissDatePicker];
-    }
-}
-
-
-#pragma mark -
-
-+ (BOOL)systemDatePickerInPopover {
-    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
-    NSInteger majorVersion = [systemVersion integerValue];
-    return (majorVersion > 0 && majorVersion < 7);
-}
-
-- (void)presentDatePicker {
-    if (self.showDatePickerInPopover) {
-        [self presentDatePickerPopover];
-    }
-    else {
-        [self.delegate value:self presentAdditionalaDataInCellWithIdentifier:self.pickerCellIdentifier];
-    }
-}
-
-- (void)dismissDatePicker {
-    if (self.showDatePickerInPopover) {
-        [self dismissDatePickerPopover];
-    }
-    else {
-        [self.delegate value:self dismissAdditionalaDataInCellWithIdentifier:self.pickerCellIdentifier];
-    }
-}
-
-- (void)presentDatePickerPopover {
-    AITDatePickerPopover *viewController = [AITDatePickerPopover datePickerWithValue:self];
-    viewController.closeButton.target = self;
-    viewController.closeButton.action = @selector(dismissDatePickerPopover);
-
-    self.datePickerPopover = [self.delegate value:self showPopoverWithController:viewController];
-    self.datePickerPopover.delegate = self;
-}
-
-- (void)dismissDatePickerPopover {
-    [self.datePickerPopover dismissPopoverAnimated:YES];
-}
-
-- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController {
-    if ([self isFirstAitResponder]) {
-        [self resignFirstAitResponder];
-    }
-    self.datePickerPopover = nil;
-}
 
 @end

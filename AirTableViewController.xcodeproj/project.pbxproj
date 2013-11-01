@@ -23,11 +23,10 @@
 		C4E3E31B217A7CD2D35B5C04 /* AITValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E5ADB7A45DEE292EB888 /* AITValue.m */; };
 		C4E3E3BD59DF49201652945B /* AITTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E58FE4A884A91986002D /* AITTableViewCell.m */; };
 		C4E3E402747763E600CB30BB /* AITHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EFBA895D0859000968AE /* AITHeaderFooterView.m */; };
-		C4E3E4B238DD15F5FBD027E3 /* AITDatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E3EF82C8785657C7A0747F /* AITDatePickerCell.xib */; };
 		C4E3E52163B9D1F14E275403 /* AITPendingOperationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EE51B31DC608D34DDAA5 /* AITPendingOperationCell.m */; };
 		C4E3E63856B764BF9F0E4FB3 /* AITDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E1B9490D49A38AAC2F93 /* AITDateCell.m */; };
 		C4E3E6A37DD42ADA650DC082 /* AITActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E26450DBA5AB767DEC48 /* AITActionCell.m */; };
-		C4E3E6FF645C60A82B886D9C /* AITDatePickerPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E27AEBA35A6E88A122E0 /* AITDatePickerPopover.m */; };
+		C4E3E6FF645C60A82B886D9C /* AITDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E27AEBA35A6E88A122E0 /* AITDatePickerViewController.m */; };
 		C4E3E935E09569221AD33938 /* AITBoolValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E832B2156FDBE7C262BA /* AITBoolValue.m */; };
 		C4E3E9BBEE97CA34358A607A /* AITChoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E83664C57946FE6701DB /* AITChoiceCell.m */; };
 		C4E3EA2A0F301CACBC7494F8 /* AITBoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E322000CD62F09745F7C /* AITBoolCell.m */; };
@@ -36,10 +35,10 @@
 		C4E3EC0766034F2CDABBF11B /* AITChoiceValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E513EAA02E78D6BB2BE9 /* AITChoiceValue.m */; };
 		C4E3EC23D3AEFE6DA24EC2D6 /* AITPendingOperationSection.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EB29B6C683A84DCF342B /* AITPendingOperationSection.m */; };
 		C4E3ECE5C568F13C10B251D9 /* AITTextValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E4FF01C1DEB27400F439 /* AITTextValue.m */; };
-		C4E3EE330A086658E3AD8ED7 /* AITDatePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E5308A87478EF9EC04FD /* AITDatePickerCell.m */; };
 		C4E3EEA3AAD22FA7DD60E878 /* AITDateValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E98EECDE333B0E493D12 /* AITDateValue.m */; };
 		C4E3EF6211E85D9D65418F7F /* AITValueWithSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E8ED2E5EC73BD6A96180 /* AITValueWithSource.m */; };
 		C4E3EF6966181EA76518254A /* AITPendingOperationValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E4215CFFC44867267DE1 /* AITPendingOperationValue.m */; };
+		C4E3EF6E9D57190711DD7A9D /* AITDateDetailsViewControllerProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E68EF5C0B3C1369A8A77 /* AITDateDetailsViewControllerProvider.m */; };
 		C4E3EFFF611E6D38ACC448B4 /* AITChoiceOptionSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E9D5B3F42EBDCDA52283 /* AITChoiceOptionSelectorViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -93,7 +92,7 @@
 		C4E3E1B9490D49A38AAC2F93 /* AITDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDateCell.m; sourceTree = "<group>"; };
 		C4E3E1FE2B2F59154EE28B14 /* AITTableViewCell+AITProtected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AITTableViewCell+AITProtected.h"; sourceTree = "<group>"; };
 		C4E3E26450DBA5AB767DEC48 /* AITActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITActionCell.m; sourceTree = "<group>"; };
-		C4E3E27AEBA35A6E88A122E0 /* AITDatePickerPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDatePickerPopover.m; sourceTree = "<group>"; };
+		C4E3E27AEBA35A6E88A122E0 /* AITDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDatePickerViewController.m; sourceTree = "<group>"; };
 		C4E3E2809CC284FD4D7BDBB9 /* AITHeaderFooterSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITHeaderFooterSection.m; sourceTree = "<group>"; };
 		C4E3E2EA4B0E766CB36860BE /* AITTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITTableViewCell.h; sourceTree = "<group>"; };
 		C4E3E321F877CB24E6079D32 /* AITResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITResponder.h; sourceTree = "<group>"; };
@@ -108,13 +107,13 @@
 		C4E3E4C958E613943E04F11A /* AITTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTextCell.m; sourceTree = "<group>"; };
 		C4E3E4FF01C1DEB27400F439 /* AITTextValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTextValue.m; sourceTree = "<group>"; };
 		C4E3E513EAA02E78D6BB2BE9 /* AITChoiceValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITChoiceValue.m; sourceTree = "<group>"; };
-		C4E3E5308A87478EF9EC04FD /* AITDatePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDatePickerCell.m; sourceTree = "<group>"; };
-		C4E3E530F6AA78CCA389421F /* AITDatePickerPopover.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITDatePickerPopover.xib; sourceTree = "<group>"; };
+		C4E3E530F6AA78CCA389421F /* AITDatePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITDatePickerViewController.xib; sourceTree = "<group>"; };
 		C4E3E572D2B7B3ED366D4D05 /* AITValueWithSource+AITProtected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AITValueWithSource+AITProtected.h"; sourceTree = "<group>"; };
 		C4E3E58FE4A884A91986002D /* AITTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTableViewCell.m; sourceTree = "<group>"; };
 		C4E3E5ADB7A45DEE292EB888 /* AITValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITValue.m; sourceTree = "<group>"; };
 		C4E3E5CF75BF54D4C70CF8E1 /* AITPendingOperationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITPendingOperationCell.xib; sourceTree = "<group>"; };
 		C4E3E60411D793BDBF03F38A /* AITChoiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITChoiceCell.xib; sourceTree = "<group>"; };
+		C4E3E68EF5C0B3C1369A8A77 /* AITDateDetailsViewControllerProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDateDetailsViewControllerProvider.m; sourceTree = "<group>"; };
 		C4E3E693897B8C7E0B30C143 /* AITBoolCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITBoolCell.xib; sourceTree = "<group>"; };
 		C4E3E6A9A39658C108947DCC /* AITActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITActionCell.h; sourceTree = "<group>"; };
 		C4E3E7839B250FBEFE85728A /* AITPendingOperationValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITPendingOperationValue.h; sourceTree = "<group>"; };
@@ -132,15 +131,14 @@
 		C4E3E92F035323DFA6F88267 /* AITValueWithSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITValueWithSource.h; sourceTree = "<group>"; };
 		C4E3E98EECDE333B0E493D12 /* AITDateValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDateValue.m; sourceTree = "<group>"; };
 		C4E3E9AA94D63F9B5CC9E8E1 /* AITActionValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITActionValue.h; sourceTree = "<group>"; };
+		C4E3E9B04C03DE5811AF185A /* AITDateDetailsViewControllerProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDateDetailsViewControllerProvider.h; sourceTree = "<group>"; };
 		C4E3E9D5B3F42EBDCDA52283 /* AITChoiceOptionSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITChoiceOptionSelectorViewController.m; sourceTree = "<group>"; };
 		C4E3EB29B6C683A84DCF342B /* AITPendingOperationSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITPendingOperationSection.m; sourceTree = "<group>"; };
 		C4E3EB2E8CA21EB744F0BECB /* AITChoiceValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITChoiceValue.h; sourceTree = "<group>"; };
 		C4E3EBBCFF6A5A0AF82FC439 /* AITTableViewSection+AITProtected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AITTableViewSection+AITProtected.h"; sourceTree = "<group>"; };
-		C4E3ED4CAF989478D9A261F4 /* AITDatePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDatePickerCell.h; sourceTree = "<group>"; };
-		C4E3EDEB8293665FF68141C0 /* AITDatePickerPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDatePickerPopover.h; sourceTree = "<group>"; };
+		C4E3EDEB8293665FF68141C0 /* AITDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDatePickerViewController.h; sourceTree = "<group>"; };
 		C4E3EE51B31DC608D34DDAA5 /* AITPendingOperationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITPendingOperationCell.m; sourceTree = "<group>"; };
 		C4E3EF18DD2ACBEDE112E135 /* AITActionValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITActionValue.m; sourceTree = "<group>"; };
-		C4E3EF82C8785657C7A0747F /* AITDatePickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITDatePickerCell.xib; sourceTree = "<group>"; };
 		C4E3EFBA895D0859000968AE /* AITHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITHeaderFooterView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -365,12 +363,11 @@
 				C4E3E1668FB455AC6DB0C133 /* AITDateCell.h */,
 				C4E3E1B9490D49A38AAC2F93 /* AITDateCell.m */,
 				C4E3E3E49D2E38320C08CAF9 /* AITDateCell.xib */,
-				C4E3ED4CAF989478D9A261F4 /* AITDatePickerCell.h */,
-				C4E3E5308A87478EF9EC04FD /* AITDatePickerCell.m */,
-				C4E3EF82C8785657C7A0747F /* AITDatePickerCell.xib */,
-				C4E3EDEB8293665FF68141C0 /* AITDatePickerPopover.h */,
-				C4E3E27AEBA35A6E88A122E0 /* AITDatePickerPopover.m */,
-				C4E3E530F6AA78CCA389421F /* AITDatePickerPopover.xib */,
+				C4E3E9B04C03DE5811AF185A /* AITDateDetailsViewControllerProvider.h */,
+				C4E3E68EF5C0B3C1369A8A77 /* AITDateDetailsViewControllerProvider.m */,
+				C4E3EDEB8293665FF68141C0 /* AITDatePickerViewController.h */,
+				C4E3E27AEBA35A6E88A122E0 /* AITDatePickerViewController.m */,
+				C4E3E530F6AA78CCA389421F /* AITDatePickerViewController.xib */,
 				C4E3E4382189FC844ACFB54B /* AITDateValue.h */,
 				C4E3E98EECDE333B0E493D12 /* AITDateValue.m */,
 			);
@@ -475,7 +472,6 @@
 				00E12B311808062300306197 /* AITCenterAlignedHeaderView.xib in Resources */,
 				002CB85F17EC6F88003870E5 /* InfoPlist.strings in Resources */,
 				C4E3E023360D738877C40A3B /* AITChoiceCell.xib in Resources */,
-				C4E3E4B238DD15F5FBD027E3 /* AITDatePickerCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,14 +513,14 @@
 				C4E3EC0766034F2CDABBF11B /* AITChoiceValue.m in Sources */,
 				C4E3EFFF611E6D38ACC448B4 /* AITChoiceOptionSelectorViewController.m in Sources */,
 				C4E3E63856B764BF9F0E4FB3 /* AITDateCell.m in Sources */,
-				C4E3EE330A086658E3AD8ED7 /* AITDatePickerCell.m in Sources */,
-				C4E3E6FF645C60A82B886D9C /* AITDatePickerPopover.m in Sources */,
+				C4E3E6FF645C60A82B886D9C /* AITDatePickerViewController.m in Sources */,
 				C4E3EEA3AAD22FA7DD60E878 /* AITDateValue.m in Sources */,
 				C4E3EB4C1997CA72CFA8C93F /* AITTextCell.m in Sources */,
 				C4E3ECE5C568F13C10B251D9 /* AITTextValue.m in Sources */,
 				C4E3E31B217A7CD2D35B5C04 /* AITValue.m in Sources */,
 				C4E3E3BD59DF49201652945B /* AITTableViewCell.m in Sources */,
 				C4E3EF6211E85D9D65418F7F /* AITValueWithSource.m in Sources */,
+				C4E3EF6E9D57190711DD7A9D /* AITDateDetailsViewControllerProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

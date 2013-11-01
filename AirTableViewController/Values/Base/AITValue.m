@@ -45,10 +45,6 @@ NSString *const kAITValueResignFirstAitResponder = @"kAITValueResignFirstAitResp
     return nil;
 }
 
-- (NSString *)detailsCellIdentifier {
-    return nil;
-}
-
 - (id<AITDetailsViewControllerProvider>)detailsViewControllerProvider {
     return nil;
 }

@@ -17,7 +17,6 @@
 
 @interface AITTextValue ()
 
-@property (nonatomic, weak) NSObject *sourceObject;
 @property (nonatomic, copy) NSString *sourcePropertyName;
 
 @end

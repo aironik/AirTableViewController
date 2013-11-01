@@ -10,7 +10,7 @@
 
 #import "AITActionCell.h"
 #import "AITDateCell.h"
-#import "AITDatePickerCell.h"
+#import "AITDetailsViewControllerProvider.h"
 #import "AITChoiceCell.h"
 #import "AITHeaderFooterView.h"
 #import "AITPendingOperationCell.h"
@@ -32,6 +32,9 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 @interface AITTableViewController ()<AITTableViewSectionDelegate>
 
 @property (nonatomic, assign) BOOL loadedFromNib;
+
+// The popover that represent details view controller for current acctive value (first AitResponder value).
+@property (nonatomic, strong) UIPopoverController *detailsPopover;
 
 @end
 
@@ -60,7 +63,6 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     
     [AITActionCell setupTableView:self.tableView];
     [AITDateCell setupTableView:self.tableView];
-    [AITDatePickerCell setupTableView:self.tableView];
     [AITChoiceCell setupTableView:self.tableView];
     [AITPendingOperationCell setupTableView:self.tableView];
     [AITBoolCell setupTableView:self.tableView];
@@ -82,6 +84,9 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
     [self subscribeForKeyboardNotifications];
     [self subscribeForValueBecomeFirstAitResponderNotification];
+
+    [self.detailsPopover dismissPopoverAnimated:NO];
+    self.detailsPopover = nil;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -216,13 +221,17 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(AITTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSParameterAssert([cell isKindOfClass:[AITTableViewCell class]]);
-    [cell cellWillDisplay];
+    // TODO: fix me
+    if ([cell isKindOfClass:[AITTableViewCell class]]) {
+        [cell cellWillDisplay];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(AITTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSParameterAssert([cell isKindOfClass:[AITTableViewCell class]]);
-    [cell cellDidEndDisplaying];
+    // TODO: fix me
+    if ([cell isKindOfClass:[AITTableViewCell class]]) {
+        [cell cellDidEndDisplaying];
+    }
 }
 
 - (void)subscribeForKeyboardNotifications {
@@ -350,11 +359,34 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)section:(AITTableViewSection *)section valueDidBecomeFirstAitResponder:(AITValue *)value {
-    // TODO: write me
+    switch ([[value detailsViewControllerProvider] presentationStyle]) {
+        case AITDetailsPresentationStyleCell:
+            [section showDetailsCellForValue:value];
+            break;
+
+        case AITDetailsPresentationStylePopover:
+            // TODO: write me
+            break;
+
+        case AITDetailsPresentationStyleModal:
+            // TODO: write me
+            break;
+
+        case AITDetailsPresentationStylePushNavigation:
+            // TODO: write me
+            break;
+
+        default:
+            NSAssert(NO, @"Unknown Unknown details presentation style.");
+        case AITDetailsPresentationStyleNone:
+            break;
+    }
 }
 
 - (void)section:(AITTableViewSection *)section valueDidResignFirstAitResponder:(AITValue *)value {
-    // TODO: write me
+    [section hideDetailsCellForValue:value];
+    [self.detailsPopover dismissPopoverAnimated:YES];
+    // Should we dismiss modal/pushed details?
 }
 
 - (UIPopoverController *)section:(AITTableViewSection *)section

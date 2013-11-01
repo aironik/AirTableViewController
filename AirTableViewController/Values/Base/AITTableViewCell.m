@@ -39,7 +39,7 @@
     [tableView registerNib:nib forCellReuseIdentifier:className];
 }
 
-+ (CGFloat)prefferedHeightForValue:(AITValue *)value {
++ (CGFloat)preferredHeightForValue:(AITValue *)value {
     return 0.;
 }
 
