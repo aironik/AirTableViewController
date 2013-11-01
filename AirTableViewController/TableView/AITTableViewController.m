@@ -365,6 +365,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
             break;
 
         case AITDetailsPresentationStylePopover:
+            [self presentPopoverForSection:section value:value];
             // TODO: write me
             break;
 
@@ -386,15 +387,15 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 - (void)section:(AITTableViewSection *)section valueDidResignFirstAitResponder:(AITValue *)value {
     [section hideDetailsCellForValue:value];
     [self.detailsPopover dismissPopoverAnimated:YES];
+    self.detailsPopover = nil;
     // Should we dismiss modal/pushed details?
 }
 
-- (UIPopoverController *)section:(AITTableViewSection *)section
-       showPopoverWithController:(UIViewController *)viewController
-                         fromRow:(NSInteger)row
-{
+- (void)presentPopoverForSection:(AITTableViewSection *)section value:(AITValue *)value {
     NSInteger sectionIndex = [self.sections indexOfObject:section];
+    NSInteger row = [section rowForValue:value];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:sectionIndex];
+
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     if (!cell) {
         // FIXME:
@@ -405,22 +406,14 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     }
     CGRect cellRect = [self.view convertRect:cell.bounds fromView:cell];
 
-    UIPopoverController *result = [[UIPopoverController alloc] initWithContentViewController:viewController];
-    [result presentPopoverFromRect:cellRect
-                            inView:self.view
-          permittedArrowDirections:UIPopoverArrowDirectionAny
-                          animated:YES];
-    return result;
+    UIViewController *detailsViewController = [value.detailsViewControllerProvider detailsViewControllerForValue:value];
+    self.detailsPopover = [[UIPopoverController alloc] initWithContentViewController:detailsViewController];
+    [self.detailsPopover presentPopoverFromRect:cellRect
+                                         inView:self.view
+                       permittedArrowDirections:UIPopoverArrowDirectionAny
+                                       animated:YES];
 }
 
-- (void)section:(AITTableViewSection *)section showDetailsController:(UIViewController *)viewController {
-    if (self.navigationController) {
-        [self.navigationController pushViewController:viewController animated:YES];
-    }
-    else {
-        [self presentViewController:viewController animated:YES completion:NULL];
-    }
-}
 
 #pragma mark -
 

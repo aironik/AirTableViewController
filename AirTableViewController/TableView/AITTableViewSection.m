@@ -186,6 +186,15 @@
 
 #pragma mark - rows
 
+- (NSInteger)rowForValue:(AITValue *)value {
+    NSInteger result = [self.allObjects indexOfObject:value];
+    NSInteger detailsIndex = [self valueWithDetailsIndex];
+    if (result != NSNotFound && result > detailsIndex) {
+        ++result;
+    }
+    return result;
+}
+
 // block invokes only if value found.
 - (void)findValueIndexForRow:(NSInteger)row withFoundBlock:(void(^)(NSInteger valueIndex, BOOL isDetails))foundBlock {
     NSInteger valueIndex = row;

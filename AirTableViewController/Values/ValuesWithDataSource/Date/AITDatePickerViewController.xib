@@ -118,8 +118,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					<reference key="NSNextKeyView" ref="925804420"/>
 					<string key="NSReuseIdentifierKey">_NS:9</string>
 					<object class="NSColor" key="IBUIBackgroundColor">
-						<int key="NSColorSpace">1</int>
-						<bytes key="NSRGB">MSAwIDAAA</bytes>
+						<int key="NSColorSpace">3</int>
+						<bytes key="NSWhite">MCAwAA</bytes>
 					</object>
 					<bool key="IBUIAutoresizesSubviews">NO</bool>
 					<string key="targetRuntimeIdentifier">IBIPadFramework</string>

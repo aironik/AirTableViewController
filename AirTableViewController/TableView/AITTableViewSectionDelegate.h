@@ -30,9 +30,4 @@
 /// @brief Tells the delegate that a specified value has resign first AIT responder
 - (void)section:(AITTableViewSection *)section valueDidResignFirstAitResponder:(AITValue *)value;
 
-
-// TODO: remove method below
-- (UIPopoverController *)section:(AITTableViewSection *)section showPopoverWithController:(UIViewController *)viewController fromRow:(NSInteger)row;
-- (void)section:(AITTableViewSection *)section showDetailsController:(UIViewController *)viewController;
-
 @end

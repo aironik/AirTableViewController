@@ -73,4 +73,7 @@
 /// @details Delete details cell below main value cell if shown.
 - (void)hideDetailsCellForValue:(AITValue *)value;
 
+/// @brief Get index for value in the section.
+- (NSInteger)rowForValue:(AITValue *)value;
+
 @end
