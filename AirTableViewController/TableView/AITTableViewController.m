@@ -349,6 +349,14 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     [self.tableView reloadSections:indexSet withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
 }
 
+- (void)section:(AITTableViewSection *)section valueDidBecomeFirstAitResponder:(AITValue *)value {
+    // TODO: write me
+}
+
+- (void)section:(AITTableViewSection *)section valueDidResignFirstAitResponder:(AITValue *)value {
+    // TODO: write me
+}
+
 - (UIPopoverController *)section:(AITTableViewSection *)section
        showPopoverWithController:(UIViewController *)viewController
                          fromRow:(NSInteger)row

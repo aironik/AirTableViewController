@@ -23,6 +23,13 @@
 // methods for sections
 - (void)reloadSection:(AITTableViewSection *)section;
 
+// methods AitResponders
+/// @brief Tells the delegate that a specified value has become first AIT responder
+- (void)section:(AITTableViewSection *)section valueDidBecomeFirstAitResponder:(AITValue *)value;
+
+/// @brief Tells the delegate that a specified value has resign first AIT responder
+- (void)section:(AITTableViewSection *)section valueDidResignFirstAitResponder:(AITValue *)value;
+
 
 // TODO: remove method below
 - (UIPopoverController *)section:(AITTableViewSection *)section showPopoverWithController:(UIViewController *)viewController fromRow:(NSInteger)row;

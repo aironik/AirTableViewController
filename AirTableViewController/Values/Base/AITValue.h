@@ -9,6 +9,9 @@
 #import <AirTableViewController/TableView/AITResponder.h>
 
 
+@protocol AITDetailsViewControllerProvider;
+
+
 /// @brief The notification name that posts over default NSNotificationCenter if value become first responder.
 extern NSString *const kAITValueBecomeFirstAitResponder;
 
@@ -35,7 +38,7 @@ extern NSString *const kAITValueResignFirstAitResponder;
 /// @brief The string that represent human readable title.
 @property (nonatomic, copy, readonly) NSString *title;
 
-/// @brief The delegate that executes external actions for value e.g. scroll to visible or insert additional cell.
+/// @brief The delegate that executes external actions for value e.g. scroll to visible or tells AitResponder state changes.
 @property (nonatomic, assign) NSObject<AITValueDelegate> *delegate;
 
 /// @brief Initialize new instance with the title string.
@@ -45,10 +48,15 @@ extern NSString *const kAITValueResignFirstAitResponder;
 /// @brief The table view cell identifier for register and deque from table view.
 - (NSString *)cellIdentifier;
 
-/// @brief The table view additional cell identifier for register and deque from table view while value is first AitTResponder.
+/// @brief The table view details cell identifier for register and deque from table view while value is first AitTResponder.
 /// @details This cell shows if need while value becomes firstAitResponder. If nil or value does not firstAitResponder
-///     cell doesn't shown.
-- (NSString *)additionalCellIdentifier;
+///     cell doesn't shown. The details cell shown ad additional cell under main cell and represent any additional data
+///     e.g.
+- (NSString *)detailsCellIdentifier;
 
+/// @brief The details view controller provider.
+/// @details This  This class is used for create details view controller and shows any additional data.
+///     E.g. select value from list or popup for select date.
+- (id<AITDetailsViewControllerProvider>)detailsViewControllerProvider;
 
 @end

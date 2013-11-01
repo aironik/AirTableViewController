@@ -54,7 +54,10 @@
     return @"AITDateCell";
 }
 
-- (NSString *)additionalCellIdentifier {
+- (NSString *)detailsCellIdentifier {
+    if (self.showDatePickerInPopover) {
+        return nil;
+    }
     return @"AITDatePickerCell";
 }
 
