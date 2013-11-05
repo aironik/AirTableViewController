@@ -366,7 +366,6 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
         case AITDetailsPresentationStylePopover:
             [self presentPopoverForSection:section value:value];
-            // TODO: write me
             break;
 
         case AITDetailsPresentationStyleModal:

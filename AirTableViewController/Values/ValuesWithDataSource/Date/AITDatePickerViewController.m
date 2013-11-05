@@ -58,5 +58,10 @@
     self.dateValue.value = sender.date;
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.dateValue resignFirstAitResponder];
+}
 
 @end
