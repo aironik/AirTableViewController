@@ -369,11 +369,11 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
             break;
 
         case AITDetailsPresentationStyleModal:
-            // TODO: write me
+            [self presentModalControllerForSection:section value:value];
             break;
 
         case AITDetailsPresentationStylePushNavigation:
-            // TODO: write me
+            [self pushControllerForSection:section value:value];
             break;
 
         default:
@@ -413,6 +413,32 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
                                        animated:YES];
 }
 
+- (void)presentModalControllerForSection:(AITTableViewSection *)section value:(AITValue *)value {
+    UIViewController *detailsViewController = [value.detailsViewControllerProvider detailsViewControllerForValue:value];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailsViewController];
+
+    UIBarButtonItem *closeItem =
+            [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                          target:self
+                                                          action:@selector(closeDetailsController:)];
+    detailsViewController.navigationItem.leftBarButtonItem = closeItem;
+
+    [self presentViewController:navigationController animated:YES completion:NULL];
+}
+
+- (void)pushControllerForSection:(AITTableViewSection *)section value:(AITValue *)value {
+    if (self.navigationController) {
+        UIViewController *detailsViewController = [value.detailsViewControllerProvider detailsViewControllerForValue:value];
+        [self.navigationController pushViewController:detailsViewController animated:YES];
+    }
+    else {
+        [self presentModalControllerForSection:section value:value];
+    }
+}
+
+- (IBAction)closeDetailsController:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 
 #pragma mark -
 
