@@ -9,11 +9,11 @@
 #import <AirTableViewController/Values/Base/AITValueWithSource.h>
 
 
-@protocol AITChoiceOption;
-
-
 /// @brief The block for generate human readable title for value.
 typedef NSString *(^AITChoiceOptionTitleValueString)(NSObject *value);
+
+
+@protocol AITChoiceOptionSelectorViewControllerDelegate;
 
 
 /// @brief The value represent select one choice from possible set.
@@ -26,10 +26,16 @@ typedef NSString *(^AITChoiceOptionTitleValueString)(NSObject *value);
 /// @details This value get from sourceObject[sourcePropertyName][valueStringPropertyName]
 @property (nonatomic, copy, readonly) NSString *valueString;
 
-/// @brief The array with all possible options for choice value.
-/// @details All objects must conforms to AITChoiceOption protocol.
-/// @see AITChoiceOption
-@property (nonatomic, strong) NSArray *allOptions;
+/// @brief The code block that extract human readable title string from value.
+@property (nonatomic, copy, readonly) AITChoiceOptionTitleValueString titleStringFromValue;
+
+/// @brief The details view controller provider that creates details view controller selector.
+/// @details The default implementation returns AITChoiceDetailsViewControllerProvider instance.
+///     You can change provider if you need.
+@property (nonatomic, strong) id<AITDetailsViewControllerProvider> detailsViewControllerProvider;
+
+/// @brief The AITChoiceOptionSelectorViewController delegate that used while user select option.
+@property (nonatomic, weak) id<AITChoiceOptionSelectorViewControllerDelegate> choiceOptionsSelectorDelegate;
 
 /// @brief Create new value represents choice value with name.
 /// @details The value should conform to AITChoiceOption protocol.
@@ -46,10 +52,10 @@ typedef NSString *(^AITChoiceOptionTitleValueString)(NSObject *value);
 /// @param title Human readable property name.
 /// @param sourceObject the object having property for present.
 /// @param sourceKeyPath the keyPath with choice that needs represent.
-/// @param titleValueString block for generate human readable title for value.
+/// @param titleStringFromValue block for generate human readable title for value.
 + (instancetype)valueWithTitle:(NSString *)title
                   sourceObject:(NSObject *)sourceObject
                  sourceKeyPath:(NSString *)sourceKeyPath
-              titleValueString:(AITChoiceOptionTitleValueString)titleValueString;
+          titleStringFromValue:(AITChoiceOptionTitleValueString)titleStringFromValue;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "AITChoiceOptionSelectorViewController.h"
+
+#import "AITChoiceOptionSelectorViewControllerDelegate.h"
 #import "AITChoiceValue.h"
 
 
@@ -15,7 +17,10 @@
 #endif
 
 
-@interface AITChoiceOptionSelectorViewController ()
+@interface AITChoiceOptionSelectorViewController ()<UISearchDisplayDelegate>
+
+@property (nonatomic, strong, readwrite) AITChoiceValue *choiceValue;
+
 @end
 
 
@@ -24,57 +29,113 @@
 @implementation AITChoiceOptionSelectorViewController
 
 
-- (void)dealloc {
-    [self unsubscribeValueChanges];
++ (instancetype)choiceOptionSelectorWithValue:(AITChoiceValue *)value {
+    return [[self alloc] initWithValue:value];
 }
 
-- (void)setValue:(AITChoiceValue *)value {
-    if (_value != value) {
-        [self unsubscribeValueChanges];
-        _value = value;
-        [self subscribeValueChanges];
+- (instancetype)initWithValue:(AITChoiceValue *)value {
+    if (self = [super initWithNibName:nil bundle:nil]) {
+        _choiceValue = value;
+        _delegate = value.choiceOptionsSelectorDelegate;
+    }
+    return self;
+}
+
+- (void)viewDidLoad {
+    NSParameterAssert(self.delegate);
+
+    [super viewDidLoad];
+    
+    [self.delegate choiceOptionSelector:self didStartForValue:self.choiceValue];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+
+    [self.choiceValue resignFirstAitResponder];
+
+    [self.delegate choiceOptionSelector:self didStopForValue:self.choiceValue];
+}
+
+- (void)setAllOptions:(NSArray *)allOptions {
+    if (_allOptions != allOptions) {
+        _allOptions = allOptions;
+        if ([self isViewLoaded]) {
+            [self.tableView reloadData];
+        }
     }
 }
 
-- (NSArray *)keyPathsForSubscribe {
-    return @[ @"allOptions", @"value" ];
-}
-
-- (void)subscribeValueChanges {
-    for (NSString *keyPath in [self keyPathsForSubscribe]) {
-        [self.value addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:NULL];
+- (void)setFilteredOptions:(NSArray *)filteredOptions {
+    if (_filteredOptions != filteredOptions) {
+        _filteredOptions = filteredOptions;
+        [self.searchDisplayController.searchResultsTableView reloadData];
     }
 }
 
-- (void)unsubscribeValueChanges {
-    for (NSString *keyPath in [self keyPathsForSubscribe]) {
-        [self.value removeObserver:self forKeyPath:keyPath];
-    }
-}
 
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                      ofObject:(id)object
-                        change:(NSDictionary *)change
-                       context:(void *)context
-{
-    if (object == self.value && ([@"allOptions" isEqualToString:keyPath] || [@"value" isEqualToString:keyPath])) {
-        [self.tableView reloadData];
-    }
-    else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
-}
-
+#pragma mark - Table View Delegate and Data Source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.value.allOptions count];
+    NSAssert(section == 0, @"Unknown section");
+
+    return ((self.searchDisplayController.searchResultsTableView == tableView)
+            ? [self.filteredOptions count]
+            : [self.allOptions count]);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    NSAssert(indexPath.section == 0, @"Unknown section");
+    NSAssert(indexPath.row < ((self.searchDisplayController.searchResultsTableView == tableView)
+                              ? [self.filteredOptions count]
+                              : [self.allOptions count]), @"Unknown section");
+
+    NSString *const cellId = @"CellId";
+    UITableViewCell *result = [tableView dequeueReusableCellWithIdentifier:cellId];
+    if (!result) {
+        result = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
+    }
+    
+    NSObject *option = ((self.searchDisplayController.searchResultsTableView == tableView)
+                        ? self.filteredOptions[indexPath.row]
+                        : self.allOptions[indexPath.row]);
+    result.textLabel.text = self.choiceValue.titleStringFromValue(option);
+    result.accessoryType = ([self isOptionChecked:option]
+                            ? UITableViewCellAccessoryCheckmark
+                            : UITableViewCellAccessoryNone);
+
+    return result;
 }
+
+- (BOOL)isOptionChecked:(NSObject *)option {
+    return [option isEqual:self.choiceValue.value];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSObject *option = ((self.searchDisplayController.searchResultsTableView == tableView)
+                        ? self.filteredOptions[indexPath.row]
+                        : self.allOptions[indexPath.row]);
+    self.choiceValue.value = option;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    [self reloadVisibleRowsInTableView:self.tableView];
+    [self reloadVisibleRowsInTableView:self.searchDisplayController.searchResultsTableView];
+}
+
+- (void)reloadVisibleRowsInTableView:(UITableView *)tableView {
+    [tableView reloadRowsAtIndexPaths:[tableView indexPathsForVisibleRows] withRowAnimation:UITableViewRowAnimationFade];
+}
+
+
+#pragma mark - UISearchDisplayDelegate
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    [self.delegate choiceOptionSelector:self filterDidChanged:searchString forValue:self.choiceValue];
+    return NO;
+}
+
 
 @end

@@ -16,6 +16,8 @@
 #import <AirTableViewController/Sections/AITPendingOperationSection.h>
 
 #import <AirTableViewController/Values/ValuesWithDataSource/Bool/AITBoolValue.h>
+#import <AirTableViewController/Values/ValuesWithDataSource/Choice/AITChoiceOptionSelectorViewController.h>
+#import <AirTableViewController/Values/ValuesWithDataSource/Choice/AITChoiceOptionSelectorViewControllerDelegate.h>
 #import <AirTableViewController/Values/ValuesWithDataSource/Choice/AITChoiceValue.h>
 #import <AirTableViewController/Values/ValuesWithDataSource/Date/AITDateValue.h>
 #import <AirTableViewController/Values/ValuesWithDataSource/Text/AITTextValue.h>

@@ -9,6 +9,8 @@
 #import "AITChoiceValue.h"
 #import "AITValueWithSource+AITProtected.h"
 
+#import "AITChoiceDetailsViewControllerProvider.h"
+
 
 #if !(__has_feature(objc_arc))
 #error ARC required. Add -fobjc-arc compiler flag for this file.
@@ -18,7 +20,6 @@
 @interface AITChoiceValue ()
 
 @property (nonatomic, copy) NSString *sourcePropertyName;
-@property (nonatomic, copy, readonly) AITChoiceOptionTitleValueString titleValueString;
 
 @end
 
@@ -35,7 +36,7 @@
     return [self valueWithTitle:title
                    sourceObject:sourceObject
                   sourceKeyPath:sourceKeyPath
-               titleValueString:^NSString *(NSObject *value) {
+           titleStringFromValue:^NSString *(NSObject *value) {
                    NSParameterAssert(!value || [value isKindOfClass:[NSString class]]);
                    return (NSString *)value;
                }];
@@ -44,22 +45,22 @@
 + (instancetype)valueWithTitle:(NSString *)title
                   sourceObject:(NSObject *)sourceObject
                  sourceKeyPath:(NSString *)sourceKeyPath
-              titleValueString:(AITChoiceOptionTitleValueString)titleValueString
+          titleStringFromValue:(AITChoiceOptionTitleValueString)titleStringFromValue
 {
     return [[self alloc] initWithTitle:title
                           sourceObject:sourceObject
                          sourceKeyPath:sourceKeyPath
-                      titleValueString:(AITChoiceOptionTitleValueString)titleValueString];
+                  titleStringFromValue:titleStringFromValue];
 }
 
 
 - (instancetype)initWithTitle:(NSString *)title
                  sourceObject:(NSObject *)sourceObject
                 sourceKeyPath:(NSString *)sourceKeyPath
-             titleValueString:(AITChoiceOptionTitleValueString)titleValueString
+         titleStringFromValue:(AITChoiceOptionTitleValueString)titleStringFromValue
 {
     if (self = [super initWithTitle:title sourceObject:sourceObject sourceKeyPath:sourceKeyPath]) {
-        _titleValueString = [titleValueString copy];
+        _titleStringFromValue = [titleStringFromValue copy];
     }
     return self;
 }
@@ -68,20 +69,23 @@
     return @"AITChoiceCell";
 }
 
-- (NSObject<AITChoiceOption> *)value {
-    NSObject<AITChoiceOption> *value = self.sourceValue;
-    NSParameterAssert(!value || [value conformsToProtocol:@protocol(AITChoiceOption)]);
-    return value;
+- (NSObject *)value {
+    return self.sourceValue;
 }
 
-- (void)setValue:(NSObject<AITChoiceOption> *)value {
-    NSAssert([self.allOptions containsObject:value], @"set value that doesn't contains in all possible options.");
-    NSAssert(!value || [value conformsToProtocol:@protocol(AITChoiceOption)], @"value must conforms to AITChoiceOption protocol");
+- (void)setValue:(NSObject *)value {
     self.sourceValue = value;
 }
 
 - (NSString *)valueString {
-    return self.titleValueString(self.value);
+    return self.titleStringFromValue(self.value);
+}
+
+- (id<AITDetailsViewControllerProvider>)detailsViewControllerProvider {
+    if (!_detailsViewControllerProvider) {
+        _detailsViewControllerProvider = [[AITChoiceDetailsViewControllerProvider alloc] init];
+    }
+    return _detailsViewControllerProvider;
 }
 
 - (NSString *)description {
@@ -94,7 +98,7 @@
 #pragma mark - AITResponder protocol implementation
 
 - (BOOL)canBecomeFirstAitResponder {
-    return ([self.allOptions count] > 0);
+    return YES;
 }
 
 - (BOOL)canResignFirstAitResponder {
@@ -106,10 +110,6 @@
 }
 
 - (void)setFirstAitResponder:(BOOL)firstAitResponder {
-    // TODO: write me
-//    if (firstAitResponder) {
-//        [self perform];
-//    }
     [super setFirstAitResponder:firstAitResponder];
 }
 
