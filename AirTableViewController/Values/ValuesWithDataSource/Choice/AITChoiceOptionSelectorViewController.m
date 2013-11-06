@@ -20,6 +20,7 @@
 @interface AITChoiceOptionSelectorViewController ()<UISearchDisplayDelegate>
 
 @property (nonatomic, strong, readwrite) AITChoiceValue *choiceValue;
+@property (nonatomic, copy, readwrite) NSString *filterString;
 
 @end
 
@@ -133,6 +134,7 @@
 #pragma mark - UISearchDisplayDelegate
 
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    self.filterString = searchString;
     [self.delegate choiceOptionSelector:self filterDidChanged:searchString forValue:self.choiceValue];
     return NO;
 }

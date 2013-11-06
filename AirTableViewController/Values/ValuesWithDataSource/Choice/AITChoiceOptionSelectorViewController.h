@@ -31,6 +31,10 @@
 ///     or after some time after invokation.
 @property (nonatomic, strong) NSArray *filteredOptions;
 
+/// @brief Current filter string.
+/// @details This string input user in search bar.
+@property (nonatomic, copy, readonly) NSString *filterString;
+
 /// @brief Create new instance and initialize with new value.
 + (instancetype)choiceOptionSelectorWithValue:(AITChoiceValue *)value;
 
