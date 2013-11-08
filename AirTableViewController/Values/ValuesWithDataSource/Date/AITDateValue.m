@@ -38,6 +38,7 @@
 
 
 @synthesize detailsViewControllerProvider = _detailsViewControllerProvider;
+@synthesize defaultDateValue = _defaultDateValue;
 
 
 - (instancetype)initWithTitle:(NSString *)title
@@ -71,26 +72,20 @@
     self.sourceValue = value;
 }
 
-- (void)setupDatePicker:(UIDatePicker *)datePicker {
-    [datePicker setDate:[self dateForPicker] animated:YES];
-    if (self.minimumDate) {
-        datePicker.minimumDate = self.minimumDate;
-    }
-    if (self.maximumDate) {
-        datePicker.maximumDate = self.maximumDate;
-    }
-}
-
-- (NSDate *)dateForPicker {
+- (NSDate *)defaultDateValue {
     NSDate *date = self.value;
     if (!date) {
-        date = self.maximumDate;
-    }
-    if (!date) {
-        date = self.minimumDate;
+        date = _defaultDateValue;
     }
     if (!date) {
         date = [NSDate date];
+    }
+
+    if (self.maximumDate && [date compare:self.maximumDate] == NSOrderedDescending) {
+        date = self.maximumDate;
+    }
+    if (self.minimumDate && [self.minimumDate compare:date] == NSOrderedDescending) {
+        date = self.minimumDate;
     }
     return date;
 }

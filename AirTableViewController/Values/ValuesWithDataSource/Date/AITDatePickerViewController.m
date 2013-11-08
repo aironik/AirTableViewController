@@ -51,7 +51,10 @@
 - (void)setDateValue:(AITDateValue *)dateValue {
     _dateValue = dateValue;
     self.titleLabel.text = _dateValue.title;
-    [_dateValue setupDatePicker:self.pickerView];
+
+    [self.pickerView setDate:dateValue.defaultDateValue animated:YES];
+    self.pickerView.minimumDate = dateValue.minimumDate;
+    self.pickerView.maximumDate = dateValue.maximumDate;
 }
 
 - (IBAction)dateValueDidChanged:(UIDatePicker *)sender {

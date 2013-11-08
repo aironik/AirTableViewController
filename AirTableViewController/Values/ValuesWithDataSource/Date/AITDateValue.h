@@ -15,10 +15,14 @@
 /// @brief The date value from source.
 @property (nonatomic, strong) NSDate *value;
 
-/// @bierf The date that defines minimum possible date for pick. If not specified date picker have no minimum limit.
+/// @brief The date that used as default value bounded by [minimumDate .. maximumDate].
+/// @details The default value is equals to value date. If value date is empty default value is now.
+@property (nonatomic, strong) NSDate *defaultDateValue;
+
+/// @brief The date that defines minimum possible date for pick. If not specified date picker have no minimum limit.
 @property (nonatomic, strong) NSDate *minimumDate;
 
-/// @bierf The date that defines maximum possible date for pick. If not specified date picker have no maximum limit.
+/// @brief The date that defines maximum possible date for pick. If not specified date picker have no maximum limit.
 @property (nonatomic, strong) NSDate *maximumDate;
 
 /// @brief If YES user can change date.
@@ -27,8 +31,5 @@
 /// @brief The date formatter for convert date into string representation.
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
-@property (nonatomic, strong, readonly) NSDate *dateForPicker;
-
-- (void)setupDatePicker:(UIDatePicker *)datePicker;
 
 @end
