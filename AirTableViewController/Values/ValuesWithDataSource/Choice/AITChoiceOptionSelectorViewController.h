@@ -12,7 +12,10 @@
 
 
 /// @brief The view controller that helps select single option from possible options set.
-@interface AITChoiceOptionSelectorViewController : UITableViewController
+@interface AITChoiceOptionSelectorViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+
+/// @brief The table view for represent list and select value.
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 
 /// @brief The choice value for setup (the data source).
 @property (nonatomic, strong, readonly) AITChoiceValue *choiceValue;
@@ -37,5 +40,8 @@
 
 /// @brief Create new instance and initialize with new value.
 + (instancetype)choiceOptionSelectorWithValue:(AITChoiceValue *)value;
+
+/// @brief Initialize with new value.
+- (instancetype)initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle value:(AITChoiceValue *)value;
 
 @end

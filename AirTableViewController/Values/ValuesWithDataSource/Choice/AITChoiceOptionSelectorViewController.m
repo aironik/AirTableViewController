@@ -31,11 +31,11 @@
 
 
 + (instancetype)choiceOptionSelectorWithValue:(AITChoiceValue *)value {
-    return [[self alloc] initWithValue:value];
+    return [[self alloc] initWithNibName:nil bundle:nil value:value];
 }
 
-- (instancetype)initWithValue:(AITChoiceValue *)value {
-    if (self = [super initWithNibName:nil bundle:nil]) {
+- (instancetype)initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle value:(AITChoiceValue *)value {
+    if (self = [super initWithNibName:nibName bundle:nibBundle]) {
         _choiceValue = value;
         _delegate = value.choiceOptionsSelectorDelegate;
     }
