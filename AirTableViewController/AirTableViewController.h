@@ -20,6 +20,7 @@
 #import <AirTableViewController/Values/ValuesWithDataSource/Choice/AITChoiceOptionSelectorViewController.h>
 #import <AirTableViewController/Values/ValuesWithDataSource/Choice/AITChoiceOptionSelectorViewControllerDelegate.h>
 #import <AirTableViewController/Values/ValuesWithDataSource/Choice/AITChoiceValue.h>
+#import <AirTableViewController/Values/ValuesWithDataSource/Date/AITDateDetailsViewControllerProvider.h>
 #import <AirTableViewController/Values/ValuesWithDataSource/Date/AITDateValue.h>
 #import <AirTableViewController/Values/ValuesWithDataSource/Text/AITTextValue.h>
 

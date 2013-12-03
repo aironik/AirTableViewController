@@ -18,9 +18,6 @@
 
 
 @interface AITDateDetailsViewControllerProvider ()
-
-@property (nonatomic, assign) BOOL showDatePickerInPopover;
-
 @end
 
 

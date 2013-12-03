@@ -19,13 +19,11 @@
 #endif
 
 
-@interface AITDateValue ()<UIPopoverControllerDelegate>
+@interface AITDateValue ()
 
 @property (nonatomic, copy) NSString *sourcePropertyName;
 
 @property (nonatomic, copy) NSString *pickerCellIdentifier;
-
-@property (nonatomic, strong) UIPopoverController *datePickerPopover;
 
 @property (nonatomic, strong, readonly) AITDateDetailsViewControllerProvider *detailsViewControllerProvider;
 
