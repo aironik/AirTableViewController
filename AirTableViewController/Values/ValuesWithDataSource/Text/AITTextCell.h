@@ -19,7 +19,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *valueTextField;
 
 /// @brief The value represents text.
-@property (nonatomic, strong) AITTextValue *textValue;
+@property (nonatomic, weak) AITTextValue *textValue;
 
 
 @end

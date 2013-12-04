@@ -76,4 +76,8 @@
 /// @brief Get index for value in the section.
 - (NSInteger)rowForValue:(AITValue *)value;
 
+/// @brief Tell the section that it will remove from table view controller.
+/// @details Prepare for destroy. E.g. unsubscribe KVO and notify values. After this method data can be destroyed.
+- (void)willRemove;
+
 @end

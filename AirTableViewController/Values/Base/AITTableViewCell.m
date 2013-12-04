@@ -24,7 +24,7 @@
 // Cell can disappear but do not removed or reuse. For previous AITValue can dequeued other cell.
 // Therefore we neew unsubscribe changes in disappear. But we can unsubscribe on change value.
 // So we can unsubscribe twice and get exception.
-@property (nonatomic, assign) BOOL subscribedAitResponderValueChanges;
+@property (nonatomic, assign) BOOL subscribedValueChanges;
 
 @end
 
@@ -58,7 +58,10 @@
 }
 
 - (void)dealloc {
-    [self unsubscribeAitResponderValueChanges];
+    NSAssert(!_subscribedValueChanges, @"-willRemove should invokes");
+}
+
+- (void)willRemove {
     [self unsubscribeValueChanges];
 }
 
@@ -74,7 +77,6 @@
 
 - (void)setValue:(AITValue *)value {
     if (_value != value) {
-        [self unsubscribeAitResponderValueChanges];
         [self unsubscribeValueChanges];
         
         _value = value;
@@ -82,7 +84,6 @@
         [self updateSubviews];
         [self updateAitResponderState];
         [self subscribeValueChanges];
-        [self subscribeAitResponderValueChanges];
     }
 }
 
@@ -94,11 +95,12 @@
 }
 
 - (void)cellWillDisplay {
-    [self subscribeAitResponderValueChanges];
+    [self subscribeValueChanges];
+    [self updateAitResponderState];
 }
 
 - (void)cellDidEndDisplaying {
-    [self unsubscribeAitResponderValueChanges];
+    [self unsubscribeValueChanges];
 }
 
 - (void)updateAitResponderState {
@@ -112,29 +114,33 @@
 }
 
 - (void)subscribeValueChanges {
-    for (NSString *keyPath in [self keyPathsForSubscribe]) {
-        [self.value addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:NULL];
+    if (!self.subscribedValueChanges) {
+        self.subscribedValueChanges = YES;
+        
+        for (NSString *keyPath in [self keyPathsForSubscribe]) {
+            [self.value addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:NULL];
+        }
+        [self subscribeAitResponderValueChanges];
     }
 }
 
 - (void)unsubscribeValueChanges {
-    for (NSString *keyPath in [self keyPathsForSubscribe]) {
-        [self.value removeObserver:self forKeyPath:keyPath];
+    if (self.subscribedValueChanges) {
+        self.subscribedValueChanges = NO;
+        
+        [self unsubscribeAitResponderValueChanges];
+        for (NSString *keyPath in [self keyPathsForSubscribe]) {
+            [self.value removeObserver:self forKeyPath:keyPath];
+        }
     }
 }
 
 - (void)subscribeAitResponderValueChanges {
-    if (!self.subscribedAitResponderValueChanges) {
-        self.subscribedAitResponderValueChanges = YES;
-        [self.value addObserver:self forKeyPath:@"firstAitResponder" options:NSKeyValueObservingOptionNew context:NULL];
-    }
+    [self.value addObserver:self forKeyPath:@"firstAitResponder" options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (void)unsubscribeAitResponderValueChanges {
-    if (self.subscribedAitResponderValueChanges) {
-        [self.value removeObserver:self forKeyPath:@"firstAitResponder"];
-        self.subscribedAitResponderValueChanges = NO;
-    }
+    [self.value removeObserver:self forKeyPath:@"firstAitResponder"];
 }
 
 - (void)updateSubviews {

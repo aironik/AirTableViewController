@@ -39,6 +39,9 @@ NSString *const kAITValueResignFirstAitResponder = @"kAITValueResignFirstAitResp
     return self;
 }
 
+- (void)willRemove {
+
+}
 
 - (NSString *)cellIdentifier {
     NSAssert(NO, @"This nethod for override.");

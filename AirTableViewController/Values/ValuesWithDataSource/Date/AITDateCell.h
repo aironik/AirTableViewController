@@ -18,6 +18,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *valueLabel;
 
 /// @brief The value represents date.
-@property (nonatomic, strong) AITDateValue *dateValue;
+@property (nonatomic, weak) AITDateValue *dateValue;
 
 @end

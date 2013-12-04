@@ -49,6 +49,15 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     self.loadedFromNib = YES;
 }
 
+- (void)dealloc {
+    for (AITTableViewCell *cell in [self.tableView visibleCells]) {
+        [cell willRemove];
+    }
+    for (AITTableViewSection *section in self.sections) {
+        [section willRemove];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 

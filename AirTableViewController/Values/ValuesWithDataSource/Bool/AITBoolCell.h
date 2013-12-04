@@ -19,6 +19,6 @@
 @property (nonatomic, weak) IBOutlet UISwitch *switchControl;
 
 /// @brief The value represents boolean.
-@property (nonatomic, strong) AITBoolValue *switchValue;
+@property (nonatomic, weak) AITBoolValue *switchValue;
 
 @end

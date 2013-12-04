@@ -17,6 +17,6 @@
 @interface AITActionCell : AITTableViewCell
 
 /// @brief The value represents action for perform.
-@property (nonatomic, strong) AITActionValue *actionValue;
+@property (nonatomic, weak) AITActionValue *actionValue;
 
 @end

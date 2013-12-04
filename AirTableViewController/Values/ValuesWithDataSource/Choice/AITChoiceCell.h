@@ -19,6 +19,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *valueLabel;
 
 /// @brief The value that represents choice.
-@property (nonatomic, strong) AITChoiceValue *choiceValue;
+@property (nonatomic, weak) AITChoiceValue *choiceValue;
 
 @end

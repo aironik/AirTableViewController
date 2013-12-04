@@ -58,6 +58,12 @@
     return self;
 }
 
+- (void)willRemove {
+    for (AITValue *value in self.allObjects) {
+        [value willRemove];
+    }
+}
+
 - (void)setAllObjects:(NSArray *)allObjects {
     if (_allObjects != allObjects) {
         self.valueWithDetails = nil;

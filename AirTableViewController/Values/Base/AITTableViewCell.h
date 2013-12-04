@@ -17,7 +17,7 @@
 @interface AITTableViewCell : UITableViewCell<AITResponder>
 
 /// @brief The data source value. This value defines UI elements contents.
-@property (nonatomic, strong) AITValue *value;
+@property (nonatomic, weak) AITValue *value;
 
 /// @brief Title label. This text value represent property name e.g. "Name", "Title", "Description".
 /// @details Text set form value.
@@ -36,5 +36,8 @@
 /// @details This method invokes from  -tableView:didEndDisplayingCell:forRowAtIndexPath:
 - (void)cellDidEndDisplaying;
 
+/// @brief This method invokes while AITTableViewController deallocationg.
+/// @details cell should release critical data and unsubscribe KVO.
+- (void)willRemove;
 
 @end
