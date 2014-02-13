@@ -16,6 +16,7 @@
 
 NSString *const kAITHeaderFooterViewLeftAlignedHeaderIdentifier = @"AITLeftAlignedHeaderView";
 NSString *const kAITHeaderFooterViewCenterAlignedHeaderIdentifier = @"AITCenterAlignedHeaderView";
+NSString *const kAITHeaderFooterViewLeftAlignedFooterIdentifier = @"AITLeftAlignedFooterView";
 NSString *const kAITHeaderFooterViewCenterAlignedFooterIdentifier = @"AITCenterAlignedFooterView";
 
 
@@ -39,6 +40,9 @@ NSString *const kAITHeaderFooterViewCenterAlignedFooterIdentifier = @"AITCenterA
 
         nib = [UINib nibWithNibName:@"AITCenterAlignedHeaderView" bundle:[NSBundle bundleForClass:self]];
         registeredNibs[kAITHeaderFooterViewCenterAlignedHeaderIdentifier] = nib;
+
+        nib = [UINib nibWithNibName:@"AITLeftAlignedFooterView" bundle:[NSBundle bundleForClass:self]];
+        registeredNibs[kAITHeaderFooterViewLeftAlignedFooterIdentifier] = nib;
 
         nib = [UINib nibWithNibName:@"AITCenterAlignedFooterView" bundle:[NSBundle bundleForClass:self]];
         registeredNibs[kAITHeaderFooterViewCenterAlignedFooterIdentifier] = nib;

@@ -9,6 +9,7 @@
 
 extern NSString *const kAITHeaderFooterViewLeftAlignedHeaderIdentifier;
 extern NSString *const kAITHeaderFooterViewCenterAlignedHeaderIdentifier;
+extern NSString *const kAITHeaderFooterViewLeftAlignedFooterIdentifier;
 extern NSString *const kAITHeaderFooterViewCenterAlignedFooterIdentifier;
 
 @interface AITHeaderFooterView : UIView

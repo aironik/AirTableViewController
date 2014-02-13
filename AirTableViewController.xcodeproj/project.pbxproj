@@ -83,6 +83,7 @@
 		002CB87017EC7016003870E5 /* AITTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTableViewController.m; sourceTree = "<group>"; };
 		002CB87117EC7016003870E5 /* AITTableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITTableViewSection.h; sourceTree = "<group>"; };
 		002CB87217EC7016003870E5 /* AITTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTableViewSection.m; sourceTree = "<group>"; };
+		0069E5D218ACEAA000530FDE /* AITLeftAlignedFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITLeftAlignedFooterView.xib; sourceTree = "<group>"; };
 		00865E2018293189005AF27C /* AITChoiceOptionSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITChoiceOptionSelectorViewController.xib; sourceTree = "<group>"; };
 		00E12B301808062300306197 /* AITCenterAlignedHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITCenterAlignedHeaderView.xib; sourceTree = "<group>"; };
 		00EB619B17F181EA002F503C /* AITLeftAlignedHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITLeftAlignedHeaderView.xib; sourceTree = "<group>"; };
@@ -329,6 +330,7 @@
 				00E12B301808062300306197 /* AITCenterAlignedHeaderView.xib */,
 				C4E3E0D1FDB3696AB3CC228A /* AITHeaderFooterView.h */,
 				C4E3EFBA895D0859000968AE /* AITHeaderFooterView.m */,
+				0069E5D218ACEAA000530FDE /* AITLeftAlignedFooterView.xib */,
 				00EB619B17F181EA002F503C /* AITLeftAlignedHeaderView.xib */,
 			);
 			path = HeaderFooter;
