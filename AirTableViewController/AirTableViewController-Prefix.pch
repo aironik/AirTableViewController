@@ -13,9 +13,9 @@
     #ifdef DEBUG
         #ifndef AITLog
             #define AITLog(...) NSLog(__VA_ARGS__)
-        #else // AITLog
-            #define AITLog(format, ...)
         #endif // AITLog
+    #else // DEBUG
+        #define AITLog(format, ...)
     #endif // DEBUG
 
 #endif
