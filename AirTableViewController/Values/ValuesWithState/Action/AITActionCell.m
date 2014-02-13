@@ -10,6 +10,7 @@
 #import "AITTableViewCell+AITProtected.h"
 
 #import "AITActionValue.h"
+#import "UIView+AITUserInterfaceIdiom.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -44,7 +45,7 @@
     
     if ([self.actionValue canPerform]) {
         self.selectionStyle = UITableViewCellSelectionStyleBlue;
-        self.titleLabel.textColor = [UIColor blackColor];
+        self.titleLabel.textColor = [self ait_tintColor];
     }
     else {
         self.selectionStyle = UITableViewCellSelectionStyleNone;

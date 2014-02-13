@@ -25,6 +25,7 @@
 		C4E3E402747763E600CB30BB /* AITHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EFBA895D0859000968AE /* AITHeaderFooterView.m */; };
 		C4E3E441D1A26551342C5268 /* AITChoiceDetailsViewControllerProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EB2A74953A5B7B50CACE /* AITChoiceDetailsViewControllerProvider.m */; };
 		C4E3E52163B9D1F14E275403 /* AITPendingOperationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EE51B31DC608D34DDAA5 /* AITPendingOperationCell.m */; };
+		C4E3E602D0FAC9BF49A269F7 /* UIView+AITUserInterfaceIdiom.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E60A838440463DB69B94 /* UIView+AITUserInterfaceIdiom.m */; };
 		C4E3E63856B764BF9F0E4FB3 /* AITDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E1B9490D49A38AAC2F93 /* AITDateCell.m */; };
 		C4E3E6A37DD42ADA650DC082 /* AITActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E26450DBA5AB767DEC48 /* AITActionCell.m */; };
 		C4E3E6FF645C60A82B886D9C /* AITDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E27AEBA35A6E88A122E0 /* AITDatePickerViewController.m */; };
@@ -115,6 +116,7 @@
 		C4E3E5ADB7A45DEE292EB888 /* AITValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITValue.m; sourceTree = "<group>"; };
 		C4E3E5CF75BF54D4C70CF8E1 /* AITPendingOperationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITPendingOperationCell.xib; sourceTree = "<group>"; };
 		C4E3E60411D793BDBF03F38A /* AITChoiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITChoiceCell.xib; sourceTree = "<group>"; };
+		C4E3E60A838440463DB69B94 /* UIView+AITUserInterfaceIdiom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AITUserInterfaceIdiom.m"; sourceTree = "<group>"; };
 		C4E3E68EF5C0B3C1369A8A77 /* AITDateDetailsViewControllerProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDateDetailsViewControllerProvider.m; sourceTree = "<group>"; };
 		C4E3E693897B8C7E0B30C143 /* AITBoolCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITBoolCell.xib; sourceTree = "<group>"; };
 		C4E3E6A9A39658C108947DCC /* AITActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITActionCell.h; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		C4E3E9AA94D63F9B5CC9E8E1 /* AITActionValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITActionValue.h; sourceTree = "<group>"; };
 		C4E3E9B04C03DE5811AF185A /* AITDateDetailsViewControllerProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDateDetailsViewControllerProvider.h; sourceTree = "<group>"; };
 		C4E3E9D5B3F42EBDCDA52283 /* AITChoiceOptionSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITChoiceOptionSelectorViewController.m; sourceTree = "<group>"; };
+		C4E3EAF865A3D6D80358273F /* UIView+AITUserInterfaceIdiom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AITUserInterfaceIdiom.h"; sourceTree = "<group>"; };
 		C4E3EB29B6C683A84DCF342B /* AITPendingOperationSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITPendingOperationSection.m; sourceTree = "<group>"; };
 		C4E3EB2A74953A5B7B50CACE /* AITChoiceDetailsViewControllerProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITChoiceDetailsViewControllerProvider.m; sourceTree = "<group>"; };
 		C4E3EB2E8CA21EB744F0BECB /* AITChoiceValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITChoiceValue.h; sourceTree = "<group>"; };
@@ -250,6 +253,8 @@
 				002CB87217EC7016003870E5 /* AITTableViewSection.m */,
 				C4E3E83443E37C0901FE98CB /* AITTableViewSectionDelegate.h */,
 				C4E3E0916BB88FD7C526B948 /* AITDetailsViewControllerProvider.h */,
+				C4E3E60A838440463DB69B94 /* UIView+AITUserInterfaceIdiom.m */,
+				C4E3EAF865A3D6D80358273F /* UIView+AITUserInterfaceIdiom.h */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 				C4E3EF6211E85D9D65418F7F /* AITValueWithSource.m in Sources */,
 				C4E3EF6E9D57190711DD7A9D /* AITDateDetailsViewControllerProvider.m in Sources */,
 				C4E3E441D1A26551342C5268 /* AITChoiceDetailsViewControllerProvider.m in Sources */,
+				C4E3E602D0FAC9BF49A269F7 /* UIView+AITUserInterfaceIdiom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

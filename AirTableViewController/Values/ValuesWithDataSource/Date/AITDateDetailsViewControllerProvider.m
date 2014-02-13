@@ -7,10 +7,11 @@
 //
 
 #import "AITDateDetailsViewControllerProvider.h"
-#import "AITValue.h"
+
 #import "AITDatePickerViewController.h"
 #import "AITDateValue.h"
-#import "AITTableViewController.h"
+#import "AITValue.h"
+#import "UIView+AITUserInterfaceIdiom.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -34,7 +35,7 @@
 }
 
 + (BOOL)systemDatePickerInPopover {
-    return ([AITTableViewController userInterfaceIdiomVersion] == AITUserInterfaceIdiomVersion6);
+    return ([UIView userInterfaceIdiomVersion] == AITUserInterfaceIdiomVersion6);
 }
 
 - (AITDetailsPresentationStyle)presentationStyle {
@@ -48,5 +49,6 @@
     NSParameterAssert([value isKindOfClass:[AITDateValue class]]);
     return [AITDatePickerViewController datePickerWithValue:(AITDateValue *)value];
 }
+
 
 @end

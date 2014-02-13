@@ -10,6 +10,7 @@
 #import <AirTableViewController/TableView/AITResponder.h>
 #import <AirTableViewController/TableView/AITTableViewController.h>
 #import <AirTableViewController/TableView/AITTableViewSection.h>
+#import <AirTableViewController/TableView/UIView+AITUserInterfaceIdiom.h>
 
 #import <AirTableViewController/HeaderFooter/AITHeaderFooterView.h>
 
