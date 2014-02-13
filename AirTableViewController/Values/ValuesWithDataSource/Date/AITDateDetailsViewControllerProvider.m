@@ -10,6 +10,7 @@
 #import "AITValue.h"
 #import "AITDatePickerViewController.h"
 #import "AITDateValue.h"
+#import "AITTableViewController.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -33,9 +34,7 @@
 }
 
 + (BOOL)systemDatePickerInPopover {
-    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
-    NSInteger majorVersion = [systemVersion integerValue];
-    return (majorVersion > 0 && majorVersion < 7);
+    return ([AITTableViewController userInterfaceIdiomVersion] == AITUserInterfaceIdiomVersion6);
 }
 
 - (AITDetailsPresentationStyle)presentationStyle {

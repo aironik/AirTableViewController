@@ -43,6 +43,28 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 @implementation AITTableViewController
 
+
+static AITUserInterfaceIdiomVersion userInterfaceIdiomVersion = AITUserInterfaceIdiomVersionSystemDefined;
+
++ (AITUserInterfaceIdiomVersion)userInterfaceIdiomVersion {
+    if (userInterfaceIdiomVersion == AITUserInterfaceIdiomVersionSystemDefined) {
+        NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
+        NSInteger majorVersion = [systemVersion integerValue];
+        if (majorVersion > 0 && majorVersion < 7) {
+            userInterfaceIdiomVersion = AITUserInterfaceIdiomVersion6;
+        }
+        else {
+            userInterfaceIdiomVersion = AITUserInterfaceIdiomVersion7;
+        }
+    }
+    return userInterfaceIdiomVersion;
+}
+
++ (void)setUserInterfaceIdiomVersion:(AITUserInterfaceIdiomVersion)idiom {
+    userInterfaceIdiomVersion = idiom;
+}
+
+
 - (void)awakeFromNib {
     [super awakeFromNib];
 
