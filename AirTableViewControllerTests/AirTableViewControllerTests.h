@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 aironik. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface AirTableViewControllerTests : SenTestCase
+@interface AirTableViewControllerTests : XCTestCase
 
 @end

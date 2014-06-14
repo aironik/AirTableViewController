@@ -26,7 +26,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in AirTableViewControllerTests");
+    XCTFail(@"Unit tests are not implemented yet in AirTableViewControllerTests");
 }
 
 @end

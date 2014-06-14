@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		002CB84417EC6F87003870E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002CB84317EC6F87003870E5 /* Foundation.framework */; };
 		002CB84917EC6F87003870E5 /* AirTableViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 002CB84817EC6F87003870E5 /* AirTableViewController.h */; };
-		002CB85317EC6F88003870E5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002CB85217EC6F88003870E5 /* SenTestingKit.framework */; };
 		002CB85517EC6F88003870E5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002CB85417EC6F88003870E5 /* UIKit.framework */; };
 		002CB85617EC6F88003870E5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 002CB84317EC6F87003870E5 /* Foundation.framework */; };
 		002CB85917EC6F88003870E5 /* libAirTableViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 002CB84017EC6F87003870E5 /* libAirTableViewController.a */; };
@@ -17,6 +16,7 @@
 		002CB86217EC6F88003870E5 /* AirTableViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CB86117EC6F88003870E5 /* AirTableViewControllerTests.m */; };
 		002CB87517EC7016003870E5 /* AITTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CB87017EC7016003870E5 /* AITTableViewController.m */; };
 		002CB87617EC7017003870E5 /* AITTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CB87217EC7016003870E5 /* AITTableViewSection.m */; };
+		00598D6D19409DDB00203844 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00598D6C19409DDB00203844 /* XCTest.framework */; };
 		00E12B311808062300306197 /* AITCenterAlignedHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E12B301808062300306197 /* AITCenterAlignedHeaderView.xib */; };
 		C4E3E023360D738877C40A3B /* AITChoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E3E60411D793BDBF03F38A /* AITChoiceCell.xib */; };
 		C4E3E0D752AFC6E3A002DEDB /* AITActionValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EF18DD2ACBEDE112E135 /* AITActionValue.m */; };
@@ -83,6 +83,7 @@
 		002CB87017EC7016003870E5 /* AITTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTableViewController.m; sourceTree = "<group>"; };
 		002CB87117EC7016003870E5 /* AITTableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITTableViewSection.h; sourceTree = "<group>"; };
 		002CB87217EC7016003870E5 /* AITTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITTableViewSection.m; sourceTree = "<group>"; };
+		00598D6C19409DDB00203844 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0069E5D218ACEAA000530FDE /* AITLeftAlignedFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITLeftAlignedFooterView.xib; sourceTree = "<group>"; };
 		00865E2018293189005AF27C /* AITChoiceOptionSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITChoiceOptionSelectorViewController.xib; sourceTree = "<group>"; };
 		00E12B301808062300306197 /* AITCenterAlignedHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITCenterAlignedHeaderView.xib; sourceTree = "<group>"; };
@@ -164,7 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				002CB85317EC6F88003870E5 /* SenTestingKit.framework in Frameworks */,
+				00598D6D19409DDB00203844 /* XCTest.framework in Frameworks */,
 				002CB85517EC6F88003870E5 /* UIKit.framework in Frameworks */,
 				002CB85617EC6F88003870E5 /* Foundation.framework in Frameworks */,
 				002CB85917EC6F88003870E5 /* libAirTableViewController.a in Frameworks */,
@@ -197,6 +198,7 @@
 		002CB84217EC6F87003870E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00598D6C19409DDB00203844 /* XCTest.framework */,
 				002CB84317EC6F87003870E5 /* Foundation.framework */,
 				002CB85217EC6F88003870E5 /* SenTestingKit.framework */,
 				002CB85417EC6F88003870E5 /* UIKit.framework */,
@@ -450,7 +452,7 @@
 			name = AirTableViewControllerTests;
 			productName = AirTableViewControllerTests;
 			productReference = 002CB85117EC6F88003870E5 /* AirTableViewControllerTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -679,6 +681,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirTableViewController/AirTableViewController-Prefix.pch";
@@ -694,6 +697,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AirTableViewController/AirTableViewController-Prefix.pch";
