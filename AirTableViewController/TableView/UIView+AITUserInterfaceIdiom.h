@@ -40,11 +40,18 @@ typedef enum {
 + (void)setUserInterfaceIdiomVersion:(AITUserInterfaceIdiomVersion)idiom;
 
 /// @brief Get tint color.
-/// @details This selector emulate tint color. If +userInterfaceIdiomVersion returns iOS7 interface idiom
+/// @details This selector emulate tint color. If +userInterfaceIdiomVersion returns iOS6 interface idiom
 ///     this selector returns blackColor.
 ///     If UI supports tintColor selector and +userInterfaceIdiomVersion appropriates to iOS7 this
 ///     method returns tintColor (or blueColor if UIView doesn't responds to -tintColor).
 - (UIColor *)ait_tintColor;
+
+/// @brief Set tint color if possible.
+/// @details This selector emulate tint color. If +userInterfaceIdiomVersion returns iOS6 interface idiom
+///     this selector do nothing.
+///     If UI supports tintColor selector and +userInterfaceIdiomVersion appropriates to iOS7 this
+///     method set system tintColor.
+- (void)ait_setTintColor:(UIColor *)tintColor;
 
 
 @end

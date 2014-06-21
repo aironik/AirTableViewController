@@ -58,5 +58,15 @@ static AITUserInterfaceIdiomVersion userInterfaceIdiomVersion = AITUserInterface
     return result;
 }
 
+- (void)ait_setTintColor:(UIColor *)tintColor {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
+    if ([[self class] userInterfaceIdiomVersion] != AITUserInterfaceIdiomVersion6) {
+        if ([self respondsToSelector:@selector(tintColor)]) {
+            [self setTintColor:tintColor];
+        }
+    }
+#endif // __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
+}
+
 
 @end
