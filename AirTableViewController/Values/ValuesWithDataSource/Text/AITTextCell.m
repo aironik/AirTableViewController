@@ -46,11 +46,14 @@
 - (void)setup {
     [super setup];
 
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(textFieldTextDidChange:)
                                                  name:UITextFieldTextDidChangeNotification
                                                object:self.valueTextField];
+}
+
+- (UITableViewCellSelectionStyle)defaultSelectionStyle {
+    return UITableViewCellSelectionStyleNone;
 }
 
 - (void)dealloc {

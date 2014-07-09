@@ -40,8 +40,11 @@
 - (void)setup {
     [super setup];
     
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self.switchControl addTarget:self action:@selector(changeValue:) forControlEvents:UIControlEventValueChanged];
+}
+
+- (UITableViewCellSelectionStyle)defaultSelectionStyle {
+    return UITableViewCellSelectionStyleNone;
 }
 
 - (void)changeValue:(UISwitch *)switchControl {

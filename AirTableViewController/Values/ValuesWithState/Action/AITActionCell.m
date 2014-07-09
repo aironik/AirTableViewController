@@ -40,11 +40,15 @@
     return [@[ @"enabled" ] arrayByAddingObjectsFromArray:[super keyPathsForSubscribe]];
 }
 
+- (UITableViewCellSelectionStyle)defaultSelectionStyle {
+    return UITableViewCellSelectionStyleBlue;
+}
+
 - (void)updateSubviews {
     [super updateSubviews];
     
     if ([self.actionValue canPerform]) {
-        self.selectionStyle = UITableViewCellSelectionStyleBlue;
+        self.selectionStyle = self.defaultSelectionStyle;
         self.titleLabel.textColor = [self ait_tintColor];
     }
     else {

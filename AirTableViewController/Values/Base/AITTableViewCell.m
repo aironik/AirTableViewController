@@ -66,7 +66,12 @@
 }
 
 - (void)setup {
-    self.selectionStyle = UITableViewCellSelectionStyleBlue;
+    self.selectionStyle = self.defaultSelectionStyle;
+    
+}
+
+- (UITableViewCellSelectionStyle)defaultSelectionStyle {
+    return UITableViewCellSelectionStyleBlue;
 }
 
 - (void)prepareForReuse {

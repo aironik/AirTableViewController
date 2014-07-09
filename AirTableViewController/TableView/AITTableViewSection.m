@@ -236,6 +236,10 @@
     NSArray *currentObjects = [self currentObjects];
 
     __weak typeof(self) weakSelf = self;
+    const BOOL isFirst = (row == 0);
+    const BOOL isLast = (row >= [self tableViewNumberOfRows:tableView] - 1);
+    NSUInteger cellPosition = ((isFirst ? AITTableViewCellPositionTop : 0)
+                               | (isLast ? AITTableViewCellPositionBottom : 0));
     [self findValueIndexForRow:row withFoundBlock:^(NSInteger valueIndex, BOOL isDetails) {
         AITValue *value = currentObjects[valueIndex];
         if (isDetails) {
@@ -245,10 +249,10 @@
             AITTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[value cellIdentifier]];
             cell.value = value;
             cell.editing = self.editing;
+            cell.position = cellPosition;
             result = cell;
         }
     }];
-
     return result;
 }
 
@@ -412,6 +416,9 @@
             [self updateValueWithDetailsIndex];
             _detailsViewController = nil;
             [self.delegate section:self deleteCellAtRow:removingRow];
+            if (removingRow > 0) {
+                [self.delegate section:self reloadCellAtRow:removingRow - 1];
+            }
         }
              
         _valueWithDetails = valueWithDetails;
@@ -420,6 +427,7 @@
 
         if (_detailsViewController) {
             [self.delegate section:self insertCellAtRow:self.valueWithDetailsIndex + 1];
+            [self.delegate section:self reloadCellAtRow:self.valueWithDetailsIndex];
         }
     }
 }

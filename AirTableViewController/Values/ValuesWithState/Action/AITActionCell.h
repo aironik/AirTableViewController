@@ -6,7 +6,7 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
-#import "AITTableViewCell.h"
+#import <AirTableViewController/Values/Base/AITTableViewCell.h>
 
 
 @class AITActionValue;

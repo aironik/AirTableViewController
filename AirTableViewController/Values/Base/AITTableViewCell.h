@@ -13,6 +13,20 @@
 @class AITValue;
 
 
+/// @brief Define cell position in a section.
+NS_OPTIONS(NSUInteger, AITTableViewCellPosition) {
+    
+    /// @brief Define cell that has some cell higher and some cells lower then specified cell in section
+    AITTableViewCellPositionNone = 0,
+
+    /// @brief Define cell that highest in section
+    AITTableViewCellPositionTop = 1 << 0,
+
+    /// @brief Define cell that lowest in section
+    AITTableViewCellPositionBottom = 1 << 1,
+};
+
+
 /// @brief TableViewCell represents value. Base class for other cells.
 @interface AITTableViewCell : UITableViewCell<AITResponder>
 
@@ -22,6 +36,13 @@
 /// @brief Title label. This text value represent property name e.g. "Name", "Title", "Description".
 /// @details Text set form value.
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+
+/// @brief Value that define cell position in section. This value setup by AITTableViewSection on return cell.
+@property (nonatomic, assign) NSUInteger position;
+
+/// @brief selection style that used on select enabled cell.
+/// @details You can override this value for implement your own selection style.
+- (UITableViewCellSelectionStyle)defaultSelectionStyle;
 
 /// @brief Setup the TableView for work with cell class.
 /// @details Register cell xib for class

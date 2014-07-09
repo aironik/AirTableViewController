@@ -27,8 +27,11 @@
 - (void)setup {
     [super setup];
 
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
     [self.activityIndicator startAnimating];
+}
+
+- (UITableViewCellSelectionStyle)defaultSelectionStyle {
+    return UITableViewCellSelectionStyleNone;
 }
 
 - (void)updateSubviews {
