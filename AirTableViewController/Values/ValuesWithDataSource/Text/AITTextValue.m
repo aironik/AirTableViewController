@@ -55,10 +55,6 @@
     return self;
 }
 
-- (NSString *)cellIdentifier {
-    return @"AITTextCell";
-}
-
 - (BOOL)isEmpty {
     return [self.value length] == 0;
 }

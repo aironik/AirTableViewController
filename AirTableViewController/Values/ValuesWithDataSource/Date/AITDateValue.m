@@ -51,10 +51,6 @@
     return self;
 }
 
-- (NSString *)cellIdentifier {
-    return @"AITDateCell";
-}
-
 - (id<AITDetailsViewControllerProvider>)detailsViewControllerProvider {
     if (!_detailsViewControllerProvider) {
         _detailsViewControllerProvider = [[AITDateDetailsViewControllerProvider alloc] init];

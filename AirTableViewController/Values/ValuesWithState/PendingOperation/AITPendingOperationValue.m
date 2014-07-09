@@ -26,10 +26,6 @@
     return [[self alloc] initWithTitle:title];
 }
 
-- (NSString *)cellIdentifier {
-    return @"AITPendingOperationCell";
-}
-
 
 #pragma mark - AITResponder protocol implementation
 

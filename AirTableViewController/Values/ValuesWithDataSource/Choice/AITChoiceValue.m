@@ -65,10 +65,6 @@
     return self;
 }
 
-- (NSString *)cellIdentifier {
-    return @"AITChoiceCell";
-}
-
 - (NSObject *)value {
     return self.sourceValue;
 }

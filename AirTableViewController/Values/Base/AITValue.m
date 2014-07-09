@@ -30,6 +30,8 @@ NSString *const kAITValueResignFirstAitResponder = @"kAITValueResignFirstAitResp
 
 @synthesize firstAitResponder = _firstAitResponder;
 @synthesize title = _title;
+@synthesize cellIdentifier = _cellIdentifier;
+
 
 - (instancetype)initWithTitle:(NSString *)title {
     if (self = [super init]) {
@@ -44,8 +46,16 @@ NSString *const kAITValueResignFirstAitResponder = @"kAITValueResignFirstAitResp
 }
 
 - (NSString *)cellIdentifier {
-    NSAssert(NO, @"This nethod for override.");
-    return nil;
+    static NSString *const valueSuffix = @"Value";
+    static NSString *const cellSuffix = @"Cell";
+    if (_cellIdentifier == nil) {
+        NSString *name = NSStringFromClass([self class]);
+        if ([name hasSuffix:valueSuffix]) {
+            name = [name substringToIndex:[name length] - [valueSuffix length]];
+        }
+        _cellIdentifier = [name stringByAppendingString:cellSuffix];
+    }
+    return _cellIdentifier;
 }
 
 - (id<AITDetailsViewControllerProvider>)detailsViewControllerProvider {

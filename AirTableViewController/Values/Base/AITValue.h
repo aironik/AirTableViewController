@@ -41,12 +41,13 @@ extern NSString *const kAITValueResignFirstAitResponder;
 /// @brief The delegate that executes external actions for value e.g. scroll to visible or tells AitResponder state changes.
 @property (nonatomic, assign) NSObject<AITValueDelegate> *delegate;
 
+/// @brief The table view cell identifier for register and deque from table view.
+@property (nonatomic, copy) NSString *cellIdentifier;
+
 /// @brief Initialize new instance with the title string.
 /// @details This if designated initializer.
 - (instancetype)initWithTitle:(NSString *)title;
 
-/// @brief The table view cell identifier for register and deque from table view.
-- (NSString *)cellIdentifier;
 
 /// @brief The details view controller provider.
 /// @details This  This class is used for create details view controller and shows any additional data.

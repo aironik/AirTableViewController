@@ -35,10 +35,6 @@
     return [(AITActionValue *)[self alloc] initWithTitle:title action:action];
 }
 
-- (NSString *)cellIdentifier {
-    return @"AITActionCell";
-}
-
 - (void)perform {
     if ([self canPerform]) {
         self.action(self);

@@ -23,10 +23,6 @@
 
 @implementation AITBoolValue
 
-- (NSString *)cellIdentifier {
-    return @"AITBoolCell";
-}
-
 - (BOOL)value {
     NSNumber *numberValue = self.sourceValue;
     NSParameterAssert(!numberValue || [numberValue isKindOfClass:[NSNumber class]]);
