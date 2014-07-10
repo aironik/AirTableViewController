@@ -21,7 +21,7 @@
 
 static AITUserInterfaceIdiomVersion userInterfaceIdiomVersion = AITUserInterfaceIdiomVersionSystemDefined;
 
-+ (AITUserInterfaceIdiomVersion)userInterfaceIdiomVersion {
++ (AITUserInterfaceIdiomVersion)ait_userInterfaceIdiomVersion {
     if (userInterfaceIdiomVersion == AITUserInterfaceIdiomVersionSystemDefined) {
         NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
         NSInteger majorVersion = [systemVersion integerValue];
@@ -35,13 +35,13 @@ static AITUserInterfaceIdiomVersion userInterfaceIdiomVersion = AITUserInterface
     return userInterfaceIdiomVersion;
 }
 
-+ (void)setUserInterfaceIdiomVersion:(AITUserInterfaceIdiomVersion)idiom {
++ (void)ait_setUserInterfaceIdiomVersion:(AITUserInterfaceIdiomVersion)idiom {
     userInterfaceIdiomVersion = idiom;
 }
 
 - (UIColor *)ait_tintColor {
     UIColor *result = nil;
-    if ([[self class] userInterfaceIdiomVersion] == AITUserInterfaceIdiomVersion6) {
+    if ([[self class] ait_userInterfaceIdiomVersion] == AITUserInterfaceIdiomVersion6) {
         result = [UIColor blackColor];
     }
     else {
@@ -60,7 +60,7 @@ static AITUserInterfaceIdiomVersion userInterfaceIdiomVersion = AITUserInterface
 
 - (void)ait_setTintColor:(UIColor *)tintColor {
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
-    if ([[self class] userInterfaceIdiomVersion] != AITUserInterfaceIdiomVersion6) {
+    if ([[self class] ait_userInterfaceIdiomVersion] != AITUserInterfaceIdiomVersion6) {
         if ([self respondsToSelector:@selector(tintColor)]) {
             [self setTintColor:tintColor];
         }

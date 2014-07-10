@@ -248,6 +248,7 @@
 		002CB86B17EC7016003870E5 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				C4E3E0916BB88FD7C526B948 /* AITDetailsViewControllerProvider.h */,
 				C4E3E321F877CB24E6079D32 /* AITResponder.h */,
 				002CB86F17EC7016003870E5 /* AITTableViewController.h */,
 				002CB87017EC7016003870E5 /* AITTableViewController.m */,
@@ -255,9 +256,8 @@
 				002CB87117EC7016003870E5 /* AITTableViewSection.h */,
 				002CB87217EC7016003870E5 /* AITTableViewSection.m */,
 				C4E3E83443E37C0901FE98CB /* AITTableViewSectionDelegate.h */,
-				C4E3E0916BB88FD7C526B948 /* AITDetailsViewControllerProvider.h */,
-				C4E3E60A838440463DB69B94 /* UIView+AITUserInterfaceIdiom.m */,
 				C4E3EAF865A3D6D80358273F /* UIView+AITUserInterfaceIdiom.h */,
+				C4E3E60A838440463DB69B94 /* UIView+AITUserInterfaceIdiom.m */,
 			);
 			path = TableView;
 			sourceTree = "<group>";

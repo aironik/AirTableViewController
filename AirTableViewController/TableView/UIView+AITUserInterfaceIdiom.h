@@ -32,12 +32,12 @@ typedef enum {
 /// @brief Get current UI idiom
 /// @details default value appropriate default system interface idiom. For force use interface idiom
 /// @see +setUserInterfaceIdiomVersion:
-+ (AITUserInterfaceIdiomVersion)userInterfaceIdiomVersion;
++ (AITUserInterfaceIdiomVersion)ait_userInterfaceIdiomVersion;
 
 /// @brief Set  force UI idiom
 /// @details default value appropriate default system interface idiom. For force use interface idiom
 /// @see +setUserInterfaceIdiomVersion:
-+ (void)setUserInterfaceIdiomVersion:(AITUserInterfaceIdiomVersion)idiom;
++ (void)ait_setUserInterfaceIdiomVersion:(AITUserInterfaceIdiomVersion)idiom;
 
 /// @brief Get tint color.
 /// @details This selector emulate tint color. If +userInterfaceIdiomVersion returns iOS6 interface idiom

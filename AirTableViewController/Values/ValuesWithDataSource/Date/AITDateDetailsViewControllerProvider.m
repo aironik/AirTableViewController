@@ -35,7 +35,7 @@
 }
 
 + (BOOL)systemDatePickerInPopover {
-    return ([UIView userInterfaceIdiomVersion] == AITUserInterfaceIdiomVersion6);
+    return ([UIView ait_userInterfaceIdiomVersion] == AITUserInterfaceIdiomVersion6);
 }
 
 - (AITDetailsPresentationStyle)presentationStyle {
