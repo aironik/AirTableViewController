@@ -34,6 +34,7 @@
 		00774A16181A834100D6F27C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00774A14181A834100D6F27C /* InfoPlist.strings */; };
 		00774A18181A834100D6F27C /* AirTableViewControllerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00774A17181A834100D6F27C /* AirTableViewControllerDemoTests.m */; };
 		C4E3E063615A11AF608ADDF2 /* AITDDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EBE7368924238C5C36D4 /* AITDDataSource.m */; };
+		C4E3E550424C5554E6015F89 /* AITDChoiceOptionSelectorDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E50C1FA1202EF85D8F83 /* AITDChoiceOptionSelectorDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,8 @@
 		00774A17181A834100D6F27C /* AirTableViewControllerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirTableViewControllerDemoTests.m; sourceTree = "<group>"; };
 		00774A21181A84C900D6F27C /* AirTableViewController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AirTableViewController.xcodeproj; sourceTree = "<group>"; };
 		C4E3E24BF41484439BD5C84E /* AITDDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDDataSource.h; sourceTree = "<group>"; };
+		C4E3E50C1FA1202EF85D8F83 /* AITDChoiceOptionSelectorDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDChoiceOptionSelectorDelegate.m; sourceTree = "<group>"; };
+		C4E3E8649771E12A830E2BD3 /* AITDChoiceOptionSelectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDChoiceOptionSelectorDelegate.h; sourceTree = "<group>"; };
 		C4E3EBE7368924238C5C36D4 /* AITDDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -244,6 +247,8 @@
 			children = (
 				C4E3E24BF41484439BD5C84E /* AITDDataSource.h */,
 				C4E3EBE7368924238C5C36D4 /* AITDDataSource.m */,
+				C4E3E50C1FA1202EF85D8F83 /* AITDChoiceOptionSelectorDelegate.m */,
+				C4E3E8649771E12A830E2BD3 /* AITDChoiceOptionSelectorDelegate.h */,
 			);
 			path = StaticTableView;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				00774A03181A834100D6F27C /* AITDViewController.m in Sources */,
 				007749F6181A834100D6F27C /* main.m in Sources */,
 				C4E3E063615A11AF608ADDF2 /* AITDDataSource.m in Sources */,
+				C4E3E550424C5554E6015F89 /* AITDChoiceOptionSelectorDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

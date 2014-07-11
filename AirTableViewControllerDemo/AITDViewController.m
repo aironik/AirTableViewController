@@ -51,6 +51,7 @@
             [self staticSection1],
             [self staticSection2],
             [self staticSection3],
+            [self staticSection4],
     ];
 }
 
@@ -59,7 +60,9 @@
 
 - (id)staticSection1 {
     AITTableViewSection *result = [[AITTableViewSection alloc] init];
-    
+
+    result.header = @"Section 1";
+    result.footer = @"Demonstrate simple datasource cells";
     result.allObjects = @[
             [self staticValue11],
             [self staticValue12],
@@ -91,6 +94,17 @@
         _pendingSection = [[AITPendingOperationSection alloc] init];
     }
     return _pendingSection;
+}
+
+- (AITTableViewSection *)staticSection4 {
+    AITTableViewSection *result = [[AITTableViewSection alloc] init];
+
+    result.header = @"Section With Choice Options";
+    result.allObjects = @[
+            [self staticValue4Choice],
+    ];
+
+    return result;
 }
 
 #pragma mark - Static Values
@@ -147,5 +161,15 @@
     return result;
 }
 
+- (AITValue *)staticValue4Choice {
+    AITChoiceValue *result = [AITChoiceValue valueWithTitle:@"Choose"
+                                               sourceObject:self.staticDataSource
+                                              sourceKeyPath:@"choiceProperty"
+                                       titleStringFromValue:^NSString *(NSObject *value) {
+                return [NSString stringWithFormat:@"Choice %@", value];
+            }];
+    result.choiceOptionsSelectorDelegate = self.staticDataSource.choiceDelegate;
+    return result;
+}
 
 @end

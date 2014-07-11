@@ -39,7 +39,7 @@ extern NSString *const kAITValueResignFirstAitResponder;
 @property (nonatomic, copy, readonly) NSString *title;
 
 /// @brief The delegate that executes external actions for value e.g. scroll to visible or tells AitResponder state changes.
-@property (nonatomic, assign) NSObject<AITValueDelegate> *delegate;
+@property (nonatomic, weak) NSObject<AITValueDelegate> *delegate;
 
 /// @brief The table view cell identifier for register and deque from table view.
 @property (nonatomic, copy) NSString *cellIdentifier;

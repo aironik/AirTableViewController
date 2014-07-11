@@ -7,11 +7,13 @@
 //
 
 
-
 @interface AITDDataSource : NSObject
 
 @property (nonatomic, copy) NSString *stringProperty;
 @property (nonatomic, assign) BOOL boolProperty;
 @property (nonatomic, strong) NSDate *dateProperty;
+
+@property (nonatomic, strong) NSNumber *choiceProperty;
+@property (nonatomic, strong) id<AITChoiceOptionSelectorViewControllerDelegate> choiceDelegate;
 
 @end

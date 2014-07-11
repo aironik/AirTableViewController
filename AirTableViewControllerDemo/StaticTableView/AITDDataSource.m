@@ -8,6 +8,8 @@
 
 #import "AITDDataSource.h"
 
+#import "AITDChoiceOptionSelectorDelegate.h"
+
 
 #if !(__has_feature(objc_arc))
 #error ARC required. Add -fobjc-arc compiler flag for this file.
@@ -22,5 +24,12 @@
 
 @implementation AITDDataSource
 
+
+- (id<AITChoiceOptionSelectorViewControllerDelegate>)choiceDelegate {
+    if (_choiceDelegate == nil) {
+        _choiceDelegate = [[AITDChoiceOptionSelectorDelegate alloc] init];
+    }
+    return _choiceDelegate;
+}
 
 @end

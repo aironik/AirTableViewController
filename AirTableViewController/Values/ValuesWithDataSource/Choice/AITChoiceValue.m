@@ -61,6 +61,7 @@
 {
     if (self = [super initWithTitle:title sourceObject:sourceObject sourceKeyPath:sourceKeyPath]) {
         _titleStringFromValue = [titleStringFromValue copy];
+        _detailsViewControllerProvider = [[AITChoiceDetailsViewControllerProvider alloc] init];
     }
     return self;
 }
