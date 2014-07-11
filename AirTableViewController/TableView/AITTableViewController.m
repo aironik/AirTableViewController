@@ -386,6 +386,11 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
             [self pushControllerForSection:section value:value];
             break;
 
+        case AITDetailsPresentationStyleCustom:
+            NSParameterAssert([[value detailsViewControllerProvider] respondsToSelector:@selector(presentDetailsViewControllerForValue:)]);
+            [[value detailsViewControllerProvider] presentDetailsViewControllerForValue:value];
+            break;
+
         default:
             NSAssert(NO, @"Unknown Unknown details presentation style.");
         case AITDetailsPresentationStyleNone:
