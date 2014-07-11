@@ -31,5 +31,7 @@
 
 #import <AirTableViewController/Values/ValuesWithState/Action/AITActionCell.h>
 #import <AirTableViewController/Values/ValuesWithState/Action/AITActionValue.h>
+#import <AirTableViewController/Values/ValuesWithState/Details/AITDetailsCell.h>
+#import <AirTableViewController/Values/ValuesWithState/Details/AITDetailsValue.h>
 #import <AirTableViewController/Values/ValuesWithState/PendingOperation/AITPendingOperationCell.h>
 #import <AirTableViewController/Values/ValuesWithState/PendingOperation/AITPendingOperationValue.h>

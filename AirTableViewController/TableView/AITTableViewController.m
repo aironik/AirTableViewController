@@ -9,9 +9,10 @@
 #import "AITTableViewController.h"
 
 #import "AITActionCell.h"
-#import "AITDateCell.h"
-#import "AITDetailsViewControllerProvider.h"
 #import "AITChoiceCell.h"
+#import "AITDateCell.h"
+#import "AITDetailsCell.h"
+#import "AITDetailsViewControllerProvider.h"
 #import "AITHeaderFooterView.h"
 #import "AITPendingOperationCell.h"
 #import "AITBoolCell.h"
@@ -72,8 +73,9 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     }
     
     [AITActionCell setupTableView:self.tableView];
-    [AITDateCell setupTableView:self.tableView];
     [AITChoiceCell setupTableView:self.tableView];
+    [AITDateCell setupTableView:self.tableView];
+    [AITDetailsCell setupTableView:self.tableView];
     [AITPendingOperationCell setupTableView:self.tableView];
     [AITBoolCell setupTableView:self.tableView];
     [AITTextCell setupTableView:self.tableView];
@@ -387,8 +389,9 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
             break;
 
         case AITDetailsPresentationStyleCustom:
-            NSParameterAssert([[value detailsViewControllerProvider] respondsToSelector:@selector(presentDetailsViewControllerForValue:)]);
-            [[value detailsViewControllerProvider] presentDetailsViewControllerForValue:value];
+            NSParameterAssert([[value detailsViewControllerProvider] respondsToSelector:
+                                      @selector(presentDetailsViewControllerForValue:fromViewController:)]);
+            [[value detailsViewControllerProvider] presentDetailsViewControllerForValue:value fromViewController:self];
             break;
 
         default:

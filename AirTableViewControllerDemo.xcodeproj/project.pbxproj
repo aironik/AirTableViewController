@@ -35,6 +35,8 @@
 		00774A18181A834100D6F27C /* AirTableViewControllerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00774A17181A834100D6F27C /* AirTableViewControllerDemoTests.m */; };
 		C4E3E063615A11AF608ADDF2 /* AITDDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EBE7368924238C5C36D4 /* AITDDataSource.m */; };
 		C4E3E550424C5554E6015F89 /* AITDChoiceOptionSelectorDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E50C1FA1202EF85D8F83 /* AITDChoiceOptionSelectorDelegate.m */; };
+		C4E3EB005836DE3DACB21B44 /* AITDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E3EAB368C6F39DFB4BBF8C /* AITDetailsCell.xib */; };
+		C4E3EB174FD292E429D541F0 /* AITDDetailsViewControllerProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EE70B8D3242F2FE273B6 /* AITDDetailsViewControllerProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +105,10 @@
 		C4E3E24BF41484439BD5C84E /* AITDDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDDataSource.h; sourceTree = "<group>"; };
 		C4E3E50C1FA1202EF85D8F83 /* AITDChoiceOptionSelectorDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDChoiceOptionSelectorDelegate.m; sourceTree = "<group>"; };
 		C4E3E8649771E12A830E2BD3 /* AITDChoiceOptionSelectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDChoiceOptionSelectorDelegate.h; sourceTree = "<group>"; };
+		C4E3EAB368C6F39DFB4BBF8C /* AITDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AITDetailsCell.xib; path = AirTableViewController/Values/ValuesWithState/Details/AITDetailsCell.xib; sourceTree = SOURCE_ROOT; };
 		C4E3EBE7368924238C5C36D4 /* AITDDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDDataSource.m; sourceTree = "<group>"; };
+		C4E3ECB15716BED8A80841F2 /* AITDDetailsViewControllerProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDDetailsViewControllerProvider.h; sourceTree = "<group>"; };
+		C4E3EE70B8D3242F2FE273B6 /* AITDDetailsViewControllerProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDDetailsViewControllerProvider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +243,7 @@
 				002DF0A5184F71CC00B35FDD /* AITLeftAlignedHeaderView.xib */,
 				002DF0AD184F71CC00B35FDD /* AITPendingOperationCell.xib */,
 				002DF0AB184F71CC00B35FDD /* AITTextCell.xib */,
+				C4E3EAB368C6F39DFB4BBF8C /* AITDetailsCell.xib */,
 			);
 			name = AirTableViewController;
 			sourceTree = "<group>";
@@ -249,6 +255,8 @@
 				C4E3EBE7368924238C5C36D4 /* AITDDataSource.m */,
 				C4E3E50C1FA1202EF85D8F83 /* AITDChoiceOptionSelectorDelegate.m */,
 				C4E3E8649771E12A830E2BD3 /* AITDChoiceOptionSelectorDelegate.h */,
+				C4E3EE70B8D3242F2FE273B6 /* AITDDetailsViewControllerProvider.m */,
+				C4E3ECB15716BED8A80841F2 /* AITDDetailsViewControllerProvider.h */,
 			);
 			path = StaticTableView;
 			sourceTree = "<group>";
@@ -368,6 +376,7 @@
 				002DF0B7184F71CC00B35FDD /* AITActionCell.xib in Resources */,
 				0067F266184F73DF0087DA34 /* Main_iPhone.storyboard in Resources */,
 				002DF0AE184F71CC00B35FDD /* AITCenterAlignedFooterView.xib in Resources */,
+				C4E3EB005836DE3DACB21B44 /* AITDetailsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +400,7 @@
 				007749F6181A834100D6F27C /* main.m in Sources */,
 				C4E3E063615A11AF608ADDF2 /* AITDDataSource.m in Sources */,
 				C4E3E550424C5554E6015F89 /* AITDChoiceOptionSelectorDelegate.m in Sources */,
+				C4E3EB174FD292E429D541F0 /* AITDDetailsViewControllerProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

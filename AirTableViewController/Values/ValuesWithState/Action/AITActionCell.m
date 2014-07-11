@@ -40,10 +40,6 @@
     return [@[ @"enabled" ] arrayByAddingObjectsFromArray:[super keyPathsForSubscribe]];
 }
 
-- (UITableViewCellSelectionStyle)defaultSelectionStyle {
-    return UITableViewCellSelectionStyleBlue;
-}
-
 - (void)updateSubviews {
     [super updateSubviews];
     
@@ -61,12 +57,13 @@
 #pragma mark - AITResponder protocol implementation
 
 - (void)becomeFirstAitResponder {
-    [self setSelected:YES animated:NO];
+    [self setHighlighted:YES animated:NO];
     [super becomeFirstAitResponder];
+    [self setHighlighted:NO animated:YES];
 }
 
 - (void)resignFirstAitResponder {
-    [self setSelected:NO animated:YES];
+    [self setHighlighted:NO animated:YES];
     [super resignFirstAitResponder];
 }
 

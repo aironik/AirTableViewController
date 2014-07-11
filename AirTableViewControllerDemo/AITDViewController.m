@@ -8,6 +8,7 @@
 
 #import "AITDViewController.h"
 
+#import "AITDDetailsViewControllerProvider.h"
 #import "AITDDataSource.h"
 
 
@@ -102,6 +103,7 @@
     result.header = @"Section With Choice Options";
     result.allObjects = @[
             [self staticValue4Choice],
+            [self staticValue4Details],
     ];
 
     return result;
@@ -169,6 +171,13 @@
                 return [NSString stringWithFormat:@"Choice %@", value];
             }];
     result.choiceOptionsSelectorDelegate = self.staticDataSource.choiceDelegate;
+    return result;
+}
+
+- (AITValue *)staticValue4Details {
+    AITDDetailsViewControllerProvider *provider = [[AITDDetailsViewControllerProvider alloc] init];
+    AITDetailsValue *result = [AITDetailsValue valueWithTitle:@"Details View" detailsProvider:provider];
+
     return result;
 }
 

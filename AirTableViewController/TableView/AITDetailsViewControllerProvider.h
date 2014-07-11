@@ -29,7 +29,8 @@ typedef NS_ENUM(NSUInteger, AITDetailsPresentationStyle) {
     AITDetailsPresentationStylePushNavigation,
 
     /// @brief The presentation implements by AITDetailsViewControllerProvider.
-    /// @details AITDetailsViewControllerProvider have to implement -presentDetailsViewControllerForValue:.
+    /// @details AITDetailsViewControllerProvider have to implement
+    ///     -presentDetailsViewControllerForValue:fromViewController:.
     AITDetailsPresentationStyleCustom,
 };
 
@@ -50,6 +51,7 @@ typedef NS_ENUM(NSUInteger, AITDetailsPresentationStyle) {
 
 /// @brief Present details controller for presentation style AITDetailsPresentationStyleCustom.
 /// @details You have to implement this method if you want to customise present
-- (void)presentDetailsViewControllerForValue:(AITValue *)value;
+- (void)presentDetailsViewControllerForValue:(AITValue *)value fromViewController:(UIViewController *)viewController;
+
 
 @end

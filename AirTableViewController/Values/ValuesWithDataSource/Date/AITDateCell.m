@@ -51,13 +51,13 @@
 #pragma mark - AITResponder protocol implementation
 
 - (void)becomeFirstAitResponder {
-    [self setSelected:YES animated:NO];
-    [self setSelected:NO animated:YES];
+    [self setHighlighted:YES animated:NO];
+    [self setHighlighted:NO animated:YES];
     [super becomeFirstAitResponder];
 }
 
 - (void)resignFirstAitResponder {
-    [self setSelected:NO animated:YES];
+    [self setHighlighted:NO animated:YES];
     [super resignFirstAitResponder];
 }
 
