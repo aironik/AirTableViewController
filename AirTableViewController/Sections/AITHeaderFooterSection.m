@@ -22,6 +22,11 @@
 
 @implementation AITHeaderFooterSection
 
+
+@dynamic headerView;
+@dynamic footerView;
+
+
 + (instancetype)sectionWithHeader:(NSString *)header footer:(NSString *)footer {
     return [[self alloc] initWithHeader:header footer:footer];
 }
