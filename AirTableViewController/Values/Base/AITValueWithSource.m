@@ -56,7 +56,9 @@
 }
 
 - (void)dealloc {
-    NSAssert(!_sourceObject && !_sourceKeyPath, @"-willRemove should invoke before destroy.");
+    [_sourceObject removeObserver:self forKeyPath:_sourceKeyPath];
+    _sourceObject = nil;
+    _sourceKeyPath = nil;
 }
 
 - (void)willRemove {
