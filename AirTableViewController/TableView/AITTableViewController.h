@@ -21,6 +21,14 @@ extern const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation;
 @property (nonatomic, assign) CGFloat topSpace;
 @property (nonatomic, assign) CGFloat bottomSpace;
 
+/// @brief Don't change size on keyboard show/hide.
+/// @details On show keyboard view try shrink and return previous size on keyboard hidding.
+///     If this behaviour is undesirable you can set ignoreKeyboardShrink property.
+///     For example if you show table view as inner view in other view change size
+///     can be unpredicted or undesired.
+///     Default value if NO.
+@property (nonatomic, assign) BOOL ignoreKeyboardShrink;
+
 /// @brief The array of AITTableViewSection objects.
 /// @details This array defines content of the table view. Each section defines cells with values section content.
 /// @see AITTableViewSection

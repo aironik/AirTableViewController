@@ -43,7 +43,7 @@
     NSAssert2(sourceObject
               && [sourceKeyPath length]
               && [sourceObject respondsToSelector:NSSelectorFromString(sourceKeyPath)],
-              @"Cannot access bool value switch. Object: %@, keyPath: %@", sourceObject, sourceKeyPath);
+              @"Cannot access value. Object: %@, keyPath: %@", sourceObject, sourceKeyPath);
     if (self = [super initWithTitle:title]) {
         _sourceObject = sourceObject;
         _sourceKeyPath = [sourceKeyPath copy];

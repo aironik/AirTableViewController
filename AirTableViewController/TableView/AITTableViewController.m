@@ -247,14 +247,16 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)subscribeForKeyboardNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShowOrHide:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShowOrHide:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
+    if (!self.ignoreKeyboardShrink) {
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillShowOrHide:)
+                                                     name:UIKeyboardWillShowNotification
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(keyboardWillShowOrHide:)
+                                                     name:UIKeyboardWillHideNotification
+                                                   object:nil];
+    }
 }
 
 - (void)unsubscribeForKeyboardNotifications {
