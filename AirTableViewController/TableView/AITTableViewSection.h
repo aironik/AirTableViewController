@@ -43,6 +43,12 @@
 
 @property (nonatomic, weak) NSObject<AITTableViewSectionDelegate> *delegate;
 
+/// @brief This value use for as default value for headerViewIdentifier if not defined.
++ (void)setDefaultHeaderViewIdentifier:(NSString *)defaultHeaderViewIdentifier;
+
+/// @brief This value use for as default value for footerViewIdentifier if not defined.
++ (void)setDefaultFooterViewIdentifier:(NSString *)defaultFooterViewIdentifier;
+
 - (void)tableView:(UITableView *)tableView setEditing:(BOOL)editing;
 
 - (NSString *)tableViewTitleForHeader:(UITableView *)tableView;

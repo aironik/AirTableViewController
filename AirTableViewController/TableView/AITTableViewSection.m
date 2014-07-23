@@ -123,6 +123,31 @@
     }
 }
 
+static NSString *_defaultHeaderViewIdentifier = nil;
+static NSString *_defaultFooterViewIdentifier = nil;
+
++ (void)setDefaultHeaderViewIdentifier:(NSString *)defaultHeaderViewIdentifier {
+    _defaultHeaderViewIdentifier = [defaultHeaderViewIdentifier copy];
+}
+
++ (NSString *)defaultHeaderViewIdentifier {
+    if (_defaultHeaderViewIdentifier == nil) {
+        _defaultHeaderViewIdentifier = [kAITHeaderFooterViewLeftAlignedHeaderIdentifier copy];
+    }
+    return _defaultHeaderViewIdentifier;
+}
+
++ (void)setDefaultFooterViewIdentifier:(NSString *)defaultFooterViewIdentifier {
+    _defaultFooterViewIdentifier = [defaultFooterViewIdentifier copy];
+}
+
++ (NSString *)defaultFooterViewIdentifier {
+    if (_defaultFooterViewIdentifier == nil) {
+        _defaultFooterViewIdentifier = [kAITHeaderFooterViewCenterAlignedFooterIdentifier copy];
+    }
+    return _defaultFooterViewIdentifier;
+}
+
 - (void)setHeaderViewIdentifier:(NSString *)headerViewIdentifier {
     if (![_headerViewIdentifier isEqualToString:headerViewIdentifier]) {
         _headerViewIdentifier = [headerViewIdentifier copy];
@@ -132,7 +157,7 @@
 
 - (NSString *)headerViewIdentifier {
     if (![_headerViewIdentifier length]) {
-        _headerViewIdentifier = [kAITHeaderFooterViewLeftAlignedHeaderIdentifier copy];
+        _headerViewIdentifier = [[[self class] defaultHeaderViewIdentifier] copy];
     }
     return _headerViewIdentifier;
 }
@@ -153,7 +178,7 @@
 
 - (NSString *)footerViewIdentifier {
     if (![_footerViewIdentifier length]) {
-        _footerViewIdentifier = [kAITHeaderFooterViewCenterAlignedFooterIdentifier copy];
+        _footerViewIdentifier = [[[self class] defaultFooterViewIdentifier] copy];
     }
     return _footerViewIdentifier;
 }
