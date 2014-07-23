@@ -12,9 +12,22 @@ extern NSString *const kAITHeaderFooterViewCenterAlignedHeaderIdentifier;
 extern NSString *const kAITHeaderFooterViewLeftAlignedFooterIdentifier;
 extern NSString *const kAITHeaderFooterViewCenterAlignedFooterIdentifier;
 
+/// @brief The action code block for execute on user interaction.
+typedef void(^AITHeaderFooterActionBlock)();
+
 @interface AITHeaderFooterView : UIView
 
 @property (nonatomic, weak) IBOutlet UILabel *label;
+
+/// @brief Code block that execute on tap in the view.
+/// @details If actionBlock != NULL label color changes to tint color.
+///     Also actionBlock execute on user tap on the AITHeaderFooterView .
+@property (nonatomic, copy) AITHeaderFooterActionBlock actionBlock;
+
+/// @brief Tap gesture recognizer for detect tap.
+/// @details Used for execute actionBlock.
+/// @see actionBlock
+@property (nonatomic, weak, readonly) IBOutlet UITapGestureRecognizer *tapGestureRecognizer;
 
 + (void)registerNib:(UINib *)nib forHeaderFooterViewReuseIdentifier:(NSString *)reuseIdentifier;
 + (void)setupTableView:(UITableView *)tableView;

@@ -194,6 +194,7 @@ static NSString *_defaultFooterViewIdentifier = nil;
     if (!self.headerView && [self.header length]) {
         self.headerView = [AITHeaderFooterView headerFooterViewWithIdentifier:self.headerViewIdentifier];
         self.headerView.label.text = self.header;
+        self.headerView.actionBlock = self.headerActionBlock;
     }
     return self.headerView;
 }
@@ -206,6 +207,7 @@ static NSString *_defaultFooterViewIdentifier = nil;
     if (!self.footerView && [self.footer length]) {
         self.footerView = [AITHeaderFooterView headerFooterViewWithIdentifier:self.footerViewIdentifier];
         self.footerView.label.text = self.footer;
+        self.footerView.actionBlock = self.footerActionBlock;
     }
     return self.footerView;
 }

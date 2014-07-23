@@ -7,6 +7,7 @@
 //
 
 #import <AirTableViewController/TableView/AITResponder.h>
+#import <AirTableViewController/HeaderFooter/AITHeaderFooterView.h>
 
 
 @class AITValue;
@@ -32,6 +33,11 @@
 @property (nonatomic, copy) NSString *headerViewIdentifier;
 @property (nonatomic, copy) NSString *footerViewIdentifier;
 
+/// @brief Code block that execute on tap in the header view.
+@property (nonatomic, copy) AITHeaderFooterActionBlock headerActionBlock;
+
+/// @brief Code block that execute on tap in the header view.
+@property (nonatomic, copy) AITHeaderFooterActionBlock footerActionBlock;
 
 /// @brief Change editing mode.
 /// @details Set this value directly only if you are sure the table view doesn't shown.

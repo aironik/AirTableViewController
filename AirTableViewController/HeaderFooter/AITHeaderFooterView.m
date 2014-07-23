@@ -8,6 +8,8 @@
 
 #import "AITHeaderFooterView.h"
 
+#import "UIView+AITUserInterfaceIdiom.h"
+
 
 #if !(__has_feature(objc_arc))
 #error ARC required. Add -fobjc-arc compiler flag for this file.
@@ -21,6 +23,9 @@ NSString *const kAITHeaderFooterViewCenterAlignedFooterIdentifier = @"AITCenterA
 
 
 @interface AITHeaderFooterView ()
+
+@property (nonatomic, weak, readwrite) IBOutlet UITapGestureRecognizer *tapGestureRecognizer;
+
 @end
 
 
@@ -93,6 +98,18 @@ NSString *const kAITHeaderFooterViewCenterAlignedFooterIdentifier = @"AITCenterA
     return [self headerFooterViewWithIdentifier:kAITHeaderFooterViewCenterAlignedFooterIdentifier];
 }
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+
+    if (self.tapGestureRecognizer == nil) {
+        UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                        action:@selector(executeAction:)];
+        tapRecognizer.numberOfTapsRequired = 1;
+        [self addGestureRecognizer:tapRecognizer];
+        self.tapGestureRecognizer = tapRecognizer;
+    }
+}
+
 - (CGFloat)heightForTableView:(UITableView *)tableView {
     const CGFloat width = CGRectGetWidth(tableView.bounds);
     const CGFloat labelWidthMargins = CGRectGetWidth(self.bounds) - CGRectGetWidth(self.label.frame);
@@ -102,6 +119,29 @@ NSString *const kAITHeaderFooterViewCenterAlignedFooterIdentifier = @"AITCenterA
                                    constrainedToSize:CGSizeMake(labelWidth, 1000.)
                                        lineBreakMode:self.label.lineBreakMode];
     return labelSize.height + labelHeightMargins;
+}
+
+- (void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
+    [self updateTintColorSelector:[newSuperview ait_tintColor]];
+}
+
+- (void)tintColorDidChange {
+    [super tintColorDidChange];
+    [self updateTintColorSelector:[self ait_tintColor]];
+}
+
+
+- (void)updateTintColorSelector:(UIColor *)newColor {
+    if (self.actionBlock != NULL) {
+        self.label.textColor = newColor;
+    }
+}
+
+- (IBAction)executeAction:(UIGestureRecognizer *)gestureRecognizer {
+    if (self.actionBlock != NULL) {
+        self.actionBlock();
+    }
 }
 
 

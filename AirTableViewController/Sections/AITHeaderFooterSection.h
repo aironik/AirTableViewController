@@ -16,7 +16,4 @@
 
 + (instancetype)sectionWithHeader:(NSString *)header footer:(NSString *)footer;
 
-@property (nonatomic, strong, readonly) AITHeaderFooterView *headerView;
-@property (nonatomic, strong, readonly) AITHeaderFooterView *footerView;
-
 @end
