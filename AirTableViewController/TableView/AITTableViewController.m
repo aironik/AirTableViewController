@@ -38,8 +38,8 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 // The popover that represent details view controller for current acctive value (first AitResponder value).
 @property (nonatomic, strong) UIPopoverController *detailsPopover;
 
-@property(nonatomic, strong) NSTimer *drainTimer;
-
+@property (nonatomic, strong, readonly) NSMutableArray *removedSections;
+@property (nonatomic, strong) NSTimer *drainTimer;
 
 @end
 
@@ -47,6 +47,9 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 #pragma mark - Implementation
 
 @implementation AITTableViewController
+
+
+@synthesize removedSections = _removedSections;
 
 
 - (void)awakeFromNib {
@@ -65,6 +68,13 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
             [section willRemove];
         }
     }
+}
+
+- (NSMutableArray *)removedSections {
+    if (_removedSections == nil) {
+        _removedSections = [@[ ] mutableCopy];
+    }
+    return _removedSections;
 }
 
 - (void)willRemove {
@@ -131,6 +141,12 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     [self unsubscribeForValueBecomeFirstAitResponderNotification];
     [self unsubscribeForKeyboardNotifications];
 
+    NSArray *cells = [self.tableView visibleCells];
+    for (AITTableViewCell *cell in cells) {
+        [cell cellDidEndDisplaying];
+    }
+    [self drain];
+    
     [super viewDidDisappear:animated];
 }
 
@@ -148,10 +164,21 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 - (void)setSections:(NSArray *)sections {
     if (_sections != sections) {
+        for (AITTableViewSection *section in _sections) {
+            if (![sections containsObject:section]) {
+                [self addSectionForRemove:section];
+            }
+        }
+        
         _sections = sections;
         [self updateSectionsResponderChain];
         [self updateSectionsForEditing:self.editing];
     }
+}
+    
+- (void)addSectionForRemove:(AITTableViewSection *)section {
+    [section willRemove];
+    [self.removedSections addObject:section];
 }
 
 - (void)updateSectionsResponderChain {
@@ -496,6 +523,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     for (AITTableViewSection *section in self.sections) {
         [section drainRemovedValues];
     }
+    [self.removedSections removeAllObjects];
 }
 
 
