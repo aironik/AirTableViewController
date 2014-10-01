@@ -92,4 +92,5 @@
 /// @details Prepare for destroy. E.g. unsubscribe KVO and notify values. After this method data can be destroyed.
 - (void)willRemove;
 
+
 @end

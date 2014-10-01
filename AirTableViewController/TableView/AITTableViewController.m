@@ -17,6 +17,7 @@
 #import "AITPendingOperationCell.h"
 #import "AITBoolCell.h"
 #import "AITTableViewSection.h"
+#import "AITTableViewSection+AITProtected.h"
 #import "AITTableViewSectionDelegate.h"
 #import "AITTextCell.h"
 #import "AITValue.h"
@@ -37,6 +38,9 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 // The popover that represent details view controller for current acctive value (first AitResponder value).
 @property (nonatomic, strong) UIPopoverController *detailsPopover;
 
+@property(nonatomic, strong) NSTimer *drainTimer;
+
+
 @end
 
 
@@ -52,11 +56,27 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)dealloc {
-    for (AITTableViewCell *cell in [self.tableView visibleCells]) {
-        [cell willRemove];
+    [_drainTimer invalidate];
+    @autoreleasepool {
+        for (AITTableViewCell *cell in [_tableView visibleCells]) {
+            [cell willRemove];
+        }
+        for (AITTableViewSection *section in _sections) {
+            [section willRemove];
+        }
     }
-    for (AITTableViewSection *section in self.sections) {
-        [section willRemove];
+}
+
+- (void)willRemove {
+    @autoreleasepool {
+        for (AITTableViewCell *cell in [self.tableView visibleCells]) {
+            [cell willRemove];
+        }
+        self.tableView = nil;
+        for (AITTableViewSection *section in self.sections) {
+            [section willRemove];
+        }
+        self.sections = nil;
     }
 }
 
@@ -370,6 +390,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     NSInteger sectionIndex = [self.sections indexOfObject:section];
     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:sectionIndex];
     [self.tableView reloadSections:indexSet withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
+    [self scheduleDrain];
 }
 
 - (void)section:(AITTableViewSection *)section valueDidBecomeFirstAitResponder:(AITValue *)value {
@@ -459,6 +480,24 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 - (IBAction)closeDetailsController:(id)sender {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
+#pragma mark - Drain removed values workflow
+
+- (void)scheduleDrain {
+    [self.drainTimer invalidate];
+    self.drainTimer = [NSTimer scheduledTimerWithTimeInterval:0.3
+                                                       target:self
+                                                     selector:@selector(drain)
+                                                     userInfo:nil
+                                                      repeats:NO];
+}
+
+- (void)drain {
+    for (AITTableViewSection *section in self.sections) {
+        [section drainRemovedValues];
+    }
+}
+
 
 #pragma mark -
 

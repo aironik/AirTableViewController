@@ -35,6 +35,9 @@
 @property (nonatomic, strong, readonly) UIViewController *detailsViewController;
 @property (nonatomic, assign, readonly) NSInteger valueWithDetailsIndex;
 
+// Value cannot being removed immediately because it has cell-observers. So we store them until drain.
+@property (nonatomic, strong, readonly) NSMutableArray *removedValues;
+
 - (NSArray *)currentObjects;
 
 @end
@@ -54,6 +57,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         _valueWithDetailsIndex = NSNotFound;
+        _removedValues = [@[ ] mutableCopy];
     }
     return self;
 }
@@ -68,10 +72,24 @@
     if (_allObjects != allObjects) {
         self.valueWithDetails = nil;
 
+        for (AITValue *value in _allObjects) {
+            if (![allObjects containsObject:value]) {
+                [self addValueForRemove:value];
+            }
+        }
         _allObjects = [allObjects copy];
 
         [self updateFilledObjects];
     }
+}
+
+- (void)addValueForRemove:(AITValue *)value {
+    [value willRemove];
+    [self.removedValues addObject:value];
+}
+
+- (void)drainRemovedValues {
+    [self.removedValues removeAllObjects];
 }
 
 - (void)updateFilledObjects {

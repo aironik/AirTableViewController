@@ -20,5 +20,6 @@ typedef BOOL (^AITTableViewSectionChanges)(void);
 - (void)tableView:(UITableView *)tableView currentSectionIndex:(NSInteger)index changes:(AITTableViewSectionChanges)changes;
 - (void)updateFilledObjects;
 - (NSArray *)currentObjects;
+- (void)drainRemovedValues;
 
 @end
