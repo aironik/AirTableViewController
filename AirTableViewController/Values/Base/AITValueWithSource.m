@@ -19,6 +19,8 @@
 @property (nonatomic, weak, readonly) NSObject *sourceObject;
 @property (nonatomic, copy, readonly) NSString *sourceKeyPath;
 
+@property (nonatomic, assign) BOOL subscribedValueChanges;
+
 @end
 
 
@@ -47,24 +49,46 @@
     if (self = [super initWithTitle:title]) {
         _sourceObject = sourceObject;
         _sourceKeyPath = [sourceKeyPath copy];
-        [_sourceObject addObserver:self
-                        forKeyPath:sourceKeyPath
-                           options:NSKeyValueObservingOptionNew
-                           context:NULL];
     }
     return self;
 }
 
 - (void)dealloc {
-    [_sourceObject removeObserver:self forKeyPath:_sourceKeyPath];
+    if (_subscribedValueChanges) {
+        [_sourceObject removeObserver:self forKeyPath:_sourceKeyPath];
+    }
     _sourceObject = nil;
     _sourceKeyPath = nil;
 }
 
-- (void)willRemove {
-    [_sourceObject removeObserver:self forKeyPath:_sourceKeyPath];
-    _sourceObject = nil;
-    _sourceKeyPath = nil;
+- (void)willAppear {
+    [super willAppear];
+
+    [self subscribeValueChanges];
+}
+
+- (void)didDisappear {
+    [self unsubscribeValueChanges];
+
+    [super didDisappear];
+}
+
+- (void)subscribeValueChanges {
+    if (!self.subscribedValueChanges) {
+        self.subscribedValueChanges = YES;
+
+        [_sourceObject addObserver:self
+                        forKeyPath:self.sourceKeyPath
+                           options:NSKeyValueObservingOptionNew
+                           context:NULL];
+    }
+}
+
+- (void)unsubscribeValueChanges {
+    if (self.subscribedValueChanges) {
+        self.subscribedValueChanges = NO;
+        [self.sourceObject removeObserver:self forKeyPath:self.sourceKeyPath];
+    }
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath

@@ -41,7 +41,11 @@ NSString *const kAITValueResignFirstAitResponder = @"kAITValueResignFirstAitResp
     return self;
 }
 
-- (void)willRemove {
+- (void)willAppear {
+
+}
+
+- (void)didDisappear {
 
 }
 

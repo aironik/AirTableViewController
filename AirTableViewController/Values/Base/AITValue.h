@@ -54,8 +54,12 @@ extern NSString *const kAITValueResignFirstAitResponder;
 ///     E.g. select value from list or popup for select date.
 - (id<AITDetailsViewControllerProvider>)detailsViewControllerProvider;
 
-/// @brief Tell the value that it will remove from table view controller.
-/// @details Prepare for destroy. E.g. unsubscribe KVO and notify values.
-- (void)willRemove;
+/// @brief Message that sends on value cell will appear.
+/// @details subscribe for KVO notification if need.
+- (void)willAppear;
+
+/// @brief Message that sends on value cell did disappear.
+/// @details unsubscribe for KVO notification if need.
+- (void)didDisappear;
 
 @end

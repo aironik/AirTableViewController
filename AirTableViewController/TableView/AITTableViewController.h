@@ -36,6 +36,6 @@ extern const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation;
 
 - (void)save;
 - (void)rollback;
-- (void)willRemove;
+
 
 @end

@@ -65,7 +65,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
             [cell willRemove];
         }
         for (AITTableViewSection *section in _sections) {
-            [section willRemove];
+            [section didDisappear];
         }
     }
 }
@@ -75,19 +75,6 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
         _removedSections = [@[ ] mutableCopy];
     }
     return _removedSections;
-}
-
-- (void)willRemove {
-    @autoreleasepool {
-        for (AITTableViewCell *cell in [self.tableView visibleCells]) {
-            [cell willRemove];
-        }
-        self.tableView = nil;
-        for (AITTableViewSection *section in self.sections) {
-            [section willRemove];
-        }
-        self.sections = nil;
-    }
 }
 
 - (void)viewDidLoad {
@@ -135,6 +122,10 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     [super viewDidAppear:animated];
     // iOS 7 fix. If go back from other view and other view opened while keyboard did shown.
     self.bottomConstraint.constant = self.bottomSpace;
+
+    for (AITTableViewSection *section in self.sections) {
+        [section willAppear];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -145,6 +136,11 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     for (AITTableViewCell *cell in cells) {
         [cell cellDidEndDisplaying];
     }
+    
+    for (AITTableViewSection *section in self.sections) {
+        [section didDisappear];
+    }
+
     [self drain];
     
     [super viewDidDisappear:animated];
@@ -177,7 +173,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
     
 - (void)addSectionForRemove:(AITTableViewSection *)section {
-    [section willRemove];
+    [section didDisappear];
     [self.removedSections addObject:section];
 }
 

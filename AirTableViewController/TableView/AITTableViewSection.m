@@ -62,9 +62,15 @@
     return self;
 }
 
-- (void)willRemove {
+- (void)willAppear {
     for (AITValue *value in self.allObjects) {
-        [value willRemove];
+        [value willAppear];
+    }
+}
+
+- (void)didDisappear {
+    for (AITValue *value in self.allObjects) {
+        [value didDisappear];
     }
 }
 
@@ -84,7 +90,7 @@
 }
 
 - (void)addValueForRemove:(AITValue *)value {
-    [value willRemove];
+    [value didDisappear];
     [self.removedValues addObject:value];
 }
 
