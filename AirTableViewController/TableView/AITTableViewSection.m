@@ -83,6 +83,12 @@
                 [self addValueForRemove:value];
             }
         }
+        for (NSInteger idx = [_allObjects count]; idx > 0 ; --idx) {
+            [self.delegate section:self deleteCellAtRow:idx - 1];
+        }
+        for (NSInteger idx = 0; idx < [allObjects count]; ++idx) {
+            [self.delegate section:self insertCellAtRow:idx];
+        }
         _allObjects = [allObjects copy];
 
         [self updateFilledObjects];

@@ -166,6 +166,11 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
             }
         }
         
+        NSIndexSet *deletingIndexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [_sections count])];
+        [self.tableView deleteSections:deletingIndexSet withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
+        NSIndexSet *insertingIndexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [sections count])];
+        [self.tableView insertSections:insertingIndexSet withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
+
         _sections = sections;
         [self updateSectionsResponderChain];
         [self updateSectionsForEditing:self.editing];
@@ -188,12 +193,17 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)updateSectionsForEditing:(BOOL)editing {
-    [self.tableView beginUpdates];
+    const BOOL shown = ([self isViewLoaded] && self.view.superview != nil);
+    if (shown) {
+        [self.tableView beginUpdates];
+    }
     [self.sections enumerateObjectsUsingBlock:^(AITTableViewSection *section, NSUInteger index, BOOL *stop) {
         [section tableView:self.tableView setEditing:editing];
     }];
 
-    [self.tableView endUpdates];
+    if (shown) {
+        [self.tableView endUpdates];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
