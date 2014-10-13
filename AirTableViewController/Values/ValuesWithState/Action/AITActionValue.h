@@ -29,6 +29,9 @@ typedef void (^AITActionValueBlock)(AITActionValue *value);
 /// @brief Create new action value instance.
 + (instancetype)valueWithTitle:(NSString *)title action:(AITActionValueBlock)action;
 
+/// @brief Initialize new action value instance.
+- (instancetype)initWithTitle:(NSString *)title action:(AITActionValueBlock)action;
+
 /// @brief Returns a boolean value that indicates whether the value an perform action.
 /// @details The value can perform action if it enabled and has action.
 - (BOOL)canPerform;

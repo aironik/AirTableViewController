@@ -16,9 +16,6 @@
 /// @details Should invoke super.
 - (void)setup;
 
-/// @brief Update subviews (labels) according -value property.
-- (void)updateSubviews;
-
 /// @brief Array of strings propertyes names for KVO observing -value.
 - (NSArray *)keyPathsForSubscribe;
 

@@ -61,4 +61,8 @@ NS_OPTIONS(NSUInteger, AITTableViewCellPosition) {
 /// @details cell should release critical data and unsubscribe KVO.
 - (void)willRemove;
 
+/// @brief Update subviews (labels) according -value property.
+- (void)updateSubviews;
+
+
 @end
