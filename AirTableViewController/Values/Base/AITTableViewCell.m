@@ -108,6 +108,7 @@
 - (void)cellWillDisplay {
     [self subscribeValueChanges];
     [self updateAitResponderState];
+    [self updateSubviews];
 }
 
 - (void)cellDidEndDisplaying {

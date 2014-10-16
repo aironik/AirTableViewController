@@ -116,6 +116,11 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
     [self.detailsPopover dismissPopoverAnimated:NO];
     self.detailsPopover = nil;
+    
+    NSArray *cells = [self.tableView visibleCells];
+    for (AITTableViewCell *cell in cells) {
+        [cell cellWillDisplay];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {

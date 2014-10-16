@@ -85,9 +85,11 @@
         }
         for (NSInteger idx = [_allObjects count]; idx > 0 ; --idx) {
             [self.delegate section:self deleteCellAtRow:idx - 1];
+            ((AITValue *)_allObjects[idx]).delegate = nil;
         }
         for (NSInteger idx = 0; idx < [allObjects count]; ++idx) {
             [self.delegate section:self insertCellAtRow:idx];
+            ((AITValue *)allObjects[idx]).delegate = self;
         }
         _allObjects = [allObjects copy];
 
@@ -391,8 +393,6 @@ static NSString *_defaultFooterViewIdentifier = nil;
     for (AITValue *responder in [self currentObjects]) {
         [previousResponder setNextAitResponder:responder];
         previousResponder = responder;
-
-        responder.delegate = self;
     }
     [self updateLastObjectResponderChain];
 }
@@ -496,14 +496,15 @@ static NSString *_defaultFooterViewIdentifier = nil;
 
 - (void)valueEmptyChanged:(AITValue *)value {
     NSParameterAssert([self.allObjects containsObject:value]);
-    NSUInteger row = [self.filledObjects indexOfObject:value];
-    if (row == NSNotFound && !value.empty) {
-        [self.delegate section:self insertCellAtRow:row];
-    }
-    else if (row != NSNotFound && value.empty) {
-        [self.delegate section:self deleteCellAtRow:row];
-    }
+    NSUInteger previousRow = [self.filledObjects indexOfObject:value];
     [self updateFilledObjects];
+    NSUInteger currentRow = [self.filledObjects indexOfObject:value];
+    if (previousRow == NSNotFound && currentRow != NSNotFound) {
+        [self.delegate section:self insertCellAtRow:currentRow];
+    }
+    else if (previousRow != NSNotFound && currentRow == NSNotFound) {
+        [self.delegate section:self deleteCellAtRow:previousRow];
+    }
 }
 
 
