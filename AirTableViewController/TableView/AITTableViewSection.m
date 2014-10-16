@@ -494,4 +494,17 @@ static NSString *_defaultFooterViewIdentifier = nil;
     [self.delegate section:self scrollToRow:valueIndex];
 }
 
+- (void)valueEmptyChanged:(AITValue *)value {
+    NSParameterAssert([self.allObjects containsObject:value]);
+    NSUInteger row = [self.filledObjects indexOfObject:value];
+    if (row == NSNotFound && !value.empty) {
+        [self.delegate section:self insertCellAtRow:row];
+    }
+    else if (row != NSNotFound && value.empty) {
+        [self.delegate section:self deleteCellAtRow:row];
+    }
+    [self updateFilledObjects];
+}
+
+
 @end

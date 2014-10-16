@@ -62,6 +62,13 @@ NSString *const kAITValueResignFirstAitResponder = @"kAITValueResignFirstAitResp
     return _cellIdentifier;
 }
 
+- (void)setEmpty:(BOOL)empty {
+    if (_empty != empty) {
+        _empty = empty;
+        [self.delegate valueEmptyChanged:self];
+    }
+}
+
 - (id<AITDetailsViewControllerProvider>)detailsViewControllerProvider {
     return nil;
 }

@@ -118,12 +118,5 @@
     [self.sourceObject setValue:sourceValue forKeyPath:self.sourceKeyPath];
 }
 
-- (BOOL)isEmpty {
-    return (self.sourceValue == nil);
-}
-
-- (void)setEmpty:(BOOL)empty {
-    NSAssert(NO, @"This method should not be invoked.");
-}
 
 @end

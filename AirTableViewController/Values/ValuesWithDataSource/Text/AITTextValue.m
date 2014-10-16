@@ -55,10 +55,6 @@
     return self;
 }
 
-- (BOOL)isEmpty {
-    return [self.value length] == 0;
-}
-
 - (NSString *)value {
     return self.sourceValue;
 }

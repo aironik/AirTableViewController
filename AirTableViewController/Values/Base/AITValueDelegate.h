@@ -21,6 +21,9 @@
 /// @brief Tells the delegate that a specified value has resign first AIT responder
 - (void)valueDidResignFirstAitResponder:(AITValue *)value;
 
+/// @brief Tells the delegate that empty value has changed.
+- (void)valueEmptyChanged:(AITValue *)value;
+
 /// @brief Tells the delegate that value should be shown and table view should scroll to specified cell.
 - (void)valueNeedShow:(AITValue *)value;
 
