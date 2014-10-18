@@ -7,6 +7,9 @@
 //
 
 
+@class AITTableViewSection;
+
+
 /// @brief Animation by default in insert/delete sections/cells
 extern const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation;
 
@@ -33,6 +36,9 @@ extern const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation;
 /// @details This array defines content of the table view. Each section defines cells with values section content.
 /// @see AITTableViewSection
 @property (nonatomic, strong) NSArray *sections;
+
+/// @brief Reload section in table view
+- (void)reloadSection:(AITTableViewSection *)section;
 
 - (void)save;
 - (void)rollback;

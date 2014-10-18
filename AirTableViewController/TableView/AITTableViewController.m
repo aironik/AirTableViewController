@@ -424,9 +424,12 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 - (void)reloadSection:(AITTableViewSection *)section {
     NSInteger sectionIndex = [self.sections indexOfObject:section];
-    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:sectionIndex];
-    [self.tableView reloadSections:indexSet withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
-    [self scheduleDrain];
+    if (sectionIndex != NSNotFound) {
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:sectionIndex];
+        NSLog(@"%@", indexSet);
+        [self.tableView reloadSections:indexSet withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
+        [self scheduleDrain];
+    }
 }
 
 - (void)section:(AITTableViewSection *)section valueDidBecomeFirstAitResponder:(AITValue *)value {

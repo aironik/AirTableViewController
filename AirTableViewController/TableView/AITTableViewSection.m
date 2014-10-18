@@ -83,17 +83,16 @@
                 [self addValueForRemove:value];
             }
         }
-        for (NSInteger idx = [_allObjects count]; idx > 0 ; --idx) {
-            [self.delegate section:self deleteCellAtRow:idx - 1];
+        for (NSInteger idx = 0; idx < [_allObjects count]; ++idx) {
             ((AITValue *)_allObjects[idx]).delegate = nil;
         }
         for (NSInteger idx = 0; idx < [allObjects count]; ++idx) {
-            [self.delegate section:self insertCellAtRow:idx];
             ((AITValue *)allObjects[idx]).delegate = self;
         }
         _allObjects = [allObjects copy];
 
         [self updateFilledObjects];
+        [self.delegate reloadSection:self];
     }
 }
 
