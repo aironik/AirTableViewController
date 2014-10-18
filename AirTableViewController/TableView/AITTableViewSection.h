@@ -86,7 +86,7 @@
 - (void)hideDetailsCellForValue:(AITValue *)value;
 
 /// @brief Get index for value in the section.
-- (NSInteger)rowForValue:(AITValue *)value;
+- (NSInteger)visibleRowForValue:(AITValue *)value;
 
 /// @brief Message that sends on value cell will appear.
 /// @details subscribe for KVO notification if need.

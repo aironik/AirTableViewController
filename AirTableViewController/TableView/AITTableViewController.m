@@ -374,7 +374,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 }
 
 - (void)valueBecomeFirstAitResponderNotification:(NSNotification *)notification {
-    NSIndexPath *indexPath = [self indexPathForValue:[notification object]];
+    NSIndexPath *indexPath = [self visibleIndexPathForValue:[notification object]];
     if (indexPath) {
         [self.tableView scrollToRowAtIndexPath:indexPath
                               atScrollPosition:UITableViewScrollPositionTop
@@ -382,15 +382,13 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     }
 }
 
-- (NSIndexPath *)indexPathForValue:(AITValue *)value {
+- (NSIndexPath *)visibleIndexPathForValue:(AITValue *)value {
     // FIXME: optimize if need. E.g. setup indexes and use delegate for selection.
     for (NSInteger sectionIndex = 0; sectionIndex < [self.sections count]; ++sectionIndex) {
         AITTableViewSection *section = self.sections[sectionIndex];
-        NSArray *allObjects = section.allObjects;
-        for (NSInteger rowIndex = 0; rowIndex < [allObjects count]; ++rowIndex) {
-            if (allObjects[rowIndex] == value) {
-                return [NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex];
-            }
+        NSInteger rowIndex = [section visibleRowForValue:value];
+        if (rowIndex != NSNotFound) {
+            return [NSIndexPath indexPathForRow:rowIndex inSection:sectionIndex];
         }
     }
     return nil;
@@ -471,7 +469,7 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 - (void)presentPopoverForSection:(AITTableViewSection *)section value:(AITValue *)value {
     NSInteger sectionIndex = [self.sections indexOfObject:section];
-    NSInteger row = [section rowForValue:value];
+    NSInteger row = [section visibleRowForValue:value];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:sectionIndex];
 
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];

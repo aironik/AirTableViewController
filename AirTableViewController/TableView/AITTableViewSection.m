@@ -251,8 +251,10 @@ static NSString *_defaultFooterViewIdentifier = nil;
 
 #pragma mark - rows
 
-- (NSInteger)rowForValue:(AITValue *)value {
-    NSInteger result = [self.allObjects indexOfObject:value];
+- (NSInteger)visibleRowForValue:(AITValue *)value {
+    NSArray *objects = self.currentObjects;
+    NSAssert(objects != nil, @"Have to be updated visible objects previously");
+    NSInteger result = (objects == nil) ? NSNotFound : [objects indexOfObject:value];
     NSInteger detailsIndex = [self valueWithDetailsIndex];
     if (result != NSNotFound && result > detailsIndex) {
         ++result;
