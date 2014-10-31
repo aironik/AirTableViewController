@@ -96,5 +96,6 @@
 /// @details unsubscribe for KVO notification if need.
 - (void)didDisappear;
 
+- (NSArray *)valueForRemoved;
 
 @end

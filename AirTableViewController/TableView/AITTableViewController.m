@@ -426,8 +426,16 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
     NSInteger sectionIndex = [self.sections indexOfObject:section];
     if (sectionIndex != NSNotFound) {
         NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:sectionIndex];
-        NSLog(@"%@", indexSet);
+        
+        NSArray *removedValues = [section valueForRemoved];
+        for (int i = 0; i < removedValues.count; i++) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:sectionIndex];
+            AITTableViewCell *cell = (AITTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+            [cell cellDidEndDisplaying];
+        }
+        
         [self.tableView reloadSections:indexSet withRowAnimation:kAILTableViewSectionDefaultRowAnimation];
+        
         [self scheduleDrain];
     }
 }

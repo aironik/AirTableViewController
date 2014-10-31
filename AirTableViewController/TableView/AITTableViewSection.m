@@ -310,6 +310,7 @@ static NSString *_defaultFooterViewIdentifier = nil;
             cell.value = value;
             cell.editing = self.editing;
             cell.position = cellPosition;
+            [cell cellWillDisplay];
             result = cell;
         }
     }];
@@ -506,6 +507,11 @@ static NSString *_defaultFooterViewIdentifier = nil;
     else if (previousRow != NSNotFound && currentRow == NSNotFound) {
         [self.delegate section:self deleteCellAtRow:previousRow];
     }
+}
+
+
+- (NSArray *)valueForRemoved {
+    return [NSArray arrayWithArray:self.removedValues];
 }
 
 
