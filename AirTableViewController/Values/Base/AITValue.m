@@ -41,6 +41,10 @@ NSString *const kAITValueResignFirstAitResponder = @"kAITValueResignFirstAitResp
     return self;
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)willAppear {
 
 }
