@@ -111,14 +111,10 @@ NSString *const kAITHeaderFooterViewCenterAlignedFooterIdentifier = @"AITCenterA
 }
 
 - (CGFloat)heightForTableView:(UITableView *)tableView {
-    const CGFloat width = CGRectGetWidth(tableView.bounds);
-    const CGFloat labelWidthMargins = CGRectGetWidth(self.bounds) - CGRectGetWidth(self.label.frame);
-    const CGFloat labelHeightMargins = CGRectGetHeight(self.bounds) - CGRectGetHeight(self.label.frame);
-    const CGFloat labelWidth = width - labelWidthMargins;
-    CGSize labelSize = [self.label.text sizeWithFont:self.label.font
-                                   constrainedToSize:CGSizeMake(labelWidth, 1000.)
-                                       lineBreakMode:self.label.lineBreakMode];
-    return labelSize.height + labelHeightMargins;
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+    CGSize size = [self systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height;
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview {
