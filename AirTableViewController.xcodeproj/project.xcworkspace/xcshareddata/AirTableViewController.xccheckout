@@ -5,9 +5,9 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>58AA5B93-B093-4287-A51E-22F1C5EACBE2</string>
+	<string>AE4F4264-8E47-474F-9D85-C5F53C3FDD9D</string>
 	<key>IDESourceControlProjectName</key>
-	<string>AirSettingsViewController</string>
+	<string>AirTableViewController</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>230490770CE0E477664E6423663774BF3C0D28F4</key>
@@ -16,7 +16,7 @@
 		<string>dev.orfogr.ru:mobile/airtableviewcontroller.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>AirSettingsViewController.xcodeproj</string>
+	<string>AirTableViewController.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>230490770CE0E477664E6423663774BF3C0D28F4</key>

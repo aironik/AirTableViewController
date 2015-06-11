@@ -6,6 +6,9 @@
 //  Copyright © 2013 aironik. All rights reserved.
 //
 
+#ifndef AirTableViewController_AirTableViewController_Prefix_pch
+#define AirTableViewController_AirTableViewController_Prefix_pch
+
 #ifdef __OBJC__
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
@@ -19,3 +22,5 @@
     #endif // DEBUG
 
 #endif
+
+#endif // AirTableViewController_AirTableViewController_Prefix_pch

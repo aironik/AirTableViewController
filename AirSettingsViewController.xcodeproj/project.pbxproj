@@ -42,6 +42,9 @@
 		000D485B1B29A65E00F0473D /* AirSettingsViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirSettingsViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		000D48611B29A65E00F0473D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		000D486A1B29A7B200F0473D /* AirSettingsViewController-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AirSettingsViewController-Prefix.pch"; sourceTree = "<group>"; };
+		000D487A1B29BAA800F0473D /* AirBuildConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = AirBuildConfig.xcconfig; path = AirBuildConfig/AirBuildConfig.xcconfig; sourceTree = SOURCE_ROOT; };
+		000D488B1B29BC0300F0473D /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		00381FD81B29CDA600D2A34D /* AirBuildConfigTests.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = AirBuildConfigTests.xcconfig; path = AirBuildConfig/AirBuildConfigTests.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				000D486A1B29A7B200F0473D /* AirSettingsViewController-Prefix.pch */,
+				000D487A1B29BAA800F0473D /* AirBuildConfig.xcconfig */,
+				00381FD81B29CDA600D2A34D /* AirBuildConfigTests.xcconfig */,
+				000D488B1B29BC0300F0473D /* Project.xcconfig */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -283,7 +289,7 @@
 			};
 			name = Debug;
 		};
-		000D48631B29A65E00F0473D /* Release */ = {
+		000D48631B29A65E00F0473D /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -333,29 +339,27 @@
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = AppStore;
 		};
 		000D48651B29A65E00F0473D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 000D487A1B29BAA800F0473D /* AirBuildConfig.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AirSettingsViewController/AirSettingsViewController-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		000D48661B29A65E00F0473D /* Release */ = {
+		000D48661B29A65E00F0473D /* AppStore */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 000D487A1B29BAA800F0473D /* AirBuildConfig.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "AirSettingsViewController/AirSettingsViewController-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
-			name = Release;
+			name = AppStore;
 		};
 		000D48681B29A65E00F0473D /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -375,7 +379,7 @@
 			};
 			name = Debug;
 		};
-		000D48691B29A65E00F0473D /* Release */ = {
+		000D48691B29A65E00F0473D /* AppStore */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -387,7 +391,84 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
-			name = Release;
+			name = AppStore;
+		};
+		000D48751B29BA8400F0473D /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
+				GCC_TREAT_INCOMPATIBLE_POINTER_TYPE_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_INITIALIZER_NOT_FULLY_BRACKETED = YES;
+				GCC_WARN_MISSING_PARENTHESES = YES;
+				GCC_WARN_SHADOW = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"${SRCROOT}/",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = AdHoc;
+		};
+		000D48761B29BA8400F0473D /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 000D487A1B29BAA800F0473D /* AirBuildConfig.xcconfig */;
+			buildSettings = {
+				CLANG_STATIC_ANALYZER_MODE = deep;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = AdHoc;
+		};
+		000D48771B29BA8400F0473D /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AirSettingsViewControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = AdHoc;
 		};
 /* End XCBuildConfiguration section */
 
@@ -396,28 +477,31 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				000D48621B29A65E00F0473D /* Debug */,
-				000D48631B29A65E00F0473D /* Release */,
+				000D48631B29A65E00F0473D /* AppStore */,
+				000D48751B29BA8400F0473D /* AdHoc */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = AppStore;
 		};
 		000D48641B29A65E00F0473D /* Build configuration list for PBXNativeTarget "AirSettingsViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				000D48651B29A65E00F0473D /* Debug */,
-				000D48661B29A65E00F0473D /* Release */,
+				000D48661B29A65E00F0473D /* AppStore */,
+				000D48761B29BA8400F0473D /* AdHoc */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = AppStore;
 		};
 		000D48671B29A65E00F0473D /* Build configuration list for PBXNativeTarget "AirSettingsViewControllerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				000D48681B29A65E00F0473D /* Debug */,
-				000D48691B29A65E00F0473D /* Release */,
+				000D48691B29A65E00F0473D /* AppStore */,
+				000D48771B29BA8400F0473D /* AdHoc */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = AppStore;
 		};
 /* End XCConfigurationList section */
 	};
