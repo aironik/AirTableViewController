@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AITSettingsViewController">
+            <connections>
+                <outlet property="activityIndicator" destination="Spt-KN-vDd" id="f19-Jj-fjF"/>
+                <outlet property="bottomConstraint" destination="CDA-J6-rNS" id="X1k-sI-1Jr"/>
+                <outlet property="emptyView" destination="WDs-SH-dDb" id="HU0-DJ-BvB"/>
+                <outlet property="emptyViewLabel" destination="MH6-gD-22k" id="xMh-ax-aTJ"/>
+                <outlet property="scrollView" destination="gJ4-hR-DIT" id="bsZ-AV-GUL"/>
+                <outlet property="searchBar" destination="zl4-aS-5ln" id="9UQ-ox-hNI"/>
+                <outlet property="searchBarTopConstraint" destination="VfG-gB-o7T" id="EtC-jJ-3mv"/>
+                <outlet property="tableView" destination="KSs-OA-RX6" id="ZxP-Kp-ALW"/>
+                <outlet property="tableViewHeightConstraint" destination="T9F-c2-cJN" id="a3M-Bh-ryb"/>
+                <outlet property="view" destination="pVc-dG-up4" id="U2V-RO-vG9"/>
+            </connections>
+        </placeholder>
+        <view contentMode="scaleToFill" id="pVc-dG-up4">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zl4-aS-5ln">
+                    <rect key="frame" x="0.0" y="0.0" width="768" height="447"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="KTV-vU-WwU"/>
+                    </connections>
+                </searchBar>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="500" verticalHuggingPriority="500" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJ4-hR-DIT">
+                    <rect key="frame" x="0.0" y="44" width="768" height="980"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="KSs-OA-RX6" customClass="AITSettingsTableView">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" id="T9F-c2-cJN"/>
+                                <constraint firstAttribute="width" priority="250" constant="580" id="rD2-dZ-YhM"/>
+                            </constraints>
+                            <inset key="scrollIndicatorInsets" minX="100" minY="0.0" maxX="100" maxY="0.0"/>
+                            <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="M3t-XS-PvU"/>
+                                <outlet property="delegate" destination="-1" id="h23-oh-hcQ"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="KSs-OA-RX6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gJ4-hR-DIT" secondAttribute="leading" priority="800" constant="20" id="3Rc-KN-3fD"/>
+                        <constraint firstItem="KSs-OA-RX6" firstAttribute="top" secondItem="gJ4-hR-DIT" secondAttribute="top" id="8sf-9H-gCD"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KSs-OA-RX6" secondAttribute="trailing" priority="800" constant="20" id="Qji-qQ-YKJ"/>
+                        <constraint firstAttribute="centerX" secondItem="KSs-OA-RX6" secondAttribute="centerX" id="UHT-dh-ZYy"/>
+                        <constraint firstAttribute="bottom" secondItem="KSs-OA-RX6" secondAttribute="bottom" id="pDh-81-2el"/>
+                        <constraint firstItem="KSs-OA-RX6" firstAttribute="top" secondItem="gJ4-hR-DIT" secondAttribute="top" priority="50" id="tbL-8k-mzG"/>
+                    </constraints>
+                </scrollView>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WDs-SH-dDb">
+                    <rect key="frame" x="0.0" y="44" width="768" height="980"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MH6-gD-22k">
+                            <rect key="frame" x="20" y="20" width="728" height="940"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="MH6-gD-22k" secondAttribute="trailing" constant="20" symbolic="YES" id="TH6-4Q-PrL"/>
+                        <constraint firstItem="MH6-gD-22k" firstAttribute="leading" secondItem="WDs-SH-dDb" secondAttribute="leading" constant="20" symbolic="YES" id="XF4-K8-6h1"/>
+                        <constraint firstAttribute="bottom" secondItem="MH6-gD-22k" secondAttribute="bottom" constant="20" symbolic="YES" id="kls-k5-IBT"/>
+                        <constraint firstItem="MH6-gD-22k" firstAttribute="top" secondItem="WDs-SH-dDb" secondAttribute="top" constant="20" symbolic="YES" id="pxe-aZ-EfW"/>
+                    </constraints>
+                </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Spt-KN-vDd">
+                    <rect key="frame" x="366" y="494" width="37" height="37"/>
+                    <color key="color" red="0.38823529410000002" green="0.46666666670000001" blue="0.38823529410000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </activityIndicatorView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="zl4-aS-5ln" secondAttribute="trailing" id="58h-0s-9vN"/>
+                <constraint firstAttribute="bottom" secondItem="gJ4-hR-DIT" secondAttribute="bottom" id="CDA-J6-rNS"/>
+                <constraint firstItem="WDs-SH-dDb" firstAttribute="leading" secondItem="pVc-dG-up4" secondAttribute="leading" id="Dfk-6p-a5m"/>
+                <constraint firstAttribute="bottom" secondItem="WDs-SH-dDb" secondAttribute="bottom" id="HTt-4g-8so"/>
+                <constraint firstItem="gJ4-hR-DIT" firstAttribute="leading" secondItem="pVc-dG-up4" secondAttribute="leading" id="QnM-N1-Ol7"/>
+                <constraint firstItem="zl4-aS-5ln" firstAttribute="top" secondItem="pVc-dG-up4" secondAttribute="top" id="VfG-gB-o7T"/>
+                <constraint firstAttribute="trailing" secondItem="WDs-SH-dDb" secondAttribute="trailing" id="VvK-ZI-Neq"/>
+                <constraint firstItem="gJ4-hR-DIT" firstAttribute="top" secondItem="zl4-aS-5ln" secondAttribute="bottom" id="Y7Z-9K-KqT"/>
+                <constraint firstAttribute="centerX" secondItem="Spt-KN-vDd" secondAttribute="centerX" id="aKK-eg-Gsq"/>
+                <constraint firstAttribute="centerY" secondItem="Spt-KN-vDd" secondAttribute="centerY" id="dA0-Jx-cRl"/>
+                <constraint firstItem="WDs-SH-dDb" firstAttribute="top" secondItem="zl4-aS-5ln" secondAttribute="bottom" id="lgI-Mq-BrN"/>
+                <constraint firstAttribute="trailing" secondItem="gJ4-hR-DIT" secondAttribute="trailing" id="tFX-7o-dEw"/>
+                <constraint firstItem="zl4-aS-5ln" firstAttribute="leading" secondItem="pVc-dG-up4" secondAttribute="leading" id="u3t-qS-Yjq"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+        </view>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

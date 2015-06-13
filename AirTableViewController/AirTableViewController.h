@@ -6,6 +6,10 @@
 //  Copyright (c) 2013 aironik. All rights reserved.
 //
 
+#ifndef AirTableViewController_AirTableViewController_h
+#define AirTableViewController_AirTableViewController_h
+
+
 #import <AirTableViewController/TableView/AITDetailsViewControllerProvider.h>
 #import <AirTableViewController/TableView/AITResponder.h>
 #import <AirTableViewController/TableView/AITTableViewController.h>
@@ -35,3 +39,9 @@
 #import <AirTableViewController/Values/ValuesWithState/Details/AITDetailsValue.h>
 #import <AirTableViewController/Values/ValuesWithState/PendingOperation/AITPendingOperationCell.h>
 #import <AirTableViewController/Values/ValuesWithState/PendingOperation/AITPendingOperationValue.h>
+
+#import <AirTableViewController/SettingsViewController/AITSettingsTableView.h>
+#import <AirTableViewController/SettingsViewController/AITSettingsViewController.h>
+
+
+#endif // AirTableViewController_AirTableViewController_h
