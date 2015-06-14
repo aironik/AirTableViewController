@@ -12,10 +12,10 @@
 
 typedef void(^AITSettingsCloseBlock)();
 
-extern NSString *const kAITSettingActionFooterIdentifier;
-extern NSString *const kAITSettingErrorFooterIdentifier;
-extern NSString *const kAITSettingFooterIdentifier;
-extern NSString *const kAITSettingHeaderIdentifier;
+extern NSString *const kAITSettingsActionFooterIdentifier;
+extern NSString *const kAITSettingsErrorFooterIdentifier;
+extern NSString *const kAITSettingsFooterIdentifier;
+extern NSString *const kAITSettingsHeaderIdentifier;
 
 
 /**

@@ -9,14 +9,14 @@
 #import "AITSettingsViewController.h"
 
 #import "NSBundle+AITLoader.h"
-#import "AITActionCell.h"
-#import "AITBoolCell.h"
-#import "AITBoolWithIndicateViewCell.h"
-#import "AITChoiceCell.h"
-#import "AITDetailsCell.h"
-#import "AITPendingOperationCell.h"
-#import "AITSubtitledActionCell.h"
-#import "AITTextCell.h"
+#import "AITSettingsActionCell.h"
+#import "AITSettingsBoolCell.h"
+#import "AITSettingsBoolWithIndicateViewCell.h"
+#import "AITSettingsChoiceCell.h"
+#import "AITSettingsDetailsCell.h"
+#import "AITSettingsPendingOperationCell.h"
+#import "AITSettingsSubtitledActionCell.h"
+#import "AITSettingsTextCell.h"
 #import "AITSettingsHeaderView.h"
 #import "AITSettingsFooterView.h"
 
@@ -26,10 +26,10 @@
 #endif
 
 
-NSString *const kAITSettingActionFooterIdentifier = @"AITSettingsActionFooterView";
-NSString *const kAITSettingErrorFooterIdentifier = @"AITSettingsErrorFooterView";
-NSString *const kAITSettingFooterIdentifier = @"AITSettingsFooterView";
-NSString *const kAITSettingHeaderIdentifier = @"AITSettingsHeaderView";
+NSString *const kAITSettingsActionFooterIdentifier = @"AITSettingsActionFooterView";
+NSString *const kAITSettingsErrorFooterIdentifier = @"AITSettingsErrorFooterView";
+NSString *const kAITSettingsFooterIdentifier = @"AITSettingsFooterView";
+NSString *const kAITSettingsHeaderIdentifier = @"AITSettingsHeaderView";
 
 
 @interface AITSettingsViewController ()
@@ -83,14 +83,14 @@ NSString *const kAITSettingHeaderIdentifier = @"AITSettingsHeaderView";
 }
 
 - (void)registerCells {
-    [AITActionCell setupTableView:self.tableView];
-    [AITBoolCell setupTableView:self.tableView];
-    [AITBoolWithIndicateViewCell setupTableView:self.tableView];
-    [AITChoiceCell setupTableView:self.tableView];
-    [AITDetailsCell setupTableView:self.tableView];
-    [AITPendingOperationCell setupTableView:self.tableView];
-    [AITSubtitledActionCell setupTableView:self.tableView];
-    [AITTextCell setupTableView:self.tableView];
+    [AITSettingsActionCell setupTableView:self.tableView];
+    [AITSettingsBoolCell setupTableView:self.tableView];
+    [AITSettingsBoolWithIndicateViewCell setupTableView:self.tableView];
+    [AITSettingsChoiceCell setupTableView:self.tableView];
+    [AITSettingsDetailsCell setupTableView:self.tableView];
+    [AITSettingsPendingOperationCell setupTableView:self.tableView];
+    [AITSettingsSubtitledActionCell setupTableView:self.tableView];
+    [AITSettingsTextCell setupTableView:self.tableView];
 }
 
 - (void)registerHeaderFooters {

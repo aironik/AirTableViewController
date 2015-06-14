@@ -7,7 +7,6 @@
 //
 
 
-
 /**
  * @brief The UITableView with extensions for Settings screen
  * @details E.g. reload visible rows on tintColorDidChange
