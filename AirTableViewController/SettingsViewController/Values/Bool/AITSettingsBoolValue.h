@@ -6,7 +6,7 @@
 //  Copyright © 2015 aironik. All rights reserved.
 //
 
-#import <AirTableViewController/Values/ValuesWithState/Bool/AITBoolValue.h>
+#import <AirTableViewController/Values/ValuesWithDataSource/Bool/AITBoolValue.h>
 
 
 /**

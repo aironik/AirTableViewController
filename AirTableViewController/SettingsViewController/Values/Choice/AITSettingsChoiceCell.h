@@ -7,7 +7,7 @@
 //
 
 
-#import <AirTableViewController/Values/ValuesWithState/Choice/AITChoiceCell.h>
+#import <AirTableViewController/Values/ValuesWithDataSource/Choice/AITChoiceCell.h>
 
 
 @class AITCellEtchedView;

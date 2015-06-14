@@ -6,7 +6,7 @@
 //  Copyright © 2015 aironik. All rights reserved.
 //
 
-#import <AirTableViewController/Values/ValuesWithState/Choice/AITChoiceValue.h>
+#import <AirTableViewController/Values/ValuesWithDataSource/Choice/AITChoiceValue.h>
 
 
 /**

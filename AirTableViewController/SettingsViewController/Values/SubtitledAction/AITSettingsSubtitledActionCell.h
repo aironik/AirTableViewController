@@ -26,6 +26,6 @@
 /**
  * @brief Value
  */
-@property (nonatomic, weak) AITSubtitledActionValue *subtitledValue;
+@property (nonatomic, weak) AITSettingsSubtitledActionValue *subtitledValue;
 
 @end

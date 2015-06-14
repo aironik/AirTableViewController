@@ -9,7 +9,7 @@
 #import <AirTableViewController/Values/ValuesWithState/Details/AITDetailsCell.h>
 
 
-@class AITSettingsCellEtchedView;
+@class AITCellEtchedView;
 
 
 /**

@@ -10,6 +10,7 @@
 
 #import "AITCellEtchedView.h"
 #import "AITTableViewCellOverride.h"
+#import "UIView+AITUserInterfaceIdiom.h"
 
 
 #if !(__has_feature(objc_arc))
