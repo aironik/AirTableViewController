@@ -32,19 +32,5 @@ typedef UIViewController *(^AITSettingsDetailsProviderCreateView)(AITValue *);
 */
 + (instancetype)providerWithCreateViewBlock:(AITSettingsDetailsProviderCreateView)createViewBlock;
 
-/**
- * @brief Register class that represents in details views as navigation controller
- * @details Details view represents as modal view. In that view you can make navigation
- *      with UINavigationController or you can change UINavigationController with your
- *      own navigation controller subclass. This method replace UINavigationController.
- */
-+ (void)registerNavigationControllerClass:(Class)navigationControllerClass;
-
-/**
- * @brief Register preferred frame for details view controller.
- * @details Details view represents as modal view. You can change size for modal view.
- */
-+ (void)registerPreferredFrame:(CGRect)preferredFrame;
-
 
 @end

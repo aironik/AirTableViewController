@@ -16,6 +16,7 @@
 #import "AITHeaderFooterView.h"
 #import "AITPendingOperationCell.h"
 #import "AITBoolCell.h"
+#import "AITSettings.h"
 #import "AITTableViewSection.h"
 #import "AITTableViewSection+AITProtected.h"
 #import "AITTableViewSectionDelegate.h"
@@ -51,6 +52,23 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 @synthesize removedSections = _removedSections;
 
+
+static AITSettings *staticSettings = nil;
+
+
++ (AITSettings *)defaultSettings {
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        if (staticSettings == nil) {
+            staticSettings = [[AITSettings alloc] init];
+        }
+    });
+    return staticSettings ;
+}
+
++ (void)setDefaultSettings:(AITSettings *)defaultSettings {
+    staticSettings = defaultSettings;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -503,7 +521,9 @@ const UITableViewRowAnimation kAILTableViewSectionDefaultRowAnimation = UITableV
 
 - (void)presentModalControllerForSection:(AITTableViewSection *)section value:(AITValue *)value {
     UIViewController *detailsViewController = [value.detailsViewControllerProvider detailsViewControllerForValue:value];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailsViewController];
+    AITSettings *settings = [[self class] defaultSettings];
+    Class navControllerClass = settings.navigationControllerClass;
+    UINavigationController *navigationController = [[navControllerClass alloc] initWithRootViewController:detailsViewController];
 
     UIBarButtonItem *closeItem =
             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone

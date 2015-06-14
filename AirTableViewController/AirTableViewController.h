@@ -12,6 +12,7 @@
 
 #import <AirTableViewController/TableView/AITDetailsViewControllerProvider.h>
 #import <AirTableViewController/TableView/AITResponder.h>
+#import <AirTableViewController/TableView/AITSettings.h>
 #import <AirTableViewController/TableView/AITTableViewController.h>
 #import <AirTableViewController/TableView/AITTableViewSection.h>
 

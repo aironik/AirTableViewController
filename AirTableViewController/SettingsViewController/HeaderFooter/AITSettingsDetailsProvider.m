@@ -10,6 +10,10 @@
 
 #import <AirAlertView/AirAlertView.h>
 
+#import "AITSettings.h"
+#import "AITTableViewController.h"
+#import "AITValue.h"
+
 
 #if !(__has_feature(objc_arc))
 #error ARC required. Add -fobjc-arc compiler flag for this file.
@@ -27,26 +31,6 @@
 
 
 @implementation AITSettingsDetailsProvider
-
-
-#define AIT_IMPLEMENT_SETTINGS(settingName, typeName, defaultValue) \
-    static typeName statc##settingName; \
-    \
-    + (void)register##settingName:(typeName)value { \
-        statc##settingName = value; \
-    } \
-    \
-    - (typeName)get##settingName { \
-        static dispatch_once_t predicate; \
-        dispatch_once(&predicate, ^{ \
-            statc##settingName = defaultValue; \
-        }); \
-        return statc##settingName; \
-    }
-
-
-AIT_IMPLEMENT_SETTINGS(NavigationControllerClass, Class, [UINavigationController class])
-AIT_IMPLEMENT_SETTINGS(PreferredFrame, CGRect, CGRectMake(0., 0., 560., 560.))
 
 
 + (instancetype)providerWithCreateViewBlock:(AITSettingsDetailsProviderCreateView)createViewBlock {
@@ -74,10 +58,12 @@ AIT_IMPLEMENT_SETTINGS(PreferredFrame, CGRect, CGRectMake(0., 0., 560., 560.))
     [value resignFirstAitResponder];
     
     UIViewController *vc = [self detailsViewControllerForValue:value];
-    
-    Class navControllerClass = [[self class] getNavigationControllerClass];
+
+    AITSettings *settings = [AITTableViewController defaultSettings];
+    Class navControllerClass = settings.navigationControllerClass;
     UINavigationController *navController = [[navControllerClass alloc] initWithRootViewController:vc];
-    navController.view.frame = (CGRect)[[self class]  getPreferredFrame];
+    CGSize prefferedSize = settings.preferredPopupSize;
+    navController.view.frame = CGRectMake(0.f, 0.f, prefferedSize.width, prefferedSize.height);
     
     AIAModalView *modalView = [[AIAModalView alloc] init];
     modalView.contentViewController = navController;

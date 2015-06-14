@@ -49,6 +49,7 @@
 		C4E3E3BD59DF49201652945B /* AITTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E58FE4A884A91986002D /* AITTableViewCell.m */; };
 		C4E3E402747763E600CB30BB /* AITHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EFBA895D0859000968AE /* AITHeaderFooterView.m */; };
 		C4E3E441D1A26551342C5268 /* AITChoiceDetailsViewControllerProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EB2A74953A5B7B50CACE /* AITChoiceDetailsViewControllerProvider.m */; };
+		C4E3E4ADE58E05FFA77CE916 /* AITSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E37307093039DA478C48 /* AITSettings.m */; };
 		C4E3E52163B9D1F14E275403 /* AITPendingOperationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EE51B31DC608D34DDAA5 /* AITPendingOperationCell.m */; };
 		C4E3E63856B764BF9F0E4FB3 /* AITDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E1B9490D49A38AAC2F93 /* AITDateCell.m */; };
 		C4E3E6A37DD42ADA650DC082 /* AITActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E26450DBA5AB767DEC48 /* AITActionCell.m */; };
@@ -185,6 +186,7 @@
 		C4E3E0916BB88FD7C526B948 /* AITDetailsViewControllerProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDetailsViewControllerProvider.h; sourceTree = "<group>"; };
 		C4E3E0D1FDB3696AB3CC228A /* AITHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITHeaderFooterView.h; sourceTree = "<group>"; };
 		C4E3E1668FB455AC6DB0C133 /* AITDateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDateCell.h; sourceTree = "<group>"; };
+		C4E3E1995EBBB103859E627F /* AITSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITSettings.h; sourceTree = "<group>"; };
 		C4E3E1B9490D49A38AAC2F93 /* AITDateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDateCell.m; sourceTree = "<group>"; };
 		C4E3E1FE2B2F59154EE28B14 /* AITTableViewCell+AITProtected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AITTableViewCell+AITProtected.h"; sourceTree = "<group>"; };
 		C4E3E26450DBA5AB767DEC48 /* AITActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITActionCell.m; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		C4E3E322000CD62F09745F7C /* AITBoolCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITBoolCell.m; sourceTree = "<group>"; };
 		C4E3E33BD98ABBB3E6EEAE89 /* AITPendingOperationSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITPendingOperationSection.h; sourceTree = "<group>"; };
 		C4E3E34BA82EFFDF0389A970 /* AITTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITTextCell.h; sourceTree = "<group>"; };
+		C4E3E37307093039DA478C48 /* AITSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITSettings.m; sourceTree = "<group>"; };
 		C4E3E37618985AFEAD0B870C /* AITValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITValue.h; sourceTree = "<group>"; };
 		C4E3E3D021668D8DDE9EF1A9 /* AITDetailsValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDetailsValue.h; sourceTree = "<group>"; };
 		C4E3E3E49D2E38320C08CAF9 /* AITDateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITDateCell.xib; sourceTree = "<group>"; };
@@ -348,11 +351,13 @@
 			children = (
 				C4E3E0916BB88FD7C526B948 /* AITDetailsViewControllerProvider.h */,
 				C4E3E321F877CB24E6079D32 /* AITResponder.h */,
+				C4E3E1995EBBB103859E627F /* AITSettings.h */,
+				C4E3E37307093039DA478C48 /* AITSettings.m */,
 				002CB86F17EC7016003870E5 /* AITTableViewController.h */,
 				002CB87017EC7016003870E5 /* AITTableViewController.m */,
-				C4E3EBBCFF6A5A0AF82FC439 /* AITTableViewSection+AITProtected.h */,
 				002CB87117EC7016003870E5 /* AITTableViewSection.h */,
 				002CB87217EC7016003870E5 /* AITTableViewSection.m */,
+				C4E3EBBCFF6A5A0AF82FC439 /* AITTableViewSection+AITProtected.h */,
 				C4E3E83443E37C0901FE98CB /* AITTableViewSectionDelegate.h */,
 			);
 			path = TableView;
@@ -831,6 +836,7 @@
 				00FBDCB51B2D6A8100942675 /* AITSettingsHeaderView.m in Sources */,
 				C4E3ECB307E402D7459B0E68 /* AITDetailsCell.m in Sources */,
 				C4E3E19447FEE38C71A47F8B /* AITDetailsValue.m in Sources */,
+				C4E3E4ADE58E05FFA77CE916 /* AITSettings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
