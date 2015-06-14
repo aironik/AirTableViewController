@@ -8,15 +8,22 @@
 
 #import "AITSettingsFooterView.h"
 
+#import "AITSettings.h"
+#import "AITTableViewController.h"
+
+
 @implementation AITSettingsFooterView
 
+
 - (void)updateTintColorSelector:(UIColor *)newColor {
+    AITSettings *settings = [AITTableViewController defaultSettings];
     if (self.actionBlock != NULL) {
-        self.label.textColor = AIT_COLOR_TINT;
+        self.label.textColor = settings.tintColor;
     }
     else {
-        self.label.textColor = AIT_COLOR_SETTINGS_FOOTER_TEXT;
+        self.label.textColor = settings.settingsFooterText;
     }
 }
+
 
 @end

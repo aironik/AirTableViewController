@@ -71,8 +71,8 @@
 
     __weak AIAModalView *weakModalView = modalView;
     if ([vc respondsToSelector:@selector(setCloseBlock:)]) {
-            [(id)vc setCloseBlock:^ { __strong AIAModalView *strongModalView = weakModalView; [strongModalView dismiss]; }];
-        }
+        [(id<AIACloseBlockProtocol>)vc setCloseBlock:^ { __strong AIAModalView *strongModalView = weakModalView; [strongModalView dismiss]; }];
+    }
     vc.navigationItem.leftBarButtonItem = [[UIBarButtonItem  alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                                                                          target:modalView
                                                                                          action:@selector(dismiss)];

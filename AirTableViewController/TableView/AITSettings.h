@@ -25,5 +25,40 @@
  */
 @property (nonatomic, assign) CGSize preferredPopupSize;
 
+/**
+ * @brief Tint color for AirTableView project.
+ */
+@property (nonatomic, strong) UIColor *tintColor;
+
+/**
+ * @brief Color for simple footer views text.
+ */
+@property (nonatomic, strong) UIColor *settingsFooterText;
+
+/**
+ * @brief Border color for cells in settings table view.
+ * @see borderWidth
+ */
+@property (nonatomic, strong) UIColor *borderColor;
+
+/**
+ * @brief Color for cells separator in settings table view.
+ */
+@property (nonatomic, strong) UIColor *cellSeparatorColor;
+
+/**
+ * @brief Background color in empty settings view.
+ */
+@property (nonatomic, strong) UIColor *emptyBackgroundColor;
+
+/**
+ * @brief Text color for background in empty settings view.
+ */
+@property (nonatomic, strong) UIColor *emptyScreenTextColor;
+
+/**
+ * @brief Width for cells border.
+ */
+@property (nonatomic, assign) CGFloat borderWidth;
 
 @end

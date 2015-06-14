@@ -9,6 +9,7 @@
 #import "AITSettingsViewController.h"
 
 #import "NSBundle+AITLoader.h"
+#import "AITSettings.h"
 #import "AITSettingsActionCell.h"
 #import "AITSettingsBoolCell.h"
 #import "AITSettingsBoolWithStateViewCell.h"
@@ -19,6 +20,9 @@
 #import "AITSettingsTextCell.h"
 #import "AITSettingsHeaderView.h"
 #import "AITSettingsFooterView.h"
+#import "AITTableViewController.h"
+#import "AITTableViewSection.h"
+#import "UIView+AITUserInterfaceIdiom.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -54,18 +58,19 @@ NSString *const kAITSettingsHeaderIdentifier = @"AITSettingsHeaderView";
 @synthesize emptyViewText = _emptyViewText;
 
 - (void)loadView {
+    AITSettings *settings = [AITTableViewController defaultSettings];
     UIView *view = [[NSBundle mainBundle] ait_loadNibNamed:@"AITSettingsTableView" class:[UIView class] owner:self];
-    view.backgroundColor = AIT_COLOR_EMPTY_BACKGROUND;
-    [view ait_setTintColor:AIT_COLOR_TINT];
+    view.backgroundColor = settings.emptyBackgroundColor;
+    [view ait_setTintColor:settings.tintColor];
     if ([self.searchBar respondsToSelector:@selector(setBarTintColor:)]) {
-        self.searchBar.barTintColor = AIT_COLOR_TINT;
-        self.searchBar.tintColor = AIT_COLOR_TINT;
+        self.searchBar.barTintColor = settings.tintColor;
+        self.searchBar.tintColor = settings.tintColor;
     }
     self.searchBar.prompt = self.searchPrompt;
     self.view = view;
 
-    self.emptyView.backgroundColor = AIT_COLOR_EMPTY_BACKGROUND;
-    self.emptyViewLabel.textColor = AIT_COLOR_EMPTY_SCREEN_TEXT;
+    self.emptyView.backgroundColor = settings.emptyBackgroundColor;
+    self.emptyViewLabel.textColor = settings.emptyScreenTextColor;
     [self hideEmptyView];
 }
 
@@ -96,22 +101,22 @@ NSString *const kAITSettingsHeaderIdentifier = @"AITSettingsHeaderView";
 - (void)registerHeaderFooters {
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
-        [AITTableViewSection setDefaultHeaderViewIdentifier:kAITSettingHeaderIdentifier];
-        [AITTableViewSection setDefaultFooterViewIdentifier:kAITSettingFooterIdentifier];
+        [AITTableViewSection setDefaultHeaderViewIdentifier:kAITSettingsHeaderIdentifier];
+        [AITTableViewSection setDefaultFooterViewIdentifier:kAITSettingsFooterIdentifier];
 
         UINib *nib = nil;
         
         nib = [UINib nibWithNibName:@"AITSettingsActionFooterView" bundle:[NSBundle bundleForClass:[self class]]];
-        [[AITHeaderFooterView class] registerNib:nib forHeaderFooterViewReuseIdentifier:kAITSettingActionFooterIdentifier];
+        [[AITHeaderFooterView class] registerNib:nib forHeaderFooterViewReuseIdentifier:kAITSettingsActionFooterIdentifier];
 
         nib = [UINib nibWithNibName:@"AITSettingsErrorFooterView" bundle:[NSBundle bundleForClass:[self class]]];
-        [[AITHeaderFooterView class] registerNib:nib forHeaderFooterViewReuseIdentifier:kAITSettingErrorFooterIdentifier];
+        [[AITHeaderFooterView class] registerNib:nib forHeaderFooterViewReuseIdentifier:kAITSettingsErrorFooterIdentifier];
         
         nib = [UINib nibWithNibName:@"AITSettingsFooterView" bundle:[NSBundle bundleForClass:[self class]]];
-        [[AITSettingsFooterView class] registerNib:nib forHeaderFooterViewReuseIdentifier:kAITSettingFooterIdentifier];
+        [[AITSettingsFooterView class] registerNib:nib forHeaderFooterViewReuseIdentifier:kAITSettingsFooterIdentifier];
         
         nib = [UINib nibWithNibName:@"AITSettingsHeaderView" bundle:[NSBundle bundleForClass:[self class]]];
-        [[AITSettingsHeaderView class] registerNib:nib forHeaderFooterViewReuseIdentifier:kAITSettingHeaderIdentifier];
+        [[AITSettingsHeaderView class] registerNib:nib forHeaderFooterViewReuseIdentifier:kAITSettingsHeaderIdentifier];
     });
 }
 

@@ -8,8 +8,10 @@
 
 #import "AITCellEtchedView.h"
 
+#import "AITSettings.h"
 #import "AITSettingsTableView.h"
 #import "AITTableViewCell.h"
+#import "AITTableViewController.h"
 #import "UIView+AITUserInterfaceIdiom.h"
 
 
@@ -47,9 +49,10 @@
 - (void)setup {
     self.color = [UIColor whiteColor];
     if ([[self class] ait_userInterfaceIdiomVersion] != AITUserInterfaceIdiomVersion6) {
+        AITSettings *settings = [AITTableViewController defaultSettings];
         self.backgroundColor = self.color;
-        self.borderColor = AIT_COLOR_BORDER;
-        self.separatorColor = AIT_COLOR_CELL_SEPARATOR;
+        self.borderColor = settings.borderColor;
+        self.separatorColor = settings.cellSeparatorColor;
         self.separatorInset = UIEdgeInsetsMake(0.f, 20.f, 0.f, 0.f);
         self.layer.masksToBounds = YES;
         // TODO: if we need bounds line we can use additional layer and add it on self.layer with stroked (rounded) bounds.
@@ -163,8 +166,9 @@
 }
 
 - (void)drawBoundsWithRect:(CGRect)rect inContext:(CGContextRef)context {
+    AITSettings *settings = [AITTableViewController defaultSettings];
     UIBezierPath *bezierPath = [self bezierPathForRect:rect isBounds:NO];
-    bezierPath.lineWidth = AIT_BORDER_WIDTH;
+    bezierPath.lineWidth = settings.borderWidth;
     [self.borderColor setStroke];
     [bezierPath stroke];
 }
@@ -181,7 +185,8 @@
         [bezierPath moveToPoint:CGPointMake(minX + self.separatorInset.left, maxY)];
         [bezierPath addLineToPoint:CGPointMake(maxX - self.separatorInset.right, maxY)];
 
-        bezierPath.lineWidth = AIT_BORDER_WIDTH;
+        AITSettings *settings = [AITTableViewController defaultSettings];
+        bezierPath.lineWidth = settings.borderWidth;
         [self.separatorColor setStroke];
         [bezierPath stroke];
     }
