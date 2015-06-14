@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AITSettingsChoiceCell" id="3" customClass="AITSettingsChoiceCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3" id="xEp-MW-EAH">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rev-a2-uTo" customClass="AITCellEtchedView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                                <rect key="frame" x="20" y="12" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="300" verticalHuggingPriority="300" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="0pM-Jp-06Z">
+                                <rect key="frame" x="297" y="15" width="8" height="13"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="240" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODo-6y-Rxs">
+                                <rect key="frame" x="247" y="11" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.38431372549019605" green="0.38431372549019605" blue="0.38431372549019605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0pM-Jp-06Z" firstAttribute="leading" secondItem="ODo-6y-Rxs" secondAttribute="trailing" constant="8" symbolic="YES" id="0hF-7v-Eig"/>
+                            <constraint firstItem="4" firstAttribute="leading" secondItem="rev-a2-uTo" secondAttribute="leading" constant="20" symbolic="YES" id="Blp-sW-FB2"/>
+                            <constraint firstAttribute="centerY" secondItem="0pM-Jp-06Z" secondAttribute="centerY" id="DSW-ki-Agv"/>
+                            <constraint firstItem="ODo-6y-Rxs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4" secondAttribute="trailing" id="Dhb-eD-dmR"/>
+                            <constraint firstAttribute="centerY" secondItem="ODo-6y-Rxs" secondAttribute="centerY" id="K69-pI-Zda"/>
+                            <constraint firstAttribute="trailing" secondItem="0pM-Jp-06Z" secondAttribute="trailing" constant="15" id="RGo-Sr-TdM"/>
+                            <constraint firstAttribute="centerY" secondItem="4" secondAttribute="centerY" id="XTy-Xm-xXX"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="rev-a2-uTo" firstAttribute="leading" secondItem="xEp-MW-EAH" secondAttribute="leading" id="Woe-EL-bqL"/>
+                    <constraint firstAttribute="trailing" secondItem="rev-a2-uTo" secondAttribute="trailing" id="rrX-Ji-v8l"/>
+                    <constraint firstItem="rev-a2-uTo" firstAttribute="top" secondItem="xEp-MW-EAH" secondAttribute="top" id="sWC-Mp-osz"/>
+                    <constraint firstAttribute="bottom" secondItem="rev-a2-uTo" secondAttribute="bottom" id="tx6-ID-YjT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="arrowImageView" destination="0pM-Jp-06Z" id="agw-Cf-kWQ"/>
+                <outlet property="etchedView" destination="rev-a2-uTo" id="4xy-qk-KoW"/>
+                <outlet property="titleLabel" destination="4" id="13"/>
+                <outlet property="valueLabel" destination="ODo-6y-Rxs" id="dJn-0p-aEa"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="arrow.png" width="8" height="13"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
