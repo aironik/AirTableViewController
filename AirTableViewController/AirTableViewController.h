@@ -48,8 +48,8 @@
 #import <AirTableViewController/SettingsViewController/Values/Action/AITSettingsActionValue.h>
 #import <AirTableViewController/SettingsViewController/Values/Bool/AITSettingsBoolCell.h>
 #import <AirTableViewController/SettingsViewController/Values/Bool/AITSettingsBoolValue.h>
-#import <AirTableViewController/SettingsViewController/Values/BoolWithState/AITSettingsBoolWithIndicateViewCell.h>
-#import <AirTableViewController/SettingsViewController/Values/BoolWithState/AITSettingsBoolWithIndicateViewValue.h>
+#import <AirTableViewController/SettingsViewController/Values/BoolWithState/AITSettingsBoolWithStateViewCell.h>
+#import <AirTableViewController/SettingsViewController/Values/BoolWithState/AITSettingsBoolWithStateViewValue.h>
 #import <AirTableViewController/SettingsViewController/Values/Choice/AITSettingsChoiceCell.h>
 #import <AirTableViewController/SettingsViewController/Values/Choice/AITSettingsChoiceValue.h>
 #import <AirTableViewController/SettingsViewController/Values/Details/AITSettingsDetailsCell.h>

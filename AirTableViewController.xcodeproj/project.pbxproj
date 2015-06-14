@@ -28,8 +28,8 @@
 		00FBDCB71B2D6A8100942675 /* AITSettingsActionValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FBDC851B2D6A8100942675 /* AITSettingsActionValue.m */; };
 		00FBDCB81B2D6A8100942675 /* AITSettingsBoolCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FBDC881B2D6A8100942675 /* AITSettingsBoolCell.m */; };
 		00FBDCB91B2D6A8100942675 /* AITSettingsBoolValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FBDC8B1B2D6A8100942675 /* AITSettingsBoolValue.m */; };
-		00FBDCBA1B2D6A8100942675 /* AITSettingsBoolWithIndicateViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FBDC8E1B2D6A8100942675 /* AITSettingsBoolWithIndicateViewCell.m */; };
-		00FBDCBB1B2D6A8100942675 /* AITSettingsBoolWithIndicateViewValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FBDC911B2D6A8100942675 /* AITSettingsBoolWithIndicateViewValue.m */; };
+		00FBDCBA1B2D6A8100942675 /* AITSettingsBoolWithStateViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FBDC8E1B2D6A8100942675 /* AITSettingsBoolWithStateViewCell.m */; };
+		00FBDCBB1B2D6A8100942675 /* AITSettingsBoolWithStateViewValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FBDC911B2D6A8100942675 /* AITSettingsBoolWithStateViewValue.m */; };
 		00FBDCBC1B2D6A8100942675 /* AITSettingsChoiceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FBDC941B2D6A8100942675 /* AITSettingsChoiceCell.m */; };
 		00FBDCBD1B2D6A8100942675 /* AITSettingsChoiceValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FBDC971B2D6A8100942675 /* AITSettingsChoiceValue.m */; };
 		00FBDCBE1B2D6A8100942675 /* AITSettingsDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FBDC9A1B2D6A8100942675 /* AITSettingsDetailsCell.m */; };
@@ -145,11 +145,11 @@
 		00FBDC891B2D6A8100942675 /* AITSettingsBoolCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITSettingsBoolCell.xib; sourceTree = "<group>"; };
 		00FBDC8A1B2D6A8100942675 /* AITSettingsBoolValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITSettingsBoolValue.h; sourceTree = "<group>"; };
 		00FBDC8B1B2D6A8100942675 /* AITSettingsBoolValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITSettingsBoolValue.m; sourceTree = "<group>"; };
-		00FBDC8D1B2D6A8100942675 /* AITSettingsBoolWithIndicateViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITSettingsBoolWithIndicateViewCell.h; sourceTree = "<group>"; };
-		00FBDC8E1B2D6A8100942675 /* AITSettingsBoolWithIndicateViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITSettingsBoolWithIndicateViewCell.m; sourceTree = "<group>"; };
-		00FBDC8F1B2D6A8100942675 /* AITSettingsBoolWithIndicateViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITSettingsBoolWithIndicateViewCell.xib; sourceTree = "<group>"; };
-		00FBDC901B2D6A8100942675 /* AITSettingsBoolWithIndicateViewValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITSettingsBoolWithIndicateViewValue.h; sourceTree = "<group>"; };
-		00FBDC911B2D6A8100942675 /* AITSettingsBoolWithIndicateViewValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITSettingsBoolWithIndicateViewValue.m; sourceTree = "<group>"; };
+		00FBDC8D1B2D6A8100942675 /* AITSettingsBoolWithStateViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITSettingsBoolWithStateViewCell.h; sourceTree = "<group>"; };
+		00FBDC8E1B2D6A8100942675 /* AITSettingsBoolWithStateViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITSettingsBoolWithStateViewCell.m; sourceTree = "<group>"; };
+		00FBDC8F1B2D6A8100942675 /* AITSettingsBoolWithStateViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITSettingsBoolWithStateViewCell.xib; sourceTree = "<group>"; };
+		00FBDC901B2D6A8100942675 /* AITSettingsBoolWithStateViewValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITSettingsBoolWithStateViewValue.h; sourceTree = "<group>"; };
+		00FBDC911B2D6A8100942675 /* AITSettingsBoolWithStateViewValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITSettingsBoolWithStateViewValue.m; sourceTree = "<group>"; };
 		00FBDC931B2D6A8100942675 /* AITSettingsChoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITSettingsChoiceCell.h; sourceTree = "<group>"; };
 		00FBDC941B2D6A8100942675 /* AITSettingsChoiceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITSettingsChoiceCell.m; sourceTree = "<group>"; };
 		00FBDC951B2D6A8100942675 /* AITSettingsChoiceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AITSettingsChoiceCell.xib; sourceTree = "<group>"; };
@@ -445,11 +445,11 @@
 		00FBDC8C1B2D6A8100942675 /* BoolWithState */ = {
 			isa = PBXGroup;
 			children = (
-				00FBDC8D1B2D6A8100942675 /* AITSettingsBoolWithIndicateViewCell.h */,
-				00FBDC8E1B2D6A8100942675 /* AITSettingsBoolWithIndicateViewCell.m */,
-				00FBDC8F1B2D6A8100942675 /* AITSettingsBoolWithIndicateViewCell.xib */,
-				00FBDC901B2D6A8100942675 /* AITSettingsBoolWithIndicateViewValue.h */,
-				00FBDC911B2D6A8100942675 /* AITSettingsBoolWithIndicateViewValue.m */,
+				00FBDC8D1B2D6A8100942675 /* AITSettingsBoolWithStateViewCell.h */,
+				00FBDC8E1B2D6A8100942675 /* AITSettingsBoolWithStateViewCell.m */,
+				00FBDC8F1B2D6A8100942675 /* AITSettingsBoolWithStateViewCell.xib */,
+				00FBDC901B2D6A8100942675 /* AITSettingsBoolWithStateViewValue.h */,
+				00FBDC911B2D6A8100942675 /* AITSettingsBoolWithStateViewValue.m */,
 			);
 			path = BoolWithState;
 			sourceTree = "<group>";
@@ -784,10 +784,10 @@
 				002CB87517EC7016003870E5 /* AITTableViewController.m in Sources */,
 				002CB87617EC7017003870E5 /* AITTableViewSection.m in Sources */,
 				C4E3EC23D3AEFE6DA24EC2D6 /* AITPendingOperationSection.m in Sources */,
-				00FBDCBA1B2D6A8100942675 /* AITSettingsBoolWithIndicateViewCell.m in Sources */,
+				00FBDCBA1B2D6A8100942675 /* AITSettingsBoolWithStateViewCell.m in Sources */,
 				C4E3EADDD66385A358E87B13 /* AITHeaderFooterSection.m in Sources */,
 				C4E3E402747763E600CB30BB /* AITHeaderFooterView.m in Sources */,
-				00FBDCBB1B2D6A8100942675 /* AITSettingsBoolWithIndicateViewValue.m in Sources */,
+				00FBDCBB1B2D6A8100942675 /* AITSettingsBoolWithStateViewValue.m in Sources */,
 				00FBDCC21B2D6A8100942675 /* AITSettingsPendingOperationValue.m in Sources */,
 				00FBDCB71B2D6A8100942675 /* AITSettingsActionValue.m in Sources */,
 				00FBDCC51B2D6A8100942675 /* AITSettingsTextCell.m in Sources */,

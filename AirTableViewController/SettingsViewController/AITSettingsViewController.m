@@ -11,7 +11,7 @@
 #import "NSBundle+AITLoader.h"
 #import "AITSettingsActionCell.h"
 #import "AITSettingsBoolCell.h"
-#import "AITSettingsBoolWithIndicateViewCell.h"
+#import "AITSettingsBoolWithStateViewCell.h"
 #import "AITSettingsChoiceCell.h"
 #import "AITSettingsDetailsCell.h"
 #import "AITSettingsPendingOperationCell.h"
@@ -85,7 +85,7 @@ NSString *const kAITSettingsHeaderIdentifier = @"AITSettingsHeaderView";
 - (void)registerCells {
     [AITSettingsActionCell setupTableView:self.tableView];
     [AITSettingsBoolCell setupTableView:self.tableView];
-    [AITSettingsBoolWithIndicateViewCell setupTableView:self.tableView];
+    [AITSettingsBoolWithStateViewCell setupTableView:self.tableView];
     [AITSettingsChoiceCell setupTableView:self.tableView];
     [AITSettingsDetailsCell setupTableView:self.tableView];
     [AITSettingsPendingOperationCell setupTableView:self.tableView];
