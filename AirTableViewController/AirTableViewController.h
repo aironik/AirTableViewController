@@ -58,7 +58,7 @@
 #import <AirTableViewController/SettingsViewController/Values/PendingOperation/AITSettingsPendingOperationCell.h>
 #import <AirTableViewController/SettingsViewController/Values/PendingOperation/AITSettingsPendingOperationValue.h>
 #import <AirTableViewController/SettingsViewController/Values/SubtitledAction/AITSettingsSubtitledActionCell.h>
-#import <AirTableViewController/SettingsViewController/Values/SubtitledAction/AITSettingsSubtitledActionVelue.h>
+#import <AirTableViewController/SettingsViewController/Values/SubtitledAction/AITSettingsSubtitledActionValue.h>
 #import <AirTableViewController/SettingsViewController/Values/Text/AITSettingsTextCell.h>
 #import <AirTableViewController/SettingsViewController/Values/Text/AITSettingsTextVelue.h>
 
