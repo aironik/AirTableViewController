@@ -9,6 +9,7 @@
 
 @interface NSBundle(AITLoader)
 
++ (instancetype)ait_bundle;
 - (id)ait_loadNibNamed:(NSString *)name class:(Class)class owner:(id)owner;
 
 @end

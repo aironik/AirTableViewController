@@ -10,6 +10,7 @@
 #import "AITTableViewCell+AITProtected.h"
 
 #import "AITValue.h"
+#import "NSBundle+AITLoader.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -35,7 +36,7 @@
 
 + (void)setupTableView:(UITableView *)tableView {
     NSString *className = NSStringFromClass(self);
-    UINib *nib = [UINib nibWithNibName:className bundle:[NSBundle bundleForClass:self]];
+    UINib *nib = [UINib nibWithNibName:className bundle:[NSBundle ait_bundle]];
     [tableView registerNib:nib forCellReuseIdentifier:className];
 }
 

@@ -106,16 +106,16 @@ NSString *const kAITSettingsHeaderIdentifier = @"AITSettingsHeaderView";
 
         UINib *nib = nil;
         
-        nib = [UINib nibWithNibName:@"AITSettingsActionFooterView" bundle:[NSBundle bundleForClass:[self class]]];
+        nib = [UINib nibWithNibName:@"AITSettingsActionFooterView" bundle:[NSBundle ait_bundle]];
         [[AITHeaderFooterView class] registerNib:nib forHeaderFooterViewReuseIdentifier:kAITSettingsActionFooterIdentifier];
 
-        nib = [UINib nibWithNibName:@"AITSettingsErrorFooterView" bundle:[NSBundle bundleForClass:[self class]]];
+        nib = [UINib nibWithNibName:@"AITSettingsErrorFooterView" bundle:[NSBundle ait_bundle]];
         [[AITHeaderFooterView class] registerNib:nib forHeaderFooterViewReuseIdentifier:kAITSettingsErrorFooterIdentifier];
         
-        nib = [UINib nibWithNibName:@"AITSettingsFooterView" bundle:[NSBundle bundleForClass:[self class]]];
+        nib = [UINib nibWithNibName:@"AITSettingsFooterView" bundle:[NSBundle ait_bundle]];
         [[AITSettingsFooterView class] registerNib:nib forHeaderFooterViewReuseIdentifier:kAITSettingsFooterIdentifier];
         
-        nib = [UINib nibWithNibName:@"AITSettingsHeaderView" bundle:[NSBundle bundleForClass:[self class]]];
+        nib = [UINib nibWithNibName:@"AITSettingsHeaderView" bundle:[NSBundle ait_bundle]];
         [[AITSettingsHeaderView class] registerNib:nib forHeaderFooterViewReuseIdentifier:kAITSettingsHeaderIdentifier];
     });
 }

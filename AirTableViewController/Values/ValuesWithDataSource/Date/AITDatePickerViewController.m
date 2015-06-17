@@ -9,6 +9,7 @@
 #import "AITDatePickerViewController.h"
 
 #import "AITDateValue.h"
+#import "NSBundle+AITLoader.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -29,7 +30,7 @@
     AITDatePickerViewController *result = nil;
 
     NSString *className = NSStringFromClass([self class]);
-    UINib *nib = [UINib nibWithNibName:className bundle:[NSBundle bundleForClass:[self class]]];
+    UINib *nib = [UINib nibWithNibName:className bundle:[NSBundle ait_bundle]];
     NSArray *content = [nib instantiateWithOwner:self options:nil];
     for (NSObject *object in content) {
         if ([object isKindOfClass:[self class]]) {

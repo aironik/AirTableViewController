@@ -35,7 +35,9 @@ static NSBundle *bundle = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         if (bundle == nil) {
-            bundle = [NSBundle bundleWithPath:[self ait_bundlePath]];
+            // TODO: WRITE ME
+            bundle = [NSBundle mainBundle];
+//            bundle = [NSBundle bundleWithPath:[self ait_bundlePath]];
         }
     });
     return bundle;
