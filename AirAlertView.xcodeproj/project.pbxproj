@@ -1,0 +1,473 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		005017641883EBC90056C6AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005017631883EBC90056C6AC /* Foundation.framework */; };
+		005017691883EBC90056C6AC /* AirAlertView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 005017681883EBC90056C6AC /* AirAlertView.h */; };
+		005017721883EBC90056C6AC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005017711883EBC90056C6AC /* XCTest.framework */; };
+		005017731883EBC90056C6AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005017631883EBC90056C6AC /* Foundation.framework */; };
+		005017751883EBC90056C6AC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005017741883EBC90056C6AC /* UIKit.framework */; };
+		005017781883EBC90056C6AC /* libAirAlertView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 005017601883EBC90056C6AC /* libAirAlertView.a */; };
+		0050177E1883EBC90056C6AC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0050177C1883EBC90056C6AC /* InfoPlist.strings */; };
+		005017801883EBC90056C6AC /* AirAlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0050177F1883EBC90056C6AC /* AirAlertViewTests.m */; };
+		005017891883ED850056C6AC /* AIAAlertViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EDE4FFCA4FCCFD9E3E14 /* AIAAlertViewTests.m */; };
+		0050178E1883FE800056C6AC /* AIATestsHelpersSwizzleImpls.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EA0F43A577A24489ABEB /* AIATestsHelpersSwizzleImpls.m */; };
+		C4E3E786BEF5A9FCB6827DC7 /* AIAAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E9BCB41C35AC8C9A60FF /* AIAAlertView.m */; };
+		C4E3EC724E9A5C89701E40C8 /* AIAModalView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E110A0BFAC751597C2F1 /* AIAModalView.m */; };
+		C4E3EC783EB92E630024DA5C /* AIAButtonDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E16650DAA9B2DD8C97D8 /* AIAButtonDescriptor.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		005017761883EBC90056C6AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 005017581883EBC90056C6AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0050175F1883EBC90056C6AC;
+			remoteInfo = AirAlertView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0050175E1883EBC90056C6AC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				005017691883EBC90056C6AC /* AirAlertView.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0007F36E1B2EF9530029D456 /* AIACloseBlockProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIACloseBlockProtocol.h; sourceTree = "<group>"; };
+		005017601883EBC90056C6AC /* libAirAlertView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAirAlertView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		005017631883EBC90056C6AC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		005017671883EBC90056C6AC /* AirAlertView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirAlertView-Prefix.pch"; sourceTree = "<group>"; };
+		005017681883EBC90056C6AC /* AirAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirAlertView.h; sourceTree = "<group>"; };
+		005017701883EBC90056C6AC /* AirAlertViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirAlertViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		005017711883EBC90056C6AC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		005017741883EBC90056C6AC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		0050177B1883EBC90056C6AC /* AirAlertViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirAlertViewTests-Info.plist"; sourceTree = "<group>"; };
+		0050177D1883EBC90056C6AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0050177F1883EBC90056C6AC /* AirAlertViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirAlertViewTests.m; sourceTree = "<group>"; };
+		C4E3E110A0BFAC751597C2F1 /* AIAModalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAModalView.m; sourceTree = "<group>"; };
+		C4E3E16650DAA9B2DD8C97D8 /* AIAButtonDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAButtonDescriptor.m; sourceTree = "<group>"; };
+		C4E3E9BCB41C35AC8C9A60FF /* AIAAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAAlertView.m; sourceTree = "<group>"; };
+		C4E3EA0F43A577A24489ABEB /* AIATestsHelpersSwizzleImpls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIATestsHelpersSwizzleImpls.m; sourceTree = "<group>"; };
+		C4E3EAAB9737AF13FCC48AF6 /* AIATestsHelpersSwizzleImpls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIATestsHelpersSwizzleImpls.h; sourceTree = "<group>"; };
+		C4E3EB3B198FD705DEAEDC0B /* AIAButtonDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAButtonDescriptor.h; sourceTree = "<group>"; };
+		C4E3EC99E660FABF68207233 /* AIAModalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAModalView.h; sourceTree = "<group>"; };
+		C4E3EDE4FFCA4FCCFD9E3E14 /* AIAAlertViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIAAlertViewTests.m; sourceTree = "<group>"; };
+		C4E3EDF6DFF0FAB50D3036D6 /* AIAAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAAlertView.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0050175D1883EBC90056C6AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				005017641883EBC90056C6AC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0050176D1883EBC90056C6AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				005017721883EBC90056C6AC /* XCTest.framework in Frameworks */,
+				005017751883EBC90056C6AC /* UIKit.framework in Frameworks */,
+				005017781883EBC90056C6AC /* libAirAlertView.a in Frameworks */,
+				005017731883EBC90056C6AC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		005017571883EBC90056C6AC = {
+			isa = PBXGroup;
+			children = (
+				005017651883EBC90056C6AC /* AirAlertView */,
+				005017791883EBC90056C6AC /* AirAlertViewTests */,
+				005017621883EBC90056C6AC /* Frameworks */,
+				005017611883EBC90056C6AC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		005017611883EBC90056C6AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				005017601883EBC90056C6AC /* libAirAlertView.a */,
+				005017701883EBC90056C6AC /* AirAlertViewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		005017621883EBC90056C6AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				005017631883EBC90056C6AC /* Foundation.framework */,
+				005017711883EBC90056C6AC /* XCTest.framework */,
+				005017741883EBC90056C6AC /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		005017651883EBC90056C6AC /* AirAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				C4E3E737F8E72E27B38775C1 /* AlertView */,
+				C4E3E66530B01F3C5603A383 /* ModalView */,
+				005017661883EBC90056C6AC /* Supporting Files */,
+				005017681883EBC90056C6AC /* AirAlertView.h */,
+			);
+			path = AirAlertView;
+			sourceTree = "<group>";
+		};
+		005017661883EBC90056C6AC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				005017671883EBC90056C6AC /* AirAlertView-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		005017791883EBC90056C6AC /* AirAlertViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				C4E3E7485E3AEE2737D3B528 /* AlertView */,
+				0050177A1883EBC90056C6AC /* Supporting Files */,
+				C4E3EAAB9737AF13FCC48AF6 /* AIATestsHelpersSwizzleImpls.h */,
+				C4E3EA0F43A577A24489ABEB /* AIATestsHelpersSwizzleImpls.m */,
+				0050177F1883EBC90056C6AC /* AirAlertViewTests.m */,
+			);
+			path = AirAlertViewTests;
+			sourceTree = "<group>";
+		};
+		0050177A1883EBC90056C6AC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0050177B1883EBC90056C6AC /* AirAlertViewTests-Info.plist */,
+				0050177C1883EBC90056C6AC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4E3E66530B01F3C5603A383 /* ModalView */ = {
+			isa = PBXGroup;
+			children = (
+				C4E3EC99E660FABF68207233 /* AIAModalView.h */,
+				C4E3E110A0BFAC751597C2F1 /* AIAModalView.m */,
+				0007F36E1B2EF9530029D456 /* AIACloseBlockProtocol.h */,
+			);
+			path = ModalView;
+			sourceTree = "<group>";
+		};
+		C4E3E737F8E72E27B38775C1 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				C4E3EDF6DFF0FAB50D3036D6 /* AIAAlertView.h */,
+				C4E3E9BCB41C35AC8C9A60FF /* AIAAlertView.m */,
+				C4E3EB3B198FD705DEAEDC0B /* AIAButtonDescriptor.h */,
+				C4E3E16650DAA9B2DD8C97D8 /* AIAButtonDescriptor.m */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
+		C4E3E7485E3AEE2737D3B528 /* AlertView */ = {
+			isa = PBXGroup;
+			children = (
+				C4E3EDE4FFCA4FCCFD9E3E14 /* AIAAlertViewTests.m */,
+			);
+			path = AlertView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0050175F1883EBC90056C6AC /* AirAlertView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 005017831883EBC90056C6AC /* Build configuration list for PBXNativeTarget "AirAlertView" */;
+			buildPhases = (
+				0050175C1883EBC90056C6AC /* Sources */,
+				0050175D1883EBC90056C6AC /* Frameworks */,
+				0050175E1883EBC90056C6AC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AirAlertView;
+			productName = AirAlertView;
+			productReference = 005017601883EBC90056C6AC /* libAirAlertView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		0050176F1883EBC90056C6AC /* AirAlertViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 005017861883EBC90056C6AC /* Build configuration list for PBXNativeTarget "AirAlertViewTests" */;
+			buildPhases = (
+				0050176C1883EBC90056C6AC /* Sources */,
+				0050176D1883EBC90056C6AC /* Frameworks */,
+				0050176E1883EBC90056C6AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				005017771883EBC90056C6AC /* PBXTargetDependency */,
+			);
+			name = AirAlertViewTests;
+			productName = AirAlertViewTests;
+			productReference = 005017701883EBC90056C6AC /* AirAlertViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		005017581883EBC90056C6AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AIA;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = aironik;
+			};
+			buildConfigurationList = 0050175B1883EBC90056C6AC /* Build configuration list for PBXProject "AirAlertView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 005017571883EBC90056C6AC;
+			productRefGroup = 005017611883EBC90056C6AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0050175F1883EBC90056C6AC /* AirAlertView */,
+				0050176F1883EBC90056C6AC /* AirAlertViewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0050176E1883EBC90056C6AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0050177E1883EBC90056C6AC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0050175C1883EBC90056C6AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4E3E786BEF5A9FCB6827DC7 /* AIAAlertView.m in Sources */,
+				C4E3EC783EB92E630024DA5C /* AIAButtonDescriptor.m in Sources */,
+				C4E3EC724E9A5C89701E40C8 /* AIAModalView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0050176C1883EBC90056C6AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				005017801883EBC90056C6AC /* AirAlertViewTests.m in Sources */,
+				005017891883ED850056C6AC /* AIAAlertViewTests.m in Sources */,
+				0050178E1883FE800056C6AC /* AIATestsHelpersSwizzleImpls.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		005017771883EBC90056C6AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0050175F1883EBC90056C6AC /* AirAlertView */;
+			targetProxy = 005017761883EBC90056C6AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0050177C1883EBC90056C6AC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0050177D1883EBC90056C6AC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		005017811883EBC90056C6AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		005017821883EBC90056C6AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		005017841883EBC90056C6AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AirAlertView.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirAlertView/AirAlertView-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		005017851883EBC90056C6AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/AirAlertView.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirAlertView/AirAlertView-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		005017871883EBC90056C6AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirAlertView/AirAlertView-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "AirAlertViewTests/AirAlertViewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		005017881883EBC90056C6AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AirAlertView/AirAlertView-Prefix.pch";
+				INFOPLIST_FILE = "AirAlertViewTests/AirAlertViewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0050175B1883EBC90056C6AC /* Build configuration list for PBXProject "AirAlertView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				005017811883EBC90056C6AC /* Debug */,
+				005017821883EBC90056C6AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		005017831883EBC90056C6AC /* Build configuration list for PBXNativeTarget "AirAlertView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				005017841883EBC90056C6AC /* Debug */,
+				005017851883EBC90056C6AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		005017861883EBC90056C6AC /* Build configuration list for PBXNativeTarget "AirAlertViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				005017871883EBC90056C6AC /* Debug */,
+				005017881883EBC90056C6AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 005017581883EBC90056C6AC /* Project object */;
+}
