@@ -2,12 +2,16 @@
 
 SDKROOT = iphoneos
 
+ARCHS = $(ARCHS_STANDARD)
 VALID_ARCHS = arm64 armv7 armv7s
 
-ONLY_ACTIVE_ARCH = NO
-ONLY_ACTIVE_ARCH[config=Debug] = YES
-ONLY_ACTIVE_ARCH[config=AdHoc] = NO
-ONLY_ACTIVE_ARCH[config=AppStore] = NO
+// lines with config like "ONLY_ACTIVE_ARCH[config=Debug] = YES" doesn't work proper for $ONLY_ACTIVE_ARCH.
+// line "ONLY_ACTIVE_ARCH[config=XXX]" defines all subset but not specified config.
+// So we use different style
+ONLY_ACTIVE_ARCH_Debug = YES
+ONLY_ACTIVE_ARCH_AdHoc = NO
+ONLY_ACTIVE_ARCH_AppStore = NO
+ONLY_ACTIVE_ARCH = $(ONLY_ACTIVE_ARCH_$(CONFIGURATION))
 
 VALIDATE_PRODUCT = YES
 VALIDATE_PRODUCT[config=Debug] = NO
