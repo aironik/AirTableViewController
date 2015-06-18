@@ -21,8 +21,8 @@
 }
 
 - (void)setBoolWithStateValue:(AITSettingsBoolWithStateViewValue *)boolWithStateValue {
-    NSParameterAssert(boolWithImageValue != nil
-                      && [boolWithImageValue isKindOfClass:[AITSettingsBoolWithStateViewValue class]]);
+    NSParameterAssert(boolWithStateValue != nil
+                      && [boolWithStateValue isKindOfClass:[AITSettingsBoolWithStateViewValue class]]);
     self.value = boolWithStateValue;
 }
 
