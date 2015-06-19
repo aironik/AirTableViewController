@@ -8,6 +8,8 @@
 
 #import "AITSettingsChoiceValue.h"
 
+#import "AITSettingsChoiceOptionSelectorDelegate.h"
+
 
 #if !(__has_feature(objc_arc))
 #error ARC required. Add -fobjc-arc compiler flag for this file.
@@ -15,6 +17,12 @@
 
 
 @interface AITSettingsChoiceValue ()
+
+/*
+ * @brief This property is using as default retained delegate.
+ */
+@property(nonatomic, strong) AITSettingsChoiceOptionSelectorDelegate *choiceOptionsSelectorStrongDelegate;
+
 @end
 
 
@@ -22,6 +30,10 @@
 
 
 @implementation AITSettingsChoiceValue
+
+
+@synthesize choiceOptionsSelectorStrongDelegate = _choiceOptionsSelectorStrongDelegate;
+
 
 + (instancetype)valueWithTitle:(NSString *)title
                   sourceObject:(NSObject *)sourceObject
@@ -36,10 +48,27 @@
     return value;
 }
 
+- (id<AITChoiceOptionSelectorViewControllerDelegate>)choiceOptionsSelectorDelegate {
+    id<AITChoiceOptionSelectorViewControllerDelegate> result = [super choiceOptionsSelectorDelegate];
+    if (result == nil) {
+        result = self.choiceOptionsSelectorStrongDelegate;
+    }
+    return result;
+}
+
+- (AITSettingsChoiceOptionSelectorDelegate *)choiceOptionsSelectorStrongDelegate {
+    if (_choiceOptionsSelectorStrongDelegate == nil) {
+        _choiceOptionsSelectorStrongDelegate = [[AITSettingsChoiceOptionSelectorDelegate alloc] init];
+    }
+    return _choiceOptionsSelectorStrongDelegate;
+}
+
+
 #pragma mark - AITResponder protocol implementation
 
 - (BOOL)canBecomeFirstAitResponder {
     return self.enabled;
 }
+
 
 @end

@@ -62,6 +62,7 @@
 		C4E3EC0766034F2CDABBF11B /* AITChoiceValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E513EAA02E78D6BB2BE9 /* AITChoiceValue.m */; };
 		C4E3EC23D3AEFE6DA24EC2D6 /* AITPendingOperationSection.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EB29B6C683A84DCF342B /* AITPendingOperationSection.m */; };
 		C4E3ECB307E402D7459B0E68 /* AITDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E8E8185602409C4FB434 /* AITDetailsCell.m */; };
+		C4E3ECC39870A52EA1A5A802 /* AITSettingsChoiceOptionSelectorDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E066D35E154A7BFCF86D /* AITSettingsChoiceOptionSelectorDelegate.m */; };
 		C4E3ECE5C568F13C10B251D9 /* AITTextValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E4FF01C1DEB27400F439 /* AITTextValue.m */; };
 		C4E3EEA3AAD22FA7DD60E878 /* AITDateValue.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E98EECDE333B0E493D12 /* AITDateValue.m */; };
 		C4E3EF6211E85D9D65418F7F /* AITValueWithSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E8ED2E5EC73BD6A96180 /* AITValueWithSource.m */; };
@@ -180,6 +181,7 @@
 		00FBDCC71B2D717400942675 /* UIView+AITUserInterfaceIdiom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AITUserInterfaceIdiom.h"; sourceTree = "<group>"; };
 		00FBDCC81B2D717400942675 /* UIView+AITUserInterfaceIdiom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AITUserInterfaceIdiom.m"; sourceTree = "<group>"; };
 		C4E3E0197404CC0C02D912E6 /* AITActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AITActionCell.xib; sourceTree = "<group>"; };
+		C4E3E066D35E154A7BFCF86D /* AITSettingsChoiceOptionSelectorDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITSettingsChoiceOptionSelectorDelegate.m; sourceTree = "<group>"; };
 		C4E3E07B55DABC6B2EC565B3 /* AITChoiceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITChoiceCell.h; sourceTree = "<group>"; };
 		C4E3E0916BB88FD7C526B948 /* AITDetailsViewControllerProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDetailsViewControllerProvider.h; sourceTree = "<group>"; };
 		C4E3E0D1FDB3696AB3CC228A /* AITHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITHeaderFooterView.h; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		C4E3E9AA94D63F9B5CC9E8E1 /* AITActionValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITActionValue.h; sourceTree = "<group>"; };
 		C4E3E9B04C03DE5811AF185A /* AITDateDetailsViewControllerProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDateDetailsViewControllerProvider.h; sourceTree = "<group>"; };
 		C4E3E9D5B3F42EBDCDA52283 /* AITChoiceOptionSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITChoiceOptionSelectorViewController.m; sourceTree = "<group>"; };
+		C4E3EA0E33FC7491068E9FF8 /* AITSettingsChoiceOptionSelectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITSettingsChoiceOptionSelectorDelegate.h; sourceTree = "<group>"; };
 		C4E3EB29B6C683A84DCF342B /* AITPendingOperationSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITPendingOperationSection.m; sourceTree = "<group>"; };
 		C4E3EB2A74953A5B7B50CACE /* AITChoiceDetailsViewControllerProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITChoiceDetailsViewControllerProvider.m; sourceTree = "<group>"; };
 		C4E3EB2E8CA21EB744F0BECB /* AITChoiceValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITChoiceValue.h; sourceTree = "<group>"; };
@@ -465,6 +468,8 @@
 				00FBDC931B2D6A8100942675 /* AITSettingsChoiceCell.h */,
 				00FBDC941B2D6A8100942675 /* AITSettingsChoiceCell.m */,
 				00FBDC951B2D6A8100942675 /* AITSettingsChoiceCell.xib */,
+				C4E3EA0E33FC7491068E9FF8 /* AITSettingsChoiceOptionSelectorDelegate.h */,
+				C4E3E066D35E154A7BFCF86D /* AITSettingsChoiceOptionSelectorDelegate.m */,
 				00FBDC961B2D6A8100942675 /* AITSettingsChoiceValue.h */,
 				00FBDC971B2D6A8100942675 /* AITSettingsChoiceValue.m */,
 			);
@@ -837,6 +842,7 @@
 				C4E3E19447FEE38C71A47F8B /* AITDetailsValue.m in Sources */,
 				C4E3E4ADE58E05FFA77CE916 /* AITSettings.m in Sources */,
 				C4E3EA336398E9399DA4B5F5 /* AITSettingsDetailsProvider.m in Sources */,
+				C4E3ECC39870A52EA1A5A802 /* AITSettingsChoiceOptionSelectorDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

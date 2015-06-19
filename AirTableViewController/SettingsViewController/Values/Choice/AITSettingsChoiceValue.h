@@ -20,4 +20,7 @@
 ///     Otherwise no way to execute action.
 @property (nonatomic, assign) BOOL enabled;
 
+/// @brief Array that contains titles for all possible values as NSString value.
+@property (nonatomic, strong) NSArray *allOptions;
+
 @end

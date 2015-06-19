@@ -41,6 +41,12 @@
 {
 }
 
+- (BOOL)choiceOptionSelector:(AITChoiceOptionSelectorViewController *)optionsSelector
+         allowFilterForValue:(AITChoiceValue *)value
+{
+    return YES;
+}
+
 - (void)choiceOptionSelector:(AITChoiceOptionSelectorViewController *)optionsSelector
             filterDidChanged:(NSString *)filter
                     forValue:(AITChoiceValue *)value
