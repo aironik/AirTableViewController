@@ -76,6 +76,16 @@ NSString *const kAITSettingsHeaderIdentifier = @"AITSettingsHeaderView";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)] && [self extendedLayoutIncludesOpaqueBars]) {
+        self.edgesForExtendedLayout = UIRectEdgeAll;
+        self.extendedLayoutIncludesOpaqueBars = YES;
+    }
+    else {
+        self.wantsFullScreenLayout = YES;
+    }
+    self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.view setTranslatesAutoresizingMaskIntoConstraints:YES];
 
     [self registerCells];
     [self registerHeaderFooters];
@@ -122,6 +132,11 @@ NSString *const kAITSettingsHeaderIdentifier = @"AITSettingsHeaderView";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+
+    // If keyboard did shown and navigation ontoller pop to current controller
+    // layout became broken in AIAModatView. Next lines fix/hack that bug.
+    [self.view.superview setNeedsLayout];
+    [self.view.superview setNeedsUpdateConstraints];
     
     [self updateContentHeight];
     self.tableView.contentInset = UIEdgeInsetsZero;

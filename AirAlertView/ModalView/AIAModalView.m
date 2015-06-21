@@ -278,14 +278,24 @@ static const CGFloat kLineWidth = 2.;
                                                  name:UIKeyboardWillShowNotification
                                                object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidHide:)
+                                                 name:UIKeyboardDidHideNotification
                                                object:nil];
 }
 
 - (void)unsubscribeForKeyboardNotifications {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
 }
 
 
@@ -307,10 +317,23 @@ static const CGFloat kLineWidth = 2.;
     self.frame = frame;
 }
 
+- (void)keyboardDidShow:(NSNotification *)notification {
+    [self keyboardDidChangeVisibility];
+}
+
 - (void)keyboardWillHide:(NSNotification *)notification {
     if (!CGRectEqualToRect(self.frame, self.originalFrame)) {
         self.frame = self.originalFrame;
     }
+}
+
+- (void)keyboardDidHide:(NSNotification *)notification {
+    [self keyboardDidChangeVisibility];
+}
+
+- (void)keyboardDidChangeVisibility {
+    [self setNeedsLayout];
+    [self setNeedsUpdateConstraints];
 }
 
 - (CGRect)keyboardFrameFromNotification:(NSNotification *)notification {
