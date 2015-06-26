@@ -68,10 +68,10 @@ GCC_PREPROCESSOR_DEFINITIONS_Tests    = $(GCC_PREPROCESSOR_DEFINITIONS_Debug)   
 GCC_PREPROCESSOR_DEFINITIONS          = $(inherited) $(GCC_PREPROCESSOR_DEFINITIONS_$(CONFIGURATION)) ${GCC_PREPROCESSOR_DEFINITIONS_PROJECT}
 
 
-CFBundleDisplayNameSuffix =
-CFBundleDisplayNameSuffix[config=Debug] = .Debug
-CFBundleDisplayNameSuffix[config=AdHoc] = .AdHoc
-CFBundleDisplayNameSuffix[config=AppStore] =
+CFBundleDisplayNameSuffix_Debug    = .Debug
+CFBundleDisplayNameSuffix_AdHoc    = .AdHoc
+CFBundleDisplayNameSuffix_AppStore =
+CFBundleDisplayNameSuffix = $(CFBundleDisplayNameSuffix_$(CONFIGURATION))
 
 GCC_C_LANGUAGE_STANDARD = gnu99
 CLANG_CXX_LANGUAGE_STANDARD = gnu++0x
