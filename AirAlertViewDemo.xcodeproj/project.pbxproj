@@ -60,6 +60,8 @@
 		006780F4192B821F00C72CE9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		006780FB192B821F00C72CE9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		00678111192B82C400C72CE9 /* AirAlertView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AirAlertView.xcodeproj; sourceTree = "<group>"; };
+		00F94BD91E7FE2090025B677 /* ProjectConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = ProjectConfig.xcconfig; sourceTree = SOURCE_ROOT; };
+		00F94BDC1E7FE27D0025B677 /* AirBuildConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = AirBuildConfig.xcconfig; path = AirBuildConfig/AirBuildConfig.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,8 @@
 		006780E0192B821F00C72CE9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				00F94BDC1E7FE27D0025B677 /* AirBuildConfig.xcconfig */,
+				00F94BD91E7FE2090025B677 /* ProjectConfig.xcconfig */,
 				006780E1192B821F00C72CE9 /* AirAlertViewDemo-Info.plist */,
 				006780E2192B821F00C72CE9 /* InfoPlist.strings */,
 				006780E5192B821F00C72CE9 /* main.m */,
@@ -268,6 +272,7 @@
 /* Begin XCBuildConfiguration section */
 		00678109192B821F00C72CE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00F94BDC1E7FE27D0025B677 /* AirBuildConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -312,6 +317,7 @@
 		};
 		0067810A192B821F00C72CE9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00F94BDC1E7FE27D0025B677 /* AirBuildConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
