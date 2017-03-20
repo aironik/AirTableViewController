@@ -6,11 +6,17 @@
 //  Copyright (c) 2013 aironik. All rights reserved.
 //
 
+#ifndef AirTableViewController_AirTableViewController_h
+#define AirTableViewController_AirTableViewController_h
+
+
 #import <AirTableViewController/TableView/AITDetailsViewControllerProvider.h>
 #import <AirTableViewController/TableView/AITResponder.h>
+#import <AirTableViewController/TableView/AITSettings.h>
 #import <AirTableViewController/TableView/AITTableViewController.h>
 #import <AirTableViewController/TableView/AITTableViewSection.h>
-#import <AirTableViewController/TableView/UIView+AITUserInterfaceIdiom.h>
+
+#import <AirTableViewController/Extensions/UIView+AITUserInterfaceIdiom.h>
 
 #import <AirTableViewController/HeaderFooter/AITHeaderFooterView.h>
 
@@ -35,3 +41,29 @@
 #import <AirTableViewController/Values/ValuesWithState/Details/AITDetailsValue.h>
 #import <AirTableViewController/Values/ValuesWithState/PendingOperation/AITPendingOperationCell.h>
 #import <AirTableViewController/Values/ValuesWithState/PendingOperation/AITPendingOperationValue.h>
+
+#import <AirTableViewController/SettingsViewController/AITSettingsDetailsProvider.h>
+#import <AirTableViewController/SettingsViewController/AITSettingsTableView.h>
+#import <AirTableViewController/SettingsViewController/AITSettingsViewController.h>
+
+#import <AirTableViewController/SettingsViewController/Values/Action/AITSettingsActionCell.h>
+#import <AirTableViewController/SettingsViewController/Values/Action/AITSettingsActionValue.h>
+#import <AirTableViewController/SettingsViewController/Values/Bool/AITSettingsBoolCell.h>
+#import <AirTableViewController/SettingsViewController/Values/Bool/AITSettingsBoolValue.h>
+#import <AirTableViewController/SettingsViewController/Values/BoolWithState/AITSettingsBoolWithStateViewCell.h>
+#import <AirTableViewController/SettingsViewController/Values/BoolWithState/AITSettingsBoolWithStateViewValue.h>
+#import <AirTableViewController/SettingsViewController/Values/Choice/AITSettingsChoiceCell.h>
+#import <AirTableViewController/SettingsViewController/Values/Choice/AITSettingsChoiceValue.h>
+#import <AirTableViewController/SettingsViewController/Values/Details/AITSettingsDetailsCell.h>
+#import <AirTableViewController/SettingsViewController/Values/Details/AITSettingsDetailsValue.h>
+#import <AirTableViewController/SettingsViewController/Values/PendingOperation/AITSettingsPendingOperationCell.h>
+#import <AirTableViewController/SettingsViewController/Values/PendingOperation/AITSettingsPendingOperationValue.h>
+#import <AirTableViewController/SettingsViewController/Values/SubtitledAction/AITSettingsSubtitledActionCell.h>
+#import <AirTableViewController/SettingsViewController/Values/SubtitledAction/AITSettingsSubtitledActionValue.h>
+#import <AirTableViewController/SettingsViewController/Values/Text/AITSettingsTextCell.h>
+#import <AirTableViewController/SettingsViewController/Values/Text/AITSettingsTextValue.h>
+
+#import <AirTableViewController/SettingsViewController/Values/AITCellEtchedView.h>
+
+
+#endif // AirTableViewController_AirTableViewController_h

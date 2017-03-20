@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4BC65B18-200E-4634-8EA0-CEAE04455C1D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AirTableViewControllerDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>230490770CE0E477664E6423663774BF3C0D28F4</key>
+		<string>dev.orfogr.ru:mobile/ios-app.git</string>
+		<key>E25ADCEF801E5818F7DC6EB1FDB9D76A39BE113F</key>
+		<string>dev.orfogr.ru:mobile/airtableviewcontroller.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AirTableViewControllerDemo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>230490770CE0E477664E6423663774BF3C0D28F4</key>
+		<string>../../../..</string>
+		<key>E25ADCEF801E5818F7DC6EB1FDB9D76A39BE113F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>dev.orfogr.ru:mobile/airtableviewcontroller.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E25ADCEF801E5818F7DC6EB1FDB9D76A39BE113F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>230490770CE0E477664E6423663774BF3C0D28F4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E25ADCEF801E5818F7DC6EB1FDB9D76A39BE113F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AirTableViewController</string>
+		</dict>
+	</array>
+</dict>
+</plist>

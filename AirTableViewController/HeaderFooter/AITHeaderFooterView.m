@@ -9,6 +9,7 @@
 #import "AITHeaderFooterView.h"
 
 #import "UIView+AITUserInterfaceIdiom.h"
+#import "NSBundle+AITLoader.h"
 
 
 #if !(__has_feature(objc_arc))
@@ -40,16 +41,16 @@ NSString *const kAITHeaderFooterViewCenterAlignedFooterIdentifier = @"AITCenterA
         registeredNibs = [[NSMutableDictionary alloc] init];
         UINib *nib = nil;
 
-        nib = [UINib nibWithNibName:@"AITLeftAlignedHeaderView" bundle:[NSBundle bundleForClass:self]];
+        nib = [UINib nibWithNibName:@"AITLeftAlignedHeaderView" bundle:[NSBundle ait_bundle]];
         registeredNibs[kAITHeaderFooterViewLeftAlignedHeaderIdentifier] = nib;
 
-        nib = [UINib nibWithNibName:@"AITCenterAlignedHeaderView" bundle:[NSBundle bundleForClass:self]];
+        nib = [UINib nibWithNibName:@"AITCenterAlignedHeaderView" bundle:[NSBundle ait_bundle]];
         registeredNibs[kAITHeaderFooterViewCenterAlignedHeaderIdentifier] = nib;
 
-        nib = [UINib nibWithNibName:@"AITLeftAlignedFooterView" bundle:[NSBundle bundleForClass:self]];
+        nib = [UINib nibWithNibName:@"AITLeftAlignedFooterView" bundle:[NSBundle ait_bundle]];
         registeredNibs[kAITHeaderFooterViewLeftAlignedFooterIdentifier] = nib;
 
-        nib = [UINib nibWithNibName:@"AITCenterAlignedFooterView" bundle:[NSBundle bundleForClass:self]];
+        nib = [UINib nibWithNibName:@"AITCenterAlignedFooterView" bundle:[NSBundle ait_bundle]];
         registeredNibs[kAITHeaderFooterViewCenterAlignedFooterIdentifier] = nib;
     });
     return registeredNibs;

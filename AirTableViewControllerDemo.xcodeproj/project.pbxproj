@@ -33,6 +33,7 @@
 		00774A0E181A834100D6F27C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007749ED181A834100D6F27C /* UIKit.framework */; };
 		00774A16181A834100D6F27C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00774A14181A834100D6F27C /* InfoPlist.strings */; };
 		00774A18181A834100D6F27C /* AirTableViewControllerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00774A17181A834100D6F27C /* AirTableViewControllerDemoTests.m */; };
+		00A7309C1E7FE557006D41D4 /* libAirAlertView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00F94BE31E7FE5400025B677 /* libAirAlertView.a */; };
 		C4E3E063615A11AF608ADDF2 /* AITDDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3EBE7368924238C5C36D4 /* AITDDataSource.m */; };
 		C4E3E550424C5554E6015F89 /* AITDChoiceOptionSelectorDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4E3E50C1FA1202EF85D8F83 /* AITDChoiceOptionSelectorDelegate.m */; };
 		C4E3EB005836DE3DACB21B44 /* AITDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E3EAB368C6F39DFB4BBF8C /* AITDetailsCell.xib */; };
@@ -61,12 +62,33 @@
 			remoteGlobalIDString = 002CB85117EC6F88003870E5;
 			remoteInfo = AirTableViewControllerTests;
 		};
+		00A7309E1E7FE569006D41D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00F94BDD1E7FE5400025B677 /* AirAlertView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0050175F1883EBC90056C6AC;
+			remoteInfo = AirAlertView;
+		};
 		00ABECE7181A857000676488 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 00774A21181A84C900D6F27C /* AirTableViewController.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 002CB83F17EC6F87003870E5;
 			remoteInfo = AirTableViewController;
+		};
+		00F94BE21E7FE5400025B677 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00F94BDD1E7FE5400025B677 /* AirAlertView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 005017601883EBC90056C6AC;
+			remoteInfo = AirAlertView;
+		};
+		00F94BE41E7FE5400025B677 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 00F94BDD1E7FE5400025B677 /* AirAlertView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 005017701883EBC90056C6AC;
+			remoteInfo = AirAlertViewTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -102,6 +124,7 @@
 		00774A15181A834100D6F27C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		00774A17181A834100D6F27C /* AirTableViewControllerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirTableViewControllerDemoTests.m; sourceTree = "<group>"; };
 		00774A21181A84C900D6F27C /* AirTableViewController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AirTableViewController.xcodeproj; sourceTree = "<group>"; };
+		00F94BDD1E7FE5400025B677 /* AirAlertView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AirAlertView.xcodeproj; sourceTree = "<group>"; };
 		C4E3E24BF41484439BD5C84E /* AITDDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDDataSource.h; sourceTree = "<group>"; };
 		C4E3E50C1FA1202EF85D8F83 /* AITDChoiceOptionSelectorDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITDChoiceOptionSelectorDelegate.m; sourceTree = "<group>"; };
 		C4E3E8649771E12A830E2BD3 /* AITDChoiceOptionSelectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITDChoiceOptionSelectorDelegate.h; sourceTree = "<group>"; };
@@ -116,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00A7309C1E7FE557006D41D4 /* libAirAlertView.a in Frameworks */,
 				000D4D01181AA02B00E3B3E4 /* libAirTableViewController.a in Frameworks */,
 				007749EC181A834100D6F27C /* CoreGraphics.framework in Frameworks */,
 				007749EE181A834100D6F27C /* UIKit.framework in Frameworks */,
@@ -139,6 +163,7 @@
 		007749DD181A834100D6F27C = {
 			isa = PBXGroup;
 			children = (
+				00F94BDD1E7FE5400025B677 /* AirAlertView.xcodeproj */,
 				00774A21181A84C900D6F27C /* AirTableViewController.xcodeproj */,
 				007749EF181A834100D6F27C /* AirTableViewControllerDemo */,
 				00774A11181A834100D6F27C /* AirTableViewControllerDemoTests */,
@@ -248,6 +273,15 @@
 			name = AirTableViewController;
 			sourceTree = "<group>";
 		};
+		00F94BDE1E7FE5400025B677 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				00F94BE31E7FE5400025B677 /* libAirAlertView.a */,
+				00F94BE51E7FE5400025B677 /* AirAlertViewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C4E3EC3FE50017ADDB530184 /* StaticTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +309,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				00A7309F1E7FE569006D41D4 /* PBXTargetDependency */,
 				00ABECE8181A857000676488 /* PBXTargetDependency */,
 			);
 			name = AirTableViewControllerDemo;
@@ -328,6 +363,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 00F94BDE1E7FE5400025B677 /* Products */;
+					ProjectRef = 00F94BDD1E7FE5400025B677 /* AirAlertView.xcodeproj */;
+				},
+				{
 					ProductGroup = 00774A22181A84C900D6F27C /* Products */;
 					ProjectRef = 00774A21181A84C900D6F27C /* AirTableViewController.xcodeproj */;
 				},
@@ -353,6 +392,20 @@
 			fileType = wrapper.cfbundle;
 			path = AirTableViewControllerTests.octest;
 			remoteRef = 00774A28181A84C900D6F27C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		00F94BE31E7FE5400025B677 /* libAirAlertView.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAirAlertView.a;
+			remoteRef = 00F94BE21E7FE5400025B677 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		00F94BE51E7FE5400025B677 /* AirAlertViewTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AirAlertViewTests.xctest;
+			remoteRef = 00F94BE41E7FE5400025B677 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -419,6 +472,11 @@
 			isa = PBXTargetDependency;
 			target = 007749E5181A834100D6F27C /* AirTableViewControllerDemo */;
 			targetProxy = 00774A0F181A834100D6F27C /* PBXContainerItemProxy */;
+		};
+		00A7309F1E7FE569006D41D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AirAlertView;
+			targetProxy = 00A7309E1E7FE569006D41D4 /* PBXContainerItemProxy */;
 		};
 		00ABECE8181A857000676488 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -58,4 +58,9 @@ typedef NSString *(^AITChoiceOptionTitleValueString)(NSObject *value);
                  sourceKeyPath:(NSString *)sourceKeyPath
           titleStringFromValue:(AITChoiceOptionTitleValueString)titleStringFromValue;
 
+- (instancetype)initWithTitle:(NSString *)title
+                 sourceObject:(NSObject *)sourceObject
+                sourceKeyPath:(NSString *)sourceKeyPath
+         titleStringFromValue:(AITChoiceOptionTitleValueString)titleStringFromValue  NS_DESIGNATED_INITIALIZER;
+
 @end

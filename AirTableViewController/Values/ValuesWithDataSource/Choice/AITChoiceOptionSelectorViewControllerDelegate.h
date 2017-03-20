@@ -27,6 +27,10 @@
 - (void)choiceOptionSelector:(AITChoiceOptionSelectorViewController *)optionsSelector
              didStopForValue:(AITChoiceValue *)value;
 
+/// @brief If YES search bar shown.
+- (BOOL)choiceOptionSelector:(AITChoiceOptionSelectorViewController *)optionsSelector
+         allowFilterForValue:(AITChoiceValue *)value;
+
 /// @brief Tells the delegate that user have changed filter text.
 /// @details this selector should update 
 - (void)choiceOptionSelector:(AITChoiceOptionSelectorViewController *)optionsSelector
